@@ -1,10 +1,11 @@
 [<img src="images/home.png"> Home ](https://github.com/VFPX/Win32API)  
 
-# List of functions in alphabetical order
+# 按字母顺序排序的函数列表
 
 ## [A ](#A)[B ](#B)[C ](#C)[D ](#D)[E ](#E)[F ](#F)[G ](#G)[H ](#H)[I ](#I)[J ](#J)[K ](#K)[L ](#L)[M ](#M)[N ](#N)[O ](#O)[P ](#P)[Q ](#Q)[R ](#R)[S ](#S)[T ](#T)[U ](#U)[V ](#V)[W ](#W)[Z ](#Z)[_ ](#_)
 <a name="A"></a>[accept](libraries/ws2_32/accept.md)  
 The accept function permits an incoming connection attempt on a socket.  
+(accept 函数允许在一个 socket 上尝试传入连接)
 
 ***  
 
