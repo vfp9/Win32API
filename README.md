@@ -1,28 +1,31 @@
 # Win32API
-Provides documentation for calling hundreds of Win32API functions from VFP.
 
-## Introduction
+_本文档由 xinjie 于 2020-12-26 翻译_
 
-This project was generously donated to VFPX by Anatoliy Mogylevets from its original source, news2news.com, which is no longer available. Thanks, Anatoliy!
+从 VFP 中调用数百个 Win32API 函数的文档。
 
-A few words from Anatoliy:
+## 简介
 
-> VFP Win32 data is given a new lease of life, for which I am very grateful. What I probably like the most is how the data is now integrated in GitHub and thus became an integral part of VFPX. The presentation is clean and has the modern look. Virtually all data from the old site has been converted in remarkably short time, virtually undistorted. I could not think of a better implementation under the circumstances.
+本项目由 Anatoliy Mogylevets 慷慨捐赠给 VFPX。其源地址为 new2new.com （该网址已不可访问）。感谢 Anatoliy！
 
-Tore Bleken converted the documentation into Markdown format so it's available here on GitHub.
+Anatoliy 说:
 
-## Documentation
+> VFP Win32 被赋予新的生命，对此我非常感激。我最喜欢的是它被整合到 Github，从而成为 VFPX 的一部分。这样的方式既简单又很酷。实际上，原网站的所有数据都在很短的时间内完成了转换，并且几乎没有任何损失。我实在是想不到有更好的办法来完成这个任务。
 
-There are five pages that are the starting point for the documentation:
+Tore Bleken 将文档转换成了 Markdown 格式y以便可以在 GitHub 上使用。
 
-* [functions_alphabetical.md](functions_alphabetical.md), an alphabetical listing of the API functions.
+## 文档
 
-* [functions_group.md](functions_group.md), a list of the functions by group.
+以下五个文档是开始的起点：
 
-* [Libraries.md](Libraries.md), a list of the functions by library (DLL).
+* [functions_alphabetical.md](functions_alphabetical.md), 按字母顺序列出的 API 函数。
 
-* [samples_alphabetical.md](samples_alphabetical.md), an alphabetical listing of the samples.
+* [functions_group.md](functions_group.md), 按分组列出的函数列表。
 
-* [samples_group.md](samples_group.md), a list of the samples by group.
+* [Libraries.md](Libraries.md), 按 DLL 列出的函数列表。
 
-In addition, the apiviewer folder has a VFP application you can use to view the documentation offline.
+* [samples_alphabetical.md](samples_alphabetical.md), 按字母顺序列出的示例。
+
+* [samples_group.md](samples_group.md), 按分组列出的示例列表。
+
+此外，apiviewer 文件夹下有一个 VFP 应用程序，供您离线查看文档。
