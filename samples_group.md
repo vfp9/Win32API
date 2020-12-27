@@ -36,13 +36,13 @@ _翻译:xinjie  from 2020.12.27 to ..._
 
 ## [表单放大镜](samples/sample_414.md)
 
-## [GDI+: copying to the Clipboard (a) image of active FoxPro window/form, (b) image file](samples/sample_457.md)
+## [GDI+: 将活动的 VFP 表单/图片文件拷贝到剪贴板](samples/sample_457.md)
 
-## [GDI+: how to make VFP controls visually shake and shudder](samples/sample_526.md)
-Shuddering control may appear a good way to get user`s immediate attention. For example, when Purchase Order form opens, and the shipping date is not entered or overdue, the textbox hosting this value may start vibrate and thus can be easily spotted by the user.  
-## [GDI+: saving image of FoxPro form to graphics file (BMP, GIF, JPG, PNG, TIF)](samples/sample_454.md)
+## [GDI+: 如何可视化的抖动 VFP 控件](samples/sample_526.md)
+抖动控制可能是吸引用户立即注意的好方法。 例如，当“采购订单”表单打开并且未输入或未输入运输日期时，对应的文本框可能会开始抖动，这样更容易使用户注意到问题。
+## [GDI+: 将 FoxPro 表单的图像保存到图形文件中 (BMP, GIF, JPG, PNG, TIF)](samples/sample_454.md)
 
-## [GDI+: sending image of FoxPro form to printer](samples/sample_455.md)
+## [GDI+: 打印表单](samples/sample_455.md)
 
 ## [How to convert a bitmap file to monochrome format (1 bpp)](samples/sample_493.md)
 It all started with a question I have noticed in the Universal Thread Visual FoxPro forum:*Does anyone know how to create a monochrome bitmap or monochrome tiff file from a VFP report? *
