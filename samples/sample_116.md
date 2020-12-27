@@ -1,8 +1,10 @@
 [<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
 
-# Retrieving list of Global Atom names
+# 检索全局原子名(Global Atom names)
 
-## Code:
+_翻译：xinjie  2020.12.27_
+
+## 代码:
 ```foxpro  
 #DEFINE MAX_ATOM_LENGTH 250
 
@@ -13,7 +15,7 @@ DECLARE INTEGER GlobalGetAtomName IN kernel32;
 
 CREATE CURSOR cs (atom N(12), atomname C(MAX_ATOM_LENGTH))
 
-* scanning the string atoms
+* 扫描字符串原子(string atoms)
 FOR nAtom = 0xC000 TO 0xFFFF
     lpBuffer = REPLICATE(CHR(0), MAX_ATOM_LENGTH)
 
@@ -35,23 +37,24 @@ BROWSE NORMAL NOWAIT
 ***  
 
 
-## Listed functions:
+## 函数列表:
 [GlobalGetAtomName](../libraries/kernel32/GlobalGetAtomName.md)  
 
-## Comment:
-Not too many applications for the Atoms I could come with. Direct DDE programming with atoms hardly fascinates any VFP programmer :)  
+## 注释:
+我想不到太多的原子(Atoms)应用场景。对 VFP 程序员来说，使用原子直接进行 DDE 编程，毫无吸引力:)
   
-Atoms can be used in a way similar to public variables for saving different states of the application. Atom name stays in the local atom table until the application terminates.  
+原子可以像公共变量那样来保存应用程序的状态。原子名在程序运行期间可以一直保存在本地的原子表中。
   
-If you want to prevent users starting application B prior to starting application A, make the A to create a global atom that can be used by application B as a confirmation that application A has started.  
+如果你想阻止用户在启动应用程序 A 之前启动应用程序 B，那么可以让应用程序 A 创建一个全局的原子，那么应用程序 B 就可以依据它来确认应用程序 A 已经启动。
   
-Knowing atoms created by specific applications, one may guess about those applications. For example, atom "FireFox" appears and stays in the global table when the FireFox browser starts. By itself, this knowledge is rather useless. In certain circumstances, who knows, it can make a difference.  
+知道了特定应用程序创建的原子，我们就可以猜测这些应用程序。例如，当启动 FireFox 浏览器时，会创建原子 "FireFox" 并保存在全局表中。
+
+就其自身而言，这些知识好像是无用的。鬼知道在什么情况下能起什么作用。
+* * *  
+所有已注册的窗口类(window classes)的名称都保存在 USER32 内部的原子表中。RegisterClass 函数的返回值就是该原子。您也可以通过 GetClassWord(hwnd, GCW_ATOM) 向一个窗口类的窗口询问它的类原子来检索该类的原子。   
   
 * * *  
-The names of all registered window classes are kept in an atom table internal to USER32. The value returned by the RegisterClass function is that atom. You can also retrieve the atom for a window class by asking a window of that class for its class atom via GetClassWord(hwnd, GCW_ATOM).  
-  
-* * *  
-Read article <a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/10/11/240744.aspx">What"s the atom returned by RegisterClass useful for?</a> on <a href="http://blogs.msdn.com/b/oldnewthing/">The OldNew Thing</a> blog.  
+在 <a href="http://blogs.msdn.com/b/oldnewthing/">The OldNew Thing</a> 博客上有一篇文章：<a href="http://blogs.msdn.com/b/oldnewthing/archive/2004/10/11/240744.aspx">What"s the atom returned by RegisterClass useful for?</a>  
   
 ***  
 
