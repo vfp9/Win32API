@@ -14,27 +14,27 @@ _翻译:xinjie  from 2020.12.27 to ..._
 
 # ![](images/fox1.png) 权限
 
-## [如何为应用程序启用SE_SHUTDOWN_NAME特权](samples/sample_552.md)
-要关闭或重启系统（API调用ExitWindowsEx、InitiateShutdown等），进程必须拥有SE_SHUTDOWN_NAME权限（Vista的默认行为）。 
+## [如何为应用程序启用 SE_SHUTDOWN_NAME 权限](samples/sample_552.md)
+要关闭或重启系统（API 调用 ExitWindowsEx、InitiateShutdown 等），进程必须拥有 SE_SHUTDOWN_NAME 权限（Vista 的默认行为）。 
 ## [如何加载用户配置文件（user profile）](samples/sample_602.md)
 
 ## [读取和设置当前进程的系统访问权限](samples/sample_554.md)
 
-# ![](images/fox1.png) Bitmap group
+# ![](images/fox1.png) 位图（Bitmap）
 
-## [Bitmap Class for Visual FoxPro application](samples/sample_295.md)
+## [VFP 的 Bitmap Class](samples/sample_295.md)
 
-## [Converting image file to .ICO file](samples/sample_503.md)
-This code sample shows how to load an image file (BMP, GIF, JPEG, PNG, TIFF), scale it and save as .ICO file. It creates a simple icon file containing one 32x32 icon in 32 bit per pixel format and assigns the new icon to the Icon property.  
-## [Copying picture of the active form to the Clipboard using Enhanced Metafile API functions](samples/sample_404.md)
+## [转换图像文件到图标文件（ICO）](samples/sample_503.md)
+此代码示例演示如何加载图像文件（BMP，GIF，JPEG，PNG，TIFF），缩放图像并将其另存为.ICO文件。 它创建一个简单的图标文件，其中包含一个32x32图标（每像素32位），并将新图标分配给Icon属性。  
+## [使用增强的 Metafile API 函数将活动表单的图片复制到剪贴板。](samples/sample_404.md)
 
-## [Displaying animated images on FoxPro form with BitBlt and StretchBlt functions](samples/sample_355.md)
+## [使用 BitBlt 和 StretchBlt 函数在 FoxPro 表单中显示动画图像。](samples/sample_355.md)
 
-## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
+## [使用 AlphaBlend 函数显示位图](samples/sample_293.md)
 
-## [Drawing Windows predefined bitmaps using the LoadBitmap functions](samples/sample_253.md)
+## [使用 LoadBitmap 函数绘制 Windows 预定义位图](samples/sample_253.md)
 
-## [Form Magnifier](samples/sample_414.md)
+## [表单放大镜](samples/sample_414.md)
 
 ## [GDI+: copying to the Clipboard (a) image of active FoxPro window/form, (b) image file](samples/sample_457.md)
 
