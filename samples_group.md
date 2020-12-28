@@ -44,15 +44,15 @@ _翻译:xinjie  from 2020.12.27 to ..._
 
 ## [GDI+: 打印表单](samples/sample_455.md)
 
-## [How to convert a bitmap file to monochrome format (1 bpp)](samples/sample_493.md)
-It all started with a question I have noticed in the Universal Thread Visual FoxPro forum:*Does anyone know how to create a monochrome bitmap or monochrome tiff file from a VFP report? *
+## [如何将位图文件转换为单色格式(1 bpp)](samples/sample_493.md)
+这一切都源于我在 Universal Thread Visual FoxPro 论坛上注意到的一个问题：*有谁知道如何从VFP报告中创建一个单色位图或单色tiff文件？*
   
-## [How to copy the image of a form to the Clipboard using Bitmap API functions](samples/sample_091.md)
+## [如何使用 Bitmap API 函数将表单的图像复制到剪贴板上](samples/sample_091.md)
 
-## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
-When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+## [如何让 VFP 表单在释放时渐渐消失(GDI版)](samples/sample_528.md)
+当一个 VFP 表单被释放时，通常它会立即消失。如果能让表单慢慢（或不那么慢）消失，不是很好吗？
 
-An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+一个显而易见的方法是用另一个窗口覆盖表单，该窗口拥有原始表单的图像。一旦覆盖后，原表单就消失了。之后，覆盖窗口逐渐改变其不透明度（alpha通道），从不透明（255）到完全透明（0）。 
 ## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
 When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
 
