@@ -163,51 +163,51 @@ Windows操作系统有一个机制，当剪贴板的内容发生变化时，可�
 
 # ![](images/fox1.png) 颜色
 
-## [Using GetNearestColor](samples/sample_044.md)
+## [使用 GetNearestColor](samples/sample_044.md)
 
-# ![](images/fox1.png) Common Dialog Box group
+# ![](images/fox1.png) 通用对话框
 
-## [Creating the Open dialog box to specify the drive, directory, and name of a file to open](samples/sample_363.md)
+## [创建 "打开 "对话框，指定要打开的文件的驱动器、目录和名称](samples/sample_363.md)
 
-## [Creating the Save dialog box to specify the drive, directory, and name of a file to save](samples/sample_265.md)
+## [创建 "保存 "对话框，指定要保存的文件的驱动器、目录和名称](samples/sample_265.md)
 
-## [Enhanced GetFont dialog](samples/sample_159.md)
+## [增强的 GetFont 对话框](samples/sample_159.md)
 
-## [Extracting the name and extension parts of a path string](samples/sample_118.md)
+## [提取路径字符串的名称和扩展名。](samples/sample_118.md)
 
-## [FindText -- the hopeless and useless Common Dialog](samples/sample_160.md)
+## [FindText--绝望无用的通用对话框](samples/sample_160.md)
 
-## [GDI+: printing image file](samples/sample_452.md)
+## [GDI+: 打印图像文件](samples/sample_452.md)
 
-## [GDI+: sending image of FoxPro form to printer](samples/sample_455.md)
+## [GDI+: 打印 FoxPro 表单的截图](samples/sample_455.md)
 
-## [How to display a Task Dialog (Vista)](samples/sample_557.md)
+## [如何显示任务对话框(Vista)](samples/sample_557.md)
 
-## [How to display advanced Task Dialog (Vista)](samples/sample_558.md)
+## [如何显示高级任务对话框(Vista)](samples/sample_558.md)
 
-## [How to display the Print property sheet](samples/sample_531.md)
+## [如何显示 "打印 "属性页](samples/sample_531.md)
 
-## [How to print FoxPro form](samples/sample_158.md)
+## [如何打印 FoxPro 表单](samples/sample_158.md)
 
-## [How to print FoxPro form -- II](samples/sample_406.md)
+## [如何打印 FoxPro 表单 -- II](samples/sample_406.md)
 
-## [How to print a bitmap file](samples/sample_211.md)
+## [如何打印一个位图文件](samples/sample_211.md)
 
-## [How to print picture stored in enhanced-format metafile (*.emf)](samples/sample_405.md)
+## [如何打印存储在增强格式元文件(*.emf)中的图片](samples/sample_405.md)
 
-## [Opening the Page Setup dialog box to specify the attributes of a printed page](samples/sample_272.md)
+## [打开 "页面设置 "对话框，指定打印页面的属性。](samples/sample_272.md)
 
-## [Retrieving Printer Device Context using PrintDlg function](samples/sample_150.md)
+## [使用 PrintDlg 函数检索打印机设备上下文。](samples/sample_150.md)
 
-## [Retrieving graphic capabilities of default printer](samples/sample_155.md)
+## [检索默认打印机的图形功能](samples/sample_155.md)
 
-## [Using the ChooseColor function](samples/sample_264.md)
+## [使用 ChooseColor 函数](samples/sample_264.md)
 
-# ![](images/fox1.png) Console group
+# ![](images/fox1.png) 控制台
 
-## [Creating a console window for Visual FoxPro application](samples/sample_474.md)
-The code explains how to create and use console (DOS-like) window with Visual FoxPro application.  
-## [Saying "Hello World!" with VFP and WinAPI](samples/sample_119.md)
+## [为 Visual FoxPro 应用程序创建一个控制台窗口](samples/sample_474.md)
+该代码解释了如何在 Visual FoxPro 应用程序中创建和使用控制台（类似DOS）窗口。 
+## [用 VFP和 WinAPI 说 "世界你好！"](samples/sample_119.md)
 
 # ![](images/fox1.png) Coordinate Space and Transformation group
 
