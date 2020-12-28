@@ -65,19 +65,19 @@ _翻译:xinjie  from 2020.12.27 to ..._
 
 ## [如何在表单上实现水平滚动的文本（新闻、标语）](samples/sample_352.md)
 
-## [How to put a vertical text scrolling on the form (a movie cast)](samples/sample_354.md)
+## [如何在表单上实现垂直滚动的文本（演员表）](samples/sample_354.md)
 
-## [Placing an arbitrary rectangular area of main VFP window on the Clipboard](samples/sample_081.md)
+## [将主 VFP 窗口的任意矩形区域拷贝到剪贴板](samples/sample_081.md)
 
-## [Splash Screen for the VFP application](samples/sample_294.md)
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
 
-## [Storing content of the Clipboard to a bitmap file](samples/sample_189.md)
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
-## [Storing screen shot of a form to enhanced metafile (*.emf)](samples/sample_402.md)
+## [将表单的屏幕截图存储到一个增强型元文件(*.emf)](samples/sample_402.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
 ## [Using the GradientFill function](samples/sample_353.md)
 
