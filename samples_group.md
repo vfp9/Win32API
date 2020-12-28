@@ -79,31 +79,31 @@ _翻译:xinjie  from 2020.12.27 to ..._
 
 ## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
-## [Using the GradientFill function](samples/sample_353.md)
+## [使用 GradientFill 函数](samples/sample_353.md)
 
-## [Using the LoadImage function to have a bitmap file loaded and displayed on VFP main window](samples/sample_210.md)
+## [使用 LoadImage 函数加载位图文件并将其显示在 VFP 主窗口上](samples/sample_210.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
-# ![](images/fox1.png) Brush group
+# ![](images/fox1.png) Brush
 
-## [Displaying dimmed window behind VFP top-level form](samples/sample_578.md)
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
 
-## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
-When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+## [如何让 VFP 表单在释放时渐渐消失(GDI版)](samples/sample_528.md)
+当一个 VFP 表单被释放时，通常它会立即消失。如果能让表单慢慢（或不那么慢）消失，不是很好吗？
 
-An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
-## [How to put a horizontal text scrolling on the form (a news line, marquee)](samples/sample_352.md)
+一个显而易见的方法是用另一个窗口覆盖表单，该窗口拥有原始表单的图像。一旦覆盖后，原表单就消失了。之后，覆盖窗口逐渐改变其不透明度（alpha通道），从不透明（255）到完全透明（0）。
+## [如何在表单上实现水平滚动的文本（新闻、标语）](samples/sample_352.md)
 
-## [How to put a vertical text scrolling on the form (a movie cast)](samples/sample_354.md)
+## [如何在表单上实现垂直滚动的文本（演员表）](samples/sample_354.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
-## [Using FrameRgn for displaying system colors](samples/sample_125.md)
+## [使用 FrameRgn 来显示系统颜色](samples/sample_125.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
-# ![](images/fox1.png) COM group
+# ![](images/fox1.png) COM
 
 ## [Accessing the list of Windows Recent Documents](samples/sample_094.md)
 
