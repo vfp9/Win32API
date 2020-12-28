@@ -209,29 +209,29 @@ Windows操作系统有一个机制，当剪贴板的内容发生变化时，可�
 该代码解释了如何在 Visual FoxPro 应用程序中创建和使用控制台（类似DOS）窗口。 
 ## [用 VFP和 WinAPI 说 "世界你好！"](samples/sample_119.md)
 
-# ![](images/fox1.png) Coordinate Space and Transformation group
+# ![](images/fox1.png) 坐标空间和坐标变换
 
-## [Form Magnifier](samples/sample_414.md)
+## [表单放大镜](samples/sample_414.md)
 
-# ![](images/fox1.png) Cryptography Reference group
+# ![](images/fox1.png) 密码相关
 
-## [A class that encrypts and decrypts files using Cryptography API Functions](samples/sample_511.md)
-This simple class uses several Cryptography API Functions to implement password-protected encryption and decryption of files.  
-## [CryptoAPI: Collection of Providers class](samples/sample_463.md)
-The CryptoAPI Providers class presents collection of cryptographic service providers (CSP) available on a computer. Each provider is described with type, name, collections of available containers and algorithms.  
-## [Generating random cryptographic keys](samples/sample_590.md)
-The CryptKeyHelper class defined in the code sample below is a wrapper around Windows API Cryptography functions. It implements methods allowing to generate a random cryptographic key, to export the key to a specified file, and to import a key from a specified file.  
-## [How to create MD-5 and SHA-1 hash values from a string](samples/sample_483.md)
-MD-5 is a one-way message-digest hash function. The algorithm processes input text and creates a 128-bit message digest which is unique to the message and can be used to verify data integrity. The example shows how to create an MD-5 hash for a string using CryptoAPI calls.  
-## [How to fill a buffer with random bytes using Cryptography API Functions](samples/sample_053.md)
+## [一个使用 Cryptography API 函数对文件进行加密和解密的类。](samples/sample_511.md)
+这个简单的类使用几个 Cryptography API 函数来实现密码保护的文件的加密和解密。 
+## [CryptoAPI: Providers 类的集合](samples/sample_463.md)
+CryptoAPI Providers类提供了计算机上可用的加密服务 providers（CSP）的集合。每个 provider 都被描述为类型、名称、可用容器和算法的集合。
+## [生成随机加密密钥](samples/sample_590.md)
+在下面的代码示例中定义的CryptKeyHelper类是Windows API加密函数的一个封装器。它实现了允许生成一个随机的加密密钥，将密钥导出到指定的文件，以及从指定的文件导入密钥的方法。 
+## [如何从字符串中创建 MD-5 和 SHA-1 哈希值](samples/sample_483.md)
+MD-5是一种单向的信息摘要散列函数。该算法处理输入的文本，并创建一个128位的消息摘要，该摘要对消息来说是唯一的，可以用来验证数据的完整性。本例展示了如何使用 CryptoAPI 调用为一个字符串创建 MD-5 哈希值。 
+## [如何使用 Cryptography API 函数用随机字节填充缓冲区](samples/sample_053.md)
 
-## [How to perform Base64 encoding/decoding using Cryptography API Functions](samples/sample_088.md)
+## [如何使用 Cryptography API 函数进行 Base64 编码/解码。](samples/sample_088.md)
 
-## [Verifying a file using the Authenticode policy provider](samples/sample_569.md)
+## [使用 Authenticode 策略提供程序验证文件](samples/sample_569.md)
 
-# ![](images/fox1.png) Cursor group
+# ![](images/fox1.png) 鼠标光标
 
-## [Clipping mouse cursor area](samples/sample_080.md)
+## [剪裁鼠标光标区域](samples/sample_080.md)
 Mauricio Henao Romero
 maohenao@hotmail.com
 http://www.codefox.net/modules.php?name=News&file=article&sid=193  
