@@ -1,4 +1,4 @@
-[<img src="images/home.png"> Home ](https://github.com/vfp9/Win32API)  
+[<img src="images/home.png"> 主页 ](https://github.com/vfp9/Win32API)  
 
 
 # 按分组的示例列表
@@ -307,19 +307,19 @@ ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方�
 
 ## [使用 DrawFrameControl 函数绘制 Windows 框架控件](samples/sample_254.md)
 
-## [Drawing Windows predefined bitmaps using the LoadBitmap functions](samples/sample_253.md)
+## [使用 LoadBitmap 函数绘制 Windows 预定义位图](samples/sample_253.md)
 
-## [Drawing a rectangle using Windows regular edges and borders](samples/sample_256.md)
+## [使用 Windows 常规的边缘和边框绘制一个矩形](samples/sample_256.md)
 
-## [Drawing a window caption using the DrawCaption routine](samples/sample_238.md)
+## [使用 DrawCaption 例程绘制一个窗口标题](samples/sample_238.md)
 
-## [Drawing cursors for the classes defined by the system (preregistered): BUTTON, EDIT, LISTBOX etc.](samples/sample_203.md)
+## [绘制系统定义的类的光标（预注册）：BUTTON, EDIT, LISTBOX等](samples/sample_203.md)
 
-## [Drawing icons associated with the VFP main window](samples/sample_202.md)
+## [绘制与VFP主窗口相关的图标](samples/sample_202.md)
 
-## [Drawing standard Windows icons](samples/sample_112.md)
+## [绘制标准的窗口图标](samples/sample_112.md)
 
-## [Form Magnifier](samples/sample_414.md)
+## [表单放大镜](samples/sample_414.md)
 
 ## [GDI+ fun: roach-infested desktop](samples/sample_548.md)
 
