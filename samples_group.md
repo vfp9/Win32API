@@ -105,17 +105,17 @@ _翻译:xinjie  from 2020.12.27 to ..._
 
 # ![](images/fox1.png) COM
 
-## [Accessing the list of Windows Recent Documents](samples/sample_094.md)
+## [访问 Windows 最近文档的列表](samples/sample_094.md)
 
-## [Browsing Windows Known Folders (Special Folders)](samples/sample_576.md)
+## [浏览 Windows 已知文件夹（特殊文件夹)](samples/sample_576.md)
 
-## [Custom GDI+ class](samples/sample_450.md)
+## [自定义 GDI+ 类](samples/sample_450.md)
 
-## [Enumerating devices installed on the local machine](samples/sample_545.md)
-The PnP manager maintains a device tree that keeps track of the devices in the system.
+## [枚举安装在本机上的设备](samples/sample_545.md)
+PnP管理器维护着一棵设备树，用来跟踪系统中的设备。
 
-The device tree contains information about the devices present on the system. The PnP manager builds this tree when the machine boots, using information from drivers and other components, and updates the tree as devices are added or removed.  
-## [How to generate GUID values](samples/sample_456.md)
+设备树包含有关系统中存在的设备的信息。PnP管理器在机器启动时利用来自驱动程序和其他组件的信息建立该树，并在添加或删除设备时更新该树。  
+## [如何生成 GUID 值](samples/sample_456.md)
 
 ## [Reading and setting explicit Application User Model ID for the current process (Win7)](samples/sample_038.md)
 
