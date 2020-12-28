@@ -255,56 +255,56 @@ http://www.codefox.net/modules.php?name=News&file=article&sid=193
 
 ## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
-# ![](images/fox1.png) Data Decompression Library group
+# ![](images/fox1.png) 数据解压缩库
 
-## [Compressing and decompressing files with Windows API Runtime Library routines](samples/sample_568.md)
+## [使用 Windows API Runtime Library 例程压缩和解压文件](samples/sample_568.md)
 
-# ![](images/fox1.png) Debugging group
+# ![](images/fox1.png) 调试
 
-## [Moving shortcut to a specified position on the Windows Desktop](samples/sample_581.md)
+## [将快捷方式移动到 Windows 桌面上的指定位置](samples/sample_581.md)
 
-## [Obtaining names and positions for shortcuts located on the Windows Desktop](samples/sample_579.md)
+## [获取位于 Windows 桌面上的快捷方式的名称和位置](samples/sample_579.md)
 
-# ![](images/fox1.png) Desktop Window Manager (DWM) group
+# ![](images/fox1.png) 桌面窗口管理器(DWM)
 
-## [Customizing the frame of top-level form: removing the standard frame (VFP9, Vista)](samples/sample_574.md)
+## [自定义顶层表单的框架：删除标准框架（VFP9，Vista）](samples/sample_574.md)
 
-# ![](images/fox1.png) Device Context group
+# ![](images/fox1.png) 设备上下文
 
-## [An alternative way of setting Form.Closable to False](samples/sample_127.md)
+## [将 Form.Closable 设置为False的另一种方法](samples/sample_127.md)
 
-## [Bitmap Class for Visual FoxPro application](samples/sample_295.md)
+## [VFP 的 Bitmap Class](samples/sample_295.md)
 
-## [Configuring DEVMODE structure for a printer](samples/sample_384.md)
+## [为打印机配置 DEVMODE 结构](samples/sample_384.md)
 
-## [Converting image file to .ICO file](samples/sample_503.md)
-This code sample shows how to load an image file (BMP, GIF, JPEG, PNG, TIFF), scale it and save as .ICO file. It creates a simple icon file containing one 32x32 icon in 32 bit per pixel format and assigns the new icon to the Icon property.  
-## [Converting twips to pixels and vice versa](samples/sample_161.md)
+## [转换图像文件到图标文件（ICO）](samples/sample_503.md)
+此代码示例演示如何加载图像文件（BMP，GIF，JPEG，PNG，TIFF），缩放图像并将其另存为.ICO文件。 它创建一个简单的图标文件，其中包含一个32x32图标（每像素32位），并将新图标分配给Icon属性。  
+## [将 twips 转换为像素，反之亦然](samples/sample_161.md)
 
-## [Copying picture of the active form to the Clipboard using Enhanced Metafile API functions](samples/sample_404.md)
+## [使用增强的 Metafile API 函数将活动表单的图片复制到剪贴板](samples/sample_404.md)
 
-## [Creating a clipping region from the path selected into the device context of a form](samples/sample_144.md)
+## [从所选路径到表单的设备上下文中创建一个剪切区域](samples/sample_144.md)
 
-## [Creating a device context for the specified printer](samples/sample_145.md)
+## [为指定的打印机创建设备上下文](samples/sample_145.md)
 
-## [Creating a window using CreateWindowEx function](samples/sample_050.md)
+## [使用 CreateWindowEx 函数创建窗口](samples/sample_050.md)
 
-## [Custom GDI+ class](samples/sample_450.md)
+## [自定义 GDI+ 类](samples/sample_450.md)
 
-## [Displaying animated images on FoxPro form with BitBlt and StretchBlt functions](samples/sample_355.md)
+## [使用 BitBlt 和 StretchBlt 函数在 FoxPro 表单中显示动画图像](samples/sample_355.md)
 
-## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
+## [使用 AlphaBlend 函数显示位图](samples/sample_293.md)
 
-## [Displaying dimmed window behind VFP top-level form](samples/sample_578.md)
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
 
-## [Displaying the associated icons and descriptions for files and folders](samples/sample_530.md)
-When the list of files and folders is to be displayed inside a VFP form, the ListBox VFP control and the ListView ActiveX control are probably the first two candidates for the job. 
+## [显示文件和文件夹的相关图标和说明](samples/sample_530.md)
+当文件和文件夹的列表要在 VFP 窗体中显示时，ListBox VFP 控件和 ListView ActiveX 控件可能是这项工作的前两个候选控件。
 
-The ListBox`s presentation style can only be described as the minimalistic :) , while the ListView shows items in much fancier manner, and can even accompany each file and folder with an icon.
+ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方式则要花哨得多，甚至可以给每个文件和文件夹加上一个图标。ListView 是以更精细的方式显示项目，甚至可以给每个文件和文件夹加上一个图标。
 
 <img src="images/sysimagelist.png" width=507 height=338>
-And an imminent question arises: where are those icons stored and how to put them to work?  
-## [Drawing Windows frame controls using the DrawFrameControl function](samples/sample_254.md)
+而一个迫在眉睫的问题出现了：这些图标存放在哪里，如何使用它们？  
+## [使用 DrawFrameControl 函数绘制 Windows 框架控件](samples/sample_254.md)
 
 ## [Drawing Windows predefined bitmaps using the LoadBitmap functions](samples/sample_253.md)
 
