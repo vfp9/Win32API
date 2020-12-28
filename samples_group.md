@@ -229,31 +229,31 @@ MD-5是一种单向的信息摘要散列函数。该算法处理输入的文本�
 
 ## [使用 Authenticode 策略提供程序验证文件](samples/sample_569.md)
 
-# ![](images/fox1.png) 鼠标光标
+# ![](images/fox1.png) 鼠标指针
 
-## [剪裁鼠标光标区域](samples/sample_080.md)
+## [剪裁鼠标指针区域](samples/sample_080.md)
 Mauricio Henao Romero
 maohenao@hotmail.com
 http://www.codefox.net/modules.php?name=News&file=article&sid=193  
-## [Creating a clipping region from the path selected into the device context of a form](samples/sample_144.md)
+## [从所选路径到表单的设备上下文中创建一个剪切区域。](samples/sample_144.md)
 
-## [Form Magnifier](samples/sample_414.md)
+## [表单放大镜](samples/sample_414.md)
 
-## [GDI+: Implementing image scrolling with inertia](samples/sample_595.md)
-The inertial scrolling can be described as below: 
-After releasing the mouse button, the image scrolling coninues while decelerating slowly, simulating the presence of inertia. The level of the deceleration depends on the momentum the mouse cursor obtains at the button release.
+## [GDI+: 利用惯性实现图像滚动](samples/sample_595.md)
+惯性滚动可以描述如下：
+释放鼠标按钮后，图像滚动继续进行，同时缓慢减速，模拟惯性的存在。减速的程度取决于鼠标光标在释放按钮时获得的动量
   
-## [Hiding mouse cursor](samples/sample_139.md)
+## [隐藏鼠标的光标](samples/sample_139.md)
 
-## [Retrieving the rectangle area where the mouse cursor is confined](samples/sample_074.md)
+## [检索鼠标光标所在的矩形区域](samples/sample_074.md)
 
-## [Shortcut Menu Class](samples/sample_419.md)
+## [快捷菜单类](samples/sample_419.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
-## [Tracking mouse movement to detect when to start dragging](samples/sample_281.md)
+## [追踪鼠标移动以检测何时开始拖动](samples/sample_281.md)
 
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 # ![](images/fox1.png) Data Decompression Library group
 
