@@ -1,4 +1,4 @@
-[<img src="images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="images/home.png"> Home ](https://github.com/vfp9/Win32API)  
 
 
 # 按分组的示例列表
@@ -53,17 +53,17 @@ _翻译:xinjie  from 2020.12.27 to ..._
 当一个 VFP 表单被释放时，通常它会立即消失。如果能让表单慢慢（或不那么慢）消失，不是很好吗？
 
 一个显而易见的方法是用另一个窗口覆盖表单，该窗口拥有原始表单的图像。一旦覆盖后，原表单就消失了。之后，覆盖窗口逐渐改变其不透明度（alpha通道），从不透明（255）到完全透明（0）。 
-## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
-When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+## [如何让 VFP 表单在释放时渐渐消失(GDI+版)](samples/sample_527.md)
+当一个 VFP 表单被释放时，通常它会立即消失。如果能让表单慢慢（或不那么慢）消失，不是很好吗？
 
-An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
-## [How to print FoxPro form](samples/sample_158.md)
+一个显而易见的方法是用另一个窗口覆盖表单，该窗口拥有原始表单的图像。一旦覆盖后，原表单就消失了。之后，覆盖窗口逐渐改变其不透明度（alpha通道），从不透明（255）到完全透明（0）。
+## [如何打印表单](samples/sample_158.md)
 
-## [How to print FoxPro form -- II](samples/sample_406.md)
+## [如何打印表单 -- II](samples/sample_406.md)
 
-## [How to print a bitmap file](samples/sample_211.md)
+## [如何打印一个位图文件](samples/sample_211.md)
 
-## [How to put a horizontal text scrolling on the form (a news line, marquee)](samples/sample_352.md)
+## [如何在表单上实现水平滚动的文本（新闻、标语）](samples/sample_352.md)
 
 ## [How to put a vertical text scrolling on the form (a movie cast)](samples/sample_354.md)
 
