@@ -26,9 +26,9 @@ _翻译:xinjie  from 2020.12.27 to ..._
 
 ## [转换图像文件到图标文件（ICO）](samples/sample_503.md)
 此代码示例演示如何加载图像文件（BMP，GIF，JPEG，PNG，TIFF），缩放图像并将其另存为.ICO文件。 它创建一个简单的图标文件，其中包含一个32x32图标（每像素32位），并将新图标分配给Icon属性。  
-## [使用增强的 Metafile API 函数将活动表单的图片复制到剪贴板。](samples/sample_404.md)
+## [使用增强的 Metafile API 函数将活动表单的图片复制到剪贴板](samples/sample_404.md)
 
-## [使用 BitBlt 和 StretchBlt 函数在 FoxPro 表单中显示动画图像。](samples/sample_355.md)
+## [使用 BitBlt 和 StretchBlt 函数在 FoxPro 表单中显示动画图像](samples/sample_355.md)
 
 ## [使用 AlphaBlend 函数显示位图](samples/sample_293.md)
 
@@ -195,9 +195,9 @@ Windows操作系统有一个机制，当剪贴板的内容发生变化时，可�
 
 ## [如何打印存储在增强格式元文件(*.emf)中的图片](samples/sample_405.md)
 
-## [打开 "页面设置 "对话框，指定打印页面的属性。](samples/sample_272.md)
+## [打开 "页面设置 "对话框，指定打印页面的属性](samples/sample_272.md)
 
-## [使用 PrintDlg 函数检索打印机设备上下文。](samples/sample_150.md)
+## [使用 PrintDlg 函数检索打印机设备上下文](samples/sample_150.md)
 
 ## [检索默认打印机的图形功能](samples/sample_155.md)
 
@@ -215,7 +215,7 @@ Windows操作系统有一个机制，当剪贴板的内容发生变化时，可�
 
 # ![](images/fox1.png) 密码相关
 
-## [一个使用 Cryptography API 函数对文件进行加密和解密的类。](samples/sample_511.md)
+## [一个使用 Cryptography API 函数对文件进行加密和解密的类](samples/sample_511.md)
 这个简单的类使用几个 Cryptography API 函数来实现密码保护的文件的加密和解密。 
 ## [CryptoAPI: Providers 类的集合](samples/sample_463.md)
 CryptoAPI Providers类提供了计算机上可用的加密服务 providers（CSP）的集合。每个 provider 都被描述为类型、名称、可用容器和算法的集合。
@@ -225,7 +225,7 @@ CryptoAPI Providers类提供了计算机上可用的加密服务 providers（CSP
 MD-5是一种单向的信息摘要散列函数。该算法处理输入的文本，并创建一个128位的消息摘要，该摘要对消息来说是唯一的，可以用来验证数据的完整性。本例展示了如何使用 CryptoAPI 调用为一个字符串创建 MD-5 哈希值。 
 ## [如何使用 Cryptography API 函数用随机字节填充缓冲区](samples/sample_053.md)
 
-## [如何使用 Cryptography API 函数进行 Base64 编码/解码。](samples/sample_088.md)
+## [如何使用 Cryptography API 函数进行 Base64 编码/解码](samples/sample_088.md)
 
 ## [使用 Authenticode 策略提供程序验证文件](samples/sample_569.md)
 
@@ -304,6 +304,7 @@ ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方�
 
 <img src="images/sysimagelist.png" width=507 height=338>
 而一个迫在眉睫的问题出现了：这些图标存放在哪里，如何使用它们？  
+
 ## [使用 DrawFrameControl 函数绘制 Windows 框架控件](samples/sample_254.md)
 
 ## [Drawing Windows predefined bitmaps using the LoadBitmap functions](samples/sample_253.md)
