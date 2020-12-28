@@ -355,47 +355,47 @@ ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方�
 
 ## [如何在表单中创建透明区域--在表单中打孔](samples/sample_126.md)
 
-## [How to detect if additional monitor is connected and active](samples/sample_542.md)
-Nowadays having two monitors connected to a PC becomes more a common place rather than exception. This code sample explains how to detect all available monitors through enumerating display devices and their properties.  
-## [How to display picture stored in enhanced-format metafile (*.emf)](samples/sample_403.md)
+## [如何检测是否连接了额外的监视器并处于活动状态](samples/sample_542.md)
+如今，将两台显示器连接到一台PC上已经成为一种普遍现象，而不是例外。这个代码示例解释了如何通过枚举显示设备及其属性来检测所有可用的显示器。  
+## [如何显示存储在增强格式元文件(*.emf)中的图片](samples/sample_403.md)
 
-## [How to draw custom Window Caption on FoxPro form](samples/sample_499.md)
-This code sample shows how to hide the Caption and the border of FoxPro form and replace them with eight Image controls and one Label control. The form is resizable, closable and can be clicked on its caption and dragged.
+## [如何在 FoxPro 表单上绘制自定义窗口标题](samples/sample_499.md)
+这个代码示例展示了如何隐藏FoxPro窗体的标题和边框，并用8个图像控件和1个标签控件来代替它们。该表单是可调整大小的，可关闭的，并且可以点击它的标题并拖动。
   
-## [How to find which fonts Windows uses for drawing captions, menus and message boxes](samples/sample_556.md)
-Calling SystemParametersInfo with SPI_GETNONCLIENTMETRICS input parameter populates the NONCLIENTMETRICS structure. This structure contains the metrics associated with the nonclient area of a nonminimized window. Among the metrics included are the settings for 5 fonts, the OS uses for drawing captions, small captions, menus, status bars and message boxes.  
-## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
-When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+## [如何找到 Windows 用于绘制标题、菜单和消息框的字体](samples/sample_556.md)
+使用SPI_GETNONCLIENTMETRICS输入参数调用SystemParametersInfo会填充NONCLIENTMETRICS结构。 此结构包含与未最小化窗口的非客户区域关联的度量。 其中包括的度量标准包括5种字体的设置，操作系统用于绘制字幕，小标题，菜单，状态栏和消息框的信息。  
+## [如何让 VFP 表单在释放时渐渐消失(GDI版)](samples/sample_528.md)
+当一个 VFP 表单被释放时，通常它会立即消失。如果能让表单慢慢（或不那么慢）消失，不是很好吗？
 
-An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
-## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
-When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+一个显而易见的方法是用另一个窗口覆盖表单，该窗口拥有原始表单的图像。一旦覆盖后，原表单就消失了。之后，覆盖窗口逐渐改变其不透明度（alpha通道），从不透明（255）到完全透明（0）。 
+## [如何让 VFP 表单在释放时渐渐消失(GDI+版)](samples/sample_527.md)
+当一个 VFP 表单被释放时，通常它会立即消失。如果能让表单慢慢（或不那么慢）消失，不是很好吗？
 
-An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
-## [How to play AVI file on the _screen](samples/sample_430.md)
+一个显而易见的方法是用另一个窗口覆盖表单，该窗口拥有原始表单的图像。一旦覆盖后，原表单就消失了。之后，覆盖窗口逐渐改变其不透明度（alpha通道），从不透明（255）到完全透明（0）。 
+## [如何在 _screen 中播放 AVI 文件](samples/sample_430.md)
 
-## [How to print FoxPro form](samples/sample_158.md)
+## [如何打印表单](samples/sample_158.md)
 
-## [How to print FoxPro form -- II](samples/sample_406.md)
+## [如何打印表单 -- II](samples/sample_406.md)
 
-## [How to print a bitmap file](samples/sample_211.md)
+## [如何打印一个位图文件](samples/sample_211.md)
 
-## [How to print picture stored in enhanced-format metafile (*.emf)](samples/sample_405.md)
+## [如何打印存储在增强格式元文件(*.emf)中的图片](samples/sample_405.md)
 
-## [How to put a horizontal text scrolling on the form (a news line, marquee)](samples/sample_352.md)
+## [如何在表单上实现水平滚动的文本（新闻、标语）](samples/sample_352.md)
 
-## [How to put a vertical text scrolling on the form (a movie cast)](samples/sample_354.md)
+## [如何在表单上实现垂直滚动的文本（演员表）](samples/sample_354.md)
 
-## [How to view icons stored in executable files (Icon Viewer)](samples/sample_113.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器)](samples/sample_113.md)
 
-## [How to view icons stored in executable files (Icon Viewer) - II](samples/sample_019.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器) - II](samples/sample_019.md)
 
-## [Obtaining the bounding rectangle for the specified device context](samples/sample_237.md)
+## [获取指定设备上下文的边界矩形](samples/sample_237.md)
 
-## [Placing On-screen Alert on top of all windows](samples/sample_504.md)
-Sometimes I think that the WAIT WINDOW has insufficient appeal. Too ordinary look may cause the message passed unnoticed. So if one wants to treat the users with a real stuff, he should use the On-screen Alert.
+## [在所有窗口的顶部放置屏幕提示。](samples/sample_504.md)
+有时候，我觉得WAIT WINDOW的吸引力不够。太过普通的外观可能会导致信息的传递被忽视。所以如果想给用户一个真实的东西，就应该使用On-screen Alert。
 
-The idea is simple -- the always-on-top window with transparent background. A combination of window styles makes it not just visually transparent, but also transparent for the keyboard and mouse messages.  
+它的理念很简单--透明背景的常亮窗口。窗口样式的组合使其不仅在视觉上透明，而且对键盘和鼠标信息也是透明的。  
 ## [Placing an arbitrary rectangular area of main VFP window on the Clipboard](samples/sample_081.md)
 
 ## [Printing Image File, programmatically set print page orientation to landscape](samples/sample_555.md)
