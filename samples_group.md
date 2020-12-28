@@ -321,40 +321,39 @@ ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方�
 
 ## [表单放大镜](samples/sample_414.md)
 
-## [GDI+ fun: roach-infested desktop](samples/sample_548.md)
+## [GDI+ fun: 满桌面乱爬的蟑螂](samples/sample_548.md)
 
-## [GDI+: Color Transparency](samples/sample_549.md)
-With the GDI+, an image can be drawn on a Graphics object having a selected single color or a range of colors made transparent.  
-## [GDI+: Creating thumbnails to preview images in a directory](samples/sample_547.md)
-This code sample displays thumbnails for JPEG images found in a specified directory. The thumbnails on the form are dynamically highlighted following the movements of the cursor.  
-## [GDI+: Implementing image scrolling with inertia](samples/sample_595.md)
-The inertial scrolling can be described as below: 
-After releasing the mouse button, the image scrolling coninues while decelerating slowly, simulating the presence of inertia. The level of the deceleration depends on the momentum the mouse cursor obtains at the button release.
+## [GDI+: 颜色透明度](samples/sample_549.md)
+通过GDI+，可以在图形对象上绘制图像，该图像具有选定的单一颜色或透明的颜色范围。  
+## [GDI+: 创建缩略图以预览目录中的图像](samples/sample_547.md)
+这个代码示例显示了在指定目录中找到的JPEG图像的缩略图。表格中的缩略图会随着光标的移动而动态高亮。 
+## [GDI+: 利用惯性实现图像滚动](samples/sample_595.md)
+惯性滚动可以描述如下： 释放鼠标按钮后，图像滚动继续进行，同时缓慢减速，模拟惯性的存在。减速的程度取决于鼠标光标在释放按钮时获得的动量
   
-## [GDI+: Scrolling through large image using the mouse](samples/sample_546.md)
+## [GDI+: 用鼠标滚动浏览大图片](samples/sample_546.md)
 
-## [GDI+: copying to the Clipboard (a) image of active FoxPro window/form, (b) image file](samples/sample_457.md)
+## [GDI+: 将活动的 VFP 表单/图片文件拷贝到剪贴板](samples/sample_457.md)
 
-## [GDI+: custom control, base class](samples/sample_599.md)
+## [GDI+: 自定义控件：基类](samples/sample_599.md)
 
-## [GDI+: how to make VFP controls visually shake and shudder](samples/sample_526.md)
-Shuddering control may appear a good way to get user`s immediate attention. For example, when Purchase Order form opens, and the shipping date is not entered or overdue, the textbox hosting this value may start vibrate and thus can be easily spotted by the user.  
-## [GDI+: printing image file](samples/sample_452.md)
+## [GDI+: 如何可视化的抖动 VFP 控件](samples/sample_526.md)
+抖动控制可能是吸引用户立即注意的好方法。 例如，当“采购订单”表单打开并且未输入或未输入运输日期时，对应的文本框可能会开始抖动，这样更容易使用户注意到问题。  
+## [GDI+: 打印图像文件](samples/sample_452.md)
 
-## [GDI+: saving image of FoxPro form to graphics file (BMP, GIF, JPG, PNG, TIF)](samples/sample_454.md)
+## [GDI+: 将 FoxPro 表单的图像保存到图形文件中 (BMP, GIF, JPG, PNG, TIF)](samples/sample_454.md)
 
-## [GDI+: sending image of FoxPro form to printer](samples/sample_455.md)
+## [GDI+: 打印表单](samples/sample_455.md)
 
-## [How to change display settings: screen resolution, screen refresh rate](samples/sample_374.md)
-Even if it is not always bright idea to change display resolution from your application, still it is comfortable to know that there is a way to do it.  
-## [How to change the name and the size of the font in the MessageBox dialog](samples/sample_434.md)
+## [如何更改显示设置：屏幕分辨率、屏幕刷新率](samples/sample_374.md)
+即使从您的应用程序中改变显示分辨率并不总是一个好主意，但知道有一种方法可以做到这一点，还是很舒服的。  
+## [如何在 MessageBox 对话框中更改字体名称和大小](samples/sample_434.md)
 
-## [How to convert a bitmap file to monochrome format (1 bpp)](samples/sample_493.md)
-It all started with a question I have noticed in the Universal Thread Visual FoxPro forum:*Does anyone know how to create a monochrome bitmap or monochrome tiff file from a VFP report? *
+## [如何将位图文件转换为单色格式(1 bpp)](samples/sample_493.md)
+这一切都源于我在 Universal Thread Visual FoxPro 论坛上注意到的一个问题：*有谁知道如何从VFP报告中创建一个单色位图或单色tiff文件？*
   
-## [How to copy the image of a form to the Clipboard using Bitmap API functions](samples/sample_091.md)
+## [如何使用 Bitmap API 函数将表单的图像复制到剪贴板上](samples/sample_091.md)
 
-## [How to create transparent areas inside a form -- punching holes in the form](samples/sample_126.md)
+## [如何在表单中创建透明区域--在表单中打孔](samples/sample_126.md)
 
 ## [How to detect if additional monitor is connected and active](samples/sample_542.md)
 Nowadays having two monitors connected to a PC becomes more a common place rather than exception. This code sample explains how to detect all available monitors through enumerating display devices and their properties.  
