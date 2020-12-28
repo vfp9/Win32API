@@ -117,51 +117,51 @@ PnP管理器维护着一棵设备树，用来跟踪系统中的设备。
 设备树包含有关系统中存在的设备的信息。PnP管理器在机器启动时利用来自驱动程序和其他组件的信息建立该树，并在添加或删除设备时更新该树。  
 ## [如何生成 GUID 值](samples/sample_456.md)
 
-## [Reading and setting explicit Application User Model ID for the current process (Win7)](samples/sample_038.md)
+## [读取和设置当前进程的显式应用程序用户模型 ID （Win7）](samples/sample_038.md)
 
-## [Smart Card Database Query Functions](samples/sample_539.md)
+## [Smart Card 数据查询函数](samples/sample_539.md)
 
-## [Winsock: retrieving information about available transport protocols](samples/sample_223.md)
+## [Winsock：检索有关可用传输协议的信息](samples/sample_223.md)
 
-# ![](images/fox1.png) Clipboard group
+# ![](images/fox1.png) 剪贴板
 
-## [Bitmap Class for Visual FoxPro application](samples/sample_295.md)
+## [VFP 应用程序的 Bitmap 类](samples/sample_295.md)
 
-## [Converting Unicode data from the Clipboard to a character string using a given code page](samples/sample_316.md)
+## [使用给定的代码页将剪贴板中的Unicode数据转换为字符串](samples/sample_316.md)
 
-## [Copying picture of the active form to the Clipboard using Enhanced Metafile API functions](samples/sample_404.md)
+## [使用增强的 Metafile API 函数将活动窗体的图片复制到剪贴板](samples/sample_404.md)
 
-## [Enumerating data formats currently available on the clipboard](samples/sample_032.md)
+## [枚举剪贴板上当前可用的数据格式](samples/sample_032.md)
 
-## [GDI+: Storing content of the Clipboard to a bitmap file](samples/sample_475.md)
-Based on GdiPlus class, this code shows how to retrieve an image stored on the clipboard and save it to a graphics file in one of GDI+ supported formats, BMP, GIF. PNG, TIFF, JPEG.  
-## [GDI+: copying to the Clipboard (a) image of active FoxPro window/form, (b) image file](samples/sample_457.md)
+## [GDI+：将剪贴板的内容存储到位图文件](samples/sample_475.md)
+基于GdiPlus类，这段代码展示了如何检索存储在剪贴板上的图像，并将其保存为GDI+支持的格式之一的图形文件，即BMP、GIF、PNG、TIFF、JPEG。PNG、TIFF、JPEG。  
+## [GDI+: 将活动的 VFP 表单/图片文件拷贝到剪贴板](samples/sample_457.md)
 
-## [Getting a bit more than the _CLIPTEXT offers](samples/sample_278.md)
+## [获得比 _CLIPTEXT 提供的更多的东西](samples/sample_278.md)
 
-## [How to copy the image of a form to the Clipboard using Bitmap API functions](samples/sample_091.md)
+## [如何使用 Bitmap API 函数将表单的图像复制到剪贴板上](samples/sample_091.md)
 
-## [How to disable the Windows Clipboard (VFP9)](samples/sample_488.md)
-The Windows OS has a mechanism that allows to notify a window when the content of the clipboard changes. Any FoxPro window can be registered as a clipboard viewer. The notifications are actually window messages. And VFP9 handles window messages really good due to extended BINDEVENT() function.  
-## [Monitoring clipboard content changes (VFP9)](samples/sample_601.md)
+## [如何禁用Windows剪贴板(VFP9)](samples/sample_488.md)
+Windows操作系统有一个机制，当剪贴板的内容发生变化时，可以通知窗口。任何FoxPro窗口都可以被注册为剪贴板查看器。这些通知实际上是窗口消息。由于扩展了BINDEVENT()函数，VFP9可以很好地处理窗口消息。 
+## [监测剪贴板内容变化(VFP9)](samples/sample_601.md)
 
-## [Number of clipboard formats available](samples/sample_031.md)
+## [可用剪贴板格式的数量](samples/sample_031.md)
 
-## [Passing data records between VFP applications via the Clipboard](samples/sample_346.md)
+## [通过剪贴板在VFP应用程序之间传递数据记录](samples/sample_346.md)
 
-## [Placing an arbitrary rectangular area of main VFP window on the Clipboard](samples/sample_081.md)
+## [将主 VFP 窗口的任意矩形区域拷贝到剪贴板](samples/sample_081.md)
 
-## [Retrieving names for the registered clipboard formats](samples/sample_268.md)
+## [检索已注册剪贴板格式的名称](samples/sample_268.md)
 
-## [Storing content of the Clipboard to a bitmap file](samples/sample_189.md)
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
 
-## [Testing Clipboard functions: emptying the clipboard](samples/sample_028.md)
+## [测试剪贴板功能：清空剪贴板](samples/sample_028.md)
 
-## [Who is the first in viewing the Clipboard](samples/sample_030.md)
+## [谁是第一个查看剪贴板的人](samples/sample_030.md)
 
-## [Who owns the Windows Clipboard](samples/sample_029.md)
+## [谁拥有Windows剪贴板](samples/sample_029.md)
 
-# ![](images/fox1.png) Color group
+# ![](images/fox1.png) 颜色
 
 ## [Using GetNearestColor](samples/sample_044.md)
 
