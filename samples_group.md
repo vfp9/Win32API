@@ -396,27 +396,27 @@ ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方�
 有时候，我觉得WAIT WINDOW的吸引力不够。太过普通的外观可能会导致信息的传递被忽视。所以如果想给用户一个真实的东西，就应该使用On-screen Alert。
 
 它的理念很简单--透明背景的常亮窗口。窗口样式的组合使其不仅在视觉上透明，而且对键盘和鼠标信息也是透明的。  
-## [Placing an arbitrary rectangular area of main VFP window on the Clipboard](samples/sample_081.md)
+## [将主 VFP 窗口的任意矩形区域放置在剪贴板上](samples/sample_081.md)
 
-## [Printing Image File, programmatically set print page orientation to landscape](samples/sample_555.md)
+## [打印图像文件，程序化设置打印页面方向为横向](samples/sample_555.md)
 
-## [Printing text on the client area of the main VFP window](samples/sample_034.md)
+## [在 VFP 主窗口的客户端区域打印文本](samples/sample_034.md)
 
-## [Printing text on the main VFP window](samples/sample_035.md)
+## [在 VFP 主窗口上打印文本](samples/sample_035.md)
 
-## [Printing text with the Escape function](samples/sample_357.md)
+## [使用 "转义 "功能打印文本](samples/sample_357.md)
 
-## [Reading metrics for the currently selected font](samples/sample_339.md)
+## [当前所选字体的字体量度](samples/sample_339.md)
 
-## [Reading the structure of VFP main menu](samples/sample_337.md)
+## [读取 VFP 主菜单的结构](samples/sample_337.md)
 
-## [Retrieving Printer Device Context using PrintDlg function](samples/sample_150.md)
+## [使用 PrintDlg 函数检索打印机设备上下文](samples/sample_150.md)
 
-## [Retrieving graphic capabilities of default printer](samples/sample_155.md)
+## [检索默认打印机的图形功能](samples/sample_155.md)
 
-## [Retrieving graphic capabilities of your display](samples/sample_188.md)
+## [检索显示器的图形功能](samples/sample_188.md)
 
-## [Round FoxPro form](samples/sample_143.md)
+## [圆形 FoxPro 表单](samples/sample_143.md)
 
 ## [Splash Screen for the VFP application](samples/sample_294.md)
 
