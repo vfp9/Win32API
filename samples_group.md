@@ -418,57 +418,57 @@ ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方�
 
 ## [圆形 FoxPro 表单](samples/sample_143.md)
 
-## [Splash Screen for the VFP application](samples/sample_294.md)
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
 
-## [Storing content of the Clipboard to a bitmap file](samples/sample_189.md)
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
-## [Storing screen shot of a form to enhanced metafile (*.emf)](samples/sample_402.md)
+## [将表单的屏幕截图存储到一个增强型元文件(*.emf)](samples/sample_402.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
-## [The original LoadPicture() function in VFP returns valid handles to bitmaps, icons, cursors, and metafiles](samples/sample_296.md)
+## [VFP 固有的 LoadPicture() 函数返回位图、图标、光标和元文件的有效句柄](samples/sample_296.md)
 
-## [Using Common Controls: the Header Control](samples/sample_298.md)
+## [使用通用控件：Header 控件](samples/sample_298.md)
 
-## [Using Font and Text functions](samples/sample_304.md)
+## [使用字体和文本函数](samples/sample_304.md)
 
-## [Using FrameRgn for displaying system colors](samples/sample_125.md)
+## [使用 FrameRgn 来显示系统颜色](samples/sample_125.md)
 
-## [Using GetNearestColor](samples/sample_044.md)
+## [使用 GetNearestColor](samples/sample_044.md)
 
-## [Using the DrawText function](samples/sample_303.md)
+## [使用 DrawText 函数](samples/sample_303.md)
 
-## [Using the GradientFill function](samples/sample_353.md)
+## [使用 GradientFill 函数](samples/sample_353.md)
 
-## [Using the LoadImage function to have a bitmap file loaded and displayed on VFP main window](samples/sample_210.md)
+## [使用 LoadImage 函数加载位图文件并将其显示在 VFP 主窗口上](samples/sample_210.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
-# ![](images/fox1.png) Device Input and Output group
+# ![](images/fox1.png) 设备输入输出
 
-## [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](samples/sample_101.md)
-The code shows how to obtain number of cylinders, tracks, sectors and clusters for a given device like HD, floppy or CD.  
-# ![](images/fox1.png) Dialog Box group
+## [获取驱动器的物理参数：扇区，簇，柱面...](samples/sample_101.md)
+该代码显示了如何获取给定设备（如HD，软盘或CD）的柱面，磁道，扇区和簇的数量。 
+# ![](images/fox1.png) 对话框
 
-## [Extended MessageBox Class](samples/sample_418.md)
+## [扩展的 MessageBox 类](samples/sample_418.md)
 
-## [How to change the name and the size of the font in the MessageBox dialog](samples/sample_434.md)
+## [如何在 MessageBox 对话框中更改字体名称和大小](samples/sample_434.md)
 
-## [How to display a user-defined icon in the MessageBox dialog](samples/sample_500.md)
+## [如何在 MessageBox 对话框中显示用户自定义的图标](samples/sample_500.md)
 
-## [Using the MessageBox Win32 function](samples/sample_048.md)
+## [使用 Messageox Win32 函数](samples/sample_048.md)
 
-# ![](images/fox1.png) Dynamic-Link Library group
+# ![](images/fox1.png) 动态链接库
 
-## [Creating a unique filename based on existing filename](samples/sample_014.md)
+## [基于现有的文件名创建一个唯一的文件名](samples/sample_014.md)
 
-## [Displaying dimmed window behind VFP top-level form](samples/sample_578.md)
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
 
-## [Displaying icons in the system tray (VFP9)](samples/sample_235.md)
+## [在系统托盘中显示图标(VFP9)](samples/sample_235.md)
 
-## [Drawing icons associated with the VFP main window](samples/sample_202.md)
+## [绘制与VFP主窗口相关的图标](samples/sample_202.md)
 
 ## [Exporting DLL icon resources as .ICO files](samples/sample_502.md)
 This code includes definitions for three classes: IconGroups, IconGroupResource and IconResource. The IconGroups is a collection of the IconGroupResource objects. The icons property of the IconGroupResource class is a collection of the IconResource objects.
@@ -481,7 +481,7 @@ The IconGroupResource and IconResource classes include SaveToFile method that sa
 
 ## [GDI+: custom Clock Control](samples/sample_597.md)
 
-## [How to display a user-defined icon in the MessageBox dialog](samples/sample_500.md)
+## [如何在 MessageBox 对话框中显示用户自定义的图标](samples/sample_500.md)
 
 ## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
 
@@ -557,7 +557,7 @@ This class is used for sending "GET" and "POST" HTTP requests to webserver and r
 
 ## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
 
-## [Displaying dimmed window behind VFP top-level form](samples/sample_578.md)
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
 
 ## [Encapsulating access to the Windows Services in a class](samples/sample_476.md)
 The winservices class, subclassed from the Collection class, enumerates Windows Services found in the default service control manager database on local computer. Each item in the collection is an instance of the winservice class that wraps the members of ENUM_SERVICE_STATUS structure for a given service. The winservice object exposes methods StartService, StopService and PauseService.  
@@ -605,7 +605,7 @@ The following example presents session class *CacheEntry* and collection class *
 
 ## [How to delete all print jobs for a printer](samples/sample_370.md)
 
-## [How to display a user-defined icon in the MessageBox dialog](samples/sample_500.md)
+## [如何在 MessageBox 对话框中显示用户自定义的图标](samples/sample_500.md)
 
 ## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
 
@@ -679,8 +679,8 @@ This example shows how to switch to another domain user within FoxPro applicatio
 
 ## [Obtaining I/O counts for the current process](samples/sample_535.md)
 
-## [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](samples/sample_101.md)
-The code shows how to obtain number of cylinders, tracks, sectors and clusters for a given device like HD, floppy or CD.  
+## [获取驱动器的物理参数：扇区，簇，柱面...](samples/sample_101.md)
+该代码显示了如何获取给定设备（如HD，软盘或CD）的柱面，磁道，扇区和簇的数量。 
 ## [Peer-to-peer LAN messenger built with Mailslot API functions](samples/sample_410.md)
 
 ## [Placing an arbitrary rectangular area of main VFP window on the Clipboard](samples/sample_081.md)
@@ -807,7 +807,7 @@ This code sample explains how to add entries to event logs using Event Logging A
 
 ## [Creating a folder](samples/sample_001.md)
 
-## [Creating a unique filename based on existing filename](samples/sample_014.md)
+## [基于现有的文件名创建一个唯一的文件名](samples/sample_014.md)
 
 ## [Current directory of the application](samples/sample_004.md)
 
@@ -836,8 +836,8 @@ It all started with a question I have noticed in the Universal Thread Visual Fox
 
 ## [Monitoring changes occurring within a directory](samples/sample_400.md)
 
-## [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](samples/sample_101.md)
-The code shows how to obtain number of cylinders, tracks, sectors and clusters for a given device like HD, floppy or CD.  
+## [获取驱动器的物理参数：扇区，簇，柱面...](samples/sample_101.md)
+该代码显示了如何获取给定设备（如HD，软盘或CD）的柱面，磁道，扇区和簇的数量。 
 ## [Passing data records between VFP applications via the Clipboard](samples/sample_346.md)
 
 ## [Peer-to-peer LAN messenger built with Mailslot API functions](samples/sample_410.md)
@@ -854,11 +854,11 @@ The msdos class allows issuing a set of MSDOS commands and getting back a respon
 
 ## [Setting the date and time that a file was created](samples/sample_065.md)
 
-## [Storing content of the Clipboard to a bitmap file](samples/sample_189.md)
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
 ## [Testing serial ports](samples/sample_308.md)
 In Windows all input/output ports are presented as files, so work with ports is performed through file functions like *CreateFile, CloseHandle, ReadFile, ReadFileEx, WriteFile* and *WriteFileEx*.  
@@ -884,7 +884,7 @@ This code sample contains definitions of two classes, NamedPipeServer and NamedP
 
 ## [Using the GetTempFileName](samples/sample_016.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
 # ![](images/fox1.png) File Mapping group
 
@@ -906,8 +906,8 @@ This code sample contains definitions of two classes, NamedPipeServer and NamedP
 
 ## [Enumerating Volumes and Volume Mounting Points (NTFS)](samples/sample_087.md)
 
-## [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](samples/sample_101.md)
-The code shows how to obtain number of cylinders, tracks, sectors and clusters for a given device like HD, floppy or CD.  
+## [获取驱动器的物理参数：扇区，簇，柱面...](samples/sample_101.md)
+该代码显示了如何获取给定设备（如HD，软盘或CD）的柱面，磁道，扇区和簇的数量。 
 ## [Passing data records between VFP applications via the Clipboard](samples/sample_346.md)
 
 ## [Retrieving information about MS-DOS device names using QueryDosDevice (WinNT only)](samples/sample_241.md)
@@ -936,9 +936,9 @@ An obvious way of doing that is covering the form with another window, which hol
 
 ## [How to put a vertical text scrolling on the form (a movie cast)](samples/sample_354.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
 # ![](images/fox1.png) Font and Text group
 
@@ -946,7 +946,7 @@ An obvious way of doing that is covering the form with another window, which hol
 
 ## [Creating a window using CreateWindowEx function](samples/sample_050.md)
 
-## [How to change the name and the size of the font in the MessageBox dialog](samples/sample_434.md)
+## [如何在 MessageBox 对话框中更改字体名称和大小](samples/sample_434.md)
 
 ## [How to put a horizontal text scrolling on the form (a news line, marquee)](samples/sample_352.md)
 
@@ -964,19 +964,19 @@ The idea is simple -- the always-on-top window with transparent background. A co
 
 ## [Reading metrics for the currently selected font](samples/sample_339.md)
 
-## [Splash Screen for the VFP application](samples/sample_294.md)
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
-## [Using Common Controls: the Header Control](samples/sample_298.md)
+## [使用通用控件：Header 控件](samples/sample_298.md)
 
-## [Using Font and Text functions](samples/sample_304.md)
+## [使用字体和文本函数](samples/sample_304.md)
 
-## [Using FrameRgn for displaying system colors](samples/sample_125.md)
+## [使用 FrameRgn 来显示系统颜色](samples/sample_125.md)
 
-## [Using the DrawText function](samples/sample_303.md)
+## [使用 DrawText 函数](samples/sample_303.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
 # ![](images/fox1.png) GDI+ group
 
@@ -1116,8 +1116,8 @@ This example shows how to switch to another domain user within FoxPro applicatio
 
 ## [Obtaining names and positions for shortcuts located on the Windows Desktop](samples/sample_579.md)
 
-## [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](samples/sample_101.md)
-The code shows how to obtain number of cylinders, tracks, sectors and clusters for a given device like HD, floppy or CD.  
+## [获取驱动器的物理参数：扇区，簇，柱面...](samples/sample_101.md)
+该代码显示了如何获取给定设备（如HD，软盘或CD）的柱面，磁道，扇区和簇的数量。 
 ## [Passing data records between VFP applications via the Clipboard](samples/sample_346.md)
 
 ## [Peer-to-peer LAN messenger built with Mailslot API functions](samples/sample_410.md)
@@ -1134,11 +1134,11 @@ The msdos class allows issuing a set of MSDOS commands and getting back a respon
 
 ## [Starting external program from VFP and waiting for its termination](samples/sample_377.md)
 
-## [Storing content of the Clipboard to a bitmap file](samples/sample_189.md)
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
 ## [Terminating all running applications from a VFP program](samples/sample_243.md)
 
@@ -1164,7 +1164,7 @@ This code sample contains definitions of two classes, NamedPipeServer and NamedP
 
 ## [Using the Semaphore object to allow only one instance of VFP application running](samples/sample_147.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
 # ![](images/fox1.png) IP Helper group
 
@@ -1202,7 +1202,7 @@ The Ping class uses several API functions -- IcmpCreateFile, IcmpCloseHandle, Ic
 This code sample shows how to load an image file (BMP, GIF, JPEG, PNG, TIFF), scale it and save as .ICO file. It creates a simple icon file containing one 32x32 icon in 32 bit per pixel format and assigns the new icon to the Icon property.  
 ## [Detecting changes in connections to removable drives (VFP9)](samples/sample_573.md)
 
-## [Displaying icons in the system tray (VFP9)](samples/sample_235.md)
+## [在系统托盘中显示图标(VFP9)](samples/sample_235.md)
 
 ## [Displaying the associated icons and descriptions for files and folders](samples/sample_530.md)
 When the list of files and folders is to be displayed inside a VFP form, the ListBox VFP control and the ListView ActiveX control are probably the first two candidates for the job. 
@@ -1213,7 +1213,7 @@ The ListBox`s presentation style can only be described as the minimalistic :) , 
 And an imminent question arises: where are those icons stored and how to put them to work?  
 ## [Drawing cursors for the classes defined by the system (preregistered): BUTTON, EDIT, LISTBOX etc.](samples/sample_203.md)
 
-## [Drawing icons associated with the VFP main window](samples/sample_202.md)
+## [绘制与VFP主窗口相关的图标](samples/sample_202.md)
 
 ## [Drawing standard Windows icons](samples/sample_112.md)
 
@@ -1227,7 +1227,7 @@ And an imminent question arises: where are those icons stored and how to put the
 
 ## [Retrieving information about the specified icon](samples/sample_206.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
 ## [System Image List Viewer](samples/sample_021.md)
 
@@ -1363,13 +1363,13 @@ The following example presents session class *CacheEntry* and collection class *
 
 ## [Drawing cursors for the classes defined by the system (preregistered): BUTTON, EDIT, LISTBOX etc.](samples/sample_203.md)
 
-## [Drawing icons associated with the VFP main window](samples/sample_202.md)
+## [绘制与VFP主窗口相关的图标](samples/sample_202.md)
 
 ## [Drawing standard Windows icons](samples/sample_112.md)
 
 ## [Establishing connection using the SQLDriverConnect](samples/sample_290.md)
 
-## [Extended MessageBox Class](samples/sample_418.md)
+## [扩展的 MessageBox 类](samples/sample_418.md)
 
 ## [FindText -- the hopeless and useless Common Dialog](samples/sample_160.md)
 
@@ -1397,7 +1397,7 @@ After releasing the mouse button, the image scrolling coninues while deceleratin
 The PrintScreen key sends to the Clipboard either whole screen or just the active window (if pressed together with ALT key). To prevent windows of your application to be captured and printed by users through pressing this key, use RegisterHotKey API function. Still this solution does not provide absolute protection. A determined user may use third-party screen capturing utility that is not associated with the PrintScreen key and the Clipboard.   
 ## [How to browse and connect to printers on a network (WinNT)](samples/sample_376.md)
 
-## [How to change the name and the size of the font in the MessageBox dialog](samples/sample_434.md)
+## [如何在 MessageBox 对话框中更改字体名称和大小](samples/sample_434.md)
 
 ## [How to copy the image of a form to the Clipboard using Bitmap API functions](samples/sample_091.md)
 
@@ -1493,15 +1493,15 @@ As you know, the RMDIR generates an error message when an attempt made to remove
 
 ## [Simple MAPI: how to pick an email recipient from Outlook Express address book](samples/sample_407.md)
 
-## [Splash Screen for the VFP application](samples/sample_294.md)
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
 
 ## [Starting a dialog box for connecting to network resources (mapping network drive)](samples/sample_309.md)
 
-## [Storing content of the Clipboard to a bitmap file](samples/sample_189.md)
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
-## [Storing screen shot of a form to enhanced metafile (*.emf)](samples/sample_402.md)
+## [将表单的屏幕截图存储到一个增强型元文件(*.emf)](samples/sample_402.md)
 
 ## [Switching between keyboard layouts](samples/sample_275.md)
 
@@ -1513,15 +1513,15 @@ As you know, the RMDIR generates an error message when an attempt made to remove
 
 ## [Tracking mouse movement to detect when to start dragging](samples/sample_281.md)
 
-## [Using Common Controls: the Header Control](samples/sample_298.md)
+## [使用通用控件：Header 控件](samples/sample_298.md)
 
 ## [Using FlashWindowEx to flash the taskbar button of the VFP application](samples/sample_271.md)
 
-## [Using Font and Text functions](samples/sample_304.md)
+## [使用字体和文本函数](samples/sample_304.md)
 
-## [Using FrameRgn for displaying system colors](samples/sample_125.md)
+## [使用 FrameRgn 来显示系统颜色](samples/sample_125.md)
 
-## [Using GetNearestColor](samples/sample_044.md)
+## [使用 GetNearestColor](samples/sample_044.md)
 
 ## [Using InternetGoOnline function](samples/sample_067.md)
 
@@ -1529,15 +1529,15 @@ As you know, the RMDIR generates an error message when an attempt made to remove
 
 ## [Using the ChooseColor function](samples/sample_264.md)
 
-## [Using the DrawText function](samples/sample_303.md)
+## [使用 DrawText 函数](samples/sample_303.md)
 
-## [Using the GradientFill function](samples/sample_353.md)
+## [使用 GradientFill 函数](samples/sample_353.md)
 
 ## [Using the IsWindowEnabled function](samples/sample_306.md)
 
-## [Using the LoadImage function to have a bitmap file loaded and displayed on VFP main window](samples/sample_210.md)
+## [使用 LoadImage 函数加载位图文件并将其显示在 VFP 主窗口上](samples/sample_210.md)
 
-## [Using the MessageBox Win32 function](samples/sample_048.md)
+## [使用 Messageox Win32 函数](samples/sample_048.md)
 
 ## [Using the RestartDialog function -- restarting Windows](samples/sample_361.md)
 
@@ -1598,7 +1598,7 @@ User-defined items can be added to the Control Menu of any VFP form. In VFP9 it 
 
 ## [Displaying OS Memory Status](samples/sample_020.md)
 
-## [Displaying dimmed window behind VFP top-level form](samples/sample_578.md)
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
 
 ## [Displaying standard progress dialog box when copying files](samples/sample_508.md)
 If you have ever thought about retiring ageing VFP commands COPY FILE and RENAME then give this code a try. 
@@ -1643,7 +1643,7 @@ It all started with a question I have noticed in the Universal Thread Visual Fox
   
 ## [How to delete IE cookies, clear IE history and delete files in Temporary Internet Files directory](samples/sample_471.md)
 The following example presents session class *CacheEntry* and collection class *CacheEntries*. The latter, when created, enumerates Internet cache entries, either cookies or history or cached files depending on the search pattern. Cache entries can be deleted through *DeleteCacheEntry* and *DeleteCacheEntries* methods of the collection class.  
-## [How to display a user-defined icon in the MessageBox dialog](samples/sample_500.md)
+## [如何在 MessageBox 对话框中显示用户自定义的图标](samples/sample_500.md)
 
 ## [How to display advanced Task Dialog (Vista)](samples/sample_558.md)
 
@@ -1732,15 +1732,15 @@ This code sample retrieves the name of default printer on local computer and obt
 
 ## [Starting a dialog box for connecting to network resources and passing input parameters](samples/sample_551.md)
 This code sample is an extension of  "#309. Starting a dialog box for connecting to network resources". The code is written around the WNetConnectionDialog1 function and provides a better control of the network connection dialog through input parameters.  
-## [Storing content of the Clipboard to a bitmap file](samples/sample_189.md)
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
 
-## [Storing screen shot of a form to bitmap file](samples/sample_187.md)
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
 ## [Storing the environment strings in cursor](samples/sample_089.md)
 
 ## [StrDup returns a pointer to the duplicate of a source VFP string](samples/sample_181.md)
 
-## [Subclassing CommandButton control to create BackColor property](samples/sample_392.md)
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
 
 ## [Testing serial ports](samples/sample_308.md)
 In Windows all input/output ports are presented as files, so work with ports is performed through file functions like *CreateFile, CloseHandle, ReadFile, ReadFileEx, WriteFile* and *WriteFileEx*.  
@@ -1748,7 +1748,7 @@ In Windows all input/output ports are presented as files, so work with ports is 
 
 ## [Using Change Notification Objects to monitor changes to the printer or print server](samples/sample_485.md)
 The code explains how to use FindFirstPrinterChangeNotification and FindNextPrinterChangeNotification API calls to monitor changes in jobs for a specified local or network printer. Not an easy job for Visual FoxPro, considering its unique attitude to API structures and pointers. This functionality can be used to build a print monitor, though in a way limited by the single-thread nature of Visual FoxPro.  
-## [Using Common Controls: the Header Control](samples/sample_298.md)
+## [使用通用控件：Header 控件](samples/sample_298.md)
 
 ## [Using EnumPrinters function to enumerate locally installed printers](samples/sample_146.md)
 
@@ -1766,7 +1766,7 @@ An application sends the WM_COPYDATA message to pass data to another application
 
 ## [Verifying a file using the Authenticode policy provider](samples/sample_569.md)
 
-## [Vertical Label control](samples/sample_398.md)
+## [垂直标签](samples/sample_398.md)
 
 ## [WAV file player](samples/sample_417.md)
 
@@ -1828,11 +1828,11 @@ And an imminent question arises: where are those icons stored and how to put the
 The PnP manager maintains a device tree that keeps track of the devices in the system.
 
 The device tree contains information about the devices present on the system. The PnP manager builds this tree when the machine boots, using information from drivers and other components, and updates the tree as devices are added or removed.  
-## [Extended MessageBox Class](samples/sample_418.md)
+## [扩展的 MessageBox 类](samples/sample_418.md)
 
 ## [How to activate Windows Calculator](samples/sample_026.md)
 
-## [How to change the name and the size of the font in the MessageBox dialog](samples/sample_434.md)
+## [如何在 MessageBox 对话框中更改字体名称和大小](samples/sample_434.md)
 
 ## [How to control Adobe Reader 9.0 (SDI mode) from VFP application](samples/sample_550.md)
 Each Adobe Reader 9 window is created from window class AcrobatSDIWindow and parented by the Windows Desktop.  Enumeration of child windows of this class within the Desktop window returns the exact number of open Adobe Acrobat 9 documents.
@@ -1865,7 +1865,7 @@ The bitmap images for the classes installed on the machine are stored in some sy
 
 ## [Terminating all running applications from a VFP program](samples/sample_243.md)
 
-## [Using Common Controls: the Header Control](samples/sample_298.md)
+## [使用通用控件：Header 控件](samples/sample_298.md)
 
 ## [Using Month Calendar Control (VFP9, Comctl32.dll)](samples/sample_560.md)
 
@@ -1885,7 +1885,7 @@ An application sends the WM_COPYDATA message to pass data to another application
 
 ## [How to print picture stored in enhanced-format metafile (*.emf)](samples/sample_405.md)
 
-## [Storing screen shot of a form to enhanced metafile (*.emf)](samples/sample_402.md)
+## [将表单的屏幕截图存储到一个增强型元文件(*.emf)](samples/sample_402.md)
 
 # ![](images/fox1.png) Monitor Configuration (Vista) group
 
@@ -1895,7 +1895,7 @@ The Monitor Configuration API was first made available in Windows Vista. These f
 
 ## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
 The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
-## [Displaying dimmed window behind VFP top-level form](samples/sample_578.md)
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
 
 ## [GDI+: Implementing image scrolling with inertia](samples/sample_595.md)
 The inertial scrolling can be described as below: 
@@ -2037,6 +2037,1337 @@ And an imminent question arises: where are those icons stored and how to put the
 
 ## [Drawing cursors for the classes defined by the system (preregistered): BUTTON, EDIT, LISTBOX etc.](samples/sample_203.md)
 
-## [Drawing icons associated with the VFP main window](samples/sample_202.md)
+## [绘制与VFP主窗口相关的图标](samples/sample_202.md)
 
-## [Form Ma
+## [Form Magnifier](samples/sample_414.md)
+
+## [GDI+: Creating thumbnails to preview images in a directory](samples/sample_547.md)
+This code sample displays thumbnails for JPEG images found in a specified directory. The thumbnails on the form are dynamically highlighted following the movements of the cursor.  
+## [GDI+: Implementing image scrolling with inertia](samples/sample_595.md)
+The inertial scrolling can be described as below: 
+After releasing the mouse button, the image scrolling coninues while decelerating slowly, simulating the presence of inertia. The level of the deceleration depends on the momentum the mouse cursor obtains at the button release.
+  
+## [GDI+: Scrolling through large image using the mouse](samples/sample_546.md)
+
+## [GDI+: copying to the Clipboard (a) image of active FoxPro window/form, (b) image file](samples/sample_457.md)
+
+## [GDI+: how to make VFP controls visually shake and shudder](samples/sample_526.md)
+Shuddering control may appear a good way to get user`s immediate attention. For example, when Purchase Order form opens, and the shipping date is not entered or overdue, the textbox hosting this value may start vibrate and thus can be easily spotted by the user.  
+## [GDI+: saving image of FoxPro form to graphics file (BMP, GIF, JPG, PNG, TIF)](samples/sample_454.md)
+
+## [GDI+: sending image of FoxPro form to printer](samples/sample_455.md)
+
+## [如何在 MessageBox 对话框中更改字体名称和大小](samples/sample_434.md)
+
+## [How to copy the image of a form to the Clipboard using Bitmap API functions](samples/sample_091.md)
+
+## [How to create transparent areas inside a form -- punching holes in the form](samples/sample_126.md)
+
+## [How to display picture stored in enhanced-format metafile (*.emf)](samples/sample_403.md)
+
+## [How to draw custom Window Caption on FoxPro form](samples/sample_499.md)
+This code sample shows how to hide the Caption and the border of FoxPro form and replace them with eight Image controls and one Label control. The form is resizable, closable and can be clicked on its caption and dragged.
+  
+## [How to find which fonts Windows uses for drawing captions, menus and message boxes](samples/sample_556.md)
+Calling SystemParametersInfo with SPI_GETNONCLIENTMETRICS input parameter populates the NONCLIENTMETRICS structure. This structure contains the metrics associated with the nonclient area of a nonminimized window. Among the metrics included are the settings for 5 fonts, the OS uses for drawing captions, small captions, menus, status bars and message boxes.  
+## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to play AVI file on the _screen](samples/sample_430.md)
+
+## [How to position the GETPRINTER() dialog](samples/sample_482.md)
+The GETPRINTER() dialog normaly appears at the left top corner of the main window of FoxPro. What if you want it to popup in the middle of the screen? The interface has no input parameters that can be used to position the dialog. Still the Timer control and several API calls can solve this small problem.  
+## [How to print FoxPro form](samples/sample_158.md)
+
+## [How to print FoxPro form -- II](samples/sample_406.md)
+
+## [How to print a bitmap file](samples/sample_211.md)
+
+## [How to print picture stored in enhanced-format metafile (*.emf)](samples/sample_405.md)
+
+## [How to put a horizontal text scrolling on the form (a news line, marquee)](samples/sample_352.md)
+
+## [How to put a vertical text scrolling on the form (a movie cast)](samples/sample_354.md)
+
+## [Obtaining the bounding rectangle for the specified device context](samples/sample_237.md)
+
+## [Placing On-screen Alert on top of all windows](samples/sample_504.md)
+Sometimes I think that the WAIT WINDOW has insufficient appeal. Too ordinary look may cause the message passed unnoticed. So if one wants to treat the users with a real stuff, he should use the On-screen Alert.
+
+The idea is simple -- the always-on-top window with transparent background. A combination of window styles makes it not just visually transparent, but also transparent for the keyboard and mouse messages.  
+## [Placing an arbitrary rectangular area of main VFP window on the Clipboard](samples/sample_081.md)
+
+## [Printing text on the main VFP window](samples/sample_035.md)
+
+## [Printing text with the Escape function](samples/sample_357.md)
+
+## [Reading metrics for the currently selected font](samples/sample_339.md)
+
+## [Round FoxPro form](samples/sample_143.md)
+
+## [Setting the Window Region for a form](samples/sample_120.md)
+
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
+
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
+
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
+
+## [将表单的屏幕截图存储到一个增强型元文件(*.emf)](samples/sample_402.md)
+
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
+
+## [Transparent Menu Class (requires VFP9)](samples/sample_496.md)
+The SetLayeredWindowAttributes function sets the opacity and transparency color key of a layered window. All menu popups are layered windows, so this technique can be applied to them.  
+## [使用字体和文本函数](samples/sample_304.md)
+
+## [使用 FrameRgn 来显示系统颜色](samples/sample_125.md)
+
+## [使用 DrawText 函数](samples/sample_303.md)
+
+## [使用 GradientFill 函数](samples/sample_353.md)
+
+## [使用 LoadImage 函数加载位图文件并将其显示在 VFP 主窗口上](samples/sample_210.md)
+
+## [垂直标签](samples/sample_398.md)
+
+# ![](images/fox1.png) Path group
+
+## [Creating a clipping region from the path selected into the device context of a form](samples/sample_144.md)
+
+# ![](images/fox1.png) Performance Monitoring group
+
+## [Enumerating Processes -- Win9*](samples/sample_164.md)
+
+## [Enumerating Processes -- WinNT](samples/sample_162.md)
+
+## [Listing device drivers in the system: load addresses, names](samples/sample_174.md)
+
+## [Memory usage info for current VFP session (WinNT only)](samples/sample_172.md)
+
+## [Obtaining OS memory performance information](samples/sample_567.md)
+
+# ![](images/fox1.png) Pipe group
+
+## [Running MSDOS Shell as a child process with redirected input and output (smarter RUN command)](samples/sample_477.md)
+The msdos class allows issuing a set of MSDOS commands and getting back a response as a string. The MSDOS window is present but not visible. The code creates a child process running an msdos session and redirects its standard input and output handles to anonymous pipes.  
+## [Using named pipes for interprocess communication](samples/sample_522.md)
+This code sample contains definitions of two classes, NamedPipeServer and NamedPipeClient, encapsulating named pipes API functionality. The Pipes, as well as mailslots, can be used for transferring data between processes running on same computer or on different computers.  
+# ![](images/fox1.png) PnP Configuration Manager group
+
+## [Disconnecting USB Mass Storage Device programmatically](samples/sample_553.md)
+
+## [Enumerating devices installed on the local machine](samples/sample_545.md)
+The PnP manager maintains a device tree that keeps track of the devices in the system.
+
+The device tree contains information about the devices present on the system. The PnP manager builds this tree when the machine boots, using information from drivers and other components, and updates the tree as devices are added or removed.  
+# ![](images/fox1.png) Power Management group
+
+## [Get the power status of your laptop computer](samples/sample_006.md)
+
+## [How to suspend or hibernate your system](samples/sample_395.md)
+
+## [Power capabilities of the system: battery, UPS, sleep and hibernation modes, processor throttling](samples/sample_394.md)
+
+# ![](images/fox1.png) Printing and Print Spooler group
+
+## [Adding printer to the list of supported printers for the specified server](samples/sample_335.md)
+
+## [Configuring DEVMODE structure for a printer](samples/sample_384.md)
+
+## [Displaying printer-properties Property Sheet for the specified printer](samples/sample_372.md)
+
+## [Enumerating forms supported by a specified printer](samples/sample_390.md)
+
+## [Enumerating ports that are available for printing on a specified server](samples/sample_334.md)
+
+## [Enumerating print jobs and retrieving information for default printer (JOB_INFO_1 structures)](samples/sample_368.md)
+
+## [Enumerating print processors and supporting data types installed on the specified server](samples/sample_333.md)
+
+## [Enumerating printer drivers installed](samples/sample_082.md)
+
+## [GDI+: printing image file](samples/sample_452.md)
+
+## [GDI+: sending image of FoxPro form to printer](samples/sample_455.md)
+
+## [How to browse and connect to printers on a network (WinNT)](samples/sample_376.md)
+
+## [How to delete all print jobs for a printer](samples/sample_370.md)
+
+## [How to display the port-configuration dialog box for a port on the specified server](samples/sample_362.md)
+
+## [How to print FoxPro form](samples/sample_158.md)
+
+## [How to print FoxPro form -- II](samples/sample_406.md)
+
+## [How to print a bitmap file](samples/sample_211.md)
+
+## [How to print picture stored in enhanced-format metafile (*.emf)](samples/sample_405.md)
+
+## [How to retrieve configuration data for a specified printer stored in the registry (PrinterDriverData key)](samples/sample_369.md)
+
+## [How to retrieve the number of print jobs queued for the printer](samples/sample_367.md)
+
+## [Printing Image File, programmatically set print page orientation to landscape](samples/sample_555.md)
+
+## [Printing text with the Escape function](samples/sample_357.md)
+
+## [Retrieving default spooling directory name](samples/sample_358.md)
+
+## [Retrieving list of supported paper names (for example, Letter or Legal) for a given printer](samples/sample_356.md)
+
+## [Retrieving the name of the default printer for the current user on the local computer (Win NT/XP)](samples/sample_360.md)
+This code sample retrieves the name of default printer on local computer and obtains detailed information for this printer in PRINTER_INFO_5 format.   
+## [Retrieving the path of the printer-driver directory and printer-processor directory](samples/sample_359.md)
+
+## [Setting default printer](samples/sample_589.md)
+
+## [Simple printer queue monitor: deletes, pauses, resumes print jobs for local printer](samples/sample_373.md)
+
+## [Using Change Notification Objects to monitor changes to the printer or print server](samples/sample_485.md)
+The code explains how to use FindFirstPrinterChangeNotification and FindNextPrinterChangeNotification API calls to monitor changes in jobs for a specified local or network printer. Not an easy job for Visual FoxPro, considering its unique attitude to API structures and pointers. This functionality can be used to build a print monitor, though in a way limited by the single-thread nature of Visual FoxPro.  
+## [Using EnumPrinters function to enumerate locally installed printers](samples/sample_146.md)
+
+# ![](images/fox1.png) Process and Thread group
+
+## [Accessing Windows Control Panel from VFP Application](samples/sample_391.md)
+This code shows how to launch various control panel property pages (like Internet Options) and wizards (like Add New Printer) from a VFP application. Normally you reach the Control Panel through Windows main menu item Settings.  
+## [Confining Windows calculator inside the VFP main window](samples/sample_245.md)
+
+## [Converting command-line string to a set of Unicode argument strings](samples/sample_212.md)
+
+## [Enumerating Processes -- WinNT](samples/sample_162.md)
+
+## [GDI+ fun: roach-infested desktop](samples/sample_548.md)
+
+## [GetProcessVersion points at target OS](samples/sample_170.md)
+
+## [How to Start a Process as Another User (NT/XP/2K)](samples/sample_426.md)
+
+## [How to activate Windows Calculator](samples/sample_026.md)
+
+## [How to check whether the system is 32-bit or 64-bit](samples/sample_580.md)
+
+## [How to control Adobe Reader 9.0 (SDI mode) from VFP application](samples/sample_550.md)
+Each Adobe Reader 9 window is created from window class AcrobatSDIWindow and parented by the Windows Desktop.  Enumeration of child windows of this class within the Desktop window returns the exact number of open Adobe Acrobat 9 documents.
+
+The AdobeReaderSDIWindow class is able to virtually "click on" an item in the main menu of Adobe Reader 9 window and in this way to control some of the functionality.  
+## [How to enable the SE_SHUTDOWN_NAME privilege for the application](samples/sample_552.md)
+To shut down or to reboot the system (API calls ExitWindowsEx, InitiateShutdown and others) the process must have the SE_SHUTDOWN_NAME privilege (default behaviour on Vista).  
+## [How to find when the application started](samples/sample_534.md)
+
+## [How to hide your program from the Close Program dialog (Win9* only)](samples/sample_277.md)
+
+## [How to load a user profile](samples/sample_602.md)
+
+## [How to make application automatically close all documents it opened](samples/sample_491.md)
+Imagine FoxPro application that has opened several windows like Word, Excel, PDF, browser, picture viewer etc. Closing all those documents automatically on exit from the application, sometimes this can be a good idea.
+
+Here is one of several possible ways to get it done. Windows XP/2K introduces a Job Object, a tool that can manage a group of processes as a single process. In other words, operations performed on the job object affect all processes associated with it.
+  
+## [How to make the caption of a VFP application flashing in the Windows task bar](samples/sample_228.md)
+
+## [How to play MIDI notes](samples/sample_537.md)
+Set the note in 0 to 127 range and the velocity (how hard the key is pressed) in 20 to 200+ range and press Enter.  
+## [How to prevent users from accessing the Windows Desktop and from switching to other applications](samples/sample_492.md)
+Sometimes you may need a computer with a single application running on it, and with all other applications and resources hidden from users. An example, Indigo Book Store customers can only search books when using public computers in the store.
+  
+## [Memory usage info for current VFP session (WinNT only)](samples/sample_172.md)
+
+## [Moving shortcut to a specified position on the Windows Desktop](samples/sample_581.md)
+
+## [Obtaining I/O counts for the current process](samples/sample_535.md)
+
+## [Obtaining a handle to the desktop associated with the calling thread](samples/sample_239.md)
+
+## [Obtaining names and positions for shortcuts located on the Windows Desktop](samples/sample_579.md)
+
+## [Reading STARTUPINFO structure for the current VFP session](samples/sample_153.md)
+
+## [Reading and setting Environment variables](samples/sample_152.md)
+
+## [Reading and setting system access privileges for the current process](samples/sample_554.md)
+
+## [Reading and setting the priority class values for the current process and thread](samples/sample_218.md)
+
+## [Retrieveing information about the active window (even if it is not owned by the calling process)](samples/sample_371.md)
+
+## [Retrieving the command line for the VFP session](samples/sample_051.md)
+
+## [Retrieving the priority class for the current process](samples/sample_173.md)
+
+## [Running MSDOS Shell as a child process with redirected input and output (smarter RUN command)](samples/sample_477.md)
+The msdos class allows issuing a set of MSDOS commands and getting back a response as a string. The MSDOS window is present but not visible. The code creates a child process running an msdos session and redirects its standard input and output handles to anonymous pipes.  
+## [Setting properties of the window: caption and user-defined value](samples/sample_182.md)
+
+## [Start an executable from VFP application by using the CreateProcess](samples/sample_003.md)
+
+## [Starting an external application in VFP using WinExec](samples/sample_002.md)
+
+## [Starting external program from VFP and waiting for its termination](samples/sample_377.md)
+
+## [Storing the environment strings in cursor](samples/sample_089.md)
+
+## [Terminating all running applications from a VFP program](samples/sample_243.md)
+
+## [Using Beep and Sleep functions to make the old tin <s>buzz</s> sing (WinNT only?)](samples/sample_240.md)
+
+## [Using File Mapping for enumerating files opened by Visual FoxPro](samples/sample_473.md)
+*File mapping* is the association of the contents of a file with a portion of the virtual address space of a process. API function GetMappedFileName called in combination with CreateFileMapping and MapViewOfFile functions is able to retrieve the name for a given file handle.  
+# ![](images/fox1.png) Raw Input group
+
+## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+
+## [Enumerating raw input devices attached to the system (keyboard, mouse, human interface device)](samples/sample_571.md)
+
+# ![](images/fox1.png) Region group
+
+## [An alternative way of setting Form.Closable to False](samples/sample_127.md)
+
+## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
+The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
+## [Finding parameters for the region specified](samples/sample_124.md)
+
+## [How to create transparent areas inside a form -- punching holes in the form](samples/sample_126.md)
+
+## [How to draw custom Window Caption on FoxPro form](samples/sample_499.md)
+This code sample shows how to hide the Caption and the border of FoxPro form and replace them with eight Image controls and one Label control. The form is resizable, closable and can be clicked on its caption and dragged.
+  
+## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [Placing On-screen Alert on top of all windows](samples/sample_504.md)
+Sometimes I think that the WAIT WINDOW has insufficient appeal. Too ordinary look may cause the message passed unnoticed. So if one wants to treat the users with a real stuff, he should use the On-screen Alert.
+
+The idea is simple -- the always-on-top window with transparent background. A combination of window styles makes it not just visually transparent, but also transparent for the keyboard and mouse messages.  
+## [Round FoxPro form](samples/sample_143.md)
+
+## [Setting the Window Region for a form](samples/sample_120.md)
+
+## [使用 FrameRgn 来显示系统颜色](samples/sample_125.md)
+
+# ![](images/fox1.png) Registry group
+
+## [Class library providing access to the System Registry](samples/sample_472.md)
+This code sample includes classes *registry*, *regkey*, *regkeys*, *regvalue* and *regvalues*. All together they provide view, read, write and delete functionality for the System Registry. Examples showing how to use this class are coming soon.  
+## [Configuring DEVMODE structure for a printer](samples/sample_384.md)
+
+## [Displaying printer-properties Property Sheet for the specified printer](samples/sample_372.md)
+
+## [Enumerating Performance Counters](samples/sample_565.md)
+
+## [Enumerating forms supported by a specified printer](samples/sample_390.md)
+
+## [Enumerating print jobs and retrieving information for default printer (JOB_INFO_1 structures)](samples/sample_368.md)
+
+## [Enumerating the subkeys for a given registry key](samples/sample_130.md)
+
+## [Enumerating the subkeys of a user-specific key](samples/sample_129.md)
+
+## [How to delete all print jobs for a printer](samples/sample_370.md)
+
+## [How to obtain Content-Type value for a file type from the System Registry](samples/sample_468.md)
+The code shows how to read the list of content-type values registered on local computer and how to obtain content-type value for a particular file extension. Content-type values can be used when creating HTTP and SMTP headers.  
+## [How to retrieve configuration data for a specified printer stored in the registry (PrinterDriverData key)](samples/sample_369.md)
+
+## [How to retrieve the number of print jobs queued for the printer](samples/sample_367.md)
+
+## [How to save registry key including its subkeys and values to a file](samples/sample_135.md)
+
+## [Obtaining current Internet Explorer browser version and UserAgent](samples/sample_142.md)
+
+## [Printing text with the Escape function](samples/sample_357.md)
+
+## [Reading VFP settings from the Windows Registry](samples/sample_131.md)
+
+## [Reading data from INI files](samples/sample_133.md)
+
+## [Reading keys in the specified section of the Win.ini file](samples/sample_136.md)
+
+## [Retrieving default spooling directory name](samples/sample_358.md)
+
+## [Retrieving list of supported paper names (for example, Letter or Legal) for a given printer](samples/sample_356.md)
+
+## [Retrieving the name of the default printer for the current user on the local computer (Win NT/XP)](samples/sample_360.md)
+This code sample retrieves the name of default printer on local computer and obtains detailed information for this printer in PRINTER_INFO_5 format.   
+## [Retrieving the names of all sections in an initialization file](samples/sample_252.md)
+
+## [Saving local machine ODBC Registry Entries to XML file](samples/sample_379.md)
+
+## [Simple printer queue monitor: deletes, pauses, resumes print jobs for local printer](samples/sample_373.md)
+
+## [Writing to INI file](samples/sample_137.md)
+
+# ![](images/fox1.png) Remote Access Service (RAS) group
+
+## [Displaying the main Dial-Up Networking dialog box](samples/sample_331.md)
+
+## [List of addresses in the AutoDial mapping database](samples/sample_330.md)
+
+## [Retrieving country-specific dialing information from the Windows Telephony list of countries](samples/sample_329.md)
+
+## [Retrieving list of all active RAS connections](samples/sample_326.md)
+
+## [Retrieving the name and type of all available RAS-capable devices](samples/sample_325.md)
+
+# ![](images/fox1.png) Remote Application Programming (RAPI) group
+
+## [Pocket PC: base class](samples/sample_440.md)
+This class is used as a base class for several custom RAPI classes created to access objects stored on Pocket PC: system registry, object store databases, files and folder, remote routines.  
+## [Pocket PC: custom RAPI class for operating with files and folders on mobile device](samples/sample_448.md)
+The class creates a wrapper around RAPI functions allowing to operate with files and folders on remote Windows CE device connected to computer through ActiveSync connection.  
+## [Pocket PC: custom RAPI class for operating with the Object Store Databases](samples/sample_445.md)
+This class operates with databases in the Object Store of Pocket PC. It implements enumerating, creating and deleting databases, reading, writing and deleting records in databases.  
+## [Pocket PC: custom RAPI class for operating with the System Registry](samples/sample_441.md)
+
+## [PocketPC: custom RAPI class for executing routines on remote Windows CE device](samples/sample_466.md)
+The class calls CeCreateProcess RAPI function to create new process on PocketPC device. The new process executes the specified executable file.  
+# ![](images/fox1.png) Remote Procedure Call (RPC) group
+
+## [Generating UUID values from numbers](samples/sample_588.md)
+
+## [Generating random UUID values](samples/sample_024.md)
+
+## [Generating sequential UUID values](samples/sample_587.md)
+
+# ![](images/fox1.png) Resource group
+
+## [Bitmap Class for Visual FoxPro application](samples/sample_295.md)
+
+## [Displaying animated images on FoxPro form with BitBlt and StretchBlt functions](samples/sample_355.md)
+
+## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
+
+## [在系统托盘中显示图标(VFP9)](samples/sample_235.md)
+
+## [Exporting DLL icon resources as .ICO files](samples/sample_502.md)
+This code includes definitions for three classes: IconGroups, IconGroupResource and IconResource. The IconGroups is a collection of the IconGroupResource objects. The icons property of the IconGroupResource class is a collection of the IconResource objects.
+
+The IconGroupResource and IconResource classes include SaveToFile method that saves the resource to .ICO file.
+  
+## [How to convert a bitmap file to monochrome format (1 bpp)](samples/sample_493.md)
+It all started with a question I have noticed in the Universal Thread Visual FoxPro forum:*Does anyone know how to create a monochrome bitmap or monochrome tiff file from a VFP report? *
+  
+## [How to print a bitmap file](samples/sample_211.md)
+
+## [Loading a string resource from an executable file](samples/sample_213.md)
+
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
+
+## [Storing registration key in the resources of an executable file](samples/sample_401.md)
+This sample shows how to save a registration key -- actually it can be any binary data -- in the resources of any VFP application (executable file) any time after its compilation.
+
+You know about "Other Files" section inside the Project Manager. I think, that would be handy to have a similar section named "Resources", where files like icons, bitmaps, sounds, strings and others could be added. And after the file compiled into an executable, they could be reached through the Resource API calls LoadResource, LoadString, LoadImage and so on.  
+## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+
+## [使用 LoadImage 函数加载位图文件并将其显示在 VFP 主窗口上](samples/sample_210.md)
+
+# ![](images/fox1.png) Security group
+
+## [Accessing LSA Policy object (Local Security Authority)](samples/sample_427.md)
+
+## [Creating a folder](samples/sample_001.md)
+
+## [GetFileOwner - Get the owner of an NTFS file](samples/sample_433.md)
+
+## [How to Start a Process as Another User (NT/XP/2K)](samples/sample_426.md)
+
+## [How to enumerate logon sessions on local computer](samples/sample_591.md)
+
+## [How to enumerate sessions and processes on a specified terminal server](samples/sample_519.md)
+
+## [How to load a user profile](samples/sample_602.md)
+
+## [How to run FoxPro application under different user name (impersonating user)](samples/sample_470.md)
+This example shows how to switch to another domain user within FoxPro application. It can be used for providing limited access to network resources (files, printers) for network users.  
+## [Obtaining a handle to the desktop associated with the calling thread](samples/sample_239.md)
+
+## [Reading security permissions for NTFS files and folders](samples/sample_516.md)
+This code sample includes a set of classes implementing several NTFS access control objects. Through these objects, like Access Control List (ACL) and Access Control Entry (ACE) and others, the OS defines access rights to files, folders (in particular) for different users and user groups.  
+## [Retrieving local computer and user names](samples/sample_041.md)
+
+# ![](images/fox1.png) Service group
+
+## [Encapsulating access to the Windows Services in a class](samples/sample_476.md)
+The winservices class, subclassed from the Collection class, enumerates Windows Services found in the default service control manager database on local computer. Each item in the collection is an instance of the winservice class that wraps the members of ENUM_SERVICE_STATUS structure for a given service. The winservice object exposes methods StartService, StopService and PauseService.  
+## [How to create a service object](samples/sample_517.md)
+
+## [How to delete a service object](samples/sample_518.md)
+
+## [Obtaining a handle to the desktop associated with the calling thread](samples/sample_239.md)
+
+# ![](images/fox1.png) Setup API functions group
+
+## [Enumerating devices installed on the local machine](samples/sample_545.md)
+The PnP manager maintains a device tree that keeps track of the devices in the system.
+
+The device tree contains information about the devices present on the system. The PnP manager builds this tree when the machine boots, using information from drivers and other components, and updates the tree as devices are added or removed.  
+## [How to view system icons for the classes installed on the local machine](samples/sample_544.md)
+The bitmap images for the classes installed on the machine are stored in some system area. These images are more of a general kind and illustrate functionality groups rather than individual classes. With a few API calls VFP application can access these images and display them in TreeView and ListView controls as icons.  
+## [Listing INF files in a specified directory](samples/sample_169.md)
+
+## [Returning some basic information for the specified INF file](samples/sample_123.md)
+
+# ![](images/fox1.png) Shell Functions group
+
+## [Accessing Adobe Reader 7.0 main menu from VFP application](samples/sample_495.md)
+I was looking for a simple way of closing Adobe Reader document and leaving intact other open PDF documents and the reader itself. Presented AdobeAcrobat7 class enumerates opened pdf documents. It also can close any Acrobat document window or all document windows and more.  
+## [Accessing Windows Control Panel from VFP Application](samples/sample_391.md)
+This code shows how to launch various control panel property pages (like Internet Options) and wizards (like Add New Printer) from a VFP application. Normally you reach the Control Panel through Windows main menu item Settings.  
+## [Accessing examples contained in this reference from a VFP application](samples/sample_197.md)
+
+## [Accessing examples contained in this reference through Web Services](samples/sample_469.md)
+This code uses GetListOfExamples  and GetExample  functions wrapped in XML Web Service. Requires VFP versions 8 or 9.   
+## [Accessing the list of Windows Recent Documents](samples/sample_094.md)
+
+## [Browsing Windows Known Folders (Special Folders)](samples/sample_576.md)
+
+## [Creating a folder](samples/sample_001.md)
+
+## [基于现有的文件名创建一个唯一的文件名](samples/sample_014.md)
+
+## [Creating an Open dialog box to specify the drive, directory, and name of a file to open (Shell32 version)](samples/sample_365.md)
+
+## [Deleting files into the Recycle Bin](samples/sample_321.md)
+
+## [Detecting changes in connections to removable drives (VFP9)](samples/sample_573.md)
+
+## [Determining whether or not the system is connected to the Internet](samples/sample_322.md)
+
+## [Disk in drive A:](samples/sample_319.md)
+
+## [在系统托盘中显示图标(VFP9)](samples/sample_235.md)
+
+## [Displaying standard progress dialog box when copying files](samples/sample_508.md)
+If you have ever thought about retiring ageing VFP commands COPY FILE and RENAME then give this code a try. 
+
+The SHFileOperation copies, deletes and moves a file or multiple files. A variety of flags the fFlags member can take provides great flexibility. For example, in a single SHFileOperation call a group of files can be copied not to just one but to several destinations. The process is accompanied with familiar OS dialogs showing the progress or sending a reminder when existing file is about  to be replaced.  
+## [Displaying system dialog that selects a folder](samples/sample_364.md)
+
+## [Displaying the associated icons and descriptions for files and folders](samples/sample_530.md)
+When the list of files and folders is to be displayed inside a VFP form, the ListBox VFP control and the ListView ActiveX control are probably the first two candidates for the job. 
+
+The ListBox`s presentation style can only be described as the minimalistic :) , while the ListView shows items in much fancier manner, and can even accompany each file and folder with an icon.
+
+<img src="images/sysimagelist.png" width=507 height=338>
+And an imminent question arises: where are those icons stored and how to put them to work?  
+## [Displaying the drive type value](samples/sample_012.md)
+
+## [Dragging files from Explorer window and dropping them on FoxPro control (requires VFP9)](samples/sample_323.md)
+
+## [Finding the application, icon and friendly names associated with a file name](samples/sample_584.md)
+
+## [GDI+: Drawing a Pie Chart](samples/sample_514.md)
+This code sample shows how to use PieChart GDI+ functions to build a simple chart and store it in a graphics file.  
+## [GDI+: converting text strings to images and saving in a graphics file](samples/sample_513.md)
+In this code sample lines of text are printed on GDI+ bitmap object using a specified font. The result is saved in a graphics file. Such functionality can be used, for example, for displaying adhoc images on a web page.
+
+Before creating the target bitmap, the GdipMeasureString function is used to calculate the bounding rectangle for the lines of text drawn with a specified font.  
+## [GDI+: creating a gradient](samples/sample_596.md)
+
+## [GDI+: creating scaled copy of image file](samples/sample_460.md)
+
+## [GDI+: cropping images](samples/sample_515.md)
+This code sample explains how to load an image from a file, crop it using GdipDrawImageRectI GDI+ function and save result in another file.  
+## [How to access a file using not its name but an alias (hard link)](samples/sample_018.md)
+
+## [How to control Adobe Reader 9.0 (SDI mode) from VFP application](samples/sample_550.md)
+Each Adobe Reader 9 window is created from window class AcrobatSDIWindow and parented by the Windows Desktop.  Enumeration of child windows of this class within the Desktop window returns the exact number of open Adobe Acrobat 9 documents.
+
+The AdobeReaderSDIWindow class is able to virtually "click on" an item in the main menu of Adobe Reader 9 window and in this way to control some of the functionality.  
+## [How to display Windows On-Screen Keyboard](samples/sample_582.md)
+
+## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
+
+## [How to empty the Recycle Bin](samples/sample_301.md)
+
+## [How to find the application associated with a file name](samples/sample_138.md)
+
+## [How to get the path to a Special Folder](samples/sample_415.md)
+
+## [How to load a user profile](samples/sample_602.md)
+
+## [How to make application automatically close all documents it opened](samples/sample_491.md)
+Imagine FoxPro application that has opened several windows like Word, Excel, PDF, browser, picture viewer etc. Closing all those documents automatically on exit from the application, sometimes this can be a good idea.
+
+Here is one of several possible ways to get it done. Windows XP/2K introduces a Job Object, a tool that can manage a group of processes as a single process. In other words, operations performed on the job object affect all processes associated with it.
+  
+## [How to remove a directory that is not empty](samples/sample_541.md)
+As you know, the RMDIR generates an error message when an attempt made to remove a directory that is not empty. This example shows how to remove a directory with files based on the SHFileOperation call.  
+## [How to retrieve the number of objects stored in the Recycle Bin](samples/sample_302.md)
+
+## [Mapping and disconnecting network drives](samples/sample_387.md)
+
+## [Obtaining Shell32.dll version](samples/sample_299.md)
+
+## [Reading the structure of VFP main menu](samples/sample_337.md)
+
+## [Retrieving current user for the process](samples/sample_310.md)
+
+## [Retrieving window and menu help context identifiers](samples/sample_025.md)
+
+## [Saving local machine ODBC Registry Entries to XML file](samples/sample_379.md)
+
+## [将剪贴板的内容存储到一个位图文件](samples/sample_189.md)
+
+## [System Image List Viewer](samples/sample_021.md)
+
+## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+
+## [Using Shell for performing operations on files](samples/sample_093.md)
+
+## [Using the RestartDialog function -- restarting Windows](samples/sample_361.md)
+
+## [Windows Shell Icons displayed and exported to ICO files (Vista)](samples/sample_575.md)
+
+# ![](images/fox1.png) Shell Lightweight Utility APIs -- Path Functions group
+
+## [Converting characters in a URL into corresponding escape sequences and backwards](samples/sample_396.md)
+
+## [Converting path to original case](samples/sample_102.md)
+
+## [Creating two-byte hashes for a list of URLs](samples/sample_180.md)
+
+## [How to assemble an array of strings and pass it to external function](samples/sample_487.md)
+The PathFindOnPath function is anything but special. Whatever it does, can be accomplished by using FILE() and GETENV() FoxPro functions. Though it gives me a chance to demonstrate a technique of assembling an array of strings for being passed to external function.  
+## [How to display Windows On-Screen Keyboard](samples/sample_582.md)
+
+## [Reading the structure of VFP main menu](samples/sample_337.md)
+
+## [Using Path functions from Shell Lightweight Utility APIs (shlapi.dll)](samples/sample_178.md)
+
+## [Winsock: retrieving Web pages using sockets (HTTP, port 80)](samples/sample_383.md)
+
+# ![](images/fox1.png) Shell Lightweight Utility APIs -- misc. functions group
+
+## [Creating hash values for the list of names](samples/sample_179.md)
+
+# ![](images/fox1.png) Shell Lightweight Utility APIs -- string functions group
+
+## [Converting an integer value to a hexadecimal string](samples/sample_260.md)
+
+## [Printf-style formatted text output in VFP](samples/sample_259.md)
+
+## [Retrieving a handle to DLL and address of an exported function in it](samples/sample_085.md)
+
+## [StrDup returns a pointer to the duplicate of a source VFP string](samples/sample_181.md)
+
+## [使用通用控件：Header 控件](samples/sample_298.md)
+
+# ![](images/fox1.png) Simple MAPI group
+
+## [How to read email messages using Simple MAPI](samples/sample_270.md)
+
+## [MapiSendMail class for Visual FoxPro application](samples/sample_342.md)
+
+## [Open and close a Simple MAPI Session](samples/sample_190.md)
+
+## [Sending a standard message with one or more attached files using default email client](samples/sample_273.md)
+
+## [Sending email messages with Simple MAPI](samples/sample_193.md)
+
+## [Simple MAPI: how to pick an email recipient from Outlook Express address book](samples/sample_407.md)
+
+## [Simple MAPI: how to resolve a name to unique address list entry](samples/sample_408.md)
+
+# ![](images/fox1.png) String group
+
+## [Converting a decimal string to an integer](samples/sample_106.md)
+
+## [Converting a hexadecimal string to an integer](samples/sample_107.md)
+
+## [Converting characters to upper or lower case](samples/sample_075.md)
+
+## [Converting strings between ANSI and OEM](samples/sample_099.md)
+
+## [High-powered ALLTRIM](samples/sample_104.md)
+
+## [OS version and revision](samples/sample_022.md)
+
+## [String representation for disk or memory capacity](samples/sample_108.md)
+
+## [Time in milliseconds represented as string (e.g. 1 hour 24 min 36 sec)](samples/sample_105.md)
+
+# ![](images/fox1.png) Synchronization group
+
+## [How to prevent users from accessing the Windows Desktop and from switching to other applications](samples/sample_492.md)
+Sometimes you may need a computer with a single application running on it, and with all other applications and resources hidden from users. An example, Indigo Book Store customers can only search books when using public computers in the store.
+  
+## [How to suspend or hibernate your system](samples/sample_395.md)
+
+## [Monitoring changes in a directory](samples/sample_117.md)
+
+## [Pocket PC: base class](samples/sample_440.md)
+This class is used as a base class for several custom RAPI classes created to access objects stored on Pocket PC: system registry, object store databases, files and folder, remote routines.  
+## [Pocket PC: custom RAPI class for operating with files and folders on mobile device](samples/sample_448.md)
+The class creates a wrapper around RAPI functions allowing to operate with files and folders on remote Windows CE device connected to computer through ActiveSync connection.  
+## [Pocket PC: custom RAPI class for operating with the System Registry](samples/sample_441.md)
+
+## [PocketPC: custom RAPI class for executing routines on remote Windows CE device](samples/sample_466.md)
+The class calls CeCreateProcess RAPI function to create new process on PocketPC device. The new process executes the specified executable file.  
+## [Starting external program from VFP and waiting for its termination](samples/sample_377.md)
+
+## [Using Change Notification Objects to monitor changes to the printer or print server](samples/sample_485.md)
+The code explains how to use FindFirstPrinterChangeNotification and FindNextPrinterChangeNotification API calls to monitor changes in jobs for a specified local or network printer. Not an easy job for Visual FoxPro, considering its unique attitude to API structures and pointers. This functionality can be used to build a print monitor, though in a way limited by the single-thread nature of Visual FoxPro.  
+## [Using an Event Object. Part A: running an application that creates an Event object](samples/sample_148.md)
+
+## [Using an Event Object. Part B: running an application responding to events](samples/sample_149.md)
+
+## [Using shared memory to exchange data between applications (processes)](samples/sample_498.md)
+
+## [Using the Semaphore object](samples/sample_008.md)
+
+## [Using the Semaphore object to allow only one instance of VFP application running](samples/sample_147.md)
+
+# ![](images/fox1.png) System Information group
+
+## [An alternative way of setting Form.Closable to False](samples/sample_127.md)
+
+## [Changing system colors](samples/sample_040.md)
+
+## [Clipping mouse cursor area](samples/sample_080.md)
+Mauricio Henao Romero
+maohenao@hotmail.com
+http://www.codefox.net/modules.php?name=News&file=article&sid=193  
+## [Converting path to original case](samples/sample_102.md)
+
+## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
+The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
+## [Current System information](samples/sample_096.md)
+
+## [Current keyboard type](samples/sample_095.md)
+
+## [Determining if an Active Network Connection is Available](samples/sample_324.md)
+
+## [Displaying the associated icons and descriptions for files and folders](samples/sample_530.md)
+When the list of files and folders is to be displayed inside a VFP form, the ListBox VFP control and the ListView ActiveX control are probably the first two candidates for the job. 
+
+The ListBox`s presentation style can only be described as the minimalistic :) , while the ListView shows items in much fancier manner, and can even accompany each file and folder with an icon.
+
+<img src="images/sysimagelist.png" width=507 height=338>
+And an imminent question arises: where are those icons stored and how to put them to work?  
+## [Extended OS Version info](samples/sample_023.md)
+
+## [Finding out if the current user is the Guest account](samples/sample_566.md)
+In this code sample, the CurrentUser class wraps call to the NetUserGetInfo that populates USER_INFO_1 structure. The usri1_priv member of this struture indicates if the user account is Guest or Admin.  
+## [GDI+: how to make VFP controls visually shake and shudder](samples/sample_526.md)
+Shuddering control may appear a good way to get user`s immediate attention. For example, when Purchase Order form opens, and the shipping date is not entered or overdue, the textbox hosting this value may start vibrate and thus can be easily spotted by the user.  
+## [How to Start a Process as Another User (NT/XP/2K)](samples/sample_426.md)
+
+## [How to display Windows On-Screen Keyboard](samples/sample_582.md)
+
+## [How to draw custom Window Caption on FoxPro form](samples/sample_499.md)
+This code sample shows how to hide the Caption and the border of FoxPro form and replace them with eight Image controls and one Label control. The form is resizable, closable and can be clicked on its caption and dragged.
+  
+## [How to find which fonts Windows uses for drawing captions, menus and message boxes](samples/sample_556.md)
+Calling SystemParametersInfo with SPI_GETNONCLIENTMETRICS input parameter populates the NONCLIENTMETRICS structure. This structure contains the metrics associated with the nonclient area of a nonminimized window. Among the metrics included are the settings for 5 fonts, the OS uses for drawing captions, small captions, menus, status bars and message boxes.  
+## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to make application automatically close all documents it opened](samples/sample_491.md)
+Imagine FoxPro application that has opened several windows like Word, Excel, PDF, browser, picture viewer etc. Closing all those documents automatically on exit from the application, sometimes this can be a good idea.
+
+Here is one of several possible ways to get it done. Windows XP/2K introduces a Job Object, a tool that can manage a group of processes as a single process. In other words, operations performed on the job object affect all processes associated with it.
+  
+## [Loading a string resource from an executable file](samples/sample_213.md)
+
+## [OS version and revision](samples/sample_022.md)
+
+## [Obtaining names of local and global groups for current user (WinNT/XP/2K)](samples/sample_431.md)
+
+## [Obtaining the System and Windows folder names](samples/sample_005.md)
+
+## [One more way to retrieve environment strings](samples/sample_132.md)
+
+## [Placing On-screen Alert on top of all windows](samples/sample_504.md)
+Sometimes I think that the WAIT WINDOW has insufficient appeal. Too ordinary look may cause the message passed unnoticed. So if one wants to treat the users with a real stuff, he should use the On-screen Alert.
+
+The idea is simple -- the always-on-top window with transparent background. A combination of window styles makes it not just visually transparent, but also transparent for the keyboard and mouse messages.  
+## [Reading current hardware profile](samples/sample_134.md)
+
+## [Reading data from INI files](samples/sample_133.md)
+
+## [Retrieving a handle to DLL and address of an exported function in it](samples/sample_085.md)
+
+## [Retrieving local computer and user names](samples/sample_041.md)
+
+## [Retrieving various system metrics](samples/sample_079.md)
+
+## [Round FoxPro form](samples/sample_143.md)
+
+## [Running MSDOS Shell as a child process with redirected input and output (smarter RUN command)](samples/sample_477.md)
+The msdos class allows issuing a set of MSDOS commands and getting back a response as a string. The MSDOS window is present but not visible. The code creates a child process running an msdos session and redirects its standard input and output handles to anonymous pipes.  
+## [Simple printer queue monitor: deletes, pauses, resumes print jobs for local printer](samples/sample_373.md)
+
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
+
+## [Tracking mouse movement to detect when to start dragging](samples/sample_281.md)
+
+## [Using GetSysColor](samples/sample_039.md)
+
+## [Using LoadLibrary](samples/sample_007.md)
+
+## [Using Shell for performing operations on files](samples/sample_093.md)
+
+## [Using mailslots to send messages on the network](samples/sample_269.md)
+
+## [Using the SystemParametersInfo function](samples/sample_283.md)
+
+# ![](images/fox1.png) System Shutdown group
+
+## [Closing Windows](samples/sample_036.md)
+
+## [How to enable the SE_SHUTDOWN_NAME privilege for the application](samples/sample_552.md)
+To shut down or to reboot the system (API calls ExitWindowsEx, InitiateShutdown and others) the process must have the SE_SHUTDOWN_NAME privilege (default behaviour on Vista).  
+## [How to initiate System shutdown](samples/sample_122.md)
+
+## [Locking the workstation](samples/sample_300.md)
+
+# ![](images/fox1.png) Terminal Services group
+
+## [How to enumerate sessions and processes on a specified terminal server](samples/sample_519.md)
+
+## [How to enumerate terminal servers within the specified Windows domain](samples/sample_520.md)
+
+## [Locking the workstation](samples/sample_300.md)
+
+# ![](images/fox1.png) Time group
+
+## [A procedure for setting file times](samples/sample_128.md)
+
+## [Building a tree of subdirectories for a given path using FindFile functions](samples/sample_236.md)
+
+## [Comparing file times](samples/sample_171.md)
+
+## [Custom FTP Class for Visual FoxPro application](samples/sample_344.md)
+
+## [Downloading files from the FTP server using InternetReadFile](samples/sample_063.md)
+
+## [GDI+ fun: roach-infested desktop](samples/sample_548.md)
+
+## [GDI+: Implementing image scrolling with inertia](samples/sample_595.md)
+The inertial scrolling can be described as below: 
+After releasing the mouse button, the image scrolling coninues while decelerating slowly, simulating the presence of inertia. The level of the deceleration depends on the momentum the mouse cursor obtains at the button release.
+  
+## [GDI+: custom Clock Control](samples/sample_597.md)
+
+## [GDI+: how to make VFP controls visually shake and shudder](samples/sample_526.md)
+Shuddering control may appear a good way to get user`s immediate attention. For example, when Purchase Order form opens, and the shipping date is not entered or overdue, the textbox hosting this value may start vibrate and thus can be easily spotted by the user.  
+## [HOWTO: Use the Win32 API to Access File Dates and Times](samples/sample_177.md)
+
+## [How to delete IE cookies, clear IE history and delete files in Temporary Internet Files directory](samples/sample_471.md)
+The following example presents session class *CacheEntry* and collection class *CacheEntries*. The latter, when created, enumerates Internet cache entries, either cookies or history or cached files depending on the search pattern. Cache entries can be deleted through *DeleteCacheEntry* and *DeleteCacheEntries* methods of the collection class.  
+## [How to find when the application started](samples/sample_534.md)
+
+## [How to play AVI file on the _screen](samples/sample_430.md)
+
+## [How to put a horizontal text scrolling on the form (a news line, marquee)](samples/sample_352.md)
+
+## [How to retrieve information about a cache entry (Internet Explorer)](samples/sample_332.md)
+
+## [How to set Creation Date/Time for a folder (WinNT)](samples/sample_399.md)
+
+## [How to suspend or hibernate your system](samples/sample_395.md)
+
+## [Peer-to-peer LAN messenger built with Mailslot API functions](samples/sample_410.md)
+
+## [Retrieving information specific to the current Time Zone](samples/sample_073.md)
+
+## [Retrieving list of files on the FTP directory](samples/sample_046.md)
+
+## [Retrieving the System Time adjustment](samples/sample_072.md)
+
+## [Retrieving the elapsed time since the system was started](samples/sample_066.md)
+
+## [Setting the date and time that a file was created](samples/sample_065.md)
+
+## [System and Local Time values](samples/sample_064.md)
+
+## [Time in milliseconds represented as string (e.g. 1 hour 24 min 36 sec)](samples/sample_105.md)
+
+## [Using the GetTempFileName](samples/sample_016.md)
+
+## [Using the high-resolution performance counter](samples/sample_262.md)
+
+## [Winsock: sending email messages (SMTP, port 25)](samples/sample_385.md)
+
+# ![](images/fox1.png) URL Monikers group
+
+## [Accessing examples contained in this reference from a VFP application](samples/sample_197.md)
+
+## [GDI+: converting text strings to images and saving in a graphics file](samples/sample_513.md)
+In this code sample lines of text are printed on GDI+ bitmap object using a specified font. The result is saved in a graphics file. Such functionality can be used, for example, for displaying adhoc images on a web page.
+
+Before creating the target bitmap, the GdipMeasureString function is used to calculate the bounding rectangle for the lines of text drawn with a specified font.  
+## [How to download a file from HTTP server using URL Monikers functions](samples/sample_175.md)
+
+## [Obtaining current Internet Explorer browser version and UserAgent](samples/sample_142.md)
+
+## [The DetectAutoProxyUrl function identifies the auto-config script location](samples/sample_341.md)
+
+## [Using the FindMediaType function](samples/sample_297.md)
+
+## [Validating URLs using moniker functions](samples/sample_194.md)
+
+## [Yet another modal dialog: now HTML-based](samples/sample_561.md)
+
+# ![](images/fox1.png) Unicode and Character Set group
+
+## [Converting Unicode data from the Clipboard to a character string using a given code page](samples/sample_316.md)
+
+## [基于现有的文件名创建一个唯一的文件名](samples/sample_014.md)
+
+## [Creating an Open dialog box to specify the drive, directory, and name of a file to open (Shell32 version)](samples/sample_365.md)
+
+# ![](images/fox1.png) Version Information group
+
+## [How to retrieve version information for the specified file](samples/sample_480.md)
+The FileVersionInfo class encapsulates GetFileVersionInfo API call and provides read-only access to structures VS_VERSIONINFO and VS_FIXEDFILEINFO.  
+# ![](images/fox1.png) Window group
+
+## [Accessing Adobe Reader 7.0 main menu from VFP application](samples/sample_495.md)
+I was looking for a simple way of closing Adobe Reader document and leaving intact other open PDF documents and the reader itself. Presented AdobeAcrobat7 class enumerates opened pdf documents. It also can close any Acrobat document window or all document windows and more.  
+## [An alternative way of setting Form.Closable to False](samples/sample_127.md)
+
+## [Comparing dimensions of the VFP main window with _SCREEN properties](samples/sample_078.md)
+
+## [Confining Windows calculator inside the VFP main window](samples/sample_245.md)
+
+## [Copying picture of the active form to the Clipboard using Enhanced Metafile API functions](samples/sample_404.md)
+
+## [Creating a console window for Visual FoxPro application](samples/sample_474.md)
+The code explains how to create and use console (DOS-like) window with Visual FoxPro application.  
+## [Creating a window using CreateWindowEx function](samples/sample_050.md)
+
+## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
+The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
+## [Custom GDI+ class](samples/sample_450.md)
+
+## [Customizing the frame of top-level form: removing the standard frame (VFP9, Vista)](samples/sample_574.md)
+
+## [Displaying animated images on FoxPro form with BitBlt and StretchBlt functions](samples/sample_355.md)
+
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
+
+## [Displaying hypertext links with the SysLink control (VFP9, Comctl32.dll)](samples/sample_559.md)
+
+## [扩展的 MessageBox 类](samples/sample_418.md)
+
+## [GDI+: Implementing image scrolling with inertia](samples/sample_595.md)
+The inertial scrolling can be described as below: 
+After releasing the mouse button, the image scrolling coninues while decelerating slowly, simulating the presence of inertia. The level of the deceleration depends on the momentum the mouse cursor obtains at the button release.
+  
+## [GDI+: copying to the Clipboard (a) image of active FoxPro window/form, (b) image file](samples/sample_457.md)
+
+## [GDI+: custom control, base class](samples/sample_599.md)
+
+## [GDI+: saving image of FoxPro form to graphics file (BMP, GIF, JPG, PNG, TIF)](samples/sample_454.md)
+
+## [GDI+: sending image of FoxPro form to printer](samples/sample_455.md)
+
+## [GetFocus returns a HWND value](samples/sample_090.md)
+
+## [How to activate Windows Calculator](samples/sample_026.md)
+
+## [How to block the ALT+TAB shortcut (WinXP)](samples/sample_432.md)
+
+## [How to change display settings: screen resolution, screen refresh rate](samples/sample_374.md)
+Even if it is not always bright idea to change display resolution from your application, still it is comfortable to know that there is a way to do it.  
+## [如何在 MessageBox 对话框中更改字体名称和大小](samples/sample_434.md)
+
+## [How to control Adobe Reader 9.0 (SDI mode) from VFP application](samples/sample_550.md)
+Each Adobe Reader 9 window is created from window class AcrobatSDIWindow and parented by the Windows Desktop.  Enumeration of child windows of this class within the Desktop window returns the exact number of open Adobe Acrobat 9 documents.
+
+The AdobeReaderSDIWindow class is able to virtually "click on" an item in the main menu of Adobe Reader 9 window and in this way to control some of the functionality.  
+## [How to copy the image of a form to the Clipboard using Bitmap API functions](samples/sample_091.md)
+
+## [How to create transparent areas inside a form -- punching holes in the form](samples/sample_126.md)
+
+## [How to hot-track menu item selection in top-level form (requires VFP9)](samples/sample_521.md)
+This code shows how VFP top-level form can get notified upon its menu item selection. Note that the menu item is not clicked on, but selected by the mouse hovering over it or by the keyboard.  
+## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to position the GETPRINTER() dialog](samples/sample_482.md)
+The GETPRINTER() dialog normaly appears at the left top corner of the main window of FoxPro. What if you want it to popup in the middle of the screen? The interface has no input parameters that can be used to position the dialog. Still the Timer control and several API calls can solve this small problem.  
+## [How to print FoxPro form](samples/sample_158.md)
+
+## [How to print FoxPro form -- II](samples/sample_406.md)
+
+## [How to put a horizontal text scrolling on the form (a news line, marquee)](samples/sample_352.md)
+
+## [How to put a vertical text scrolling on the form (a movie cast)](samples/sample_354.md)
+
+## [How to start the screen saver and how to find whether the screen saver is active](samples/sample_196.md)
+
+## [Listing child windows for the Windows desktop](samples/sample_027.md)
+
+## [Minimizing all running applications](samples/sample_244.md)
+
+## [Moving shortcut to a specified position on the Windows Desktop](samples/sample_581.md)
+
+## [Obtaining names and positions for shortcuts located on the Windows Desktop](samples/sample_579.md)
+
+## [Obtaining some properties for the Windows desktop using the GetWindowPlacement function](samples/sample_263.md)
+
+## [Obtaining window class name for the main VFP window](samples/sample_049.md)
+
+## [Placing On-screen Alert on top of all windows](samples/sample_504.md)
+Sometimes I think that the WAIT WINDOW has insufficient appeal. Too ordinary look may cause the message passed unnoticed. So if one wants to treat the users with a real stuff, he should use the On-screen Alert.
+
+The idea is simple -- the always-on-top window with transparent background. A combination of window styles makes it not just visually transparent, but also transparent for the keyboard and mouse messages.  
+## [Placing a button on the VFP form as a new child window](samples/sample_274.md)
+
+## [Printing text with the Escape function](samples/sample_357.md)
+
+## [Reading the structure of VFP main menu](samples/sample_337.md)
+
+## [Retrieveing information about the active window (even if it is not owned by the calling process)](samples/sample_371.md)
+
+## [Retrieving geometrical parameters of the system desktop window](samples/sample_092.md)
+
+## [Retrieving top-child window for the VFP form](samples/sample_209.md)
+
+## [Running a regular FoxPro form while main VFP window is minimized](samples/sample_246.md)
+
+## [Saying "Hello World!" with VFP and WinAPI](samples/sample_119.md)
+
+## [Scanning a hierarchy of child windows down from the Windows Desktop](samples/sample_045.md)
+
+## [Scanning the hierarchy of child windows down from the main VFP window](samples/sample_261.md)
+
+## [Semi-transparent Form](samples/sample_453.md)
+
+## [Setting properties of the window: caption and user-defined value](samples/sample_182.md)
+
+## [Simple Window Viewer](samples/sample_057.md)
+This code enumerates all windows starting from the Desktop window and displays results in TreeView control.  
+## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
+
+## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
+
+## [将表单的屏幕截图存储到一个增强型元文件(*.emf)](samples/sample_402.md)
+
+## [子类化 CommandButton 控件以创建BackColor属性](samples/sample_392.md)
+
+## [Terminating all running applications from a VFP program](samples/sample_243.md)
+
+## [Testing Transparent Menu Class with top-level form (requires VFP9)](samples/sample_497.md)
+The code creates top-level form with a menu. An instance of the [MenuManager class](samples/sample_496.md) is used to make this menu semi-transparent. The form records to a cursor menu-related Windows messages and displays them in a listbox.
+  
+## [The window and its ancestors](samples/sample_266.md)
+
+## [Transparent Menu Class (requires VFP9)](samples/sample_496.md)
+The SetLayeredWindowAttributes function sets the opacity and transparency color key of a layered window. All menu popups are layered windows, so this technique can be applied to them.  
+## [使用通用控件：Header 控件](samples/sample_298.md)
+
+## [Using IsChild() for testing ThisForm.ShowWindow property](samples/sample_207.md)
+
+## [Using Month Calendar Control (VFP9, Comctl32.dll)](samples/sample_560.md)
+
+## [Using Video Capture: displaying on FoxPro form frames and previewing video obtained from a digital camera](samples/sample_437.md)
+The code sample shows how to display preview from a digital camera using Video Capture API. As well this API can display still frames and save frames to DIB files.  
+## [Using the IsWindowEnabled function](samples/sample_306.md)
+
+## [垂直标签](samples/sample_398.md)
+
+## [Who is the first in viewing the Clipboard](samples/sample_030.md)
+
+## [Who owns the Windows Clipboard](samples/sample_029.md)
+
+# ![](images/fox1.png) Window Class group
+
+## [Adding user-defined items to the Control Menu of VFP form (requires VFP9)](samples/sample_512.md)
+User-defined items can be added to the Control Menu of any VFP form. In VFP9 it is also possible to link such menu items to a method of the form.
+  
+## [Browsing Windows Known Folders (Special Folders)](samples/sample_576.md)
+
+## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+
+## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
+The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
+## [Customizing the frame of top-level form: removing the standard frame (VFP9, Vista)](samples/sample_574.md)
+
+## [Detecting changes in connections to removable drives (VFP9)](samples/sample_573.md)
+
+## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
+
+## [Displaying hypertext links with the SysLink control (VFP9, Comctl32.dll)](samples/sample_559.md)
+
+## [在系统托盘中显示图标(VFP9)](samples/sample_235.md)
+
+## [Displaying the associated icons and descriptions for files and folders](samples/sample_530.md)
+When the list of files and folders is to be displayed inside a VFP form, the ListBox VFP control and the ListView ActiveX control are probably the first two candidates for the job. 
+
+The ListBox`s presentation style can only be described as the minimalistic :) , while the ListView shows items in much fancier manner, and can even accompany each file and folder with an icon.
+
+<img src="images/sysimagelist.png" width=507 height=338>
+And an imminent question arises: where are those icons stored and how to put them to work?  
+## [Dragging files from Explorer window and dropping them on FoxPro control (requires VFP9)](samples/sample_323.md)
+
+## [Drawing cursors for the classes defined by the system (preregistered): BUTTON, EDIT, LISTBOX etc.](samples/sample_203.md)
+
+## [绘制与VFP主窗口相关的图标](samples/sample_202.md)
+
+## [扩展的 MessageBox 类](samples/sample_418.md)
+
+## [How to block the PrintScreen key](samples/sample_489.md)
+The PrintScreen key sends to the Clipboard either whole screen or just the active window (if pressed together with ALT key). To prevent windows of your application to be captured and printed by users through pressing this key, use RegisterHotKey API function. Still this solution does not provide absolute protection. A determined user may use third-party screen capturing utility that is not associated with the PrintScreen key and the Clipboard.   
+## [How to disable the Windows Clipboard (VFP9)](samples/sample_488.md)
+The Windows OS has a mechanism that allows to notify a window when the content of the clipboard changes. Any FoxPro window can be registered as a clipboard viewer. The notifications are actually window messages. And VFP9 handles window messages really good due to extended BINDEVENT() function.  
+## [How to hot-track menu item selection in top-level form (requires VFP9)](samples/sample_521.md)
+This code shows how VFP top-level form can get notified upon its menu item selection. Note that the menu item is not clicked on, but selected by the mouse hovering over it or by the keyboard.  
+## [How to make a VFP form fading out when released (GDI version)](samples/sample_528.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to make a VFP form fading out when released (GDI+ version)](samples/sample_527.md)
+When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
+
+An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
+## [How to view icons stored in executable files (Icon Viewer) - II](samples/sample_019.md)
+
+## [Listing child windows for the Windows desktop](samples/sample_027.md)
+
+## [Locking the workstation](samples/sample_300.md)
+
+## [Monitoring clipboard content changes (VFP9)](samples/sample_601.md)
+
+## [Placing a button on the VFP form as a new child window](samples/sample_274.md)
+
+## [Retrieving Window Class information for the VFP window](samples/sample_201.md)
+
+## [Retrieving information about the main VFP window](samples/sample_111.md)
+
+## [Retrieving long values associated with the class of the VFP window](samples/sample_204.md)
+
+## [Semi-transparent Form](samples/sample_453.md)
+
+## [Setting properties of the window: caption and user-defined value](samples/sample_182.md)
+
+## [Simple Window Viewer](samples/sample_057.md)
+This code enumerates all windows starting from the Desktop window and displays results in TreeView control.  
+## [Switching between keyboard layouts](samples/sample_275.md)
+
+## [System Image List Viewer](samples/sample_021.md)
+
+## [Transparent Menu Class (requires VFP9)](samples/sample_496.md)
+The SetLayeredWindowAttributes function sets the opacity and transparency color key of a layered window. All menu popups are layered windows, so this technique can be applied to them.  
+## [使用通用控件：Header 控件](samples/sample_298.md)
+
+## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+
+## [Using Month Calendar Control (VFP9, Comctl32.dll)](samples/sample_560.md)
+
+## [Using WM_COPYDATA for interprocess communication (VFP9)](samples/sample_536.md)
+An application sends the WM_COPYDATA message to pass data to another application running on the same PC. The C# and VFP versions of this code sample are functionally identical. That allows exchanging data between .NET and VFP forms (applications).  
+## [Windows Shell Icons displayed and exported to ICO files (Vista)](samples/sample_575.md)
+
+# ![](images/fox1.png) Window Procedure group
+
+## [Adding user-defined items to the Control Menu of VFP form (requires VFP9)](samples/sample_512.md)
+User-defined items can be added to the Control Menu of any VFP form. In VFP9 it is also possible to link such menu items to a method of the form.
+  
+## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+
+## [Customizing the frame of top-level form: removing the standard frame (VFP9, Vista)](samples/sample_574.md)
+
+## [Detecting changes in connections to removable drives (VFP9)](samples/sample_573.md)
+
+## [Displaying hypertext links with the SysLink control (VFP9, Comctl32.dll)](samples/sample_559.md)
+
+## [在系统托盘中显示图标(VFP9)](samples/sample_235.md)
+
+## [Dragging files from Explorer window and dropping them on FoxPro control (requires VFP9)](samples/sample_323.md)
+
+## [How to block the PrintScreen key](samples/sample_489.md)
+The PrintScreen key sends to the Clipboard either whole screen or just the active window (if pressed together with ALT key). To prevent windows of your application to be captured and printed by users through pressing this key, use RegisterHotKey API function. Still this solution does not provide absolute protection. A determined user may use third-party screen capturing utility that is not associated with the PrintScreen key and the Clipboard.   
+## [How to disable the Windows Clipboard (VFP9)](samples/sample_488.md)
+The Windows OS has a mechanism that allows to notify a window when the content of the clipboard changes. Any FoxPro window can be registered as a clipboard viewer. The notifications are actually window messages. And VFP9 handles window messages really good due to extended BINDEVENT() function.  
+## [How to hot-track menu item selection in top-level form (requires VFP9)](samples/sample_521.md)
+This code shows how VFP top-level form can get notified upon its menu item selection. Note that the menu item is not clicked on, but selected by the mouse hovering over it or by the keyboard.  
+## [Monitoring clipboard content changes (VFP9)](samples/sample_601.md)
+
+## [Switching between keyboard layouts](samples/sample_275.md)
+
+## [Transparent Menu Class (requires VFP9)](samples/sample_496.md)
+The SetLayeredWindowAttributes function sets the opacity and transparency color key of a layered window. All menu popups are layered windows, so this technique can be applied to them.  
+## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+
+## [Using Month Calendar Control (VFP9, Comctl32.dll)](samples/sample_560.md)
+
+## [Using WM_COPYDATA for interprocess communication (VFP9)](samples/sample_536.md)
+An application sends the WM_COPYDATA message to pass data to another application running on the same PC. The C# and VFP versions of this code sample are functionally identical. That allows exchanging data between .NET and VFP forms (applications).  
+# ![](images/fox1.png) Window Property group
+
+## [How to write and read Window Properties for the specified window](samples/sample_205.md)
+
+# ![](images/fox1.png) Window Station and Desktop group
+
+## [How to prevent users from accessing the Windows Desktop and from switching to other applications](samples/sample_492.md)
+Sometimes you may need a computer with a single application running on it, and with all other applications and resources hidden from users. An example, Indigo Book Store customers can only search books when using public computers in the store.
+  
+## [How to start the screen saver and how to find whether the screen saver is active](samples/sample_196.md)
+
+## [Obtaining a handle to the desktop associated with the calling thread](samples/sample_239.md)
+
+# ![](images/fox1.png) Windows Controls group
+
+## [How to view icons stored in executable files (Icon Viewer) - II](samples/sample_019.md)
+
+## [How to view system icons for the classes installed on the local machine](samples/sample_544.md)
+The bitmap images for the classes installed on the machine are stored in some system area. These images are more of a general kind and illustrate functionality groups rather than individual classes. With a few API calls VFP application can access these images and display them in TreeView and ListView controls as icons.  
+## [System Image List Viewer](samples/sample_021.md)
+
+## [使用通用控件：Header 控件](samples/sample_298.md)
+
+# ![](images/fox1.png) Windows Multimedia group
+
+## [Accessing a CD device (cdaudio) with Multimedia Command Strings](samples/sample_279.md)
+
+## [Adding supplementary data to AVI files](samples/sample_481.md)
+The code explains how supplementary data (copyright, comments etc.) can be stored in AVI files.  
+## [Changing pitch and speed of a wave file](samples/sample_422.md)
+
+## [Class for sound recording](samples/sample_420.md)
+
+## [Enumerating MIDI output devices](samples/sample_507.md)
+
+## [How to extract frames from AVI files](samples/sample_484.md)
+The example presents the AviBrowser class. This class can open AVI file and convert its frames into bitmap files. The AviBrowser object is shown used as a control on FoxPro form. For that reason, it is subclassed from the Image control.  
+## [How to play AVI file on the _screen](samples/sample_430.md)
+
+## [How to play MIDI notes](samples/sample_537.md)
+Set the note in 0 to 127 range and the velocity (how hard the key is pressed) in 20 to 200+ range and press Enter.  
+## [How to play a waveform sound (a WAV file in particular)](samples/sample_251.md)
+
+## [Playing WAV files on InteractiveChange](samples/sample_594.md)
+
+## [Playing WAV sounds simultaneously](samples/sample_523.md)
+This code is written in response to a question posted on UT: Ride two WAVs at once? As I found, the sndPlaySound was not suitable for this. To play multiple sounds simultaneously, the waveOut* functions must be used...  
+## [Quering Audio Mixer Device](samples/sample_423.md)
+
+## [Quering a waveform-audio input device](samples/sample_366.md)
+
+## [Quering waveform-audio output devices](samples/sample_393.md)
+
+## [Reading header information from AVI file](samples/sample_428.md)
+
+## [Reading parameters of streams in AVI file](samples/sample_429.md)
+
+## [Using Multimedia Command Strings to play MIDI files](samples/sample_538.md)
+
+## [Using Video Capture: displaying on FoxPro form frames and previewing video obtained from a digital camera](samples/sample_437.md)
+The code sample shows how to display preview from a digital camera using Video Capture API. As well this API can display still frames and save frames to DIB files.  
+## [Using Video Capture: enumerating installed capture drivers](samples/sample_438.md)
+
+## [WAV file player](samples/sample_417.md)
+
+## [WAV file recorder](samples/sample_421.md)
+
+# ![](images/fox1.png) Windows Networking group
+
+## [Connecting a local device to a network resource](samples/sample_318.md)
+
+## [Enumerating network resources](samples/sample_313.md)
+The code uses WNet API calls to enumerate all resources on the network.  
+## [Joining local computer to a domain (XP/2000)](samples/sample_439.md)
+
+## [Mapping and disconnecting network drives](samples/sample_387.md)
+
+## [Obtaining provider name for a specific type of network](samples/sample_311.md)
+
+## [Retrieving Network Provider information](samples/sample_315.md)
+
+## [Retrieving a universal form for the drive-based path for a network resource](samples/sample_317.md)
+
+## [Retrieving current user for the process](samples/sample_310.md)
+
+## [Retrieving the name of the network resource associated with a local device](samples/sample_314.md)
+
+## [Retrieving the name of the primary domain controller (PDC) and join status information](samples/sample_166.md)
+
+## [Starting a dialog box for connecting to network resources (mapping network drive)](samples/sample_309.md)
+
+## [Starting a dialog box for connecting to network resources and passing input parameters](samples/sample_551.md)
+This code sample is an extension of  "#309. Starting a dialog box for connecting to network resources". The code is written around the WNetConnectionDialog1 function and provides a better control of the network connection dialog through input parameters.  
+# ![](images/fox1.png) Windows Sockets 2 (Winsock) group
+
+## [A client for testing non-blocking Winsock server](samples/sample_413.md)
+
+## [How to build UDP responder](samples/sample_052.md)
+
+## [How to create non-blocking Winsock server](samples/sample_412.md)
+
+## [How to ping a remote site using ICMP API calls](samples/sample_486.md)
+The Ping class uses several API functions -- IcmpCreateFile, IcmpCloseHandle, IcmpSendEcho and others -- to send an ICMP Echo request and get a reply (RTT, round-trip time).   
+## [How to ping a remote site using IP Helper API calls](samples/sample_382.md)
+
+## [How to retrieve network parameters for the local computer (including Host name, Domain name, and DNS Server)](samples/sample_348.md)
+
+## [Obtaining MAC address through Address Resolution Protocol (ARP) request](samples/sample_585.md)
+
+## [Retrieving the IP-to-physical address mapping table](samples/sample_230.md)
+
+## [Retrieving the User Datagram Protocol (UDP) listener table](samples/sample_234.md)
+
+## [Retrieving the interface�to�IP address mapping table](samples/sample_233.md)
+
+## [Winsock: changing the byte ordering](samples/sample_221.md)
+
+## [Winsock: connecting to a news server (NNTP, port 119)](samples/sample_389.md)
+
+## [Winsock: creating a socket that is bound to a specific service provider](samples/sample_226.md)
+
+## [Winsock: how to retrieve a service information corresponding to a port](samples/sample_219.md)
+
+## [Winsock: how to retrieve a service information corresponding to a service name](samples/sample_220.md)
+
+## [Winsock: how to retrieve the protocol information corresponding to a protocol name](samples/sample_224.md)
+
+## [Winsock: how to retrieve the protocol information corresponding to a protocol number](samples/sample_225.md)
+
+## [Winsock: initializing the service in the VFP application](samples/sample_214.md)
+
+## [Winsock: reading and setting socket options](samples/sample_232.md)
+
+## [Winsock: reading email messages (POP3, port 110)](samples/sample_388.md)
+
+## [Winsock: resolving an address to a host name](samples/sample_570.md)
+
+## [Winsock: retrieving Web pages using sockets (HTTP, port 80)](samples/sample_383.md)
+
+## [Winsock: retrieving directory listing from an FTP server using passive data connection (FTP, port 21)](samples/sample_386.md)
+
+## [Winsock: retrieving information about available transport protocols](samples/sample_223.md)
+
+## [Winsock: retrieving information from a host database for a given host name](samples/sample_216.md)
+
+## [Winsock: retrieving the host information corresponding to a network address](samples/sample_217.md)
+
+## [Winsock: retrieving the standard host name and IP address for the local machine](samples/sample_215.md)
+
+## [Winsock: sending email messages (SMTP, port 25)](samples/sample_385.md)
+[<img src="images/home.png"> 主页 ](https://github.com/vfp9/Win32API)  
+
