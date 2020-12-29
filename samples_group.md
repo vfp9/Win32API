@@ -470,112 +470,112 @@ ListBox 的表现风格只能用简约来形容:) ，而 ListView 的表现方�
 
 ## [绘制与VFP主窗口相关的图标](samples/sample_202.md)
 
-## [Exporting DLL icon resources as .ICO files](samples/sample_502.md)
-This code includes definitions for three classes: IconGroups, IconGroupResource and IconResource. The IconGroups is a collection of the IconGroupResource objects. The icons property of the IconGroupResource class is a collection of the IconResource objects.
+## [将DLL图标资源导出为.ICO文件](samples/sample_502.md)
+这段代码包括三个类的定义。IconGroups、IconGroupResource和IconResource三个类的定义。IconGroups是IconGroupResource对象的集合。IconGroupResource类的icons属性是IconResource对象的集合。
 
-The IconGroupResource and IconResource classes include SaveToFile method that saves the resource to .ICO file.
+IconGroupResource和IconResource类包含SaveToFile方法，可以将资源保存到.ICO文件中。
   
-## [Finding the path to the VFP executable running](samples/sample_086.md)
+## [找到运行VFP可执行文件的路径](samples/sample_086.md)
 
-## [GDI+: Storing DLL icon resources in image files](samples/sample_501.md)
+## [GDI+：在图像文件中存储DLL图标资源](samples/sample_501.md)
 
 ## [GDI+: custom Clock Control](samples/sample_597.md)
 
 ## [如何在 MessageBox 对话框中显示用户自定义的图标](samples/sample_500.md)
 
-## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
+## [如何显示文件的属性对话框（ShellExecuteEx）](samples/sample_320.md)
 
-## [How to view icons stored in executable files (Icon Viewer)](samples/sample_113.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器)](samples/sample_113.md)
 
-## [Loading a string resource from an executable file](samples/sample_213.md)
+## [从可执行文件加载字符串资源](samples/sample_213.md)
 
-## [Retrieving Window Class information for the VFP window](samples/sample_201.md)
+## [检索VFP窗口的窗口类信息](samples/sample_201.md)
 
-## [Retrieving a handle to DLL and address of an exported function in it](samples/sample_085.md)
+## [检索DLL的句柄和其中的导出函数的地址](samples/sample_085.md)
 
-## [Retrieving file information for the VFP executable running](samples/sample_242.md)
+## [检索正在运行的VFP可执行文件的文件信息](samples/sample_242.md)
 
-## [Retrieving information about the main VFP window](samples/sample_111.md)
+## [检索VFP主窗口的信息](samples/sample_111.md)
 
-## [Retrieving information about the specified icon](samples/sample_206.md)
+## [检索指定图标的信息](samples/sample_206.md)
 
-## [Storing registration key in the resources of an executable file](samples/sample_401.md)
-This sample shows how to save a registration key -- actually it can be any binary data -- in the resources of any VFP application (executable file) any time after its compilation.
+## [在可执行文件的资源中存储注册码](samples/sample_401.md)
+这个例子展示了如何在任何VFP应用程序（可执行文件）编译后的任何时候将注册密钥--实际上它可以是任何二进制数据--保存在其资源中。
 
-You know about "Other Files" section inside the Project Manager. I think, that would be handy to have a similar section named "Resources", where files like icons, bitmaps, sounds, strings and others could be added. And after the file compiled into an executable, they could be reached through the Resource API calls LoadResource, LoadString, LoadImage and so on.  
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+你知道项目管理器中的 "其他文件 "部分。我想，如果能有一个类似的 "资源 "部分，那将会很方便，在那里可以添加图标、位图、声音、字符串等文件。而在文件编译成可执行文件后，可以通过 Resource API 调用LoadResource、LoadString、LoadImage等来访问它们。 
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
-## [Using GetBinaryType (WinNT only) to determine the type of an executable file](samples/sample_115.md)
+## [使用GetBinaryType（仅适用于WinNT）确定可执行文件的类型](samples/sample_115.md)
 
-## [Using LoadLibrary](samples/sample_007.md)
+## [使用 LoadLibrary](samples/sample_007.md)
 
-# ![](images/fox1.png) Error Handling group
+# ![](images/fox1.png) 错误处理
 
-## [A class that encrypts and decrypts files using Cryptography API Functions](samples/sample_511.md)
-This simple class uses several Cryptography API Functions to implement password-protected encryption and decryption of files.  
-## [Adding printer to the list of supported printers for the specified server](samples/sample_335.md)
+## [一个使用 Cryptography API 函数对文件进行加密和解密的类](samples/sample_511.md)
+这个简单的类使用几个 Cryptography API 函数来实现密码保护的文件的加密和解密。 
+## [将打印机添加到指定服务器支持的打印机列表中](samples/sample_335.md)
 
-## [Basic Volume information](samples/sample_098.md)
+## [基本卷信息](samples/sample_098.md)
 
-## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+## [使用Raw Input API（VFP9）捕获另一个应用程序的键盘活动](samples/sample_572.md)
 
-## [Closing Windows](samples/sample_036.md)
+## [关闭操作系统](samples/sample_036.md)
 
-## [Compressing and decompressing files with Windows API Runtime Library routines](samples/sample_568.md)
+## [使用 Windows API Runtime Library 例程压缩和解压文件](samples/sample_568.md)
 
-## [Connecting a local device to a network resource](samples/sample_318.md)
+## [将本地设备连接到网络资源](samples/sample_318.md)
 
-## [Controlling master audio volume by sending WM_APPCOMMAND messages](samples/sample_592.md)
-The WM_APPCOMMAND message allows to acquire medium level of control over several OS areas: speakers, microphone, media, browser, mail, default applications. This code sample shows how to mute, unmute and change the volume of the speakers. This technique provides no means of reading the volume level or the mute status.  
-## [Converting Unicode data from the Clipboard to a character string using a given code page](samples/sample_316.md)
+## [通过发送WM_APPCOMMAND消息来控制主音频音量](samples/sample_592.md)
+WM_APPCOMMAND消息允许获得对多个OS区域的中等控制级别：扬声器，麦克风，媒体，浏览器，邮件，默认应用程序。 此代码示例演示如何静音，取消静音和更改扬声器的音量。 此技术无法读取音量或静音状态。  
+## [使用给定的代码页将剪贴板中的Unicode数据转换为字符串](samples/sample_316.md)
 
-## [Converting command-line string to a set of Unicode argument strings](samples/sample_212.md)
+## [将命令行字符串转换为一组Unicode参数字符串](samples/sample_212.md)
 
-## [Converting long file names to the short format and vice versa](samples/sample_055.md)
+## [将长文件名转换为短格式，反之亦然](samples/sample_055.md)
 
-## [Copying files as a transacted operation (Vista)](samples/sample_540.md)
+## [将复制文件作为一项事务性操作（Vista）](samples/sample_540.md)
 
-## [Creating a console window for Visual FoxPro application](samples/sample_474.md)
-The code explains how to create and use console (DOS-like) window with Visual FoxPro application.  
-## [Creating a device context for the specified printer](samples/sample_145.md)
+## [为 Visual FoxPro 应用程序创建一个控制台窗口](samples/sample_474.md)
+该代码解释了如何在 Visual FoxPro 应用程序中创建和使用控制台（类似DOS）窗口。  
+## [为指定的打印机创建设备上下文](samples/sample_145.md)
 
-## [Creating a folder](samples/sample_001.md)
+## [创建一个文件夹](samples/sample_001.md)
 
-## [Creating a mailslot](samples/sample_267.md)
+## [创建一个邮箱](samples/sample_267.md)
 
-## [CryptoAPI: Collection of Providers class](samples/sample_463.md)
-The CryptoAPI Providers class presents collection of cryptographic service providers (CSP) available on a computer. Each provider is described with type, name, collections of available containers and algorithms.  
-## [Custom FTP Class for Visual FoxPro application](samples/sample_344.md)
+## [CryptoAPI: Providers 类的集合](samples/sample_463.md)
+CryptoAPI Providers类提供了计算机上可用的加密服务 providers（CSP）的集合。每个 provider 都被描述为类型、名称、可用容器和算法的集合。  
+## [用于Visual FoxPro应用程序的自定义 FTP 类](samples/sample_344.md)
 
-## [Custom HttpRequest class (WinHTTP)](samples/sample_397.md)
+## [自定义HttpRequest类(WinHTTP)](samples/sample_397.md)
 
-## [Custom HttpRequest class (WinINet)](samples/sample_185.md)
-This class is used for sending "GET" and "POST" HTTP requests to webserver and receiving responses.  
-## [Determining if an Active Network Connection is Available](samples/sample_324.md)
+## [自定义HttpRequest类(WinINet)](samples/sample_185.md)
+该类用于向webserver发送 "GET "和 "POST "HTTP请求并接收响应。  
+## [确定是否有活动的网络连接](samples/sample_324.md)
 
-## [DiskFreeSpace class](samples/sample_100.md)
+## [DiskFreeSpace 类](samples/sample_100.md)
 
-## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
+## [使用 AlphaBlend 函数显示位图](samples/sample_293.md)
 
 ## [在 VFP 顶层表单后面显示一个暗色调窗口](samples/sample_578.md)
 
-## [Encapsulating access to the Windows Services in a class](samples/sample_476.md)
-The winservices class, subclassed from the Collection class, enumerates Windows Services found in the default service control manager database on local computer. Each item in the collection is an instance of the winservice class that wraps the members of ENUM_SERVICE_STATUS structure for a given service. The winservice object exposes methods StartService, StopService and PauseService.  
-## [Enumerating Processes -- WinNT](samples/sample_162.md)
+## [将对Windows服务的访问封装在一个类中](samples/sample_476.md)
+从Collection类继承的winservices类枚举了在本地计算机上默认服务控制管理器数据库中找到的Windows Services。 集合中的每个项目都是winservice类的实例，该类包装给定服务的ENUM_SERVICE_STATUS结构的成员。 winservice对象公开了StartService，StopService和PauseService方法。  
+## [枚举进程 -- WinNT](samples/sample_162.md)
 
-## [Enumerating forms supported by a specified printer](samples/sample_390.md)
+## [枚举指定打印机支持的格式](samples/sample_390.md)
 
-## [Enumerating ports that are available for printing on a specified server](samples/sample_334.md)
+## [枚举指定服务器上可用的打印端口](samples/sample_334.md)
 
-## [Enumerating print jobs and retrieving information for default printer (JOB_INFO_1 structures)](samples/sample_368.md)
+## [枚举打印作业并检索默认打印机的信息(JOB_INFO_1结构)](samples/sample_368.md)
 
-## [Enumerating print processors and supporting data types installed on the specified server](samples/sample_333.md)
+## [枚举安装在指定服务器上的打印处理器和支持的数据类型](samples/sample_333.md)
 
-## [Enumerating printer drivers installed](samples/sample_082.md)
+## [枚举安装的打印机驱动程序](samples/sample_082.md)
 
-## [Enumerating the subkeys of a user-specific key](samples/sample_129.md)
+## [枚举用户指定(注册表)键的子键](samples/sample_129.md)
 
-## [Finding parameters for the region specified](samples/sample_124.md)
+## [查找指定区域的参数](samples/sample_124.md)
 
 ## [Generating random cryptographic keys](samples/sample_590.md)
 The CryptKeyHelper class defined in the code sample below is a wrapper around Windows API Cryptography functions. It implements methods allowing to generate a random cryptographic key, to export the key to a specified file, and to import a key from a specified file.  
@@ -607,7 +607,7 @@ The following example presents session class *CacheEntry* and collection class *
 
 ## [如何在 MessageBox 对话框中显示用户自定义的图标](samples/sample_500.md)
 
-## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
+## [如何显示文件的属性对话框（ShellExecuteEx）](samples/sample_320.md)
 
 ## [How to display the port-configuration dialog box for a port on the specified server](samples/sample_362.md)
 
@@ -701,7 +701,7 @@ This code sample includes a set of classes implementing several NTFS access cont
 
 ## [Retrieving System Error message strings](samples/sample_056.md)
 
-## [Retrieving a handle to DLL and address of an exported function in it](samples/sample_085.md)
+## [检索DLL的句柄和其中的导出函数的地址](samples/sample_085.md)
 
 ## [Retrieving graphic capabilities of default printer](samples/sample_155.md)
 
@@ -729,10 +729,10 @@ This code sample retrieves the name of default printer on local computer and obt
 
 ## [Starting external program from VFP and waiting for its termination](samples/sample_377.md)
 
-## [Storing registration key in the resources of an executable file](samples/sample_401.md)
-This sample shows how to save a registration key -- actually it can be any binary data -- in the resources of any VFP application (executable file) any time after its compilation.
+## [在可执行文件的资源中存储注册码](samples/sample_401.md)
+这个例子展示了如何在任何VFP应用程序（可执行文件）编译后的任何时候将注册密钥--实际上它可以是任何二进制数据--保存在其资源中。
 
-You know about "Other Files" section inside the Project Manager. I think, that would be handy to have a similar section named "Resources", where files like icons, bitmaps, sounds, strings and others could be added. And after the file compiled into an executable, they could be reached through the Resource API calls LoadResource, LoadString, LoadImage and so on.  
+你知道项目管理器中的 "其他文件 "部分。我想，如果能有一个类似的 "资源 "部分，那将会很方便，在那里可以添加图标、位图、声音、字符串等文件。而在文件编译成可执行文件后，可以通过 Resource API 调用LoadResource、LoadString、LoadImage等来访问它们。 
 ## [Terminating VFP application using the FatalAppExit](samples/sample_229.md)
 
 ## [Testing serial ports](samples/sample_308.md)
@@ -751,7 +751,7 @@ The code explains how to use FindFirstPrinterChangeNotification and FindNextPrin
 
 ## [Using FtpCommand](samples/sample_059.md)
 
-## [Using LoadLibrary](samples/sample_007.md)
+## [使用 LoadLibrary](samples/sample_007.md)
 
 ## [Using MessageBeep](samples/sample_037.md)
 
@@ -797,15 +797,15 @@ This code sample explains how to add entries to event logs using Event Logging A
 
 ## [Comparing file times](samples/sample_171.md)
 
-## [Converting long file names to the short format and vice versa](samples/sample_055.md)
+## [将长文件名转换为短格式，反之亦然](samples/sample_055.md)
 
 ## [Converting path to original case](samples/sample_102.md)
 
-## [Copying files as a transacted operation (Vista)](samples/sample_540.md)
+## [将复制文件作为一项事务性操作（Vista）](samples/sample_540.md)
 
 ## [Creating a file, then moving it to another destination](samples/sample_015.md)
 
-## [Creating a folder](samples/sample_001.md)
+## [创建一个文件夹](samples/sample_001.md)
 
 ## [基于现有的文件名创建一个唯一的文件名](samples/sample_014.md)
 
@@ -842,7 +842,7 @@ It all started with a question I have noticed in the Universal Thread Visual Fox
 
 ## [Peer-to-peer LAN messenger built with Mailslot API functions](samples/sample_410.md)
 
-## [Retrieving file information for the VFP executable running](samples/sample_242.md)
+## [检索正在运行的VFP可执行文件的文件信息](samples/sample_242.md)
 
 ## [Retrieving information about MS-DOS device names using QueryDosDevice (WinNT only)](samples/sample_241.md)
 
@@ -864,7 +864,7 @@ The msdos class allows issuing a set of MSDOS commands and getting back a respon
 In Windows all input/output ports are presented as files, so work with ports is performed through file functions like *CreateFile, CloseHandle, ReadFile, ReadFileEx, WriteFile* and *WriteFileEx*.  
 ## [Using File Mapping for enumerating files opened by Visual FoxPro](samples/sample_473.md)
 *File mapping* is the association of the contents of a file with a portion of the virtual address space of a process. API function GetMappedFileName called in combination with CreateFileMapping and MapViewOfFile functions is able to retrieve the name for a given file handle.  
-## [Using GetBinaryType (WinNT only) to determine the type of an executable file](samples/sample_115.md)
+## [使用GetBinaryType（仅适用于WinNT）确定可执行文件的类型](samples/sample_115.md)
 
 ## [Using GetFileSize](samples/sample_114.md)
 
@@ -894,7 +894,7 @@ This code sample contains definitions of two classes, NamedPipeServer and NamedP
 
 # ![](images/fox1.png) File System group
 
-## [Basic Volume information](samples/sample_098.md)
+## [基本卷信息](samples/sample_098.md)
 
 ## [Detecting changes in connections to removable drives (VFP9)](samples/sample_573.md)
 
@@ -902,7 +902,7 @@ This code sample contains definitions of two classes, NamedPipeServer and NamedP
 
 ## [Disk in drive A:](samples/sample_319.md)
 
-## [DiskFreeSpace class](samples/sample_100.md)
+## [DiskFreeSpace 类](samples/sample_100.md)
 
 ## [Enumerating Volumes and Volume Mounting Points (NTFS)](samples/sample_087.md)
 
@@ -1057,23 +1057,23 @@ A transformation is a process that changes graphics objects from one state to an
 
 # ![](images/fox1.png) HTTP Functions (WinHTTP) group
 
-## [Custom HttpRequest class (WinHTTP)](samples/sample_397.md)
+## [自定义HttpRequest类(WinHTTP)](samples/sample_397.md)
 
 # ![](images/fox1.png) Handle and Object group
 
 ## [Comparing file times](samples/sample_171.md)
 
-## [Copying files as a transacted operation (Vista)](samples/sample_540.md)
+## [将复制文件作为一项事务性操作（Vista）](samples/sample_540.md)
 
-## [Creating a console window for Visual FoxPro application](samples/sample_474.md)
-The code explains how to create and use console (DOS-like) window with Visual FoxPro application.  
+## [为 Visual FoxPro 应用程序创建一个控制台窗口](samples/sample_474.md)
+该代码解释了如何在 Visual FoxPro 应用程序中创建和使用控制台（类似DOS）窗口。  
 ## [Creating a file, then moving it to another destination](samples/sample_015.md)
 
-## [Creating a mailslot](samples/sample_267.md)
+## [创建一个邮箱](samples/sample_267.md)
 
 ## [Enumerating Processes -- Win9*](samples/sample_164.md)
 
-## [Enumerating Processes -- WinNT](samples/sample_162.md)
+## [枚举进程 -- WinNT](samples/sample_162.md)
 
 ## [HOWTO: Use the Win32 API to Access File Dates and Times](samples/sample_177.md)
 
@@ -1126,7 +1126,7 @@ This example shows how to switch to another domain user within FoxPro applicatio
 
 ## [Reading and setting the priority class values for the current process and thread](samples/sample_218.md)
 
-## [Retrieving file information for the VFP executable running](samples/sample_242.md)
+## [检索正在运行的VFP可执行文件的文件信息](samples/sample_242.md)
 
 ## [Running MSDOS Shell as a child process with redirected input and output (smarter RUN command)](samples/sample_477.md)
 The msdos class allows issuing a set of MSDOS commands and getting back a response as a string. The MSDOS window is present but not visible. The code creates a child process running an msdos session and redirects its standard input and output handles to anonymous pipes.  
@@ -1217,21 +1217,21 @@ And an imminent question arises: where are those icons stored and how to put the
 
 ## [Drawing standard Windows icons](samples/sample_112.md)
 
-## [GDI+: Storing DLL icon resources in image files](samples/sample_501.md)
+## [GDI+：在图像文件中存储DLL图标资源](samples/sample_501.md)
 
 ## [GDI+: custom Clock Control](samples/sample_597.md)
 
-## [How to view icons stored in executable files (Icon Viewer)](samples/sample_113.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器)](samples/sample_113.md)
 
-## [How to view icons stored in executable files (Icon Viewer) - II](samples/sample_019.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器) - II](samples/sample_019.md)
 
-## [Retrieving information about the specified icon](samples/sample_206.md)
+## [检索指定图标的信息](samples/sample_206.md)
 
 ## [将表单的屏幕截图存储到一个位图文件](samples/sample_187.md)
 
 ## [System Image List Viewer](samples/sample_021.md)
 
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 ## [Windows Shell Icons displayed and exported to ICO files (Vista)](samples/sample_575.md)
 
@@ -1243,10 +1243,10 @@ And an imminent question arises: where are those icons stored and how to put the
 
 ## [Creating a directory on the FTP](samples/sample_047.md)
 
-## [Custom FTP Class for Visual FoxPro application](samples/sample_344.md)
+## [用于Visual FoxPro应用程序的自定义 FTP 类](samples/sample_344.md)
 
-## [Custom HttpRequest class (WinINet)](samples/sample_185.md)
-This class is used for sending "GET" and "POST" HTTP requests to webserver and receiving responses.  
+## [自定义HttpRequest类(WinINet)](samples/sample_185.md)
+该类用于向webserver发送 "GET "和 "POST "HTTP请求并接收响应。  
 ## [Dial the Net Automatically](samples/sample_140.md)
 
 ## [Downloading files from the FTP server using InternetReadFile](samples/sample_063.md)
@@ -1303,7 +1303,7 @@ The following example presents session class *CacheEntry* and collection class *
 
 # ![](images/fox1.png) Kernel Transaction Manager group
 
-## [Copying files as a transacted operation (Vista)](samples/sample_540.md)
+## [将复制文件作为一项事务性操作（Vista）](samples/sample_540.md)
 
 # ![](images/fox1.png) Keyboard Input group
 
@@ -1317,7 +1317,7 @@ The following example presents session class *CacheEntry* and collection class *
 
 ## [Bitmap Class for Visual FoxPro application](samples/sample_295.md)
 
-## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+## [使用Raw Input API（VFP9）捕获另一个应用程序的键盘活动](samples/sample_572.md)
 
 ## [Comparing dimensions of the VFP main window with _SCREEN properties](samples/sample_078.md)
 
@@ -1345,7 +1345,7 @@ The following example presents session class *CacheEntry* and collection class *
 
 ## [Displaying animated images on FoxPro form with BitBlt and StretchBlt functions](samples/sample_355.md)
 
-## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
+## [使用 AlphaBlend 函数显示位图](samples/sample_293.md)
 
 ## [Displaying printer-properties Property Sheet for the specified printer](samples/sample_372.md)
 
@@ -1407,7 +1407,7 @@ The PrintScreen key sends to the Clipboard either whole screen or just the activ
 
 ## [How to display picture stored in enhanced-format metafile (*.emf)](samples/sample_403.md)
 
-## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
+## [如何显示文件的属性对话框（ShellExecuteEx）](samples/sample_320.md)
 
 ## [How to display the port-configuration dialog box for a port on the specified server](samples/sample_362.md)
 
@@ -1437,7 +1437,7 @@ The GETPRINTER() dialog normaly appears at the left top corner of the main windo
 As you know, the RMDIR generates an error message when an attempt made to remove a directory that is not empty. This example shows how to remove a directory with files based on the SHFileOperation call.  
 ## [How to start the screen saver and how to find whether the screen saver is active](samples/sample_196.md)
 
-## [How to view icons stored in executable files (Icon Viewer)](samples/sample_113.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器)](samples/sample_113.md)
 
 ## [Initiating Inet connection using a modem](samples/sample_312.md)
 
@@ -1465,9 +1465,9 @@ As you know, the RMDIR generates an error message when an attempt made to remove
 
 ## [Reading virtual key status values and key names](samples/sample_305.md)
 
-## [Retrieving Window Class information for the VFP window](samples/sample_201.md)
+## [检索VFP窗口的窗口类信息](samples/sample_201.md)
 
-## [Retrieving information about the main VFP window](samples/sample_111.md)
+## [检索VFP主窗口的信息](samples/sample_111.md)
 
 ## [Retrieving long values associated with the class of the VFP window](samples/sample_204.md)
 
@@ -1551,7 +1551,7 @@ As you know, the RMDIR generates an error message when an attempt made to remove
 
 # ![](images/fox1.png) Mailslot group
 
-## [Creating a mailslot](samples/sample_267.md)
+## [创建一个邮箱](samples/sample_267.md)
 
 ## [Peer-to-peer LAN messenger built with Mailslot API functions](samples/sample_410.md)
 
@@ -1563,7 +1563,7 @@ As you know, the RMDIR generates an error message when an attempt made to remove
 With Scheduled Tasks, you can schedule any script, program, or document to run at a time that is most convenient for you. Scheduled Tasks starts each time you start Windows XP and runs in the background.  
 ## [Adding and deleting User Accounts](samples/sample_478.md)
 FoxPro class UserAccount wraps NetUserAdd, NetUserDel, NetUserGetInfo and NetUserSetInfo API calls to add, delete and modify user accounts on a server.  
-## [Adding printer to the list of supported printers for the specified server](samples/sample_335.md)
+## [将打印机添加到指定服务器支持的打印机列表中](samples/sample_335.md)
 
 ## [Adding user-defined items to the Control Menu of VFP form (requires VFP9)](samples/sample_512.md)
 User-defined items can be added to the Control Menu of any VFP form. In VFP9 it is also possible to link such menu items to a method of the form.
@@ -1576,23 +1576,23 @@ User-defined items can be added to the Control Menu of any VFP form. In VFP9 it 
 
 ## [Class for sound recording](samples/sample_420.md)
 
-## [Compressing and decompressing files with Windows API Runtime Library routines](samples/sample_568.md)
+## [使用 Windows API Runtime Library 例程压缩和解压文件](samples/sample_568.md)
 
-## [Connecting a local device to a network resource](samples/sample_318.md)
+## [将本地设备连接到网络资源](samples/sample_318.md)
 
-## [Converting command-line string to a set of Unicode argument strings](samples/sample_212.md)
+## [将命令行字符串转换为一组Unicode参数字符串](samples/sample_212.md)
 
 ## [Copying strings through the global memory block](samples/sample_156.md)
 
-## [Creating a folder](samples/sample_001.md)
+## [创建一个文件夹](samples/sample_001.md)
 
 ## [Creating the Open dialog box to specify the drive, directory, and name of a file to open](samples/sample_363.md)
 
 ## [Creating the Save dialog box to specify the drive, directory, and name of a file to save](samples/sample_265.md)
 
-## [Custom FTP Class for Visual FoxPro application](samples/sample_344.md)
+## [用于Visual FoxPro应用程序的自定义 FTP 类](samples/sample_344.md)
 
-## [Custom HttpRequest class (WinHTTP)](samples/sample_397.md)
+## [自定义HttpRequest类(WinHTTP)](samples/sample_397.md)
 
 ## [Deleting files into the Recycle Bin](samples/sample_321.md)
 
@@ -1608,23 +1608,23 @@ The SHFileOperation copies, deletes and moves a file or multiple files. A variet
 
 ## [Dynamic strings implemented through VFP Custom class](samples/sample_157.md)
 
-## [Encapsulating access to the Windows Services in a class](samples/sample_476.md)
-The winservices class, subclassed from the Collection class, enumerates Windows Services found in the default service control manager database on local computer. Each item in the collection is an instance of the winservice class that wraps the members of ENUM_SERVICE_STATUS structure for a given service. The winservice object exposes methods StartService, StopService and PauseService.  
+## [将对Windows服务的访问封装在一个类中](samples/sample_476.md)
+从Collection类继承的winservices类枚举了在本地计算机上默认服务控制管理器数据库中找到的Windows Services。 集合中的每个项目都是winservice类的实例，该类包装给定服务的ENUM_SERVICE_STATUS结构的成员。 winservice对象公开了StartService，StopService和PauseService方法。  
 ## [Enhanced GetFont dialog](samples/sample_159.md)
 
 ## [Enumerating data formats currently available on the clipboard](samples/sample_032.md)
 
 ## [Enumerating files opened on the network](samples/sample_121.md)
 
-## [Enumerating forms supported by a specified printer](samples/sample_390.md)
+## [枚举指定打印机支持的格式](samples/sample_390.md)
 
 ## [Enumerating network resources](samples/sample_313.md)
 The code uses WNet API calls to enumerate all resources on the network.  
-## [Enumerating ports that are available for printing on a specified server](samples/sample_334.md)
+## [枚举指定服务器上可用的打印端口](samples/sample_334.md)
 
-## [Enumerating print jobs and retrieving information for default printer (JOB_INFO_1 structures)](samples/sample_368.md)
+## [枚举打印作业并检索默认打印机的信息(JOB_INFO_1结构)](samples/sample_368.md)
 
-## [Enumerating printer drivers installed](samples/sample_082.md)
+## [枚举安装的打印机驱动程序](samples/sample_082.md)
 
 ## [Extensible Storage Engine class library](samples/sample_532.md)
 
@@ -1649,7 +1649,7 @@ The following example presents session class *CacheEntry* and collection class *
 
 ## [How to display the Print property sheet](samples/sample_531.md)
 
-## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
+## [如何显示文件的属性对话框（ShellExecuteEx）](samples/sample_320.md)
 
 ## [How to enumerate cookies and URL History entries in the cache of the local computer](samples/sample_350.md)
 
@@ -1676,7 +1676,7 @@ Sometimes you may need a computer with a single application running on it, and w
 As you know, the RMDIR generates an error message when an attempt made to remove a directory that is not empty. This example shows how to remove a directory with files based on the SHFileOperation call.  
 ## [How to write and read Window Properties for the specified window](samples/sample_205.md)
 
-## [Loading a string resource from an executable file](samples/sample_213.md)
+## [从可执行文件加载字符串资源](samples/sample_213.md)
 
 ## [MapiSendMail class for Visual FoxPro application](samples/sample_342.md)
 
@@ -1754,7 +1754,7 @@ The code explains how to use FindFirstPrinterChangeNotification and FindNextPrin
 
 ## [Using FillMemory](samples/sample_198.md)
 
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 ## [Using WM_COPYDATA for interprocess communication (VFP9)](samples/sample_536.md)
 An application sends the WM_COPYDATA message to pass data to another application running on the same PC. The C# and VFP versions of this code sample are functionally identical. That allows exchanging data between .NET and VFP forms (applications).  
@@ -1801,7 +1801,7 @@ The AdobeReaderSDIWindow class is able to virtually "click on" an item in the ma
 
 ## [Simple Window Viewer](samples/sample_057.md)
 This code enumerates all windows starting from the Desktop window and displays results in TreeView control.  
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 # ![](images/fox1.png) Message and Message Queue group
 
@@ -1809,8 +1809,8 @@ This code enumerates all windows starting from the Desktop window and displays r
 I was looking for a simple way of closing Adobe Reader document and leaving intact other open PDF documents and the reader itself. Presented AdobeAcrobat7 class enumerates opened pdf documents. It also can close any Acrobat document window or all document windows and more.  
 ## [Browsing Windows Known Folders (Special Folders)](samples/sample_576.md)
 
-## [Controlling master audio volume by sending WM_APPCOMMAND messages](samples/sample_592.md)
-The WM_APPCOMMAND message allows to acquire medium level of control over several OS areas: speakers, microphone, media, browser, mail, default applications. This code sample shows how to mute, unmute and change the volume of the speakers. This technique provides no means of reading the volume level or the mute status.  
+## [通过发送WM_APPCOMMAND消息来控制主音频音量](samples/sample_592.md)
+WM_APPCOMMAND消息允许获得对多个OS区域的中等控制级别：扬声器，麦克风，媒体，浏览器，邮件，默认应用程序。 此代码示例演示如何静音，取消静音和更改扬声器的音量。 此技术无法读取音量或静音状态。  
 ## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
 The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
 ## [Detecting changes in connections to removable drives (VFP9)](samples/sample_573.md)
@@ -1847,7 +1847,7 @@ This code sample shows how to hide the Caption and the border of FoxPro form and
   
 ## [How to start the screen saver and how to find whether the screen saver is active](samples/sample_196.md)
 
-## [How to view icons stored in executable files (Icon Viewer) - II](samples/sample_019.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器) - II](samples/sample_019.md)
 
 ## [How to view system icons for the classes installed on the local machine](samples/sample_544.md)
 The bitmap images for the classes installed on the machine are stored in some system area. These images are more of a general kind and illustrate functionality groups rather than individual classes. With a few API calls VFP application can access these images and display them in TreeView and ListView controls as icons.  
@@ -2018,7 +2018,7 @@ The SetLayeredWindowAttributes function can be used to define the transparency c
 
 ## [Displaying animated images on FoxPro form with BitBlt and StretchBlt functions](samples/sample_355.md)
 
-## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
+## [使用 AlphaBlend 函数显示位图](samples/sample_293.md)
 
 ## [Displaying the associated icons and descriptions for files and folders](samples/sample_530.md)
 When the list of files and folders is to be displayed inside a VFP form, the ListBox VFP control and the ListView ActiveX control are probably the first two candidates for the job. 
@@ -2144,7 +2144,7 @@ The SetLayeredWindowAttributes function sets the opacity and transparency color 
 
 ## [Enumerating Processes -- Win9*](samples/sample_164.md)
 
-## [Enumerating Processes -- WinNT](samples/sample_162.md)
+## [枚举进程 -- WinNT](samples/sample_162.md)
 
 ## [Listing device drivers in the system: load addresses, names](samples/sample_174.md)
 
@@ -2176,21 +2176,21 @@ The device tree contains information about the devices present on the system. Th
 
 # ![](images/fox1.png) Printing and Print Spooler group
 
-## [Adding printer to the list of supported printers for the specified server](samples/sample_335.md)
+## [将打印机添加到指定服务器支持的打印机列表中](samples/sample_335.md)
 
 ## [Configuring DEVMODE structure for a printer](samples/sample_384.md)
 
 ## [Displaying printer-properties Property Sheet for the specified printer](samples/sample_372.md)
 
-## [Enumerating forms supported by a specified printer](samples/sample_390.md)
+## [枚举指定打印机支持的格式](samples/sample_390.md)
 
-## [Enumerating ports that are available for printing on a specified server](samples/sample_334.md)
+## [枚举指定服务器上可用的打印端口](samples/sample_334.md)
 
-## [Enumerating print jobs and retrieving information for default printer (JOB_INFO_1 structures)](samples/sample_368.md)
+## [枚举打印作业并检索默认打印机的信息(JOB_INFO_1结构)](samples/sample_368.md)
 
-## [Enumerating print processors and supporting data types installed on the specified server](samples/sample_333.md)
+## [枚举安装在指定服务器上的打印处理器和支持的数据类型](samples/sample_333.md)
 
-## [Enumerating printer drivers installed](samples/sample_082.md)
+## [枚举安装的打印机驱动程序](samples/sample_082.md)
 
 ## [GDI+: printing image file](samples/sample_452.md)
 
@@ -2240,9 +2240,9 @@ The code explains how to use FindFirstPrinterChangeNotification and FindNextPrin
 This code shows how to launch various control panel property pages (like Internet Options) and wizards (like Add New Printer) from a VFP application. Normally you reach the Control Panel through Windows main menu item Settings.  
 ## [Confining Windows calculator inside the VFP main window](samples/sample_245.md)
 
-## [Converting command-line string to a set of Unicode argument strings](samples/sample_212.md)
+## [将命令行字符串转换为一组Unicode参数字符串](samples/sample_212.md)
 
-## [Enumerating Processes -- WinNT](samples/sample_162.md)
+## [枚举进程 -- WinNT](samples/sample_162.md)
 
 ## [GDI+ fun: roach-infested desktop](samples/sample_548.md)
 
@@ -2322,7 +2322,7 @@ The msdos class allows issuing a set of MSDOS commands and getting back a respon
 *File mapping* is the association of the contents of a file with a portion of the virtual address space of a process. API function GetMappedFileName called in combination with CreateFileMapping and MapViewOfFile functions is able to retrieve the name for a given file handle.  
 # ![](images/fox1.png) Raw Input group
 
-## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+## [使用Raw Input API（VFP9）捕获另一个应用程序的键盘活动](samples/sample_572.md)
 
 ## [Enumerating raw input devices attached to the system (keyboard, mouse, human interface device)](samples/sample_571.md)
 
@@ -2332,7 +2332,7 @@ The msdos class allows issuing a set of MSDOS commands and getting back a respon
 
 ## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
 The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
-## [Finding parameters for the region specified](samples/sample_124.md)
+## [查找指定区域的参数](samples/sample_124.md)
 
 ## [How to create transparent areas inside a form -- punching holes in the form](samples/sample_126.md)
 
@@ -2367,13 +2367,13 @@ This code sample includes classes *registry*, *regkey*, *regkeys*, *regvalue* an
 
 ## [Enumerating Performance Counters](samples/sample_565.md)
 
-## [Enumerating forms supported by a specified printer](samples/sample_390.md)
+## [枚举指定打印机支持的格式](samples/sample_390.md)
 
-## [Enumerating print jobs and retrieving information for default printer (JOB_INFO_1 structures)](samples/sample_368.md)
+## [枚举打印作业并检索默认打印机的信息(JOB_INFO_1结构)](samples/sample_368.md)
 
 ## [Enumerating the subkeys for a given registry key](samples/sample_130.md)
 
-## [Enumerating the subkeys of a user-specific key](samples/sample_129.md)
+## [枚举用户指定(注册表)键的子键](samples/sample_129.md)
 
 ## [How to delete all print jobs for a printer](samples/sample_370.md)
 
@@ -2447,29 +2447,29 @@ The class calls CeCreateProcess RAPI function to create new process on PocketPC 
 
 ## [Displaying animated images on FoxPro form with BitBlt and StretchBlt functions](samples/sample_355.md)
 
-## [Displaying bitmap using the AlphaBlend function](samples/sample_293.md)
+## [使用 AlphaBlend 函数显示位图](samples/sample_293.md)
 
 ## [在系统托盘中显示图标(VFP9)](samples/sample_235.md)
 
-## [Exporting DLL icon resources as .ICO files](samples/sample_502.md)
-This code includes definitions for three classes: IconGroups, IconGroupResource and IconResource. The IconGroups is a collection of the IconGroupResource objects. The icons property of the IconGroupResource class is a collection of the IconResource objects.
+## [将DLL图标资源导出为.ICO文件](samples/sample_502.md)
+这段代码包括三个类的定义。IconGroups、IconGroupResource和IconResource三个类的定义。IconGroups是IconGroupResource对象的集合。IconGroupResource类的icons属性是IconResource对象的集合。
 
-The IconGroupResource and IconResource classes include SaveToFile method that saves the resource to .ICO file.
+IconGroupResource和IconResource类包含SaveToFile方法，可以将资源保存到.ICO文件中。
   
 ## [How to convert a bitmap file to monochrome format (1 bpp)](samples/sample_493.md)
 It all started with a question I have noticed in the Universal Thread Visual FoxPro forum:*Does anyone know how to create a monochrome bitmap or monochrome tiff file from a VFP report? *
   
 ## [How to print a bitmap file](samples/sample_211.md)
 
-## [Loading a string resource from an executable file](samples/sample_213.md)
+## [从可执行文件加载字符串资源](samples/sample_213.md)
 
 ## [VFP 应用程序的 Splash Screen](samples/sample_294.md)
 
-## [Storing registration key in the resources of an executable file](samples/sample_401.md)
-This sample shows how to save a registration key -- actually it can be any binary data -- in the resources of any VFP application (executable file) any time after its compilation.
+## [在可执行文件的资源中存储注册码](samples/sample_401.md)
+这个例子展示了如何在任何VFP应用程序（可执行文件）编译后的任何时候将注册密钥--实际上它可以是任何二进制数据--保存在其资源中。
 
-You know about "Other Files" section inside the Project Manager. I think, that would be handy to have a similar section named "Resources", where files like icons, bitmaps, sounds, strings and others could be added. And after the file compiled into an executable, they could be reached through the Resource API calls LoadResource, LoadString, LoadImage and so on.  
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+你知道项目管理器中的 "其他文件 "部分。我想，如果能有一个类似的 "资源 "部分，那将会很方便，在那里可以添加图标、位图、声音、字符串等文件。而在文件编译成可执行文件后，可以通过 Resource API 调用LoadResource、LoadString、LoadImage等来访问它们。  
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 ## [使用 LoadImage 函数加载位图文件并将其显示在 VFP 主窗口上](samples/sample_210.md)
 
@@ -2477,7 +2477,7 @@ You know about "Other Files" section inside the Project Manager. I think, that w
 
 ## [Accessing LSA Policy object (Local Security Authority)](samples/sample_427.md)
 
-## [Creating a folder](samples/sample_001.md)
+## [创建一个文件夹](samples/sample_001.md)
 
 ## [GetFileOwner - Get the owner of an NTFS file](samples/sample_433.md)
 
@@ -2499,8 +2499,8 @@ This code sample includes a set of classes implementing several NTFS access cont
 
 # ![](images/fox1.png) Service group
 
-## [Encapsulating access to the Windows Services in a class](samples/sample_476.md)
-The winservices class, subclassed from the Collection class, enumerates Windows Services found in the default service control manager database on local computer. Each item in the collection is an instance of the winservice class that wraps the members of ENUM_SERVICE_STATUS structure for a given service. The winservice object exposes methods StartService, StopService and PauseService.  
+## [将对Windows服务的访问封装在一个类中](samples/sample_476.md)
+从Collection类继承的winservices类枚举了在本地计算机上默认服务控制管理器数据库中找到的Windows Services。 集合中的每个项目都是winservice类的实例，该类包装给定服务的ENUM_SERVICE_STATUS结构的成员。 winservice对象公开了StartService，StopService和PauseService方法。  
 ## [How to create a service object](samples/sample_517.md)
 
 ## [How to delete a service object](samples/sample_518.md)
@@ -2533,7 +2533,7 @@ This code uses GetListOfExamples  and GetExample  functions wrapped in XML Web S
 
 ## [Browsing Windows Known Folders (Special Folders)](samples/sample_576.md)
 
-## [Creating a folder](samples/sample_001.md)
+## [创建一个文件夹](samples/sample_001.md)
 
 ## [基于现有的文件名创建一个唯一的文件名](samples/sample_014.md)
 
@@ -2588,7 +2588,7 @@ Each Adobe Reader 9 window is created from window class AcrobatSDIWindow and par
 The AdobeReaderSDIWindow class is able to virtually "click on" an item in the main menu of Adobe Reader 9 window and in this way to control some of the functionality.  
 ## [How to display Windows On-Screen Keyboard](samples/sample_582.md)
 
-## [How to display the Properties dialog box for a file (ShellExecuteEx)](samples/sample_320.md)
+## [如何显示文件的属性对话框（ShellExecuteEx）](samples/sample_320.md)
 
 ## [How to empty the Recycle Bin](samples/sample_301.md)
 
@@ -2623,7 +2623,7 @@ As you know, the RMDIR generates an error message when an attempt made to remove
 
 ## [System Image List Viewer](samples/sample_021.md)
 
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 ## [Using Shell for performing operations on files](samples/sample_093.md)
 
@@ -2659,7 +2659,7 @@ The PathFindOnPath function is anything but special. Whatever it does, can be ac
 
 ## [Printf-style formatted text output in VFP](samples/sample_259.md)
 
-## [Retrieving a handle to DLL and address of an exported function in it](samples/sample_085.md)
+## [检索DLL的句柄和其中的导出函数的地址](samples/sample_085.md)
 
 ## [StrDup returns a pointer to the duplicate of a source VFP string](samples/sample_181.md)
 
@@ -2748,7 +2748,7 @@ The SetLayeredWindowAttributes function can be used to define the transparency c
 
 ## [Current keyboard type](samples/sample_095.md)
 
-## [Determining if an Active Network Connection is Available](samples/sample_324.md)
+## [确定是否有活动的网络连接](samples/sample_324.md)
 
 ## [Displaying the associated icons and descriptions for files and folders](samples/sample_530.md)
 When the list of files and folders is to be displayed inside a VFP form, the ListBox VFP control and the ListView ActiveX control are probably the first two candidates for the job. 
@@ -2785,7 +2785,7 @@ Imagine FoxPro application that has opened several windows like Word, Excel, PDF
 
 Here is one of several possible ways to get it done. Windows XP/2K introduces a Job Object, a tool that can manage a group of processes as a single process. In other words, operations performed on the job object affect all processes associated with it.
   
-## [Loading a string resource from an executable file](samples/sample_213.md)
+## [从可执行文件加载字符串资源](samples/sample_213.md)
 
 ## [OS version and revision](samples/sample_022.md)
 
@@ -2803,7 +2803,7 @@ The idea is simple -- the always-on-top window with transparent background. A co
 
 ## [Reading data from INI files](samples/sample_133.md)
 
-## [Retrieving a handle to DLL and address of an exported function in it](samples/sample_085.md)
+## [检索DLL的句柄和其中的导出函数的地址](samples/sample_085.md)
 
 ## [Retrieving local computer and user names](samples/sample_041.md)
 
@@ -2821,7 +2821,7 @@ The msdos class allows issuing a set of MSDOS commands and getting back a respon
 
 ## [Using GetSysColor](samples/sample_039.md)
 
-## [Using LoadLibrary](samples/sample_007.md)
+## [使用 LoadLibrary](samples/sample_007.md)
 
 ## [Using Shell for performing operations on files](samples/sample_093.md)
 
@@ -2831,7 +2831,7 @@ The msdos class allows issuing a set of MSDOS commands and getting back a respon
 
 # ![](images/fox1.png) System Shutdown group
 
-## [Closing Windows](samples/sample_036.md)
+## [关闭操作系统](samples/sample_036.md)
 
 ## [How to enable the SE_SHUTDOWN_NAME privilege for the application](samples/sample_552.md)
 To shut down or to reboot the system (API calls ExitWindowsEx, InitiateShutdown and others) the process must have the SE_SHUTDOWN_NAME privilege (default behaviour on Vista).  
@@ -2855,7 +2855,7 @@ To shut down or to reboot the system (API calls ExitWindowsEx, InitiateShutdown 
 
 ## [Comparing file times](samples/sample_171.md)
 
-## [Custom FTP Class for Visual FoxPro application](samples/sample_344.md)
+## [用于Visual FoxPro应用程序的自定义 FTP 类](samples/sample_344.md)
 
 ## [Downloading files from the FTP server using InternetReadFile](samples/sample_063.md)
 
@@ -2929,7 +2929,7 @@ Before creating the target bitmap, the GdipMeasureString function is used to cal
 
 # ![](images/fox1.png) Unicode and Character Set group
 
-## [Converting Unicode data from the Clipboard to a character string using a given code page](samples/sample_316.md)
+## [使用给定的代码页将剪贴板中的Unicode数据转换为字符串](samples/sample_316.md)
 
 ## [基于现有的文件名创建一个唯一的文件名](samples/sample_014.md)
 
@@ -2951,8 +2951,8 @@ I was looking for a simple way of closing Adobe Reader document and leaving inta
 
 ## [Copying picture of the active form to the Clipboard using Enhanced Metafile API functions](samples/sample_404.md)
 
-## [Creating a console window for Visual FoxPro application](samples/sample_474.md)
-The code explains how to create and use console (DOS-like) window with Visual FoxPro application.  
+## [为 Visual FoxPro 应用程序创建一个控制台窗口](samples/sample_474.md)
+该代码解释了如何在 Visual FoxPro 应用程序中创建和使用控制台（类似DOS）窗口。  
 ## [Creating a window using CreateWindowEx function](samples/sample_050.md)
 
 ## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
@@ -3103,7 +3103,7 @@ User-defined items can be added to the Control Menu of any VFP form. In VFP9 it 
   
 ## [Browsing Windows Known Folders (Special Folders)](samples/sample_576.md)
 
-## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+## [使用Raw Input API（VFP9）捕获另一个应用程序的键盘活动](samples/sample_572.md)
 
 ## [Creating irregularly shaped FoxPro form using transparency color key](samples/sample_033.md)
 The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
@@ -3146,7 +3146,7 @@ An obvious way of doing that is covering the form with another window, which hol
 When a VFP form is released, usually it disappears immediately. Wouldn`t it be nice to have the form slowly (or less slowly) fading out?
 
 An obvious way of doing that is covering the form with another window, which holds the image of the original form. Once covered, the original form disappears. After that the covering window gradually changes its opacity (alpha channel) from opaque (255) to completely transparent (0).  
-## [How to view icons stored in executable files (Icon Viewer) - II](samples/sample_019.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器) - II](samples/sample_019.md)
 
 ## [Listing child windows for the Windows desktop](samples/sample_027.md)
 
@@ -3156,9 +3156,9 @@ An obvious way of doing that is covering the form with another window, which hol
 
 ## [Placing a button on the VFP form as a new child window](samples/sample_274.md)
 
-## [Retrieving Window Class information for the VFP window](samples/sample_201.md)
+## [检索VFP窗口的窗口类信息](samples/sample_201.md)
 
-## [Retrieving information about the main VFP window](samples/sample_111.md)
+## [检索VFP主窗口的信息](samples/sample_111.md)
 
 ## [Retrieving long values associated with the class of the VFP window](samples/sample_204.md)
 
@@ -3176,7 +3176,7 @@ This code enumerates all windows starting from the Desktop window and displays r
 The SetLayeredWindowAttributes function sets the opacity and transparency color key of a layered window. All menu popups are layered windows, so this technique can be applied to them.  
 ## [使用通用控件：Header 控件](samples/sample_298.md)
 
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 ## [Using Month Calendar Control (VFP9, Comctl32.dll)](samples/sample_560.md)
 
@@ -3189,7 +3189,7 @@ An application sends the WM_COPYDATA message to pass data to another application
 ## [Adding user-defined items to the Control Menu of VFP form (requires VFP9)](samples/sample_512.md)
 User-defined items can be added to the Control Menu of any VFP form. In VFP9 it is also possible to link such menu items to a method of the form.
   
-## [Capturing keyboard activity of another application with the Raw Input API (VFP9)](samples/sample_572.md)
+## [使用Raw Input API（VFP9）捕获另一个应用程序的键盘活动](samples/sample_572.md)
 
 ## [Customizing the frame of top-level form: removing the standard frame (VFP9, Vista)](samples/sample_574.md)
 
@@ -3213,7 +3213,7 @@ This code shows how VFP top-level form can get notified upon its menu item selec
 
 ## [Transparent Menu Class (requires VFP9)](samples/sample_496.md)
 The SetLayeredWindowAttributes function sets the opacity and transparency color key of a layered window. All menu popups are layered windows, so this technique can be applied to them.  
-## [Using FoxTray ActiveX control: System Tray Icon and menu attached to VFP form](samples/sample_336.md)
+## [使用 FoxTray ActiveX 控件：系统托盘图标和菜单附加到VFP窗体上](samples/sample_336.md)
 
 ## [Using Month Calendar Control (VFP9, Comctl32.dll)](samples/sample_560.md)
 
@@ -3234,7 +3234,7 @@ Sometimes you may need a computer with a single application running on it, and w
 
 # ![](images/fox1.png) Windows Controls group
 
-## [How to view icons stored in executable files (Icon Viewer) - II](samples/sample_019.md)
+## [如何查看存储在可执行文件中的图标(图标浏览器) - II](samples/sample_019.md)
 
 ## [How to view system icons for the classes installed on the local machine](samples/sample_544.md)
 The bitmap images for the classes installed on the machine are stored in some system area. These images are more of a general kind and illustrate functionality groups rather than individual classes. With a few API calls VFP application can access these images and display them in TreeView and ListView controls as icons.  
@@ -3288,7 +3288,7 @@ The code sample shows how to display preview from a digital camera using Video C
 
 # ![](images/fox1.png) Windows Networking group
 
-## [Connecting a local device to a network resource](samples/sample_318.md)
+## [将本地设备连接到网络资源](samples/sample_318.md)
 
 ## [Enumerating network resources](samples/sample_313.md)
 The code uses WNet API calls to enumerate all resources on the network.  
