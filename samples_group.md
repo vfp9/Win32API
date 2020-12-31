@@ -1,8 +1,8 @@
 [<img src="images/home.png"> 主页 ](https://github.com/vfp9/Win32API)  
 
 
-# 按分组的示例列表
-_翻译:xinjie  from 2020.12.27 to ..._
+# 分组的示例列表
+_翻译:xinjie  2020.12.27 —— 2020.12.31_
 
 # ![](images/fox1.png) 原子(Atom)
 
