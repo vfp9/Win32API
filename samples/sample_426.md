@@ -1,22 +1,22 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to Start a Process as Another User (NT/XP/2K)
+# 如何以其他用户的身份启动进程(NT/XP/2K)
 
-## Before you begin:
-The following code offers solution, which is similar to **Microsoft Knowledge Base Article - 285879:** [HOWTO: Start a Process as Another User from Visual Basic](http://support.microsoft.com/default.aspx?scid=kb%3Ben-us%3B285879).  
+## 开始之前：
+下面的代码提供了解决方法，它类似于**微软知识库文章 - 285879:** [HOWTO：从Visual Basic中以另一个用户的身份启动一个进程](https://support.microsoft.com/zh-CN/topic/how-to-start-a-process-as-another-user-from-visual-basic-b4cc65ff-79fc-e2e3-6e3c-8b174e377ccc?ui=en-us&rs=en-us&ad=us).  
 
-Other code samples you might be interested in:  
-* [Running external applications from VFP using WinExec](sample_002.md)  
-* [Using ShellExecute for performing operations on files](sample_093.md)  
-* [Running external applications from VFP using CreateProcess](sample_003.md)  
-* [Running an external program from FoxPro and waiting for its termination](sample_377.md)  
-* [Running MSDOS Shell as a child process with redirected input and output](sample_477.md)  
+您可能感兴趣的其他代码样本：  
+* [在 VFP 中使用 WinExec 启动外部应用程序](sample_002.md)  
+* [使用 ShellExecute 对文件进行操作](sample_093.md)  
+* [通过使用 CreateProcess 从 VFP 应用程序启动可执行文件](sample_003.md)  
+* [从 VFP 启动外部程序并等待其终止](sample_377.md)  
+* [以子进程的形式运行 MSDOS Shell，并重定向输入和输出](sample_477.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL cDomain, cUsr, cPwd, cApp, cCmd, cDir
 cDomain = ""
@@ -27,7 +27,7 @@ cCmd = "aaa.txt"
 cDir = SYS(5) + SYS(2003)
 
 DO RunAsUser WITH cDomain, cUsr, cPwd, cApp, cCmd, cDir
-* end of main
+* 主程序结束
 
 FUNCTION RunAsUser(cDomain, cUsr, cPwd, cApp, cCmd, cDir)
 #DEFINE VER_PLATFORM_WIN32s         0
@@ -39,8 +39,7 @@ FUNCTION RunAsUser(cDomain, cUsr, cPwd, cApp, cCmd, cDir)
 
 	DO CASE
 	CASE nPlatform <> VER_PLATFORM_WIN32_NT
-		= MESSAGEBOX("Requested functionality is not supported " +;
-			"in this version of Windows.   ", 64, "RunAsUser")
+		= MESSAGEBOX("此版本的Windows不支持请求的功能。   ", 64, "RunAsUser")
 		RETURN
 	CASE nMajor >= 5
 		RunAsUserW2K(cDomain, cUsr, cPwd, cApp, cCmd, cDir)
@@ -69,7 +68,7 @@ PROCEDURE RunAsUserW2K(cDomain, cUsr, cPwd, cApp, cCmd, cDir)
 	cUsr = ConvStr(cUsr)
 	cPwd = ConvStr(cPwd)
 	cApp = ConvStr(cApp)
-	cCmd = ConvStr(" " + ALLTRIM(cCmd))  && note a leading space
+	cCmd = ConvStr(" " + ALLTRIM(cCmd))  && 前导空格
 	cDir = ConvStr(cDir)
 
 	nResult = CreateProcessWithLogonW(cUsr, cDomain, cPwd,;
@@ -80,7 +79,7 @@ PROCEDURE RunAsUserW2K(cDomain, cUsr, cPwd, cApp, cCmd, cDir)
 	*    3 = ERROR_PATH_NOT_FOUND
 	*  267 = ERROR_DIRECTORY
 	* 1326 = ERROR_LOGON_FAILURE
-		? "Error code:", GetLastError()
+		? "错误代码：", GetLastError()
 		RETURN .F.
 	ELSE
 		hProcess = buf2dword(SUBSTR(cProcInfo, 1,4))
@@ -123,7 +122,7 @@ PROCEDURE RunAsUserNT(cDomain, cUsr, cPwd, cApp, cCmd, cDir)
 	* 1326 = ERROR_LOGON_FAILURE
 	* 1327 = ERROR_NO_SUCH_MEMBER
 	* 1385 = ERROR_LOGON_TYPE_NOT_GRANTED
-		? "Error:", GetLastError()
+		? "错误：", GetLastError()
 		RETURN .F.
 	ENDIF
 
@@ -152,7 +151,7 @@ PROCEDURE RunAsUserNT(cDomain, cUsr, cPwd, cApp, cCmd, cDir)
 	IF CreateProcessAsUser(nToken, cApp, " " + ALLTRIM(cCmd),;
 		0,0,0, nCreationFlags,0, cDir, @cStartInfo, @cProcInfo) = 0
 		* 1314 = ERROR_PRIVILEGE_NOT_HELD
-		? "Error:", GetLastError()
+		? "错误：", GetLastError()
 		= CloseHandle(nToken)
 		RETURN .F.
 	ENDIF
@@ -198,7 +197,7 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateProcessAsUser](../libraries/advapi32/CreateProcessAsUser.md)  
 [CreateProcessWithLogonW](../libraries/advapi32/CreateProcessWithLogonW.md)  
@@ -206,8 +205,8 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 [GetVersionEx](../libraries/kernel32/GetVersionEx.md)  
 [LogonUser](../libraries/advapi32/LogonUser.md)  
 
-## Comment:
-To start a process as another user, you can use the LogonUser and CreateProcessAsUser Win32 APIs when running Microsoft Windows NT 4.0, or you can use the CreateProcessWithLogonW Win32 API when running Microsoft Windows 2000/XP or later.   
+## 备注：
+要以另一个用户的身份启动进程，可以在运行Microsoft Windows NT 4.0时使用LogonUser和CreateProcessAsUser Win32 API，或者在运行Microsoft Windows 2000/XP或更高版本时使用CreateProcessWithLogonW Win32 API。  
   
 ***  
 
