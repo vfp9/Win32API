@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 如何以其他用户的身份启动进程(NT/XP/2K)
+_翻译：xinjie  2020.12.31_
 
 ## 开始之前：
 下面的代码提供了解决方法，它类似于**微软知识库文章 - 285879:** [HOWTO：从Visual Basic中以另一个用户的身份启动一个进程](https://support.microsoft.com/zh-CN/topic/how-to-start-a-process-as-another-user-from-visual-basic-b4cc65ff-79fc-e2e3-6e3c-8b174e377ccc?ui=en-us&rs=en-us&ad=us).  
