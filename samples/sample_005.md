@@ -1,18 +1,19 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Obtaining the System and Windows folder names
+# 获取系统和 Windows 文件夹名称
+_翻译：xinjie  2020.12.31_
 
-## Before you begin:
-See also: 
+## 开始之前：
+参考：
 
-* [How to get Special Folders paths](sample_415.md)  
-* [Browsing Windows Known Folders (Special Folders)](sample_576.md)  
-* [Retrieving default spooling directory](sample_005.md)  
+* [如何获得特殊文件夹的路径](sample_415.md)  
+* [浏览 Windows 已知文件夹（特殊文件夹)](sample_576.md)  
+* [检索默认假脱机目录名称](sample_358.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER GetWindowsDirectory IN kernel32;
 	STRING @lpBuffer, INTEGER nSize
@@ -35,11 +36,11 @@ lpBuffer = SUBSTR (lpBuffer, 1, nSizeRet)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetSystemDirectory](../libraries/kernel32/GetSystemDirectory.md)  
 [GetWindowsDirectory](../libraries/kernel32/GetWindowsDirectory.md)  
 
-## Comment:
+## 备注：
 ? GetEnv("windir")  
   
 ***  
