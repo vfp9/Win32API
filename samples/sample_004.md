@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Current directory of the application
+# 当前应用程序的目录
+_翻译：xinjie  2020.12.31_
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER SetCurrentDirectory IN kernel32;
 	STRING lpPathName
@@ -20,7 +21,7 @@ cPath = SYS(5) + SYS(2003)
 = SetCurrentDirectory(cPath)
 ? GetCD()
 ? GetCD1()
-* end of main
+* 主程序结束
 
 FUNCTION GetCD
 RETURN SYS(5) + SYS(2003)
@@ -34,6 +35,6 @@ RETURN SUBSTR(cBuffer, 1, nBufsize)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetCurrentDirectory](../libraries/kernel32/GetCurrentDirectory.md)  
 [SetCurrentDirectory](../libraries/kernel32/SetCurrentDirectory.md)  
