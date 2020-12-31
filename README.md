@@ -26,6 +26,6 @@ Tore Bleken 将文档转换成了 Markdown 格式以便可以在 GitHub 上使�
 
 * [samples_alphabetical.md](samples_alphabetical.md), 按字母顺序列出的示例。
 
-* [samples_group.md](samples_group.md), 按分组列出的示例列表。
+* [samples_group.md](samples_group.md), 按分组列出的示例列表（翻译完成，感谢 [Deepl](https://www.deepl.com/translator)、[Google](https://translate.google.cn/?hl=zh-CN&tab=TT)、[Bing](https://cn.bing.com/translator/) !）。
 
 此外，apiviewer 文件夹下有一个 VFP 应用程序，供您离线查看文档。
