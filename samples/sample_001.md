@@ -1,8 +1,10 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/vfp9/Win32API)  
 
-# Creating a folder
+# 创建一个文件夹
 
-## Code:
+_翻译：xinjie  2020.12.31_
+
+## 代码：
 ```foxpro  
 DO declare
 
@@ -10,29 +12,28 @@ DO declare
 *!*	DO cd2 WITH "c:\temp2"
 DO cd3 WITH "c:\temp3", GETENV("SystemRoot")
 
-* end of main
+* 主程序结束
 
 PROCEDURE cd1(cNewFolder)
-* creates new directory using default security descriptor
+* 使用默认安全描述符创建新目录
 	IF CreateDirectory(cNewFolder, NULL) = 0
 		*   3 = ERROR_PATH_NOT_FOUND
 		*   5 = ERROR_ACCESS_DENIED
 		* 183 = ERROR_ALREADY_EXISTS
-		? "CreateDirectory failed:", GetLastError()
+		? "CreateDirectory 失败：", GetLastError()
 	ENDIF
 
 PROCEDURE cd2(cNewFolder)
-* Shell version of this function
+* Shell 版本
 	nResult = SHCreateDirectory(0,;
 		STRCONV(m.cNewFolder+CHR(0),5))
 
 	IF nResult <> 0
-		? "SHCreateDirectory failed:", nResult
+		? "SHCreateDirectory 失败：", nResult
 	ENDIF
 
-PROCEDURE cd3(cNewFolder, cTemplateFolder)  && NTFS only
-* creates new directory using security descriptor
-* of a template directory
+PROCEDURE cd3(cNewFolder, cTemplateFolder)  && 仅用于 NTFS
+* 使用模板目录的安全描述符创建新目录
 #DEFINE DACL_SECURITY_INFORMATION 0x0004
 #DEFINE SECURITY_ATTRIBUTES_SIZE 12
 
@@ -49,19 +50,19 @@ PROCEDURE cd3(cNewFolder, cTemplateFolder)  && NTFS only
 	hSD=oSD.GetHandle()
 	nSDSize=oSD.GetSize()
 
-	* obtain Security Descriptor for a template directory
+	* 获取模板目录的安全描述符
 	IF GetFileSecurity(m.cTemplateFolder, DACL_SECURITY_INFORMATION,;
 		m.hSD, m.nSDSize, @nBufsize) = 0
-		? "GetFileSecurity call failed:", GetLastError()
+		? "GetFileSecurity 调用失败：", GetLastError()
 		RETURN .F.
 	ENDIF
 
-	* assemble SECURITY_ATTRIBUTES structure
+	* 装配 SECURITY_ATTRIBUTES 结构
 	cSecurityAttributes = num2dword(SECURITY_ATTRIBUTES_SIZE) +;
 		num2dword(m.hSD) + num2dword(0)
 
 	IF CreateDirectory(cNewFolder, @cSecurityAttributes) = 0
-		? "CreateDirectory failed:", GetLastError()
+		? "CreateDirectory 失败：", GetLastError()
 	ENDIF
 
 PROCEDURE declare
@@ -83,7 +84,7 @@ PROCEDURE declare
 		INTEGER @lpnLengthNeeded
 
 DEFINE CLASS LocalMem As Session
-* implements locally allocated memory block
+* 实现本地分配内存块
 #DEFINE LMEM_ZEROINIT 0x0040
 PROTECTED hMem, bufsize
 	hMem=0
@@ -124,7 +125,7 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CreateDirectory](../libraries/kernel32/CreateDirectory.md)  
 [GetFileSecurity](../libraries/advapi32/GetFileSecurity.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
