@@ -1,26 +1,27 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Starting external program from VFP and waiting for its termination
+# 从 VFP 启动外部程序并等待其终止
+_翻译：xinjie  2020.12.31_
 
-## Before you begin:
-Other code samples you might be interested in:  
-* [Running external applications from VFP using WinExec](sample_002.md)  
-* [Using ShellExecute for performing operations on files](sample_093.md)  
-* [Running external applications from VFP using CreateProcess](sample_003.md)  
-* [How to Start a Process as Another User (NT/XP/2K)](sample_426.md)  
-* [Running MSDOS Shell as a child process with redirected input and output](sample_477.md)  
+## 开始之前：
+您可能感兴趣的其他代码样本：  
+* [在 VFP 中使用 WinExec 启动外部应用程序](sample_002.md)  
+* [使用 ShellExecute 对文件进行操作](sample_093.md)  
+* [通过使用 CreateProcess 从 VFP 应用程序启动可执行文件](sample_003.md)  
+* [如何以其他用户的身份启动进程(NT/XP/2K)](sample_426.md)  
+* [以子进程的形式运行 MSDOS Shell，并重定向输入和输出](sample_477.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 
 *= RunAndWait("c:\windows\notepad.exe", "")
 = RunAndWait("C:\program files\Microsoft Office\Office10\excel.exe", "")
-* end of main
+* 主程序结束
 
 PROCEDURE RunAndWait(lcApp, lcCmdLine)
 #DEFINE START_INFO_SIZE 68
@@ -35,16 +36,16 @@ PROCEDURE RunAndWait(lcApp, lcCmdLine)
 		0,0,1, NORMAL_PRIORITY_CLASS, 0,;
 		SYS(5)+SYS(2003), @cStartupInfo, @cProcInfo) <> 0
 
-		* process and thread handles returned in ProcInfo structure
+		* 在ProcInfo结构中返回的过程和线程句柄
 		hProcess = buf2dword(SUBSTR(cProcInfo, 1,4))
 		hThread = buf2dword(SUBSTR(cProcInfo, 5,4))
 
-		* waiting until the termination
+		* 守株待兔
 		= WaitForSingleObject(hProcess, INFINITE)
 	    = CloseHandle(hThread)
 	    = CloseHandle(hProcess)
 	ELSE
-		? "Error code:", GetLastError()
+		? "错误代码：", GetLastError()
 	ENDIF
 
 FUNCTION buf2dword(lcBuffer)
@@ -69,21 +70,21 @@ PROCEDURE decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateProcess](../libraries/kernel32/CreateProcess.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [WaitForSingleObject](../libraries/kernel32/WaitForSingleObject.md)  
 
-## Comment:
+## 备注：
   
-Another option is starting external program in a different desktop. With no calls to the WaitForSingleObject made, the host VFP program stays active. Though it becomes invisible and is cut off from keyboard and mouse input.  
+另一种选择是在不同的桌面上启动外部程序。在没有调用WaitForSingleObject的情况下，主机的VFP程序保持活动状态。尽管它变得不可见，并且被切断了键盘和鼠标的输入。 
   
-See also:  
-* [How to prevent users from accessing the Windows Desktop and from switching to other applications](sample_492.md)
+参考：  
+* [如何防止用户访问 Windows 桌面和切换到其他应用程序](sample_492.md)
 
 * * *  
-C#:  This is asynchronous notification that relies on the Exited event (EnableRaisingEvents must be set to true for the Process instance). Synchronous notification relies on calling the WaitForExit method.  
+C#:  这是异步通知，依赖于Exited事件（进程实例的EnableRaisingEvents必须设置为true）。同步通知依赖于调用WaitForExit方法。  
   
 ***  
 
