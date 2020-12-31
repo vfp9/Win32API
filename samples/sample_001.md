@@ -34,6 +34,7 @@ PROCEDURE cd2(cNewFolder)
 
 PROCEDURE cd3(cNewFolder, cTemplateFolder)  && 仅用于 NTFS
 * 使用模板目录的安全描述符创建新目录
+
 #DEFINE DACL_SECURITY_INFORMATION 0x0004
 #DEFINE SECURITY_ATTRIBUTES_SIZE 12
 
