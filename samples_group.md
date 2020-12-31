@@ -3200,7 +3200,7 @@ SetLayeredWindowAttributes函数可以设置分层窗口的不透明度和透明
 一个应用程序发送WM_BDATA消息，将数据传递给运行在同一台PC上的另一个应用程序。这个代码示例的C#和VFP版本在功能上是相同的。这允许在.NET和VFP窗体（应用程序）之间交换数据。  
 # ![](images/fox1.png) Window Property
 
-## [如何写入和读取指定窗口的 "窗口属性"(samples/sample_205.md)
+## [如何写入和读取指定窗口的 "窗口属性"](samples/sample_205.md)
 
 # ![](images/fox1.png) Window Station and Desktop
 
