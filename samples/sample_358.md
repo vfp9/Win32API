@@ -1,18 +1,19 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving default spooling directory name
+# 检索默认假脱机目录（后台打印文件夹）名称
+_翻译：xinjie  2020.12.31_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [How to delete all print jobs for a printer](sample_370.md)  
-* [How to retrieve the number of print jobs queued for the printer](sample_367.md)  
-* [Simple printer queue monitor](sample_373.md)  
+* [如何删除打印机的所有打印任务](sample_370.md)  
+* [如何检索打印机排队等候的打印作业数量](sample_367.md)  
+* [简单的打印机队列监视器](sample_373.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 
@@ -25,17 +26,17 @@ IF OpenPrinter(cPrinter, @hPrinter, 0) <> 0
 	= GetPrinterData(hPrinter, "DefaultSpoolDirectory",;
 		@lnType, @lcBuffer, Len(lcBuffer), @lnBufsize)
 
-	? "Default Spool Directory:", SUBSTR(lcBuffer, 1,lnBufsize-1)
+	? "默认假脱机目录：", SUBSTR(lcBuffer, 1,lnBufsize-1)
 
 	= ClosePrinter(hPrinter)
 ENDIF
-* end of main
+* 主程序结束
 
 FUNCTION GetDefaultPrinter
 	LOCAL lcBuffer
 	lcBuffer = Repli(Chr(0), 120)
 
-	* retrieving the printer, printer driver, and output-port names
+	* 检索打印机、打印机驱动程序和输出端口名
 	DECLARE INTEGER GetProfileString IN kernel32;
 		STRING lpApp, STRING lpKey, STRING lpDefault,;
 		STRING @lpReturnedString, INTEGER nSize
@@ -57,14 +58,14 @@ PROCEDURE decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [ClosePrinter](../libraries/winspool.drv/ClosePrinter.md)  
 [GetPrinterData](../libraries/winspool.drv/GetPrinterData.md)  
 [GetProfileString](../libraries/kernel32/GetProfileString.md)  
 [OpenPrinter](../libraries/winspool.drv/OpenPrinter.md)  
 
 ## Comment:
-Some reasons may exist for changing the print spooling directory, which task can be done either with the SetPrinterData function or manually through Start - Settings - Printers command.  
+可能存在某些原因更改打印假脱机目录（WIN10:后台打印文件夹），可以使用 SetPrinterData 函数或通过“开始-设置-打印机”命令手动完成此任务。  
   
 ***  
 
