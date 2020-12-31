@@ -1,19 +1,20 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to get the path to a Special Folder
+# 如何获得特殊文件夹的路径
+_翻译：xinjie  2020.12.31_
 
-## Before you begin:
-This code shows how to obtain path to special folders like *My Documents, My Pictures, Start Menu, Startup, Favourites, Recent files* and others.  
+## 开始之前：
+这段代码展示了如何获取特殊文件夹的路径，如*我的文档、我的图片、开始菜单、启动、收藏夹、最近文件*等。  
 
-See also:
+参考：
 
-* [Browsing Windows Known Folders (Special Folders)](sample_576.md)  
-* [Obtaining the System and Windows folder names](sample_005.md)  
+* [浏览 Windows 已知文件夹（特殊文件夹)](sample_576.md)  
+* [获取系统和 Windows 文件夹名称](sample_005.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE CSIDL_ALTSTARTUP 0x001d
 #DEFINE CSIDL_APPDATA 0x001a
@@ -54,14 +55,14 @@ DECLARE SHORT SHGetFolderPath IN shell32;
 CREATE CURSOR csResult (;
 	csidl I, path0 C(100), path1 C(100))
 
-* all special CSIDLs are in 0xff range
+* 所有特殊的 CSIDL 都在 0xff 范围内
 FOR nIndex=-1 TO 255
 	= GetPath(nIndex)
 ENDFOR
 
 GO TOP
 BROWSE NORMAL NOWAIT
-* end of main
+* 主程序结束
 
 PROCEDURE GetPath(nCSIDL)
 #DEFINE MAX_PATH 260
@@ -100,19 +101,19 @@ PROCEDURE GetPath(nCSIDL)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [SHGetFolderPath](../libraries/shell32/SHGetFolderPath.md)  
 
-## Comment:
-For Windows versions 98, NT4 the SHGetFolderPath is obtained through SHFolder.dll, not through Shell32.dll.   
+## 备注：
+对于Windows 98、NT4版本，SHGetFolderPath是通过SHFolder.dll获得的，而不是通过Shell32.dll。  
   
-SHFolder.dll continues to be included for backward compatibility, though the function is now implemented in Shell32.dll.  
+为了向后兼容，SHFolder.dll继续被包含在内，尽管该功能现在是在Shell32.dll中实现的。 
   
-CSIDL values provide a unique system-independent way to identify special folders used frequently by applications, but which may not have the same name or location on any given system. For example, the system folder may be "C:\Windows" on one system and "C:\Winnt" on another.  
+CSIDL值提供了一种独特的、与系统无关的方式来识别应用程序经常使用的特殊文件夹，但这些文件夹在任何给定的系统中可能没有相同的名称或位置。例如，系统文件夹在一个系统中可能是 "C:\Windows"，而在另一个系统中可能是 "C:\Winnt"。 
   
-As of Windows Vista, these values have been replaced by KNOWNFOLDERID values.  
+从Windows Vista开始，这些值已经被KNOWNFOLDERID值取代。 
   
-<a href="http://msdn.microsoft.com/en-us/library/bb762494(v=vs.85).aspx">CSIDL list</a>.  
+<a href="http://msdn.microsoft.com/en-us/library/bb762494(v=vs.85).aspx">CSIDL 列表</a>.  
   
 ***  
 
