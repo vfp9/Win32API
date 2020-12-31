@@ -1,21 +1,21 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using Shell for performing operations on files
+# 使用 ShellExecute 对文件进行操作
+_翻译：xinjie  2020.12.31_
 
-## Before you begin:
-Select valid file and directory names before testing this code.  
+## 开始之前
+在测试这段代码之前，请选择有效的文件和目录名。 
 
-Other code samples you might be interested in:  
-* [Running external applications from VFP using WinExec](sample_002.md)  
-* [Running external applications from VFP using CreateProcess](sample_003.md)  
-* [Running an external program from FoxPro and waiting for its termination](sample_377.md)  
-* [How to Start a Process as Another User (NT/XP/2K)](sample_426.md)  
-
+您可能感兴趣的其他代码样本：  
+* [在 VFP 中使用 WinExec 启动外部应用程序](sample_002.md)  
+* [通过使用 CreateProcess 从 VFP 应用程序启动可执行文件](sample_003.md)  
+* [从 VFP 启动外部程序并等待其终止](sample_377.md)  
+* [如何以其他用户的身份启动进程(NT/XP/2K))](sample_426.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE SW_SHOWNORMAL 1
 #DEFINE SW_SHOWMINIMIZED 2
@@ -29,27 +29,27 @@ Other code samples you might be interested in:
 		STRING lpFile, STRING lpParameters,;
 		STRING lpDirectory, INTEGER nShowCmd
 
-	* opens data files with their associated applications
+	* 打开数据文件及其相关应用程序
 *	= ShellExecute(0, "open", "c:\aa\index.mdb", "", "", SW_SHOWMAXIMIZED)
 *	= ShellExecute(0, "open", "c:\aa\aa.bmp", "", "", SW_SHOWMAXIMIZED)
 *	= ShellExecute(0, "open", "c:\aa\lacrymosa.mp3", "", "", SW_SHOWMAXIMIZED)
 *	= ShellExecute(0, "open", "c:\aa\mkart.doc", "", "", SW_SHOWMAXIMIZED)
 *	= ShellExecute(0, "open", "c:\aa\aa.txt", "", "", SW_SHOWMAXIMIZED)
 
-	* opens a folder
+	* 打开一个目录
 *	= ShellExecute(0, "explore", "c:\Temp", "", "", SW_SHOWMAXIMIZED)
 
-	* open Search window starting from the specified directory
+	* 打开从指定目录开始的搜索窗口
 *	= ShellExecute(0, "find", "", "", getSysDir(), SW_SHOWMAXIMIZED)
 	
-	* prints the text file using the associated application
+	* 使用相关应用程序打印文本文件
 *	= ShellExecute(0, "print", "c:\aa\index.txt", "", "", SW_SHOWMAXIMIZED)
 
-	* accessing a site on the Internet
+	* 访问互联网上的某个网站
 *	= ShellExecute(0, "open", "http://www.microsoft.com/",;
 *		"", "", SW_SHOWMAXIMIZED)
 
-	* sending an email:
+	* 发送电子邮件
 	* Mike Lewis, http://www.ml-consult.demon.co.uk/foxst-22.htm
 
 	LOCAL lcMail
@@ -67,21 +67,21 @@ RETURN SUBSTR(lpBuffer, 1, nSizeRet)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetSystemDirectory](../libraries/kernel32/GetSystemDirectory.md)  
 [ShellExecute](../libraries/shell32/ShellExecute.md)  
 
-## Comment:
-There is one more action type -- EDIT.   
+## 备注
+还有另一种操作类型-编辑。
   
-For some actions failed, GetLastError returns() value 1155, that means ERROR_NO_ASSOCIATION | No application is associated with the specified file for this operation..  
+对于某些失败的操作，GetLastError() 返回值1155，这意味着 ERROR_NO_ASSOCIATION |没有应用程序与此操作指定的文件关联。 
   
-Links: 
+链接： 
 
-* [HOWTO: Use ShellExecute to Launch Associated File (32-bit) (Q170918)](https://jeffpar.github.io/kbarchive/kb/170/Q170918/).  
-* [Tip 168: Using the ShellExecute Function to Print Files](http://www.visualbasicsource.net/redirectpage.html?http://www.visualbasicsource.net/VBTips/168.html).  
-* [An easy way sending emails from a Visual FoxPro application](http://www.ml-consult.co.uk/foxst-22.htm) -- an article of Mike Lewis.  
-* VBNet: [Sending Large Emails via ShellExecute](http://www.mvps.org/vbnet/index.html?code/internet/shellexecutelargeemail.htm).  
+* [HOWTO: 使用 ShellExecute 来启动关联文件（32位） (Q170918)](https://jeffpar.github.io/kbarchive/kb/170/Q170918/).  
+* [技巧168: 使用 ShellExecute 函数打印文件](http://www.visualbasicsource.net/redirectpage.html?http://www.visualbasicsource.net/VBTips/168.html).  
+* [从Visual FoxPro应用程序发送邮件的简单方法](http://www.ml-consult.co.uk/foxst-22.htm) -- an article of Mike Lewis.  
+* VBNet: [通过 ShellExecute 发送大型电子邮件](http://www.mvps.org/vbnet/index.html?code/internet/shellexecutelargeemail.htm).  
   
 
   
