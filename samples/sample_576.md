@@ -1,35 +1,36 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Browsing Windows Known Folders (Special Folders)
+# 浏览 Windows 已知文件夹（特殊文件夹)
+_翻译：xinjie  2020.12.31_
 
-## Before you begin:
-Special Folders are folders which are presented to the user through an interface as an abstract concept, instead of an absolute folder path.   
+## 开始之前：
+特殊文件夹是通过接口作为抽象概念而不是绝对文件夹路径呈现给用户的文件夹。   
 
-As of Windows Vista, those folders are referenced by a new set of GUID values called [Known Folder IDs](http://msdn.microsoft.com/en-us/library/bb776911(v=vs.85).aspx), replacing  the older system of referring to standard folders by a CSIDL value.  
+从Windows Vista开始，这些文件夹由一组新的GUID值引用，称为[已知文件夹ID](http://msdn.microsoft.com/en-us/library/bb776911(v=vs.85).aspx)，取代了旧系统中用CSIDL值引用标准文件夹的做法。
 
 ![](../images/windowsknownfolders.png)  
 
-See also:
+参考：
 
-* [How to get the path to a Special Folder](sample_415.md)  
-* [Obtaining the System and Windows folder names](sample_005.md)  
+* [如何获得特殊文件夹的路径](sample_415.md)  
+* [获取系统和 Windows 文件夹名称](sample_005.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 PUBLIC oForm As Explorer
 oForm = CREATEOBJECT( "SpecialFoldersForm" )
 oForm.Visible=.T.
-* end of main
+* 主程序结束
 
 DEFINE CLASS SpecialFoldersForm As Form
 	Width=520
 	Height=380
 	MinButton=.F.
 	AutoCenter=.T.
-	Caption="Windows Known Folders"
+	Caption="Windows已知文件夹"
 	ShowTips=.T.
 	Backcolor=RGB(255,255,255)
 	ShowWindow=2
@@ -40,7 +41,7 @@ DEFINE CLASS SpecialFoldersForm As Form
 
 	ADD OBJECT cmdBrowse As CommandButton WITH;
 	Left=210, Top=340, Width=100, Height=27,;
-	Caption="Browse", Anchor=260
+	Caption="浏览器", Anchor=260
 
 PROCEDURE cmdBrowse.Click
 	ThisForm.lst.BrowseFolder
@@ -116,8 +117,7 @@ PROCEDURE AddColumnHeader(cCaption, nWidth)
 	ENDWITH
 
 PROCEDURE SwitchToSystemList
-* switches ListItem control to using icons
-* from the system image list
+* 将ListItem控件切换为使用系统映像列表中的图标
 	LOCAL nWStyle, hSysImgList, nResult,;
 		cBuffer, nIconFlags, nImgListType
 		
@@ -128,7 +128,7 @@ PROCEDURE SwitchToSystemList
 		nImgListType = LVSIL_NORMAL
 		nIconFlags = BITOR(nIconFlags, SHGFI_LARGEICON)
 
-		* check if the system list is already assigned
+		* 检查系统列表是否已经分配
 		IF SendMessage(.HWND, LVM_GETIMAGELIST,;
 			nImgListType, 0) = 0
 
@@ -143,7 +143,7 @@ PROCEDURE SwitchToSystemList
 			= SendMessage(.HWND, LVM_SETIMAGELIST,;
 				LVSIL_SMALL, 0)
 
-			= INKEY(0.1) && a small delay may be required
+			= INKEY(0.1) && 稍有延迟
 
 			= SendMessage(.HWND, LVM_SETIMAGELIST,;
 				LVSIL_SMALL, hSysImgList)
@@ -195,7 +195,7 @@ PROCEDURE BrowseFolder
 	= CoTaskMemFree( m.nRootPIDL )
 
 PROCEDURE PopulateList
-* CSIDL (constant special item ID list)
+* CSIDL (常量特殊项目 ID 列表)
 
 	WITH THIS
 		.AddLstItem( "AddNewProgramsFolder", 0x8000 )
@@ -323,7 +323,7 @@ PROCEDURE PathFromPIDL( nPIDL As Number ) As String
 RETURN STRTRAN(m.cBuffer, CHR(0), "")
 
 PROCEDURE GetFileTypeInfo(hPidl, nTypeIndex, cFileType)
-* Obtains icon and description for the specified file type
+* 获取指定文件类型的图标和说明
 	LOCAL nBufsize, cBuffer, nFlags, hIcon
 
 	nBufsize=0x200
@@ -343,8 +343,8 @@ PROCEDURE GetFileTypeInfo(hPidl, nTypeIndex, cFileType)
 	ENDIF
 
 PROCEDURE SetIcon(nItemIndex, nImgIndex)
-* makes ListItem #nItemIndex display an icon
-* stored under index #nImgIndex in the system image list
+* 使ListItem #nItemIndex显示一个图标
+* 存储在系统映像列表中的索引#nImgIndex下
 
     LOCAL cItemBuffer  && LVITEM structure
 
@@ -484,7 +484,7 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CoTaskMemFree](../libraries/ole32/CoTaskMemFree.md)  
 [DestroyIcon](../libraries/user32/DestroyIcon.md)  
 [GetWindowLong](../libraries/user32/GetWindowLong.md)  
@@ -498,11 +498,11 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 [SendMessage](../libraries/user32/SendMessage.md)  
 [SetWindowLong](../libraries/user32/SetWindowLong.md)  
 
-## Comment:
+## 备注：
 
 ![](../images/windowsknownfolders_xp.png)
 
-The Known Folders can be enumerated through call to GetFolderIds method of a class that implements IKnownFolderManager interface.  
+可以通过调用实现IKnownFolderManager接口的类的GetFolderIds方法来枚举“已知文件夹”。  
   
 ***  
 
