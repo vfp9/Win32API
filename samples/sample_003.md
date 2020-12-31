@@ -1,26 +1,27 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Start an executable from VFP application by using the CreateProcess
+# 通过使用 CreateProcess 从VFP应用程序启动可执行文件
+_翻译：xinjie 2020.12.31_
 
-## Before you begin:
-Other code samples you might be interested in:  
-* [Running external applications from VFP using WinExec](sample_002.md)  
-* [Using ShellExecute for performing operations on files](sample_093.md)  
-* [Running an external program from FoxPro and waiting for its termination](sample_377.md)  
-* [How to Start a Process as Another User (NT/XP/2K)](sample_426.md)  
-* [Running MSDOS Shell as a child process with redirected input and output](sample_477.md)  
+## 开始之前：
+您可能感兴趣的其他代码样本  
+* [在 VFP 中使用 WinExec 启动外部应用程序](sample_002.md)  
+* [使用 ShellExecute 对文件进行操作](sample_093.md)  
+* [从 VFP 启动外部程序并等待其终止](sample_377.md)  
+* [如何以其他用户的身份启动进程(NT/XP/2K)](sample_426.md)  
+* [以子进程的形式运行 MSDOS Shell，并重定向输入和输出](sample_477.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 _run("c:\windows\notepad.exe", "c:\newfile.txt")
 *_run("C:\WINDOWS\System32\mspaint.exe", "")
 *_run("C:\Program Files\Microsoft Office\Office10\WINWORD.EXE", "")
 
-* end of main
+* 主程序结束
 
 PROCEDURE _run
 LPARAMETERS cApp, cCmdLine
@@ -49,16 +50,15 @@ LPARAMETERS cApp, cCmdLine
 	*  3 = ERROR_PATH_NOT_FOUND
 	*  5 = ERROR_ACCESS_DENIED
 	* 87 = ERROR_INVALID_PARAMETER
-		? "Error code:", GetLastError()
+		? "错误代码：", GetLastError()
 		RETURN
 	ENDIF
 	
-	* process and thread handles returned in ProcInfo structure
+	* 在 ProcInfo 结构中返回的进程和线程句柄
 	hProcess = buf2dword(SUBSTR(cProcInfo, 1,4))
 	hThread = buf2dword(SUBSTR(cProcInfo, 5,4))
 
-	IF MessageB("Click on <Yes> to terminate the process " +;
-		"you have just created.   ", 32+4, "TerminateProcess API") = 6
+	IF MessageB("点击<是>，终止刚刚创建的进程。   ", 32+4, "终止进程API") = 6
 
 		DECLARE INTEGER TerminateProcess IN kernel32;
 			INTEGER hProcess, INTEGER uExitCode
@@ -74,19 +74,19 @@ RETURN Asc(SUBSTR(cBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CreateProcess](../libraries/kernel32/CreateProcess.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [TerminateProcess](../libraries/kernel32/TerminateProcess.md)  
 
-## Comment:
-According to the Microsoft all WinExec calls are translated directly into corresponding CreateProcess calls.  
+## 备注：
+根据微软的规定，所有的 WinExec 调用都会直接翻译成相应的 CreateProcess 调用。  
   
-Microsoft Knowledge Base Article - 175986  
+微软知识库文章 - 175986  （译者注：链接已失效）
 [Understanding CreateProcess_and Command-line Arguments](https://support.microsoft.com/en-us/help/175986/info-understanding-createprocess-and-command-line-arguments).
   
 * * *  
-Note overloaded Run methods in C# code.  
+请注意，C＃代码中的Run方法已重载。  
   
 ***  
 
