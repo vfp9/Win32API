@@ -1,57 +1,58 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Running MSDOS Shell as a child process with redirected input and output (smarter RUN command)
+# 以子进程的形式运行 MSDOS Shell，并重定向输入和输出(smarter RUN command)
+_翻译:xinjie  2020.12.31_
 
-## Short description:
-The msdos class allows issuing a set of MSDOS commands and getting back a response as a string. The MSDOS window is present but not visible. The code creates a child process running an msdos session and redirects its standard input and output handles to anonymous pipes.  
+## 简述：
+msdos类允许发出一组MSDOS命令，并以字符串形式返回响应。MSDOS窗口是存在的，但不可见。该代码创建了一个运行msdos会话的子进程，并将其标准输入和输出句柄重定向到匿名管道。  
 ***  
 
 
-## Before you begin:
-The following class allows to run a set of MSDOS commands and get back a response as a string. The MSDOS window is present but not visible.  
+## 开始之前：
+下面的类允许运行一组MSDOS命令，并以字符串形式返回响应。MSDOS窗口是存在的，但不可见。 
 
-This is how the class can be tested from the VFP Command Window:  
+这是如何从VFP命令窗口测试该类：
 
 ![](../images/smartrun.png)  
 
-If *CreateMsdosSession* method returns *True*, then *RunCommand* method can be used to launch msdos commands. An output of the command processor is collected in a buffer. *GetResponse* method returns the content and clears the buffer.   
+如果*CreateMsdosSession*方法返回*True*，那么*RunCommand*方法可以用来启动msdos命令。命令处理器的输出被收集到一个缓冲区中。*GetResponse*方法返回内容并清除缓冲区。   
 
-Use this program code to test the class:  
+用这个程序代码来测试该类：  
 
 ```foxpro
 LOCAL cmd As msdos, cResponse  
 cmd = CREATEOBJECT("msdos")  
 
 IF NOT cmd.createmsdossession()  
-	? "CreateMsdosSession call failed."  
+	? "CreateMsdosSession 调用失败。"  
 	RETURN  
 ENDIF  
 
 cmd.runcommand("dir *.bmp")  
 cmd.runcommand("ipconfig")  
-= INKEY(2) && gives MSDOS some time to return
+= INKEY(2) && 给MSDOS一些时间来返回
 
 cResponse = cmd.getresponse()  
-STORE cResponse TO _cliptext  && for reviewing later  
+STORE cResponse TO _cliptext  && 备查  
 
 SET MEMOWIDTH TO 120  
 ? cResponse
 ```
 
-The INKEY() is here to provide some time for the command processor to generate an output. The WaitForSingleObject API, which could be an ideal solution, does not wait for a console output. May be the Timer object can do better than the INKEY() does.  
+INKEY() 在这里是为了给命令处理器提供一些时间来产生输出。WaitForSingleObject API，可能是一个理想的解决方案，它不等待控制台输出。使用 Timer 对象应该可以比 INKEY() 更好。 
 
-See also:
+参考：
 
-* [Running external applications from VFP using WinExec](sample_002.md)  
-* [Using ShellExecute for performing operations on files](sample_093.md)  
-* [Running external applications from VFP using CreateProcess](sample_003.md)  
-* [Running an external program from FoxPro and waiting for its termination](sample_377.md)  
-* [Creating a console window for Visual FoxPro application](sample_474.md)  
+* [在 VFP 中使用 WinExec 启动外部应用程序](sample_002.md)  
+* [使用 ShellExecute 对文件进行操作](sample_093.md)  
+* [通过使用 CreateProcess 从 VFP 应用程序启动可执行文件](sample_003.md)  
+* [从 VFP 启动外部程序并等待其终止](sample_377.md)  
+* [为 Visual FoxPro 应用程序创建一个控制台窗口](sample_474.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DEFINE CLASS msdos As Custom
 #DEFINE SW_HIDE 0
@@ -104,76 +105,72 @@ FUNCTION CreateMsdosSession
 
 	hProcess = GetCurrentProcess()
 	
-	* allocate and populate SECURITY_ATTRIBUTES structure
-	* note that bInheritHandle is set to True
+	* 分配并填充 SECURITY_ATTRIBUTES 结构。
+	* 注意 bInheritHandle 设置为 True 。
 	cSecurityAttributes = num2dword(SECURITYATTR_SIZE) +;
 		num2dword(0) + num2dword(1)
 
-	* create STDOUT pipe and noninheritable read handle
-	* to be used with ReadFromPipe method
+	* 创建 STDOUT 管道和不可继承的读句柄，用于 ReadFromPipe 方法。
 	= CreatePipe(@m.hChildStdoutRd, @m.hChildStdoutWr,;
 		@cSecurityAttributes, 0)
 	= DuplicateHandle(m.hProcess, hChildStdoutRd, m.hProcess,;
 		@hChildStdoutRddup, 0, 0, DUPLICATE_SAME_ACCESS)
 
-	* create STDIN pipe and noninheritable write handle
-	* to be used with WriteToPipe method
+	* 创建 STDIN 管道和不可继承的写句柄，用于 WriteToPipe 方法。
 	= CreatePipe(@hChildStdinRd, @hChildStdinWr,;
 		@cSecurityAttributes, 0)
 	= DuplicateHandle(m.hProcess, hChildStdinWr, m.hProcess,;
 		@hChildStdinWrdup, 0, 0, DUPLICATE_SAME_ACCESS)
 
-	* allocate space for STARTUPINFO structure
+	* 为 STARTUPINFO 结构分配空间。
 	cStartupInfo = PADR(Chr(STARTUPINFO_SIZE), STARTUPINFO_SIZE, Chr(0))
 
-	* set dwFlags member of STARTUPINFO
-	* using STARTF_USESHOWWINDOW flag with wShowWindow=0
-	* will create hidden msdos shell window
+	* 设置 STARTUPINFO 的 dwFlags 成员
+	* 使用 STARTF_USESHOWWINDOW 标志和 wShowWindow=0 将创建隐藏的 msdos shell 窗口
 	cStartupInfo = STUFF(cStartupInfo, 45, 4,;
 		num2dword(STARTF_USESTDHANDLES+STARTF_USESHOWWINDOW))
 
-	* set hStdInput member to the read handle of STDIN pipe
+	* 将 hStdInput 成员设置为 STDIN 管道的读取柄
 	cStartupInfo = STUFF(cStartupInfo, 57, 4,;
 		num2dword(m.hChildStdinRd)) && IN
 
-	* set hStdOutput member to the write handle of STDOUT pipe
+	* 将 hStdOutput 成员设置为 STDOUT 管道的写句柄
 	cStartupInfo = STUFF(cStartupInfo, 61, 4,;
 		num2dword(m.hChildStdoutWr)) && OUT
 
-	* set hStdError member to the write handle of STDOUT pipe
+	* 将 hStdError 成员设置为 STDOUT 管道的写句柄
 	cStartupInfo = STUFF(cStartupInfo, 65, 4,;
 		num2dword(m.hChildStdoutWr)) && ERR
 
-	* allocate space for PROCESS_INFORMATION structure
+	* 为 PROCESS_INFORMATION 结构分配空间
 	cProcInfo = REPLICATE(Chr(0), 16)
 	
-	* create child process -- msdos shell window
-	* note that bInheritHandles input parameter is set to True
+	* 创建子进程 -- msdos shell窗口
+	* 请注意，bInheritHandles 输入参数设置为 True
 	= CreateProcess(THIS.GetSysDir() + "\" + MsdosShell, "",;
 		0,0, 1, 0,0, SYS(5)+SYS(2003), @cStartupInfo, @cProcInfo)
 
-	* retrieve process and thread handles for the created msdos shell
-	* from the PROCESS_INFORMATION structure
+	* 从PROCESS_INFORMATION结构中获取创建的msdos shell的进程和线程句柄。
 	hProcess = buf2dword(SUBSTR(cProcInfo, 1,4))
 	hThread = buf2dword(SUBSTR(cProcInfo, 5,4))
 	
 	THIS.hChildStdoutRddup = m.hChildStdoutRddup
 	THIS.hChildStdinWrdup = m.hChildStdinWrdup
 
-	* close inheritable handles
+	* 关闭可继承的句柄
 	= CloseHandle(m.hChildStdinRd)
 	= CloseHandle(m.hChildStdinWr)
 	= CloseHandle(m.hChildStdoutRd)
 	= CloseHandle(m.hChildStdoutWr)
 
 	IF THIS.ValidMsdosSession()
-		* store process and thread handles in class properties;
-		* on exit you will need them to terminate the msdos shell process
+		* 在类属性中存储进程和线程句柄;
+		* 在退出时，你需要他们来终止msdos shell进程。
 		THIS.hMsdosProcess = m.hProcess
 		THIS.hMsdosThread = m.hThread
 		RETURN .T.
 	ELSE
-	* failed to start msdos shell as a child process
+	* 未能将msdos shell作为子进程启动
 		THIS.ReleaseMsdosSession
 		RETURN .F.
 	ENDIF
@@ -289,7 +286,7 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreatePipe](../libraries/kernel32/CreatePipe.md)  
 [CreateProcess](../libraries/kernel32/CreateProcess.md)  
@@ -301,29 +298,29 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 [TerminateProcess](../libraries/kernel32/TerminateProcess.md)  
 [WriteFile](../libraries/kernel32/WriteFile.md)  
 
-## Comment:
-The VFP class starts the command processor (cmd.exe) as a child process using the CreateProcess. Through input parameters for this call the standard input and output handles of the child process are redirected to two anonymous pipes.   
+## 备注：
+VFP类使用CreateProcess作为子进程启动命令处理器（cmd.exe）。 通过此调用的输入参数，子进程的标准输入和输出句柄被重定向到两个匿名管道。
   
-The msdos window is put in a hidden state by placing STARTF_USESHOWWINDOW  in STARTUPINFO structure. So the usual black msdos window does not blink and does not appear in the Task Bar.   
+通过将STARTF_USESHOWWINDOW放在STARTUPINFO结构中，可以将msdos窗口置于隐藏状态。 因此，通常的黑色msdos窗口不会闪烁，并且不会出现在任务栏中。
   
-Though it has an unexpected effect:
+尽管它具有意想不到的效果：
   
 `cmd.RunCommand("C:\myprog.exe")`
   
-The code line above will start myprog.exe and place it in a hidden state. Only after the *cmd* object is released, the myprog.exe becomes visible and appears in the Task Bar.   
+上面的代码行将启动myprog.exe，并使其处于隐藏状态。只有在释放*cmd*对象后，myprog.exe才会变得可见并出现在任务栏中。  
   
 * * *  
-Through one pipe the command processor receives commands (RunCommand method). The other pipe is used to get an output generated by the command processor (GetResponse method).  
+命令处理器通过一条管道接收命令（RunCommand方法）。 另一个管道用于获取命令处理器生成的输出（GetResponse方法）。
   
-*An anonymous pipe is an unnamed, one-way pipe that typically transfers data between a parent process and a child process. *  
+*匿名管道是未命名的单向管道，通常在父进程和子进程之间传输数据。 *
   
-This is like a temporary file that is shared by two processes. One of these processes can write to the pipe, and the other one can read from the pipe, which is what "one-way" means.  
+这就像一个由两个进程共享的临时文件。 这些过程之一可以写入管道，而另一个可以从管道读取，这就是“单向”的意思。  
   
-MSDN links:  
+MSDN 链接：  
 
-* [Creating a Child Process with Redirected Input and Output ](https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499(v=vs.85).aspx) -- *the FoxPro class above actually uses a translation of a large part of this C code*   
+* [创建具有重定向输入和输出的子进程 ](https://msdn.microsoft.com/en-us/library/windows/desktop/ms682499(v=vs.85).aspx) -- *上面的FoxPro类实际上使用了这段C代码的大部分翻译而来*   
 
-* <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;190351">How To Spawn Console Processes with Redirected Standard Handles</a>  
+* <a href="https://blog.csdn.net/iiprogram/article/details/1833042">如何使用重定向的标准句柄生成控制台进程</a>（译者注：原MSDN链接失效，更换为 CSDN 博客链接）  
   
 ***  
 
