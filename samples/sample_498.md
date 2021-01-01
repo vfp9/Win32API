@@ -1,25 +1,25 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using shared memory to exchange data between applications (processes)
+# 使用共享内存在应用程序（进程）之间交换数据
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
-Presented below the *SharedMemory* class uses FileMapping API calls to allocate a block of memory accessible from any FoxPro application that can instantiate this class. All applications share the name of this memory buffer, for example "MYAPPSHAREDMEMORY".  
+## 开始之前：
+在 *SharedMemory* 类下面显示的内容使用 FileMapping API 调用来分配可从任何可以实例化该类的 FoxPro 应用程序访问的内存块。所有应用程序都共享该内存缓冲区的名称，例如“ MYAPPSHAREDMEMORY”。  
 
 ![](../images/sharedmemory.png)  
 
-To test this class, start two or more VFP executables and run this code in each session:  
+要测试这个类，请启动两个或多个VFP可执行文件，并在每个会话中运行这个代码。  
 
 ```foxpro
 LOCAL oForm As TForm  
 oForm = CREATEOBJECT("Tform")  
 oForm.Show(1)  
-* end of main  
+* 主程序结束  
 
 DEFINE CLASS Tform As Form  
 	Width=460  
 	Height=200  
-	Caption="Using shared memory to exchange " +;  
-		"data between processes"  
+	Caption="使用共享内存在进程间交换数据"  
 	smObject=NULL  
 
 	ADD OBJECT txtSharedMemory As EditBox WITH;  
@@ -27,11 +27,11 @@ DEFINE CLASS Tform As Form
 
 	ADD OBJECT cmdReadFromMemory As CommandButton WITH;  
 	Left=40, Top=150, Width=190, Height=27,;  
-	Caption="Read From Shared Memory"  
+	Caption="从共享内存读取"  
 
 	ADD OBJECT cmdWriteToMemory As CommandButton WITH;  
 	Left=230, Top=150, Width=190, Height=27,;  
-	Caption="Write To Shared Memory"  
+	Caption="写入共享内存"  
 
 PROCEDURE Init  
 	THIS.smObject = CREATEOBJECT("SharedMemory",;  
@@ -48,15 +48,15 @@ PROCEDURE cmdWriteToMemory.Click
 	ThisForm.smObject.WriteToSharedMemory(m.cBuffer)  
 ENDDEFINE
 ```
-See also:
+参考：
 
-* [Using a Semaphore object to prevent VFP application from running more than one instance](sample_147.md)  
-* [Using Windows Clipboard for passing data records between VFP applications](sample_346.md)  
+* [使用 Semaphore 对象只允许一个VFP应用实例运行](sample_147.md)  
+* [通过剪贴板在 VFP 应用程序之间传递数据记录](sample_346.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE ERROR_ALREADY_EXISTS 183
 #DEFINE INVALID_HANDLE_VALUE -1
@@ -92,17 +92,17 @@ FUNCTION GetSharedMemorySize
 RETURN THIS.bufsize
 
 PROTECTED FUNCTION LockAccess
-* request ownership of mutex
+* 要求拥有互斥体
 	LOCAL nResult
 	nResult = WaitForSingleObject(THIS.hSyncObject, 5000)
 RETURN (m.nResult=0)
 
 PROTECTED PROCEDURE ReleaseAccess
-* release ownership of mutex
+* 释放互斥体
 	= ReleaseMutex(THIS.hSyncObject)
 
 FUNCTION WriteToSharedMemory(cBuffer, nOffset)
-* nOffset is zero-based
+* nOffset 从 0 开始
 	IF THIS.hBuffer=0
 		RETURN 0
 	ENDIF
@@ -122,7 +122,7 @@ FUNCTION WriteToSharedMemory(cBuffer, nOffset)
 RETURN m.nBytesToWrite
 
 FUNCTION ReadFromSharedMemory(nBytesToRead, nOffset)
-* nOffset is zero-based
+* nOffset 从 0 开始
 	IF THIS.hBuffer=0
 		RETURN ""
 	ENDIF
@@ -147,7 +147,7 @@ FUNCTION ReadFromSharedMemory(nBytesToRead, nOffset)
 RETURN m.cBuffer
 
 PROTECTED PROCEDURE InitMapping
-* create synch and shared memory objects
+* 创建同步和共享内存对象
 	THIS.hSyncObject = CreateMutex(0,0, "sync_"+THIS.MappingName)
 
 	IF THIS.hSyncObject=0
@@ -155,8 +155,7 @@ PROTECTED PROCEDURE InitMapping
 		RETURN
 	ENDIF
 
-	* give different names to the synch object
-	* and the shared memory object
+	* 给同步对象和共享内存对象起不同的名字
 	THIS.hMapping = CreateFileMapping(INVALID_HANDLE_VALUE,;
 		0, PAGE_READWRITE, 0, THIS.bufsize, THIS.MappingName)
 
@@ -172,7 +171,7 @@ PROTECTED PROCEDURE InitMapping
 	ENDIF
 
 PROTECTED PROCEDURE ReleaseMapping
-* release synch and shared memory objects
+* 释放同步和共享内存对象
 	IF THIS.hBuffer <> 0
 		= UnmapViewOfFile(THIS.hBuffer)
 		THIS.hBuffer=0
@@ -188,8 +187,8 @@ PROTECTED PROCEDURE ReleaseMapping
 	ENDIF
 
 PROTECTED PROCEDURE declare
-* RtlMoveMemory is declared with two aliases -- VFP8+ required
-* in older VFP versions declare it immediately before calling
+* RtlMoveMemory是用两个别名来声明的 -- 需要VFP8+
+* 在较旧的VFP版本中，在调用之前立即声明它
 	DECLARE INTEGER CloseHandle IN kernel32 INTEGER hObject
 	DECLARE INTEGER UnmapViewOfFile IN kernel32 LONG lpBaseAddress
 	DECLARE INTEGER GetLastError IN kernel32
@@ -221,7 +220,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateFileMapping](../libraries/kernel32/CreateFileMapping.md)  
 [CreateMutex](../libraries/kernel32/CreateMutex.md)  
@@ -231,8 +230,8 @@ ENDDEFINE
 [UnmapViewOfFile](../libraries/kernel32/UnmapViewOfFile.md)  
 [WaitForSingleObject](../libraries/kernel32/WaitForSingleObject.md)  
 
-## Comment:
-Mutex object is used to synchronize access to the shared memory block.  
+## 备注：
+互斥对象用于同步对共享内存块的访问。  
   
 ***  
 
