@@ -1,23 +1,24 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Disk in drive A:
+# 驱动器 A 的磁盘
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
+## 开始之前：
 ![](../images/diskindrivea.png)  
-See also:
+参考：
 
-* [Displaying the drive type value](sample_012.md)  
-* [Basic Volume information](sample_098.md)  
-* [Setting the volume label](sample_151.md)  
-* [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](sample_101.md)  
-* [Mapping and disconnecting network drives in FoxPro application](sample_387.md)  
-* [How to detect when a removable drive gets connected or disconnected](sample_573.md)  
+* [显示驱动器类型值](sample_012.md)  
+* [基本卷信息](sample_098.md)  
+* [设置卷标](sample_151.md)  
+* [获取驱动器的物理参数：扇区，簇，柱面...](sample_101.md)  
+* [映射和断开网络驱动器的连接](sample_387.md)  
+* [检测与可移动硬盘的连接变化(VFP9)](sample_573.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL oForm
 oForm = CreateObject("Tform", "A")
@@ -28,22 +29,22 @@ DEFINE CLASS Tform As Form
 	Height=120
 	MaxButton=.F.
 	MinButton=.F.
-	Caption=" Disk in drive A"
+	Caption=" 驱动器 A 中的磁盘"
 	Autocenter=.T.
 	Keypreview=.T.
 	diskname="A"
 	
 	ADD OBJECT cmd1 As Tcmd WITH Left=10, Top=10,;
-	Caption="Disk in drive?"
+	Caption="磁盘在驱动器中？"
 
 	ADD OBJECT cmd2 As Tcmd WITH Left=120, Top=10,;
-	Caption="Serial number"
+	Caption="序列号"
 
 	ADD OBJECT cmd3 As Tcmd WITH Left=10, Top=50,;
-	Caption="Disk free space"
+	Caption="磁盘可用空间"
 
 	ADD OBJECT cmd4 As Tcmd WITH Left=120, Top=50,;
-	Caption="Format disk"
+	Caption="格式化磁盘"
 
 PROCEDURE Init(cDiskName)
 	IF VARTYPE(m.cDiskName)="C" AND NOT EMPTY(m.cDiskName)
@@ -58,20 +59,20 @@ LPARAMETERS nKeyCode, nShiftAltCtrl
 
 PROCEDURE cmd1.Click
 	IF DiskInDrive(ThisForm.diskname + ":\")
-		= MESSAGEBOX("Disk found in drive " + ThisForm.diskname)
+		= MESSAGEBOX("磁盘在驱动器中 " + ThisForm.diskname)
 	ELSE
-		= MESSAGEBOX("No disk found in drive " + ThisForm.diskname)
+		= MESSAGEBOX("磁盘未在驱动器中 " + ThisForm.diskname)
 	ENDIF
 
 PROCEDURE cmd2.Click
 	LOCAL lnNumber
 	lnNumber = GetSerialNumber(ThisForm.diskname + ":\")
-	= MESSAGEBOX("Serial number: " + LTRIM(STR(lnNumber)))
+	= MESSAGEBOX("序列号: " + LTRIM(STR(lnNumber)))
 
 PROCEDURE cmd3.Click
 	LOCAL lnFreeSpace
 	lnFreeSpace = GetFreeSpace(ThisForm.diskname + ":\")
-	= MESSAGEBOX("Free space on disk: " +;
+	= MESSAGEBOX("磁盘可用空间: " +;
 		ALLTR(TRANS(lnFreeSpace, "999,999,999")) + " bytes")
 
 PROCEDURE cmd4.Click
@@ -158,12 +159,12 @@ FUNCTION FormatFloppy(lcRoot)
 #DEFINE SHFMT_NOFORMAT -3
 
 	IF Not DiskInDrive(lcRoot)
-		= MESSAGEBOX("Disk not available")
+		= MESSAGEBOX("磁盘不可用")
 		RETURN .F.
 	ENDIF
 	lcRoot = LEFT(lcRoot,1)
 	IF Not lcRoot $ "AB"
-		= MESSAGEBOX("Should be A or B")
+		= MESSAGEBOX("应该是 A 或 B")
 		RETURN .F.
 	ENDIF
 
@@ -178,26 +179,26 @@ FUNCTION FormatFloppy(lcRoot)
 
 	DO CASE
 	CASE lnResult = SHFMT_ERROR
-		= MESSAGEBOX("Error formatting the drive")
+		= MESSAGEBOX("格式化磁盘时出错")
 	CASE lnResult = SHFMT_CANCEL
-		= MESSAGEBOX("User canceled formatting the drive")
+		= MESSAGEBOX("用户取消了磁盘格式化")
 	CASE lnResult = SHFMT_NOFORMAT
-		= MESSAGEBOX("Drive is not formatable")
+		= MESSAGEBOX("磁盘未格式化")
 	OTHER
-		= MESSAGEBOX("Disk has been formatted")
+		= MESSAGEBOX("磁盘已格式化")
 	ENDCASE
 RETURN  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetDiskFreeSpace](../libraries/kernel32/GetDiskFreeSpace.md)  
 [GetVolumeInformation](../libraries/kernel32/GetVolumeInformation.md)  
 [SHFormatDrive](../libraries/shell32/SHFormatDrive.md)  
 
-## Comment:
-Most of the time, DISKSPACE("A") works good enough.  
+## 备注：
+大多数时候，DISKSPACE("A")已经足够好用了。  
   
 ***  
 
