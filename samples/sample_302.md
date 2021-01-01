@@ -1,22 +1,23 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to retrieve the number of objects stored in the Recycle Bin
+# 如何检索回收站中存储的对象数量
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
+## 开始之前：
 ![](../images/recyclebin.png)  
 
-See also:
+参考：
 
-* [Deleting file into the Recycle Bin](sample_321.md)  
-* [How to empty the Recycle Bin](sample_301.md)  
-* [How to remove a directory that is not empty](sample_541.md)  
-* [Displaying standard progress dialog box when copying files](sample_508.md)  
+* [删除文件到回收站](sample_321.md)  
+* [如何清空回收站](sample_301.md)  
+* [如何删除非空目录](sample_541.md)  
+* [复制文件时显示标准进度对话框](sample_508.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE S_OK 0
 
@@ -38,12 +39,12 @@ See also:
 		STRING pszRootPath, STRING @pSHQueryRBInfo
 
 	IF SHQueryRecycleBin ("C:", @lcBuffer) = S_OK
-		?"*** The Recycle Bin:"
+		?"*** 回收站："
 
-		? "Total size of all objects, bytes:",;
+		? "所有对象的总大小，字节：",;
 			buf2i64(SUBSTR(lcBuffer, 5,8))
 
-		? "Total number of objects:",;
+		? "对象总数：",;
 			buf2i64(SUBSTR(lcBuffer, 13,8))
 	ENDIF
 RETURN
@@ -62,5 +63,5 @@ RETURN buf2dword(SUBSTR(lcBuffer, 1,4)) +;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [SHQueryRecycleBin](../libraries/shell32/SHQueryRecycleBin.md)  
