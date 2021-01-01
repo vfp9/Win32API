@@ -47,7 +47,7 @@ DEFINE CLASS Tform As Form
 
 	ADD OBJECT cmdDisconnect As CommandButton WITH;
 	Left=360, Top=112, Width=100, Height=27,;
-	Caption="Disconnect", Alt="安全移除硬件"
+	Caption="断开连接", Alt="安全移除硬件"
 
 PROCEDURE Init
 	THIS.EnumDevices
