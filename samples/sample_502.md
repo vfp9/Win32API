@@ -1,30 +1,31 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Exporting DLL icon resources as .ICO files
+# 将 DLL 图标资源导出为 .ICO 文件
+_翻译：xinjie  2021.01.01_
 
-## Short description:
-This code includes definitions for three classes: IconGroups, IconGroupResource and IconResource. The IconGroups is a collection of the IconGroupResource objects. The icons property of the IconGroupResource class is a collection of the IconResource objects.
+## 简述：
+此代码包含三个类的定义：IconGroups，IconGroupResource和IconResource。 IconGroups是IconGroupResource对象的集合。 IconGroupResource类的icons属性是IconResource对象的集合。
 
-The IconGroupResource and IconResource classes include SaveToFile method that saves the resource to .ICO file.
+IconGroupResource和IconResource类包含SaveToFile方法，该方法将资源保存到.ICO文件。
   
 ***  
 
 
-## Before you begin:
-This code includes definitions for three classes: IconGroups, IconGroupResource and IconResource.  
+## 开始之前：
+此代码包含三个类的定义：IconGroups，IconGroupResource和IconResource。
 
-The IconGroups is a collection of the IconGroupResource objects. The *icons* property of the IconGroupResource class is a collection of the IconResource objects.  
+IconGroups是IconGroupResource对象的集合。 IconGroupResource类的*icons*属性是IconResource对象的集合。
 
-The following code employs classes from this code sample to store VFP Icon resources to ICO files.  
+以下代码使用此代码示例中的类将VFP Icon资源存储到ICO文件。 
 ```foxpro
 oIconGroups = CREATEOBJECT("IconGroups",;  
 	_vfp.ServerName)  
 
 oIconGroups.EnumIconGroupResources  
-? "Icon groups:", oIconGroups.Count  
+? "图标组:", oIconGroups.Count  
 
 LOCAL cTargetPath, nGroupIndex, nIconIndex  
-cTargetPath = GETDIR("", "Select ICO files destination folder.")  
+cTargetPath = GETDIR("", "选择ICO文件的目标文件夹")  
 
 IF NOT EMPTY(m.cTargetPath)  
 	SET SAFETY OFF  
@@ -49,19 +50,19 @@ IF NOT EMPTY(m.cTargetPath)
 	SET SAFETY ON  
 ENDIF
 ```
-[![](../images/filearchive.png)](../downloads/imageres_selected_icons.zip) *Download a small selection of Windows icons from System32\Imageres.dll library.* 
+[![](../images/filearchive.png)](../downloads/imageres_selected_icons.zip) *从 System32/Imageres.dll 库中提取的少量 Windows 图标。* 
 
-See also:
+参考：
 
-* [Storing DLL icon resources in image files](sample_501.md)  
-* [View icons stored in executable files (Icon Viewer)](sample_113.md)  
-* [View icons stored in executable files (Icon Viewer II)](sample_019.md)  
-* [Displaying Windows Shell Icons](sample_575.md)  
+* [GDI+：在图像文件中存储DLL图标资源](sample_501.md)  
+* [如何查看存储在可执行文件中的图标(图标浏览器)](sample_113.md)  
+* [如何查看存储在可执行文件中的图标(图标浏览器) - II](sample_019.md)  
+* [Windows Shell图标显示并导出到ICO文件（Vista）](sample_575.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DEFINE CLASS IconGroups As Collection
 #DEFINE RT_ICON 3
@@ -73,9 +74,9 @@ DEFINE CLASS IconGroups As Collection
 	hmodule=0
 
 PROCEDURE Init(hModule)
-* VFP versions 3..9 do not support callback functions
-* making impossible using the EnumResourceNames function.
-* This collection inludes only resources with integer identifiers
+* VFP 3 到 VFP9 版本不支持回调函数
+* 使得 EnumResourceNames 函数无法使用
+* 这个集合只包括具有整数标识符的资源
 	THIS.declare
 	
 	DO CASE
@@ -102,8 +103,7 @@ PROCEDURE EnumIconGroupResources
 	NEXT
 
 PROCEDURE AddIconGroupResource( nResId As Number )
-* locates Group Icon resource by specified Id
-* and adds it to the collection
+* 通过指定的ID查找“组图标”资源，并将其添加到集合中
 	LOCAL hResource, nIndex,;
 		oIconGroup As IconGroupResource
 
@@ -121,7 +121,7 @@ PROCEDURE AddIconGroupResource( nResId As Number )
 		ENDIF
 		oIconGroup=NULL
 	ENDIF
-* returns index in the collection or zero
+* 返回集合中的索引或者零
 RETURN m.nIndex
 
 PROCEDURE Destroy
@@ -297,7 +297,7 @@ PROCEDURE FreeResource
 
 ENDDEFINE
 
-**************************** static functions ********************************
+**************************** 静态函数 ********************************
 FUNCTION buf2dword(cBuffer)
 RETURN Asc(SUBSTR(cBuffer, 1,1)) + ;
 	BitLShift(Asc(SUBSTR(cBuffer, 2,1)),  8) +;
@@ -328,7 +328,7 @@ RETURN Chr(MOD(m.lnValue,256)) + CHR(INT(m.lnValue/256))
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FindResource](../libraries/kernel32/FindResource.md)  
 [FreeLibrary](../libraries/kernel32/FreeLibrary.md)  
 [LoadLibraryEx](../libraries/kernel32/LoadLibraryEx.md)  
@@ -336,17 +336,17 @@ RETURN Chr(MOD(m.lnValue,256)) + CHR(INT(m.lnValue/256))
 [LockResource](../libraries/kernel32/LockResource.md)  
 [SizeofResource](../libraries/kernel32/SizeofResource.md)  
 
-## Comment:
-To see a variety of system icons, test this code with Shell32.dll and Imageres.dll files located in System32 folder.  
+## 备注：
+要想看到各种系统图标，请用位于System32文件夹中的Shell32.dll和Imageres.dll文件测试这段代码。  
   
 ![Storing DLL icon resources in .ICO files](../images/imageres_icons.jpg)
  
   
 * * *  
-VFP versions 3..9 do not support callback functions. This prevents using the EnumResourceNames function to enumerate available resources in executable or dynamic library files. For that reason, the IconGroups class enumerates IconGroup resources with only integer identifiers in 1..0xffff range.  
+VFP版本3 到 VFP9不支持回调函数。 这样可以防止使用 EnumResourceNames 函数枚举可执行文件或动态库文件中的可用资源。 因此，IconGroups 类仅使用 1 到 0xffff 范围内的整数标识符枚举 IconGroup 资源。 
   
-Read on MSDN: 
-* [Icons in Win32](https://msdn.microsoft.com/en-us/library/ms997538.aspx)
-* [Using Icons](https://msdn.microsoft.com/en-us/library/windows/desktop/ms648051(v=vs.85).aspx)
+MSDN 链接： 
+* [Win32 中的图标](https://msdn.microsoft.com/en-us/library/ms997538.aspx)
+* [使用图标](https://msdn.microsoft.com/en-us/library/windows/desktop/ms648051(v=vs.85).aspx)
 
 ***  
