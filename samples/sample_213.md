@@ -83,7 +83,7 @@ PROCEDURE Init(lcString)
 PROCEDURE Destroy
 	THIS.ReleaseString
 
-FUNCTION getAddr  && returns a pointer to the string
+FUNCTION getAddr  && 返回一个指向字符串的指针
 RETURN THIS.hMem
 
 FUNCTION GetValue && returns string value
@@ -98,7 +98,7 @@ FUNCTION GetValue && returns string value
 	ENDIF
 RETURN lcBuffer
 
-FUNCTION GetAllocSize  && returns allocated memory size (string length)
+FUNCTION GetAllocSize  && 返回分配的内存大小（字符串长度）
 	DECLARE INTEGER GlobalSize IN kernel32 INTEGER hMem
 RETURN Iif(THIS.hMem=0, 0, GlobalSize(THIS.hMem))
 
