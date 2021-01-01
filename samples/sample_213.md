@@ -86,7 +86,7 @@ PROCEDURE Destroy
 FUNCTION getAddr  && 返回一个指向字符串的指针
 RETURN THIS.hMem
 
-FUNCTION GetValue && returns string value
+FUNCTION GetValue && 返回字符串值
 	LOCAL lnSize, lcBuffer
 	lnSize = THIS.GetAllocSize()
 	lcBuffer = SPACE(lnSize)
@@ -102,7 +102,7 @@ FUNCTION GetAllocSize  && 返回分配的内存大小（字符串长度）
 	DECLARE INTEGER GlobalSize IN kernel32 INTEGER hMem
 RETURN Iif(THIS.hMem=0, 0, GlobalSize(THIS.hMem))
 
-PROCEDURE SetValue(lcString) && assigns new string value
+PROCEDURE SetValue(lcString) && 分配新的字符串值
 #DEFINE GMEM_FIXED   0
 	THIS.ReleaseString
 
