@@ -1,19 +1,20 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Copying files as a transacted operation (Vista)
+# 将复制文件作为一项事务性操作（Vista）
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
-Windows Vista offers transaction protection for various file operations: create, delete, copy, move and more.  
+## 开始之前：
+Windows Vista为各种文件操作提供事务保护：创建、删除、复制、移动等。  
 
-See also:
+参考：
 
-* [Displaying standard progress dialog box when copying files](sample_508.md)  
-* [Deleting file into the Recycle Bin](sample_321.md)  
+* [复制文件时显示标准进度对话框](sample_508.md)  
+* [删除文件到回收站](sample_321.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INVALID_HANDLE_VALUE -1
 #DEFINE COPY_FILE_FAIL_IF_EXISTS 0x00000001
@@ -24,7 +25,7 @@ DO declare
 LOCAL hTrans
 hTrans = CreateTransaction(0, 0, 0, 0, 0, 1000, NULL)
 IF hTrans = INVALID_HANDLE_VALUE
-	? "CreateTransaction call failed:", GetLastError()
+	? "CreateTransaction 调用失败：", GetLastError()
 	RETURN
 ENDIF
 
@@ -38,14 +39,14 @@ nResult = CopyFileTransacted(cSrc, cDst, 0, 0, 0,;
 	hTrans)
 	
 IF nResult = 0
-	? "CopyFileTransacted call failed:", GetLastError()
+	? "CopyFileTransacted 调用失败", GetLastError()
 	= RollbackTransaction(m.hTrans)
 ELSE
 	= CommitTransaction(m.hTrans)
 ENDIF
 
 = CloseHandle(hTrans)
-* end of main
+* 主程序结束
 
 PROCEDURE declare
 	DECLARE INTEGER CopyFileTransacted IN kernel32;
@@ -74,7 +75,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CommitTransaction](../libraries/ktmw32/CommitTransaction.md)  
 [CopyFileTransacted](../libraries/kernel32/CopyFileTransacted.md)  
