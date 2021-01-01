@@ -1,30 +1,30 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Disconnecting USB Mass Storage Device programmatically
+# 以程序方式断开 USB 大容量存储设备的连接
 
-## Before you begin:
+## 开始之前：
 ![](../images/usbstoragedevices.png)  
-USB Storage Devices can be disconnected (removed safely) in VFP code. The procedure is the same as the system utility uses.  
+在 VFP 代码中可以断开 USB 存储设备的连接（安全移除）。其过程与系统实用程序使用的相同。  
 ![](../images/safelyremovehardware.png)  
 
 ![](../images/safelyremovehardware01.png)  
 
-See also:
+参考：
 
-* [Enumerating devices installed on the local machine](sample_545.md)  
-* [How to detect when a removable drive gets connected or disconnected](sample_573.md)  
-* [Retrieving list of available disk drives](sample_013.md)  
+* [枚举安装在本地机器上的设备](sample_545.md)  
+* [检测与可移动硬盘的连接变化(VFP9)](sample_573.md)  
+* [检索可用磁盘驱动器的列表](sample_013.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL oForm As Tform
 oForm= CREATEOBJECT("Tform")
 oForm.Show(1)
-* end of main
+* 主程序结束
 
 DEFINE CLASS Tform As Form
 #DEFINE CLASS_GUID_USBCONTROLLER "{36fc9e60-c465-11cf-8056-444553540000}"
@@ -35,7 +35,7 @@ DEFINE CLASS Tform As Form
 	MaxButton=.F.
 	MinButton=.F.
 	Autocenter=.T.
-	Caption="USB Storage Devices"
+	Caption="USB 存储设备"
 	devenum=NULL
 
 	ADD OBJECT lstDevices As ListBox WITH;
@@ -43,11 +43,11 @@ DEFINE CLASS Tform As Form
 	ColumnWidths="50,200,240", BoundTo=.T., BoundColumn=4
 	
 	ADD OBJECT cmdRefresh As CommandButton WITH;
-	Left=15, Top=112, Width=80, Height=27, Caption="Refresh"
+	Left=15, Top=112, Width=80, Height=27, Caption="刷新"
 
 	ADD OBJECT cmdDisconnect As CommandButton WITH;
 	Left=360, Top=112, Width=100, Height=27,;
-	Caption="Disconnect", Alt="Safely Remove Hardware"
+	Caption="Disconnect", Alt="安全移除硬件"
 
 PROCEDURE Init
 	THIS.EnumDevices
@@ -60,7 +60,7 @@ PROCEDURE cmdDisconnect.Click
 	ThisForm.EnumDevices
 
 PROCEDURE DisconnectSelectedDevice
-* disconnects USB Storage device
+* 断开 USB 存储设备的连接
 	IF THIS.lstDevices.ListIndex > 0
 		LOCAL nDevinst
 		nDevinst = VAL(SUBSTR(THIS.lstDevices.Value,2))
@@ -80,20 +80,18 @@ PROCEDURE EnumDevices
 	nDevicesFound=0  && USB Drives found
 
 	FOR EACH oDevice IN THIS.devenum.devices
-	* looking for devices of class "Disk Drive" with parent device
-	* of class "Universal Serial Bus controller"
+	* 寻找 "磁盘驱动器 "类设备，其父级设备为 "通用串行总线控制器"。
 
 		IF oDevice.classguid=CLASS_GUID_DISKDRIVE
 			oParent = THIS.devenum.GetDevice(oDevice.devparent)
 
 			IF VARTYPE(oParent)="O" AND;
 				oParent.classguid=CLASS_GUID_USBCONTROLLER
-			* a device is found;
-			* the parent (USB Controller) can be disconnected
+			* 找到一个设备;
+			* 可以断开父级（USB控制器）
 
-				* assuming that first device connected takes
-				* the drive letter lesser than the second device connected;
-				* in fact, the assumption may not be correct in some cases?
+				* 假设连接的第一台设备的驱动字母小于连接的第二台设备
+				* 其实，这个假设在某些情况下未必正确？
 
 				nDevicesFound=nDevicesFound+1
 				cDriveLetter =THIS.devenum.GetRemovableDriveLetter(;
@@ -110,7 +108,7 @@ PROCEDURE EnumDevices
 	NEXT
 
 	WITH THIS.lstDevices
-	* if connected and enaabled USB drives found
+	* 如果连接并启用 USB 驱动器
 		IF .ListCount > 0
 			.ListIndex=1
 			THIS.cmdDisconnect.Enabled=.T.
@@ -145,7 +143,7 @@ PROCEDURE Init(cMachine As String)
 	
 	nResult = CM_Connect_Machine(THIS.MachineName, @hMachine)
 	IF m.nResult <> CR_SUCCESS
-		= MESSAGEBOX("CM_Connect_Machine failed: "+;
+		= MESSAGEBOX("CM_Connect_Machine 失败: "+;
 			TRANSFORM(nResult))
 		RETURN .F.
 	ENDIF
@@ -156,10 +154,10 @@ PROCEDURE Init(cMachine As String)
 	= CM_Locate_DevNode_Ex(@hRoot, 0, 0, THIS.hMachine)
 	THIS.hRoot=m.hRoot
 
-	WAIT WINDOW NOWAIT "Enumerating devices..."
+	WAIT WINDOW NOWAIT "枚举设备..."
 	THIS.oRoot = CREATEOBJECT("TDevice",;
 		THIS, THIS.hRoot, 0)
-	WAIT CLEAR  && enumeration completed
+	WAIT CLEAR  && 枚举结束
 
 PROCEDURE Destroy
 	WITH THIS
@@ -325,7 +323,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CM_Connect_Machine](../libraries/cfgmgr32/CM_Connect_Machine.md)  
 [CM_Disconnect_Machine](../libraries/cfgmgr32/CM_Disconnect_Machine.md)  
 [CM_Get_Child_Ex](../libraries/cfgmgr32/CM_Get_Child_Ex.md)  
@@ -335,7 +333,7 @@ ENDDEFINE
 [GetDriveType](../libraries/kernel32/GetDriveType.md)  
 [GetLogicalDrives](../libraries/kernel32/GetLogicalDrives.md)  
 
-## Comment:
+## 备注：
 ```txt
 #DEFINE CLASS_GUID_USBCONTROLLER;  
 	"{36fc9e60-c465-11cf-8056-444553540000}"  
