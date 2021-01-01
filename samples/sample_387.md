@@ -1,25 +1,26 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Mapping and disconnecting network drives
+# 映射和断开网络驱动器的连接
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
+## 开始之前：
 ![](../images/netuse.png)  
-Similar examples:  
-* [Connecting a local device to a network resource](sample_318.md)  
-* [Starting a dialog box for connecting to network resources (mapping network drive)](sample_309.md)  
-* [Enumerating Network Resources](sample_313.md)  
-* [Retrieving list of available disk drives](sample_013.md)  
-* [How to detect when a removable drive gets connected or disconnected](sample_573.md)  
+类似示例：  
+* [将本地设备连接到网络资源](sample_318.md)  
+* [启动连接网络资源的对话框（映射网络驱动器）](sample_309.md)  
+* [枚举网络资源](sample_313.md)  
+* [检索可用磁盘驱动器的列表](sample_013.md)  
+* [检测与可移动硬盘的连接变化(VFP9)](sample_573.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL oForm
 oForm = CreateObject("Tform")
 oForm.Show(1)
-* end of main
+* 主程序结束
 
 DEFINE CLASS Tform As Form
 #DEFINE DRIVE_NO_ROOT_DIR 1
@@ -28,7 +29,7 @@ DEFINE CLASS Tform As Form
 PROTECTED drives
 	Width=450
 	Height=200
-	Caption="Map Network Drive"
+	Caption="映射网络驱动器"
 	BorderStyle=2
 	MaxButton=.F.
 	MinButton=.F.
@@ -38,24 +39,24 @@ PROTECTED drives
 	username=ALLTRIM(SUBSTR(SYS(0), AT("#",SYS(0))+1))
 	
 	ADD OBJECT lbl1 As Label WITH;
-		Left=30, Top=30, Auto=.T., Caption="Drive:"
+		Left=30, Top=30, Auto=.T., Caption="驱动器:"
 	ADD OBJECT lbl2 As Label WITH;
-		Left=30, Top=70, Auto=.T., Caption="Folder:"
+		Left=30, Top=70, Auto=.T., Caption="目录:"
 	ADD OBJECT cmbDrive As ComboBox WITH Left=80, Top=28,;
 		Width=240, Style=2, ColumnCount=2, ColumnWidths="30, 300",;
 		BoundTo=.T., BoundColumn=3
 	ADD OBJECT txtFolder As TextBox WITH;
 		Left=80, Top=68, Width=340, Height=24
 	ADD OBJECT cmdDisconnect As CommandButton WITH Left=80,;
-		Top=120, Height=27, Width=100, Caption="Disconnect"
+		Top=120, Height=27, Width=100, Caption="断开连接"
 	ADD OBJECT cmdMap As CommandButton WITH;
-		Left=260, Top=120, Height=27, Width=80, Caption="Map",;
+		Left=260, Top=120, Height=27, Width=80, Caption="映射",;
 		Default=.T., Enabled=.F.
 	ADD OBJECT cmdClose As CommandButton WITH Left=340,;
-		Top=120, Height=27, Width=80, Caption="Close", Cancel=.T.
+		Top=120, Height=27, Width=80, Caption="关闭", Cancel=.T.
 	ADD OBJECT chBrowse As CheckBox WITH;
 		Left=80, Top=160, Autosize=.T., Value=.T.,;
-		Caption=" Browse when connected"
+		Caption=" 连接时浏览"
 
 PROCEDURE Init
 	THIS.EnumDrives
@@ -87,7 +88,7 @@ PROCEDURE DisconnectDrive
 	oDrive = THIS.drives.Item(THIS.cmbDrive.Value)
 	IF oDrive.DisconnectDrive() <> 0
 		THIS.ErrMsg(oDrive.errorcode,;
-			"Method DisconnectDrive failed.")
+			"方法 DisconnectDrive 失败。")
 	ENDIF
 	THIS.OnDriveChanged
 
@@ -100,7 +101,7 @@ PROCEDURE ConnectDrive
 	IF oDrive.mapped()
 		IF oDrive.DisconnectDrive() <> 0
 			THIS.ErrMsg(oDrive.errorcode,;
-				"Method DisconnectDrive failed.")
+				"方法 DisconnectDrive 失败。")
 			THIS.OnDriveChanged()
 			RETURN
 		ENDIF
@@ -110,14 +111,12 @@ PROCEDURE ConnectDrive
 	oDrive.ConnectDrive(m.cRemoteName, THIS.pwd, THIS.username)
 
 	IF oDrive.errorcode = ERROR_LOGON_FAILURE
-		* request user name and password
-		* through a custom dialog (omitted)
-		* and try to connect again
+		* 通过自定义对话框申请用户名和密码（略），并尝试再次连接。
 		oDrive.ConnectDrive(m.cRemoteName, THIS.pwd, THIS.username)
 	ENDIF
 
 	IF oDrive.errorcode <> 0
-		THIS.ErrMsg(oDrive.errorcode, "Method ConnectDrive failed.")
+		THIS.ErrMsg(oDrive.errorcode, "方法 ConnectDrive 失败。")
 	ENDIF
 
 	THIS.OnDriveChanged()
@@ -187,12 +186,12 @@ FUNCTION BrowseFolder
 	ENDIF
 
 PROCEDURE ErrMsg(nErrorCode, cMsg)
-	= MESSAGEBOX("Error: " + TRANSFORM(m.nErrorCode) +;
+	= MESSAGEBOX("错误: " + TRANSFORM(m.nErrorCode) +;
 		CHR(13) + CHR(13) +;
-		m.cMsg + "     ", 48, "Error")
+		m.cMsg + "     ", 48, "错误")
 ENDDEFINE
 
-********************* nonvisual classes *********************
+********************* 非可视类 *********************
 DEFINE CLASS LogicalDrives As Collection
 
 PROCEDURE Init
@@ -312,7 +311,7 @@ RETURN THIS.drvtype
 
 ENDDEFINE
 
-****************** static procedures ********************
+****************** 静态程序 ********************
 DEFINE CLASS PChar As Session
 	PROTECTED hMem
 
@@ -323,10 +322,10 @@ PROCEDURE  Init (lcString)
 PROCEDURE Destroy
 	THIS.ReleaseString
 
-FUNCTION GetAddr  && returns a pointer to the string
+FUNCTION GetAddr  && 返回一个指向字符串的指针
 RETURN THIS.hMem
 
-FUNCTION GetValue && returns string value
+FUNCTION GetValue && 返回字符串值
 	LOCAL lnSize, lcBuffer
 	lnSize = THIS.GetAllocSize()
 	lcBuffer = SPACE(lnSize)
@@ -341,7 +340,7 @@ FUNCTION GetAllocSize  && returns allocated memory size (string length)
 	DECLARE INTEGER GlobalSize IN kernel32 INTEGER hMem
 RETURN Iif(THIS.hMem=0, 0, GlobalSize(THIS.hMem))
 
-PROCEDURE SetValue (lcString) && assigns new string value
+PROCEDURE SetValue (lcString) && 赋予新的字符串值
 #DEFINE GMEM_FIXED   0
 	THIS.ReleaseString
 
@@ -356,7 +355,7 @@ PROCEDURE SetValue (lcString) && assigns new string value
 		= StrToMem(THIS.hMem, @lcString, lnSize)
 	ENDIF
 
-PROCEDURE ReleaseString  && releases allocated memory
+PROCEDURE ReleaseString  && 释放已分配的内存
 	IF THIS.hMem <> 0
 		DECLARE INTEGER GlobalFree IN kernel32 INTEGER
 		= GlobalFree(THIS.hMem)
@@ -381,7 +380,7 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetDriveType](../libraries/kernel32/GetDriveType.md)  
 [GlobalAlloc](../libraries/kernel32/GlobalAlloc.md)  
 [GlobalFree](../libraries/kernel32/GlobalFree.md)  
@@ -391,11 +390,11 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 [WNetCancelConnection2](../libraries/mpr/WNetCancelConnection2.md)  
 [WNetGetConnection](../libraries/mpr/WNetGetConnection.md)  
 
-## Comment:
-Jan.30, 2005: The FoxPro code has been rewritten with API functionality moved to non-visual LogicalDrive class.   
+## 备注：
+2005年1月30日，FoxPro代码重写，API功能移到了非可视化的LogicalDrive类。FoxPro的代码已经重新编写，API功能已经转移到非可视化的LogicalDrive类中。   
   
 * * *  
-Use Windows Script to map a network drive as follows:  
+使用Windows脚本来映射网络驱动器，如下所示： 
 
 ```foxpro
 oNet = CreateObject("WScript.Network")  
