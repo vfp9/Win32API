@@ -61,7 +61,7 @@ ENDCASE
 
 IF nBattery <= 8
 	? "剩余电量, %:", Asc(SUBSTR(cBuffer,3,1))
-	? "剩余电量, sec:", buf2dword(SUBSTR(cBuffer,5,4))
+	? "剩余电量, 秒:", buf2dword(SUBSTR(cBuffer,5,4))
 	? "电池充满时间, 秒:", buf2dword(SUBSTR(cBuffer,9,4))
 ENDIF
 * 主程序结束
