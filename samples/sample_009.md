@@ -1,19 +1,20 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using the CopyFile
+# 使用 CopyFile
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [Copying files as a transacted operation](sample_540.md)  
-* [Displaying standard progress dialog box when copying files](sample_508.md)  
-* [Deleting file into the Recycle Bin](sample_321.md)  
+* [将复制文件作为一项事务性操作（Vista）](sample_540.md)  
+* [复制文件时显示标准进度对话框](sample_508.md)  
+* [删除文件到回收站](sample_321.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER CopyFile IN kernel32;
 	STRING lpExistingFileName,;
@@ -25,5 +26,5 @@ DECLARE INTEGER CopyFile IN kernel32;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CopyFile](../libraries/kernel32/CopyFile.md)  
