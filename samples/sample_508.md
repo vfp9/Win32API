@@ -1,40 +1,41 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Displaying standard progress dialog box when copying files
+# 复制文件时显示标准进度对话框
+_翻译:xinjie  2021.01.01_
 
-## Short description:
-If you have ever thought about retiring ageing VFP commands COPY FILE and RENAME then give this code a try. 
+## 简述：
+如果您曾考虑过淘汰老化的VFP命令COPY FILE和RENAME，请尝试使用此代码。
 
-The SHFileOperation copies, deletes and moves a file or multiple files. A variety of flags the fFlags member can take provides great flexibility. For example, in a single SHFileOperation call a group of files can be copied not to just one but to several destinations. The process is accompanied with familiar OS dialogs showing the progress or sending a reminder when existing file is about  to be replaced.  
+SHFileOperation复制，删除和移动一个或多个文件。 fFlags成员可以采用的各种标志提供了极大的灵活性。 例如，在单个SHFileOperation调用中，一组文件不仅可以复制到一个目标，还可以复制到多个目标。 该过程伴随着熟悉的OS对话框，该对话框显示进度或在即将替换现有文件时发送提醒。
 ***  
 
 
-## Before you begin:
-If you`ve been thinking about retiring ageing VFP commands COPY FILE and RENAME then give this code a try.  
+## 开始之前：
+如果您一直在考虑淘汰老化的VFP命令COPY FILE和RENAME，请尝试使用此代码。 
 
 ![](../images/copyfilewithprogress.png)  
 
-See also:
+参考：
 
-* [How to remove a directory that is not empty](sample_541.md)  
+* [如何删除非空目录](sample_541.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL oForm As Explorer
 oForm = CREATEOBJECT("Explorer")
 oForm.Visible=.T.
 READ EVENTS
-* end of main
+* 主程序结束
 
 DEFINE CLASS Explorer As Form
 	Width=500
 	Height=300
 	BorderStyle=2
 	AutoCenter=.T.
-	Caption="Drag and Drop files on the ListView Control"
+	Caption="在 ListView 控件上拖放文件"
 	ShowWindow=2
 	defaultpath="c:\temp"  && replace with valid name
 
@@ -42,7 +43,7 @@ DEFINE CLASS Explorer As Form
 	Left=5, Top=35, Width=490, Height=250
 
 	ADD OBJECT Label1 As TLabel WITH;
-	Left=7, Top=7, Caption="Address:"
+	Left=7, Top=7, Caption="地址:"
 	
 	ADD OBJECT txtFolder As TextBox WITH;
 	Left=60, Top=5, Width=410, ControlSource="THIS.Parent.defaultpath"
@@ -69,7 +70,7 @@ PROCEDURE defaultpath_ASSIGN(cPath)
 PROTECTED PROCEDURE GetFolder
 	LOCAL cStoredPath, cPath
 	cStoredPath = SYS(5) + SYS(2003)
-	cPath = GETDIR(THIS.defaultpath, "Folders:", "Select Folder")
+	cPath = GETDIR(THIS.defaultpath, "文件夹:", "选择文件夹")
 	SET DEFAULT TO (m.cStoredPath)
 	IF NOT EMPTY(m.cPath)
 		THIS.defaultpath = m.cPath
@@ -96,8 +97,7 @@ PARAMETERS oDataObject
 		THIS.populatelist(THIS.defaultpath)
 		
 		IF .Aborted
-			= MESSAGEBOX("The operation has been aborted " +;
-				"by user.     ", 64, "Aborted by user")
+			= MESSAGEBOX("该操作已被用户中止。     ", 64, "被用户取消")
 		ENDIF
 	ENDWITH
 
@@ -317,21 +317,21 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GlobalAlloc](../libraries/kernel32/GlobalAlloc.md)  
 [GlobalFree](../libraries/kernel32/GlobalFree.md)  
 [GlobalSize](../libraries/kernel32/GlobalSize.md)  
 [SHFileOperation](../libraries/shell32/SHFileOperation.md)  
 
-## Comment:
-The SHFileOperation copies, deletes and moves a file or multiple files. It requires a single parameter that points to a SHFILEOPSTRUCT structure. The structure has to be populated before calling the function.  
+## 备注：
+SHFileOperation 复制，删除和移动一个或多个文件。 它需要一个指向SHFILEOPSTRUCT结构的参数。 在调用函数之前，必须先填充该结构。
   
-Most of the SHFILEOPSTRUCT members are easy to populate except may be *pFrom* and *pTo* since they are pointers to strings with no direct support in VFP for this kind of objects. Class PChar inside the code handles string pointers. It allocates and releases memory blocks and moves data between VFP strings and an address in memory.  
+大多数 SHFILEOPSTRUCT 成员易于填充，但可能是 *pFrom* 和 *pTo*，因为它们是指向字符串的指针，而 VFP 中不直接支持此类对象。 代码内部的 PChar 类处理字符串指针。 它分配和释放内存块，并在 VFP 字符串和内存中的地址之间移动数据。
   
-A variety of flags the *fFlags* member can take provides great flexibility. For example, in a single SHFileOperation call a group of files can be copied not to just one but to several destinations. The process is accompanied with familiar OS dialogs showing the progress or sending a reminder when existing file is about to be replaced.  
+*fFlags* 成员可以采用的各种标志提供了极大的灵活性。 例如，在单个 SHFileOperation 调用中，一组文件不仅可以复制到一个目标，还可以复制到多个目标。 该过程伴随着熟悉的OS对话框，该对话框显示进度或在即将替换现有文件时发送提醒。
   
 * * *  
-The Shell is as usual brief and efficient. The following code copies all files from the source folder to the target folder. Test with care:  
+Shell 一如既往的简短高效。以下代码将源文件夹中的所有文件复制到目标文件夹中。谨慎测试： 
   
 ```foxpro
 LOCAL oShell, oSrcFolder, oDstFolder  
