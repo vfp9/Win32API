@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using the CreateFile
+# 使用 CreateFile
+_翻译：xinjie  2020.01.01_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE CREATE_NEW 1
 #DEFINE CREATE_ALWAYS 2
@@ -32,16 +33,16 @@ hFile = CreateFile("c:\temp\myfile.txt",;
 			0)
 
 IF hFile <> INVALID_HANDLE_VALUE
-	? "File handle returned: ", hFile
+	? "返回的文件句柄： ", hFile
 	= CloseHandle (hFile)
 ELSE
 	*  2 = ERROR_FILE_NOT_FOUND
 	*  3 = ERROR_PATH_NOT_FOUND
 	* 13 = ERROR_INVALID_DATA
 	* 87 = ERROR_INVALID_PARAMETER
-	? "Error code returned:", GetLastError()
+	? "返回的错误代码：", GetLastError()
 ENDIF
-* end of main
+* 主程序结束
 
 PROCEDURE declare
 	DECLARE INTEGER GetLastError IN kernel32
@@ -56,13 +57,13 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateFile](../libraries/kernel32/CreateFile.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 
-## Comment:
-This example creates a new file and closes it.  
+## 备注：
+这个例子创建了一个新文件并关闭了它。 
   
 ***  
 
