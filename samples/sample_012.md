@@ -1,18 +1,19 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Displaying the drive type value
+# 显示驱动器类型值
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
-See also:  
-* [Basic Volume information](sample_098.md)  
-* [Setting the volume label](sample_151.md)  
-* [Disk in drive A:](sample_319.md)  
-* [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](sample_101.md)  
+## 开始之前：
+参考：  
+* [基本卷信息](sample_098.md)  
+* [设置卷标](sample_151.md)  
+* [驱动器 A 的磁盘](sample_319.md)  
+* [获取驱动器的物理参数：扇区，簇，柱面...](sample_101.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE DRIVE_UNKNOWN     0
 #DEFINE DRIVE_NO_ROOT_DIR 1
@@ -31,17 +32,17 @@ LOCAL nIndex, nType
 
 FOR nIndex=Asc("A") TO Asc("Z")
 
-	* both functions return identical results
+	* 两个函数的结果是一样的
 	nType = RealDriveType(nIndex-65, 0)
 *	nType = GetDriveType(Chr(nIndex) + ":")
 
 	DO CASE
 	CASE nType = DRIVE_REMOVABLE
-		? Chr(nIndex)+":", "removable"
+		? Chr(nIndex)+":", "可移动"
 	CASE nType = DRIVE_FIXED
-		? Chr(nIndex)+":", "fixed"
+		? Chr(nIndex)+":", "固定"
 	CASE nType = DRIVE_REMOTE
-		? Chr(nIndex)+":", "remote"
+		? Chr(nIndex)+":", "远程"
 	CASE nType = DRIVE_CDROM
 		? Chr(nIndex)+":", "CDROM"
 	CASE nType = DRIVE_RAMDISK
@@ -52,6 +53,6 @@ ENDFOR
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetDriveType](../libraries/kernel32/GetDriveType.md)  
 [RealDriveType](../libraries/shell32/RealDriveType.md)  
