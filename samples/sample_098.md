@@ -1,21 +1,22 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Basic Volume information
+# 基本卷信息
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
+## 开始之前：
 ![](../images/getvolumeinfo.png)  
 
-See also:
+参考：
 
-* [Displaying the drive type value](sample_012.md)  
-* [Setting the volume label](sample_151.md)  
-* [Disk in drive A:](sample_319.md)  
-* [Obtaining physical parameters for a drive: sectors, clusters, cylinders...](sample_101.md)  
+* [显示驱动器类型值](sample_012.md)  
+* [设置卷标](sample_151.md)  
+* [驱动器 A 的磁盘](sample_319.md)  
+* [获取驱动器的物理参数：扇区，簇，柱面...](sample_101.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE FILE_CASE_SENSITIVE_SEARCH 1
 #DEFINE FILE_CASE_PRESERVED_NAMES 2
@@ -28,7 +29,7 @@ See also:
 
 	DO declare
 	DO GetVolumeInfo WITH "C:\"
-* end of main
+* 主程序结束
 
 PROCEDURE GetVolumeInfo(cRoot As String)
 	LOCAL cVolNameBuffer, nVolSerialNo, nMaxCompLen, nFlags, nError
@@ -47,42 +48,42 @@ PROCEDURE GetVolumeInfo(cRoot As String)
 	* 21=ERROR_NOT_READY
 	* 87=ERROR_INVALID_PARAMETER
 		nError = GetLastError()
-		= MESSAGEBOX("GetVolumeInformation() call failed: " +;
+		= MESSAGEBOX("GetVolumeInformation() 调用失败： " +;
 			TRANSFORM(m.nError), 48, m.cRoot)
 		RETURN
 	ENDIF
 
 	DO LogInfo WITH "Root", m.cRoot
 
-	DO LogInfo WITH "File System Name",;
+	DO LogInfo WITH "文件系统名称",;
 		LEFT(nFilesysNameBuffer, AT(CHR(0),nFilesysNameBuffer)-1)
 
-	DO LogInfo WITH "Volume Name",;
+	DO LogInfo WITH "卷名",;
 		LEFT(cVolNameBuffer, AT(CHR(0),cVolNameBuffer)-1)
 
-	DO LogInfo WITH "Volume Serial No.",;
+	DO LogInfo WITH "卷号",;
 		TRANSFORM(nVolSerialNo, "@0")
 
-	DO LogInfo WITH "Max Filename Length", nMaxCompLen
+	DO LogInfo WITH "最大的文件名长度", nMaxCompLen
 
-	DO LogInfo WITH "File System Flags", TRANSFORM(nFlags, "@0")
+	DO LogInfo WITH "文件系统标志", TRANSFORM(nFlags, "@0")
 
-	DO LogInfo WITH "Case-sensitive file names support",;
+	DO LogInfo WITH "支持大小写敏感的文件名",;
 		IIF(BITAND(nFlags, FILE_CASE_SENSITIVE_SEARCH)=0, "No", "Yes")
 
-	DO LogInfo WITH "The file system preserves the case of file names",;
+	DO LogInfo WITH "文件系统保留了文件名的大小写",;
 		IIF(BITAND(nFlags, FILE_CASE_PRESERVED_NAMES)=0, "No", "Yes")
 
-	DO LogInfo WITH "Unicode in file names support",;
+	DO LogInfo WITH "文件名中支持Unicode",;
 		IIF(BITAND(nFlags, FILE_UNICODE_ON_DISK)=0, "No", "Yes")
 
-	DO LogInfo WITH "ACLs support",;
+	DO LogInfo WITH "ACLs 支持",;
 		IIF(BITAND(nFlags, FILE_PERSISTENT_ACLS)=0, "No", "Yes")
 
-	DO LogInfo WITH "File-based compression support",;
+	DO LogInfo WITH "基于文件的压缩支持",;
 		IIF(BITAND(nFlags, FILE_FILE_COMPRESSION)=0, "No", "Yes")
 
-	DO LogInfo WITH "The specified volume is a compressed volume",;
+	DO LogInfo WITH "指定的卷是压缩卷",;
 		IIF(BITAND(nFlags, FILE_VOLUME_IS_COMPRESSED)=0, "No", "Yes")
 
 	IF USED("csResult")
@@ -111,6 +112,6 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [GetVolumeInformation](../libraries/kernel32/GetVolumeInformation.md)  
