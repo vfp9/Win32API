@@ -1,19 +1,20 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using the Semaphore object to allow only one instance of VFP application running
+# 使用 Semaphore 对象只允许一个VFP应用实例运行
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
-The best way to test this sample is to create a project with the code below and compile it in an executable file. Though whichever way you choose: an executable, an application, or another VFP instance -- this code works fine.  
+## 开始之前：
+测试这个示例的最好方法是用下面的代码创建一个项目，并将其编译成可执行文件。无论你选择哪种方式：可执行文件、应用程序或其他VFP实例--这段代码都能正常工作。  
 
-See also:
+参考：
 
-* [Using shared memory to exchange data between two FoxPro applications](sample_498.md)  
-* [How to prevent users from accessing the Windows Desktop and from switching to other applications](sample_492.md)  
+* [使用共享内存在应用程序（进程）之间交换数据](sample_498.md)  
+* [如何防止用户访问 Windows 桌面和切换到其他应用程序](sample_492.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE WAIT_OBJECT_0     0
 #DEFINE STATUS_TIMEOUT  258
@@ -29,34 +30,31 @@ DO decl
 	LOCAL hSmp, lcSmp
 	lcSmp = "TestSmp"
 	
-	* trying to open a semaphore named TestSmp
+	* 试图打开一个名为TestSmp的 semaphore
 	hSmp = OpenSemaphore (STANDARD_RIGHTS_REQUIRED, 0, lcSmp)
 
 	IF hSmp = 0
-	* no Semaphore object found
-	* new Semaphore object to be created
+	* 没有找到 Semaphore 对象
+	* 创建新的 Semaphore 对象
 		hSmp = CreateSemaphore (0, 1, 1, lcSmp)
 		IF hSmp = 0
-			= MessageB("Unable to create required Semaphore object.   " +;
-			Chr(13)+ "Error code: " +;
+			= MessageB("不能创建所需的 Semaphore 对象。   " +;
+			Chr(13)+ "错误代码： " +;
 			LTRIM(STR(GetLastError())))
 			RETURN
 		ENDIF
 		
-		= MessageB("New Semaphore object has been created:   " + Chr(13) +;
+		= MessageB("新的 Semaphore 对象已经被创建：   " + Chr(13) +;
 			"name=" + lcSmp + ", handle=" + LTRIM(STR(hSmp)))
 
-		* launch your application here
+		* 在这里运行你的程序
 		* ...
 	ELSE
-	* the Semaphore object with this name already exists
-	* that means the process is already running
-		= MessageB("The process is already running.   ")
+	* 这个名字的 Semaphore 对象已经存在，这意味着该进程已经在运行。
+		= MessageB("进程已经在运行中。   ")
 	ENDIF
 
-	* The system closes the handle automatically
-	* when the process terminates
-	* so the following line is mostly redundant
+	* 进程终止时，系统会自动关闭句柄，因此下行是多余的
 	= CloseHandle(hSmp)
 
 PROCEDURE  decl
@@ -75,16 +73,16 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateSemaphore](../libraries/kernel32/CreateSemaphore.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [OpenSemaphore](../libraries/kernel32/OpenSemaphore.md)  
 
-## Comment:
-A combination of two functions -- Create... and Open... -- is used, and it is not the only Semaphore object good for this task.   
+## 备注：
+使用了两个函数的组合--Create...和Open...。，Semaphore 对象并不是唯一适合这个任务的 。  
   
-Same can be done with **Mutex** object (**Mut**ually**Ex**clusive), or **Event** object. First you try to open the named object. If it already exists, that means another VFP application instance is running. Otherwise you create the object within this instance.  
+同样也可以用**Mutex**对象（**Mut**ually**Ex**clusive），或者**Event**对象来完成。首先你要尝试打开命名的对象。如果它已经存在，那就意味着另一个VFP应用实例正在运行。否则你在这个实例中创建对象。
   
 ***  
 
