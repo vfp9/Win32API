@@ -1,18 +1,19 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using the DeleteFile
+# 使用 DeleteFile
+_翻译：xinjie  2020.01.01_
 
 ## Before you begin:
-See also:
+参考：
 
-* [Deleting file into the Recycle Bin](sample_321.md)  
-* [Displaying standard progress dialog box when copying files](sample_508.md)  
+* [删除文件到回收站](sample_321.md)  
+* [复制文件时显示标准进度对话框](sample_508.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE CREATE_ALWAYS                  2
 #DEFINE FILE_ATTRIBUTE_NORMAL        128
@@ -37,20 +38,20 @@ lpFileName = "C:\Temp\mytest.txt"
 hResult = CreateFile (lpFileName, 0, 0, 0,;
 	CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0)
 
-? "File handle returned:", hResult
+? "返回的文件句柄：", hResult
 = CloseHandle (hResult)
 = DeleteFile (lpFileName)  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateFile](../libraries/kernel32/CreateFile.md)  
 [DeleteFile](../libraries/kernel32/DeleteFile.md)  
 
-## Comment:
-Windows 95/98/Me: The DeleteFile function deletes a file even if it is open for normal I/O or as a memory-mapped file. To prevent loss of data, close files before attempting to delete them.  
+## 备注：
+Windows 95/98 / Me：DeleteFile函数将删除一个文件，即使该文件为常规I / O打开或作为内存映射文件打开。 为防止数据丢失，请在尝试删除文件之前关闭文件。 
   
 ***  
 
