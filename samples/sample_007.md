@@ -1,17 +1,18 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using LoadLibrary
+# 使用 LoadLibrary
+_翻译：xinjie  2201.01.01_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [Loading a string resource from an executable file](sample_213.md)  
-* [How to extract icon resources from EXE or DLL and save them in .ICO files](sample_502.md)  
+* [从可执行文件加载字符串资源](sample_213.md)  
+* [将 EXE 或 DLL 图标资源导出为.ICO文件](sample_502.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DO declare
 
@@ -19,13 +20,13 @@ lpLibFileName = GetSystemDir() + "\mapi32.dll"
 hLibModule = LoadLibrary(lpLibFileName)
 
 IF hLibModule <> 0
-	? "Library handle:", hLibModule
+	? "库句柄：", hLibModule
 	= FreeLibrary(hLibModule)
 ELSE
 	* 1157 = ERROR_DLL_NOT_FOUND
-	? "Error code returned:", GetLastError()
+	? "返回的错误代码：", GetLastError()
 ENDIF
-* end of main
+* 主程序结束
 
 FUNCTION GetSystemDir
 	LOCAL lpBuffer, nSizeRet
@@ -48,7 +49,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FreeLibrary](../libraries/kernel32/FreeLibrary.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [GetSystemDirectory](../libraries/kernel32/GetSystemDirectory.md)  
