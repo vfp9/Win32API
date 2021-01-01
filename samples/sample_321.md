@@ -1,23 +1,24 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Deleting files into the Recycle Bin
+# 删除文件到回收站
+_翻译：xinjie  2020.01.01_
 
-## Before you begin:
-The SHFileOperation can delete files into the Recycle Bin.  
+## 开始之前：
+SHFileOperation 可以将文件删除到回收站。  
 
 ![](../images/recyclebin.png)  
 
-See also:
+参考：
 
-* [How to empty the Recycle Bin](sample_301.md)  
-* [How to retrieve number of objects in the Recycle Bin](sample_302.md)  
-* [How to remove a directory that is not empty](sample_541.md)  
-* [Displaying standard progress dialog box when copying file](sample_508.md)  
+* [如何清空回收站](sample_301.md)  
+* [如何检索回收站中存储的对象数量](sample_302.md)  
+* [如何删除非空目录](sample_541.md)  
+* [复制文件时显示标准进度对话框](sample_508.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE FO_MOVE 1
 #DEFINE FO_COPY 2
@@ -40,7 +41,7 @@ DO declare
 
 LOCAL lcBuffer, loFileToDelete
 
-* provide valid file name
+* 提供有效的文件名
 loFileToDelete = CreateObject("PChar", "c:\a\test1.ldb")
 
 lcBuffer = num2dword(GetActiveWindow()) +;
@@ -51,7 +52,7 @@ lcBuffer = num2dword(GetActiveWindow()) +;
 	num2dword(0) + num2dword(0) + num2dword(0)
 
 = SHFileOperation(@lcBuffer)
-* end of main
+* 主程序结束
 
 FUNCTION num2dword(lnValue)
 #DEFINE m0 0x0000100
@@ -127,18 +128,16 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GlobalAlloc](../libraries/kernel32/GlobalAlloc.md)  
 [GlobalFree](../libraries/kernel32/GlobalFree.md)  
 [GlobalSize](../libraries/kernel32/GlobalSize.md)  
 [SHFileOperation](../libraries/shell32/SHFileOperation.md)  
 
-## Comment:
+## 备注
 
-In .NET sending file to the Recycle Bin is as simple as calling [FileSystem.DeleteFile](https://msdn.microsoft.com/en-us/library/ms127976(v=vs.100).aspx) with *RecycleOption* parameter set to 
-*SendToRecycleBin*. Same option can be used when calling 
-[FileSystem.DeleteDirectory](https://msdn.microsoft.com/en-us/library/ms127971(v=vs.100).aspx).
+在 .NET 中，将文件发送到回收站只需简单的调用 [FileSystem.DeleteFile](https://msdn.microsoft.com/en-us/library/ms127976(v=vs.100).aspx)（将 *RecycleOption* 参数设置为 *SendToRecycleBin*）。 调用 [FileSystem.DeleteDirectory](https://msdn.microsoft.com/en-us/library/ms127971(v=vs.100).aspx) 时可以使用相同的选项。
   
 ***  
 
