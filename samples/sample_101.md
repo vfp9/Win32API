@@ -1,31 +1,32 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Obtaining physical parameters for a drive: sectors, clusters, cylinders...
+# 获取驱动器的物理参数：扇区，簇，柱面...
+_翻译：xinjie  2021.01.01_
 
-## Short description:
-The code shows how to obtain number of cylinders, tracks, sectors and clusters for a given device like HD, floppy or CD.  
+## 简述：
+该代码显示了如何获取给定设备（如HD，软盘或CD）的柱面，磁道，扇区和簇的数量。  
 ***  
 
 
-## Before you begin:
-The code shows how to obtain number of cylinders, tracks, sectors and clusters for a given device like HD, floppy or CD.  
+## 开始之前：
+该代码显示了如何获取给定设备（如HD，软盘或CD）的柱面，磁道，扇区和簇的数量。 
 
-See also:
+参考：
 
-* [Displaying the drive type value](sample_012.md)  
-* [Basic Volume information](sample_098.md)  
-* [Setting the volume label](sample_151.md)  
-* [Disk in drive A:](sample_319.md)  
+* [显示驱动器类型值](sample_012.md)  
+* [基本卷信息](sample_098.md)  
+* [设置卷标](sample_151.md)  
+* [驱动器 A 的磁盘](sample_319.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 DO GetDeviceInfo_1
 DO GetDeviceInfo_2
-* end of main
+* 主程序结束
 
 PROCEDURE GetDeviceInfo_1
 	STORE 0 TO nSectorsPerCluster, nBytesPerSector,;
@@ -33,21 +34,21 @@ PROCEDURE GetDeviceInfo_1
 
 	LOCAL lcRootName, nTotalSize
 	lcRootName = "C:\"
-	*lcRootName = "A:\"  && a way to test if a disk inserted
+	*lcRootName = "A:\"  && 检验是否插入磁盘的方法
 
 	= GetDiskFreeSpace(lcRootName, @nSectorsPerCluster,;
 		@nBytesPerSector, @nFreeClusters, @nTotalClusters)
 
 	?
-	? "*** Returned by GetDiskFreeSpace:"
-	? "Device name:", lcRootName
-	? "Total clusters:", nTotalClusters
-	? "Free clusters:", nFreeClusters
-	? "Sectors per cluster:", nSectorsPerCluster
-	? "Bytes per sector:", nBytesPerSector
+	? "*** 通过 GetDiskFreeSpace 返回的信息:"
+	? "设备名称:", lcRootName
+	? "总的簇数:", nTotalClusters
+	? "空闲簇:", nFreeClusters
+	? "每簇扇区:", nSectorsPerCluster
+	? "每扇区字节:", nBytesPerSector
 
 	nTotalSize = nTotalClusters * nSectorsPerCluster * nBytesPerSector
-	? "Total size: ", TRANSFORM(nTotalSize, "999,999,999,999")
+	? "总大小: ", TRANSFORM(nTotalSize, "999,999,999,999")
 
 PROCEDURE GetDeviceInfo_2
 #DEFINE FILE_SHARE_READ   1
@@ -67,7 +68,7 @@ PROCEDURE GetDeviceInfo_2
 		0, OPEN_EXISTING, 0, 0)
 
 	IF hDevice = INVALID_HANDLE_VALUE
-		? "Error: INVALID_HANDLE_VALUE"
+		? "错误: INVALID_HANDLE_VALUE"
 		RETURN
 	ENDIF
 
@@ -94,17 +95,17 @@ PROCEDURE GetDeviceInfo_2
 	nSecPerTrack =  buf2dword(SUBSTR(cBuffer,17,4))
 	nBytesPerSec = buf2dword(SUBSTR(cBuffer,21,4))
 	?
-	? "*** Returned by DeviceIoControl:"
-	? "Device name:", cDrive
-	? "Cylinders:", nCylinders
-	? "Media Type:", nMediaType
-	? "Tracks per cylinder:", nTracksPerCyl
-	? "Sector per track:", nSecPerTrack
-	? "Bytes per sector:", nBytesPerSec
+	? "*** 通过 DeviceIoControl 返回的信息:"
+	? "设备名称:", cDrive
+	? "柱面:", nCylinders
+	? "介质类型:", nMediaType
+	? "每柱面磁道:", nTracksPerCyl
+	? "每磁道扇区:", nSecPerTrack
+	? "每扇区字节:", nBytesPerSec
 
 	nTotalSize = nCylinders * nTracksPerCyl * nSecPerTrack *;
 		nBytesPerSec
-	? "Total size:", TRANSFORM(nTotalSize, "999,999,999,999")
+	? "总大小:", TRANSFORM(nTotalSize, "999,999,999,999")
 
 	= CloseHandle(hDevice)
 
@@ -146,7 +147,7 @@ RETURN Asc(SUBSTR(lcBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateFile](../libraries/kernel32/CreateFile.md)  
 [DeviceIoControl](../libraries/kernel32/DeviceIoControl.md)  
