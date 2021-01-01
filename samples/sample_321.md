@@ -1,7 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 删除文件到回收站
-_翻译：xinjie  2020.01.01_
+_翻译：xinjie  2021.01.01_
 
 ## 开始之前：
 SHFileOperation 可以将文件删除到回收站。  
