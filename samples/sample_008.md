@@ -1,16 +1,17 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using the Semaphore object
+# 使用 Semaphore 对象
+_翻译：xinjie  2021.01.01_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [Using the Semaphore object to allow only one instance of VFP application running](sample_147.md)  
+* [使用 Semaphore 对象只允许一个VFP应用实例运行](sample_147.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE WAIT_OBJECT_0 0
 #DEFINE STATUS_TIMEOUT 0x0102
@@ -24,14 +25,14 @@ hSmp = CreateSemaphore(0, lnInc, lnInc, "TestSmp")
 
 IF hSmp = 0
 * 87 = ERROR_INVALID_PARAMETER
-	? "Error:", GetLastError()
+	? "错误：", GetLastError()
 	RETURN
 ENDIF
 
-? "Semaphore handle:", hSmp
-? "Initial count:", lnInc
+? "Semaphore 句柄：", hSmp
+? "初始计数:", lnInc
 ?
-? "Decrementing the count..."
+? "递减数量..."
 FOR ii=1 TO 10
 	dwWaitResult = WaitForSingleObject(hSmp, 0)
 	? "dwWaitResult:", _status(dwWaitResult)
@@ -39,18 +40,18 @@ ENDFOR
 
 ?
 lnInc = 2
-? "Incrementing the count by " + LTRIM(STR(lnInc))
+? "I通过以下方式增加计数: " + LTRIM(STR(lnInc))
 = ReleaseSemaphore(hSmp, lnInc, 0)
 
 ?
-? "Decrementing the count..."
+? "递减计数..."
 FOR ii=1 TO 5
 	dwWaitResult = WaitForSingleObject(hSmp, 0)
 	? "dwWaitResult:", _status(dwWaitResult)
 ENDFOR
 
 = CloseHandle(hSmp)
-* end of main
+* 主程序结束
 
 FUNCTION _status(lnWaitResult)
 	DO CASE
@@ -59,7 +60,7 @@ FUNCTION _status(lnWaitResult)
 	CASE lnWaitResult = STATUS_TIMEOUT
 		RETURN "STATUS_TIMEOUT"
 	OTHER
-		RETURN "Unknown type: " + LTRIM(STR(lnWaitResult))
+		RETURN "未知类型: " + LTRIM(STR(lnWaitResult))
 	ENDCASE
 
 PROCEDURE declare
@@ -84,7 +85,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [CreateSemaphore](../libraries/kernel32/CreateSemaphore.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
@@ -92,14 +93,14 @@ PROCEDURE declare
 [ReleaseSemaphore](../libraries/kernel32/ReleaseSemaphore.md)  
 [WaitForSingleObject](../libraries/kernel32/WaitForSingleObject.md)  
 
-## Comment:
-A semaphore object is a synchronization object that maintains a count between zero and a specified maximum value.   
+## 备注：
+semaphore 对象是一个同步对象，它在零和指定的最大值之间保持一个计数。  
   
-The count is decremented each time a thread completes a wait for the semaphore object and incremented each time a thread releases the semaphore  
+每次线程完成对 semaphore 对象的等待时，计数都会递减，每次线程释放 semaphore 对象时，计数都会递增。 
   
-When the count reaches zero, no more threads can successfully wait for the semaphore object state to become signaled.  
+当计数达到零时，没有更多的线程可以成功等待 semaphore 对象状态发出信号。 
   
-The state of a semaphore is set to signaled when its count is greater than zero, and nonsignaled when its count is zero.   
+当 semaphore 的计数大于零时，semaphore 的状态被设置为 signaled，当计数为零时，semaphore 的状态为 nonsignaled。  
   
 ***  
 
