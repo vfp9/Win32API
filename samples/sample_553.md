@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 以程序方式断开 USB 大容量存储设备的连接
+_翻译：xinjie  2021.01.01_
 
 ## 开始之前：
 ![](../images/usbstoragedevices.png)  
