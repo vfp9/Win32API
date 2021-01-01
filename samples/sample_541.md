@@ -1,39 +1,40 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to remove a directory that is not empty
+# 如何删除非空目录
+_翻译：xinjie  2021.01.01_
 
-## Short description:
-As you know, the RMDIR generates an error message when an attempt made to remove a directory that is not empty. This example shows how to remove a directory with files based on the SHFileOperation call.  
+## 简述：
+如你所知，当试图删除一个非空的目录时，RMDIR会产生一个错误消息。这个例子展示了如何基于SHFileOperation调用来删除一个带有文件的目录。  
 ***  
 
 
-## Before you begin:
-As you know, a call to RMDIR() generates an error (#1962) if the target directory is not empty, i.e. contains files or subdirectories.  
+## 开始之前：
+如你所知，如果目标目录不是空的，即包含文件或子目录，对 RMDIR() 的调用会产生一个错误(#1962)。  
 
 ![](../images/dirisnotempty.jpg)  
-The most obvious way to overcome this sometimes useful obstacle is writing a recursion that combines ADIR and DELETE FILE | RMDIR calls.   
+克服这个障碍的最明显的方法是写一个递归，把 ADIR 和 DELETE FILE | RMDIR 调用结合起来。  
 
-As an alternative, the Windows Scripting has its own solution:  
+作为一种选择，Windows脚本有自己的解决方案：
 ```foxpro
 fso = CREATEOBJECT("Scripting.FileSystemObject")  
 fso.DeleteFolder("c:\temp\test")
 ```
 
-And still one more way exists, presented in the code sample below. A directory can be recursively deleted by calling the SHFileOperation API function.  
+还有另外一种方法，如下面的代码示例所示。 可以通过调用 SHFileOperation API 函数来递归删除目录。  
 
-See also:
+参考：
 
-* [Deleting file into the Recycle Bin](sample_321.md)  
-* [How to empty the Recycle Bin](sample_301.md)  
-* [Displaying standard progress dialog box when copying file](sample_508.md)  
+* [删除文件到回收站](sample_321.md)  
+* [如何清空回收站](sample_301.md)  
+* [复制文件时显示标准进度对话框](sample_508.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 FUNCTION DeleteDirectory(cTargetPath As String) As Number
-* returns 0 on success or error code if fails
+* 成功时返回 0，失败时返回错误代码
 #DEFINE FO_DELETE 3
 #DEFINE FOF_ALLOWUNDO 64
 #DEFINE FOF_SILENT 4
@@ -47,16 +48,14 @@ FUNCTION DeleteDirectory(cTargetPath As String) As Number
 
 	oTarget = CREATEOBJECT("PChar", cTargetPath)
 	
-	* call the GetActiveWindow API with earlier VFP versions
+	* 早期的 VFP 版本调用GetActiveWindow API
 	hWindow = _screen.HWnd
 
-	* complete silent mode
-	* for earlier VFP versions with limited BITOR()
-	* just sum the flags together
+	* 完全静音模式，适用于早期 VFP 版本功能有限的 BITOR()，只需将标志相加即可。
 	nFlags = BITOR(FOF_SILENT, FOF_NOCONFIRMATION,;
 		FOF_NOERRORUI)
 
-	* populating the SHFILEOPSTRUCT structure
+	* 填充 SHFILEOPSTRUCT 结构
 	cBuffer = num2dword(hWindow) +;
 		num2dword(FO_DELETE) +;
 		num2dword(oTarget.GetAddr()) +;
@@ -141,28 +140,28 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GlobalAlloc](../libraries/kernel32/GlobalAlloc.md)  
 [GlobalFree](../libraries/kernel32/GlobalFree.md)  
 [GlobalSize](../libraries/kernel32/GlobalSize.md)  
 [SHFileOperation](../libraries/shell32/SHFileOperation.md)  
 
-## Comment:
-As I see it, the SHFileOperation is a better choice just for being more flexible. That of course comes at a price of extra coding required for handling the <a href="http://msdn.microsoft.com/en-us/library/bb759795(v=vs.85).aspx">SHFILEOPSTRUCT structure</a>.  
+## 备注：
+如我所见，SHFileOperation是一个更好的选择，因为它更加灵活。 当然，这是以处理 <a href="http://msdn.microsoft.com/en-us/library/bb759795(v=vs.85).aspx">SHFILEOPSTRUCT 结构</a> 所需的额外编码为代价的。
   
-The SHFileOperation deletes files and subdirectories inside the target directory recursively.   
+SHFileOperation递归删除目标目录内的文件和子目录。
   
-The file deletion process aborts whenever it encounters an undeletable object. The call returns an error code (for example 32, *File Sharing Violation*). The files and subdirectories following the file in question do not get deleted in this take.  
+每当遇到无法删除的对象时，文件删除过程就会中止。 该调用返回错误代码（例如32，*文件共享冲突*）。 此文件中的文件及其后的子目录不会被删除。
   
 * * *  
-.NET has more than one way for deleting a directory.  
+.NET 有不止一种的删除目录的方式。  
   
-System.IO <a href="http://msdn.microsoft.com/en-us/library/fxeahc5f.aspx">Directory.Delete</a> throws an exception when the path is not an empty directory.  
+当路径不是空目录时，System.IO <a href="http://msdn.microsoft.com/en-us/library/fxeahc5f.aspx">Directory.Delete</a> 会抛出一个异常。  
 
 ![](../images/DirectoryDeleteNet.png)
 
-While System.IO <a href="http://msdn.microsoft.com/en-us/library/c66e2tts">DirectoryInfo.Delete</a> can delete files and directories recursively.  
+而 System.IO <a href="http://msdn.microsoft.com/en-us/library/c66e2tts">DirectoryInfo.Delete</a> 可以递归地删除文件和目录。  
 
 ![](../images/DirectoryDeleteNet01.pn)  
 
