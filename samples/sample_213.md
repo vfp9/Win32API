@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Loading a string resource from an executable file
+# 从可执行文件加载字符串资源
+_翻译：xinjie  2021.01.01_
 
-## Code:
+## 代码：
 ```foxpro  
 DO declare
 
@@ -11,7 +12,7 @@ lcSysDir = GetSysDir()
 lFreeModule = .F.
 hModule = GetHandle(lcSysDir + "\wininet.dll", @lFreeModule)
 
-* try also:
+* 也可以尝试：
 * lcSysDir + "\mshtml.dll"
 * lcSysDir + "\vbrun500.dll"
 * lcSysDir + "\mapi32.dll"
@@ -128,7 +129,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FreeLibrary](../libraries/kernel32/FreeLibrary.md)  
 [GetModuleHandle](../libraries/kernel32/GetModuleHandle.md)  
 [GetSystemDirectory](../libraries/kernel32/GetSystemDirectory.md)  
