@@ -1,8 +1,8 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# OS version and revision
+# 操作系统的版本和修订版
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER GetVersion IN kernel32
 
@@ -13,8 +13,8 @@ lnVersion = GetVersion()
 
 * The low-order word
 lnVersionLo = BitRShift(BitLShift(lnVersion, 16), 16)
-? "Major Version: ", BitAnd(lnVersionLo, hex2dec("0x00ff"))
-? "Minor Version: ", BitRShift(BitAnd(lnVersionLo, hex2dec("0xff00")), 8)
+? "主要版本: ", BitAnd(lnVersionLo, hex2dec("0x00ff"))
+? "次要版本: ", BitRShift(BitAnd(lnVersionLo, hex2dec("0xff00")), 8)
 ?
 
 * The high-order word
@@ -34,6 +34,6 @@ FUNCTION  hex2dec (lcHex)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetVersion](../libraries/kernel32/GetVersion.md)  
 [StrToIntEx](../libraries/shlwapi/StrToIntEx.md)  
