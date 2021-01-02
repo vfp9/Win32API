@@ -1,8 +1,8 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using the GetLogicalDriveStrings
+# 使用 GetLogicalDriveStrings
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER GetDriveType IN kernel32 STRING nDrive
 
@@ -30,6 +30,6 @@ ENDFOR
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetDriveType](../libraries/kernel32/GetDriveType.md)  
 [GetLogicalDriveStrings](../libraries/kernel32/GetLogicalDriveStrings.md)  
