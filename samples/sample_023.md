@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 扩展的操作系统版本信息
+_翻译:_
 
 ## 开始之前：
 参考：
@@ -46,13 +47,13 @@ nResult = GetVersionEx (@lcInfo)
 ? "主要版本: ", buf2dword(SUBSTR(lcInfo,  5,4))
 ? "次要版本: ", buf2dword(SUBSTR(lcInfo,  9,4))
 ? "内部版本号:  ", buf2dword(SUBSTR(lcInfo, 13,4))
-? "szCSDVersion:  ", "["+STRTRAN(SUBSTR(lcInfo, 21,128), Chr(0),"")+"]"
+? "额外信息:  ", "["+STRTRAN(SUBSTR(lcInfo, 21,128), Chr(0),"")+"]"
 ?
 ? "主要 Service Pack: ", buf2word(SUBSTR(lcInfo,  149,2))
 ? "次要 Service Pack: ", buf2word(SUBSTR(lcInfo,  151,2))
-? "Suite Bit Flags:    ", buf2word(SUBSTR(lcInfo,  153,2))
+? "Suite 标志位:    ", buf2word(SUBSTR(lcInfo,  153,2))
 ? "产品类型:       ", Asc(SUBSTR(lcInfo,155,1))
-? "Reserved Byte:      ", Asc(SUBSTR(lcInfo,156,1))
+? "保留位:      ", Asc(SUBSTR(lcInfo,156,1))
 
 FUNCTION  buf2dword (lcBuffer)
 RETURN;
@@ -71,5 +72,5 @@ ENDFUNC
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetVersionEx](../libraries/kernel32/GetVersionEx.md)  
