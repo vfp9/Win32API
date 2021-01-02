@@ -1,28 +1,29 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to view icons stored in executable files (Icon Viewer) - II
+# 如何查看存储在可执行文件中的图标(图标浏览器) - II
+_翻译：xinjie  2021.01.02_
 
-## Before you begin:
-An API ImageList object is created and populated with icons extracted from specified executable or library file. Then the ImageList is linked to a ListView control on the form. Each item in the ListView represents an icon.  
+## 开始之前：
+一个API ImageList对象被创建并填充了从指定的可执行文件或库文件中提取的图标。然后，ImageList被链接到表单上的ListView控件。ListView中的每个项目代表一个图标。  
 
 ![](../images/iconview_list.png)  
 
-See also:
+参考：
 
-* [Displaying Windows Shell Icons in ListView control](sample_575.md)  
-* [Displaying the associated icons and descriptions for files and folders](sample_530.md)  
-* [Converting image file to .ICO file](sample_503.md)  
-* [Storing DLL icon resources in image files](sample_501.md)  
+* [Windows Shell 图标显示并导出到ICO文件（Vista）](sample_575.md)  
+* [显示文件和文件夹的相关图标和说明](sample_530.md)  
+* [转换图像文件到图标文件（ICO）](sample_503.md)  
+* [GDI+：在图像文件中存储DLL图标资源](sample_501.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 PUBLIC oForm As TForm
 oForm = CREATEOBJECT("TForm")
 oForm.Visible=.T.
-* end of main
+* 主程序结束
 
 DEFINE CLASS Tform As Form
 #DEFINE GWL_STYLE -16
@@ -39,14 +40,14 @@ DEFINE CLASS Tform As Form
 	Borderstyle=2
 	MaxButton=.F.
 	Autocenter=.T.
-	Caption="Icon Viewer"
+	Caption="Icon 查看器"
 	BackColor=RGB(255,255,255)
 	imagelist32=NULL
 
 	ADD OBJECT lst As TListView WITH Left=16, Top=50,;
 	Width=468, Height=280
 	
-	ADD OBJECT lbl As Label WITH Caption="File:",;
+	ADD OBJECT lbl As Label WITH Caption="文件:",;
 	Left=15, Top=10, BackStyle=0
 
 	ADD OBJECT txt As TextBox WITH Left=50, Top=8,;
@@ -68,14 +69,14 @@ PROCEDURE cmdFile.Click
 	ThisForm.SelectFile
 
 FUNCTION SelectFile
-* selects DLL or executable file containing icon resources
+* 选择包含图标资源的DLL或可执行文件
 	LOCAL cResult, cPath, cStoredPath
 	cPath = SYS(5) + SYS(2003)
 	cStoredPath = FULLPATH(THIS.txt.Value)
 	cStoredPath = SUBSTR(cStoredPath, 1, RAT(CHR(92),cStoredPath)-1)
 	
 	SET DEFAULT TO (cStoredPath)
-	cResult = GETFILE("EXE;DLL", "Get File:", "Open", 0)
+	cResult = GETFILE("EXE;DLL", "获取文件:", "打开", 0)
 	SET DEFAULT TO (cPath)
 	
 	IF NOT EMPTY(m.cResult)
@@ -84,8 +85,7 @@ FUNCTION SelectFile
 	ENDIF
 
 PROCEDURE ShowIcons
-* creates ListView items each displaying
-* an icon from the image list
+* 创建ListView项目，每个项目都显示图像列表中的图标
 	LOCAL nImageCount, nImageIndex
 
 	THIS.lst.ListItems.Clear
@@ -101,7 +101,7 @@ PROCEDURE ShowIcons
 	NEXT
 
 PROCEDURE SetIcon(nItemIndex, nImageIndex)
-* sets the icon for the listitem
+* 设置listitem的图标
     LOCAL cItemBuffer  && LVITEM structure
 
     cItemBuffer = num2dword(LVIF_IMAGE) +;
@@ -112,7 +112,7 @@ PROCEDURE SetIcon(nItemIndex, nImageIndex)
     = SendMessageS(THIS.lst.hWnd, LVM_SETITEM, 0, @cItemBuffer)
 
 PROCEDURE ResetImageList
-* disconnects any image list connected to the ListView
+* 断开连接到ListView的任何图像列表
 	WITH THIS.lst
 		= SendMessage(.HWND, LVM_SETIMAGELIST, LVSIL_SMALL, 0)
 		= SendMessage(.HWND, LVM_SETIMAGELIST, LVSIL_NORMAL, 0)
@@ -120,13 +120,12 @@ PROCEDURE ResetImageList
 	ENDWITH
 
 PROCEDURE AssignImageList
-* connects THIS.imagelist32 image list to the ListView
+* 将this.imagelist32图像列表连接到ListView
 	LOCAL nWStyle, cBuffer, nImageCount, nISizeX, nISizeY
 	cBuffer = REPLICATE(CHR(0), 1024)
 
 	WITH THIS.lst
-		* prevents the attached image list from being destroyed
-		* upon releasing the ListView
+		* 防止在释放ListView时销毁附加的图像列表
 		nWStyle = GetWindowLong(.HWND, GWL_STYLE)
 		nWStyle = BITOR(m.nWStyle, LVS_SHAREIMAGELISTS)
 		SetWindowLong(.HWND, GWL_STYLE, nWStyle)
@@ -177,8 +176,8 @@ PROCEDURE AddColumnHeader(cCaption, nWidth)
 ENDDEFINE
 
 DEFINE CLASS TIconList32 As Session
-* partial implementation of the ImageList object
-* similar to ImageList ActiveX control
+* ImageList对象的部分实现
+* 类似于ImageList ActiveX控件
 #DEFINE ILC_COLOR 0x0000
 #DEFINE ILC_COLOR8 0x0008
 #DEFINE ILC_COLOR16 0x0010
@@ -196,13 +195,13 @@ PROCEDURE Init
 PROCEDURE CreateImageList
 	LOCAL hWindow, hDC, bpp, nColorFlag
 
-	* find current number of color bits per pixel
+	* 找出当前每像素的颜色位数
 	hWindow = _screen.HWnd
 	hDC = GetDC(hWindow)
 	bpp = GetDeviceCaps(m.hDC, DEVICECAPS_BITSPIXEL)
 	= ReleaseDC(m.hWindow, m.hDC)
 	
-	* select set of icons that corresponds current bpp
+	* 选择对应当前bpp的图标集
 	DO CASE
 	CASE m.bpp = 32
 		nColorFlag = ILC_COLOR32
@@ -232,8 +231,7 @@ PROCEDURE ClearIcons
 	= ImageList_Remove(THIS.himl, -1) && removes all
 
 PROCEDURE LoadIconsFromFile(cSourceFile As String) As Number
-* extracts icon resources from the specified files
-* and loads them in this image list
+* 从指定的文件中提取图标资源，并将其加载到这个图像列表中。
 	THIS.ClearIcons
 
 	LOCAL nIconIndex, hIcon, cBuffer, hbmMask, hbmColor, nResult
@@ -321,7 +319,7 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [DestroyIcon](../libraries/user32/DestroyIcon.md)  
 [ExtractIcon](../libraries/shell32/ExtractIcon.md)  
 [GetDC](../libraries/user32/GetDC.md)  
@@ -337,17 +335,17 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 [SendMessage](../libraries/user32/SendMessage.md)  
 [SetWindowLong](../libraries/user32/SetWindowLong.md)  
 
-## Comment:
-May 24, 2007: code sample rewritten from scratch  
+## 备注：
+2007年5月24日：从头开始重写代码示例。 
   
-ImageList ActiveX control wraps several API functions in comctl32 library, like ImageList_Create, ImageList_GetImageCount and so on.   
+ImageList ActiveX 控件封装了 comctl32 库中的几个 API 函数，如ImageList_Create, ImageList_GetImageCount等。  
   
-While writing this code sample, I found the API ImageList object much more reliable and predictable then the ActiveX one. For example, the ImageList_Add successfully adds new images to the ActiveX control. But that does not affect the Count property of its ListImages collection.  
+在写这段代码的时候，我发现 API ImageList 对象比 ActiveX 对象更加可靠和可预测。例如，ImageList_Add 成功地将新图片添加到 ActiveX 控件中。但这并不影响其 ListImages 集合的 Count 属性。 
   
-The hImageList handle of an empty ActiveX ImageList control is always zero. To apply any ImageList API function to this guy, at least one image must be added. That I found an inconvenient feature also.  
+一个空的 ActiveX ImageList 控件的 hImageList 句柄总是零。要对这个家伙应用任何 ImageList API 函数，必须至少添加一张图片。这是我发现的一个不方便的功能。  
   
 * * *  
-Read aritlcle [Retrieving Shell icons](https://www.codeproject.com/Articles/2405/Retrieving-shell-icons) on the Code Project.  
+阅读 Code Project 上的文章 [检索 Shell 图标](https://www.codeproject.com/Articles/2405/Retrieving-shell-icons) 。  
   
 ***  
 
