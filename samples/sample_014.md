@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 基于现有的文件名创建一个唯一的文件名
+_翻译：xinjie  2021.01.02_
 
 ## 代码：
 ```foxpro  
@@ -73,43 +74,3 @@ FUNCTION a2u(cText)
 		cText, Len(cText), @lcBuffer, lnBufsize)
 RETURN lcBuffer
 
-PROCEDURE decl
-	DECLARE INTEGER PathMakeUniqueName IN shell32;
-		STRING @pszUniqueName, INTEGER cchMax, STRING pszTemplate,;
-		STRING pszLongPlate, STRING pszDir
-
-	DECLARE INTEGER PathYetAnotherMakeUniqueName IN shell32;
-		STRING @pszUniqueName, STRING pszPath,;
-		STRING pszShort, STRING pszFileSpec
-
-	DECLARE INTEGER GetTempPath IN kernel32;
-		INTEGER nBufferLength, STRING @lpBuffer
-
-	DECLARE INTEGER GetLongPathName IN kernel32;
-		STRING lpszShortPath, STRING @lpszLongPath,;
-		INTEGER cchBuffer
-
-	DECLARE INTEGER GetModuleFileName IN kernel32;
-		INTEGER hModule, STRING @lpFilename, INTEGER nSize
-
-	DECLARE INTEGER WideCharToMultiByte IN kernel32;
-		INTEGER CodePg, INTEGER dwFlags,;
-		STRING lpWideCharStr, INTEGER cchWideChar,;
-		STRING @lpMultiByteStr, INTEGER cbMultiByte,;
-		STRING lpDefaultChar, INTEGER lpUsedDefaultChar
-
-	DECLARE INTEGER MultiByteToWideChar IN kernel32;
-		INTEGER CodePage, LONG dwFlags, STRING lpMultiByteStr,;
-		INTEGER cbMultiByte, STRING @lpWCharStr, INTEGER cchWChar  
-```  
-***  
-
-
-## 函数列表：
-[GetLongPathName](../libraries/kernel32/GetLongPathName.md)  
-[GetModuleFileName](../libraries/kernel32/GetModuleFileName.md)  
-[GetTempPath](../libraries/kernel32/GetTempPath.md)  
-[MultiByteToWideChar](../libraries/kernel32/MultiByteToWideChar.md)  
-[PathMakeUniqueName](../libraries/shell32/PathMakeUniqueName.md)  
-[PathYetAnotherMakeUniqueName](../libraries/shell32/PathYetAnotherMakeUniqueName.md)  
-[WideCharToMultiByte](../libraries/kernel32/WideCharToMultiByte.md)  
