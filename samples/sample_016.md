@@ -1,8 +1,8 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using the GetTempFileName
+# 使用 GetTempFileName
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE MAX_PATH 260
 DO decl
@@ -18,12 +18,11 @@ FUNCTION GetTmpName(cTmpPath, cPrefix, lCreate)
 	LOCAL nUnique, cTmpFile
 
 	IF lCreate
-	* the GetTempFileName creates a temporary file and closes it
-	* truly unique name is returned based on the current system time
+	* GetTempFileName 会创建一个临时文件并关闭它
+	* 根据当前的系统时间返回真正的唯一名称
 		nUnique = 0
 	ELSE
-	* file name is generated, though the GetTempFileName does not
-	* check if this name is truly unique
+	* 文件名会被生成，尽管 GetTempFileName 并没有检查这个名字是否真的是唯一的
 *		nUnique = SECONDS()  && easily creates duplicates
 *		nUnique = GetTickCount() && easily creates duplicates
 		nUnique = GetCounter()  && the most reliable option
@@ -78,7 +77,7 @@ PROCEDURE decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetLongPathName](../libraries/kernel32/GetLongPathName.md)  
 [GetTempFileName](../libraries/kernel32/GetTempFileName.md)  
 [GetTempPath](../libraries/kernel32/GetTempPath.md)  
