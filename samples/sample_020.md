@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Displaying OS Memory Status
+# 显示操作系统的内存状态
+_翻译：xinjie  2021.01.02_
 
-## Code:
+## 代码：
 ```foxpro  
 *|typedef struct _MEMORYSTATUS {
 *| DWORD dwLength;           0:4
@@ -23,13 +24,13 @@ PRIVATE cBuffer
 cBuffer = REPLI(Chr(0), MEMORYSTATUS_SIZE)
 = GlobalMemoryStatus(@cBuffer)
 
-= Writeln("Memory in use, % ...................",  5)
-= Writeln("Physical memory, in bytes ..........",  9)
-= Writeln("Physical memory available, bytes ...", 13)
-= Writeln("Committed memory limit, bytes ......", 17)
-= Writeln("Available memory to commit, bytes ..", 21)
-= Writeln("User mode portion..., bytes ........", 25)
-= Writeln("Unreserved/uncommitted memory ......", 29)
+= Writeln("正在使用的内存, % ....................",  5)
+= Writeln("物理内存，字节数 .....................",  9)
+= Writeln("可用物理内存，字节数 .................", 13)
+= Writeln("已提交内存，字节数 ...................", 17)
+= Writeln("可用内存，字节数 .....................", 21)
+= Writeln("用户模式..., 字节数 .................", 25)
+= Writeln("未保留/未提交内存 ......", 29)
 
 PROCEDURE Writeln(cCaption, nOffs)
 	LOCAL nSize
@@ -45,10 +46,10 @@ RETURN Asc(SUBSTR(cBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GlobalMemoryStatus](../libraries/kernel32/GlobalMemoryStatus.md)  
 
-## Comment:
+## 备注：
 MEMORYSTATUS reflects the state of memory at the time of the call. It reflects the size of the paging file at that time.  
   
 Memory in use -- for WinNT this value can be zero.  
