@@ -1,21 +1,22 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Generating random UUID values
+# 随机生成 UUID 值
+_翻译：xinjie  2021.01.03_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [How to generate GUID values](sample_456.md)  
+* [如何生成 GUID 值](sample_456.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 FOR nIndex=1 TO 10
 	? GetUUID()
 NEXT
-* end of main
+* 主程序结束
 
 PROCEDURE GetUUID()
 	DECLARE INTEGER UuidCreate IN Rpcrt4 STRING @Uuid
@@ -46,7 +47,7 @@ RETURN m.cResult
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [RpcStringFree](../libraries/rpcrt4/RpcStringFree.md)  
 [UuidCreate](../libraries/rpcrt4/UuidCreate.md)  
 [UuidToString](../libraries/rpcrt4/UuidToString.md)  
