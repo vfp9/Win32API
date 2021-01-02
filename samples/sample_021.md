@@ -1,24 +1,25 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# System Image List Viewer
+# 系统图像列表查看器
+_翻译：xinjie  2021.01.02_
 
-## Before you begin:
+## 开始之前：
 ![](../images/sysimagelistviewer.png)  
 
-See also:
+参考：
 
-* [How to view system icons for the classes installed on the local machine](sample_544.md)  
-* [Displaying the associated icons and descriptions for files and folders](sample_530.md)  
+* [如何查看本地计算机上安装的类的系统图标](sample_544.md)  
+* [显示文件和文件夹的相关图标和说明](sample_530.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 PUBLIC oForm As TForm
 oForm = CREATEOBJECT("TForm")
 oForm.Visible=.T.
-* end of main
+* 主程序结束
 
 DEFINE CLASS Tform As Form
 #DEFINE CRLF CHR(13)+CHR(10)
@@ -45,7 +46,7 @@ DEFINE CLASS Tform As Form
 	Borderstyle=2
 	MaxButton=.F.
 	Autocenter=.T.
-	Caption="System Image List Viewer"
+	Caption="系统图像列表查看器"
 	hSysImageList=0
 	
 	ADD OBJECT img As TImagelist
@@ -54,7 +55,7 @@ DEFINE CLASS Tform As Form
 	Width=50, Height=24, Format="!K"
 	
 	ADD OBJECT cmdAddfiletype As CommandButton WITH Left=352,;
-	Top=190, Width=60, Height=27, Caption="Add", Default=.T.
+	Top=190, Width=60, Height=27, Caption="增加", Default=.T.
 
 	ADD OBJECT lst As TListView WITH Left=5, Top=5,;
 	Width=160, Height=300
@@ -62,16 +63,16 @@ DEFINE CLASS Tform As Form
 	ADD OBJECT syslistinfo As EditBox WITH Left=174, Top=5,;
 	Width=316, Height=150, Readonly=.T.
 	
-	ADD OBJECT Label1 As TLabel WITH Caption="Icon size:",;
+	ADD OBJECT Label1 As TLabel WITH Caption="图标尺寸:",;
 	Left=174, Top=168
 	
 	ADD OBJECT icontype As TIconType WITH Left=174, Top=190
 	
 	ADD OBJECT Label2 As TLabel WITH Left=300, Top=168,;
-	Caption="Enter a file extension:"
+	Caption="输入文件扩展名:"
 	
 	ADD OBJECT cmdRefresh As CommandButton WITH Left=40,;
-	Top=312, Width=80, Height=27, Caption="Refresh"
+	Top=312, Width=80, Height=27, Caption="刷新"
 	
 PROCEDURE Init
 	THIS.declare
@@ -138,7 +139,7 @@ PROCEDURE GetSyslistItems
 	NEXT
 
 PROCEDURE SetIcon(nItemIndex, nImageIndex)
-* sets the icon for the listitem
+* 设置列表项的图标
     LOCAL cItemBuffer  && LVITEM structure
 
     cItemBuffer = num2dword(LVIF_IMAGE) +;
@@ -163,7 +164,7 @@ PROCEDURE SwitchToSystemList
 		nWStyle = BITOR(m.nWStyle, LVS_SHAREIMAGELISTS)
 		SetWindowLong(.HWND, GWL_STYLE, nWStyle)
 
-		* a kick is required for the system image list get connected
+		* 连接系统映像列表时需要踢一脚
 		= SendMessage(.HWND, LVM_SETIMAGELIST, LVSIL_SMALL, 0)
 		= SendMessage(.HWND, LVM_SETIMAGELIST, LVSIL_NORMAL, 0)
 		= INKEY(0.1)
@@ -177,8 +178,8 @@ PROCEDURE SwitchToSystemList
 	
 	THIS.syslistinfo.Value = "HIMAGELIST: " +;
 		TRANSFORM(THIS.hSysImageList) + CRLF +;
-		"Image items: " + TRANSFORM(m.nImageCount) + CRLF +;
-		"Icon size: " + TRANSFORM(nISizeX) + " x " +;
+		"图片项目: " + TRANSFORM(m.nImageCount) + CRLF +;
+		"图标尺寸: " + TRANSFORM(nISizeX) + " x " +;
 		TRANSFORM(nISizeY)
 	
 PROCEDURE declare
@@ -222,10 +223,10 @@ DEFINE CLASS TIconType As OptionGroup
 	Autosize=.T.
 	Backstyle=0
 
-	ADD OBJECT TSmall As OptionButton WITH Caption="Small Icons",;
+	ADD OBJECT TSmall As OptionButton WITH Caption="小图标",;
 	Autosize=.T., Backstyle=0, Top=5, Left=5
 
-	ADD OBJECT TLarge As OptionButton WITH Caption="Large Icons",;
+	ADD OBJECT TLarge As OptionButton WITH Caption="大图标",;
 	Autosize=.T., Backstyle=0, Top=30, Left=5
 ENDDEFINE
 
@@ -284,7 +285,7 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表
 [DestroyIcon](../libraries/user32/DestroyIcon.md)  
 [GetWindowLong](../libraries/user32/GetWindowLong.md)  
 [ImageList_GetIconSize](../libraries/comctl32/ImageList_GetIconSize.md)  
