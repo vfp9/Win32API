@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 操作系统的版本和修订版
+_翻译：xinjie  2021.01.03_
 
 ## 代码：
 ```foxpro  
@@ -11,13 +12,13 @@ DECLARE SHORT StrToIntEx IN Shlwapi;
 
 lnVersion = GetVersion()
 
-* The low-order word
+* 低位
 lnVersionLo = BitRShift(BitLShift(lnVersion, 16), 16)
 ? "主要版本: ", BitAnd(lnVersionLo, hex2dec("0x00ff"))
 ? "次要版本: ", BitRShift(BitAnd(lnVersionLo, hex2dec("0xff00")), 8)
 ?
 
-* The high-order word
+* 高位
 lnVersionHi = BitRShift(BitAnd(lnVersion, hex2dec("0xffff0000")), 16)
 ? lnVersionHi
 
