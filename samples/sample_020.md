@@ -50,11 +50,11 @@ RETURN Asc(SUBSTR(cBuffer, 1,1)) + ;
 [GlobalMemoryStatus](../libraries/kernel32/GlobalMemoryStatus.md)  
 
 ## 备注：
-MEMORYSTATUS reflects the state of memory at the time of the call. It reflects the size of the paging file at that time.  
+MEMORYSTATUS 反映了调用时的内存状态。 它反映了当时分页文件的大小。
   
-Memory in use -- for WinNT this value can be zero.  
+正在使用的内存--对于 WinNT，此值可以为零。
   
-On computers with more than 4 GB of memory, the MEMORYSTATUS structure may return incorrect information. If your application is at risk for this behavior, use the GlobalMemoryStatusEx function instead.  
+在内存大于 4 GB 的计算机上，MEMORYSTATUS 结构可能返回错误的信息。 如果您的应用程序有这种行为的风险，请改用 GlobalMemoryStatusEx 函数。  
   
 ***  
 
