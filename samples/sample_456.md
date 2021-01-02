@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 如何生成 GUID 值
+_翻译：xinjie  2021.01.03_
 
 ## 开始之前：
 结果以类似于以下示例的格式返回：  
