@@ -1,16 +1,16 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Extended OS Version info
+# 扩展的操作系统版本信息
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [OS version and revision](sample_022.md)  
+* [操作系统的版本和修订版](sample_022.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 *| typedef struct _OSVERSIONINFO{
 *|   DWORD dwOSVersionInfoSize;  0 | 4
@@ -38,21 +38,20 @@ See also:
 DECLARE INTEGER GetVersionEx IN kernel32;
     STRING @ lpVersionInformation
 
-* set dwOSVersionInfoSize to 148 (OSVERSIONINFO)
-* or 156 (OSVERSIONINFOEX) bytes
+* 设置 dwOSVersionInfoSize 为 148(OSVERSIONINFO) 或 156(OSVERSIONINFOEX) 字节
 lcInfo = Chr(156) + REPLI (Chr(0), 300)  && some loose space
 
 nResult = GetVersionEx (@lcInfo)
 
-? "Major Version: ", buf2dword(SUBSTR(lcInfo,  5,4))
-? "Minor Version: ", buf2dword(SUBSTR(lcInfo,  9,4))
-? "Build Number:  ", buf2dword(SUBSTR(lcInfo, 13,4))
+? "主要版本: ", buf2dword(SUBSTR(lcInfo,  5,4))
+? "次要版本: ", buf2dword(SUBSTR(lcInfo,  9,4))
+? "内部版本号:  ", buf2dword(SUBSTR(lcInfo, 13,4))
 ? "szCSDVersion:  ", "["+STRTRAN(SUBSTR(lcInfo, 21,128), Chr(0),"")+"]"
 ?
-? "Major Service Pack: ", buf2word(SUBSTR(lcInfo,  149,2))
-? "Minor Service Pack: ", buf2word(SUBSTR(lcInfo,  151,2))
+? "主要 Service Pack: ", buf2word(SUBSTR(lcInfo,  149,2))
+? "次要 Service Pack: ", buf2word(SUBSTR(lcInfo,  151,2))
 ? "Suite Bit Flags:    ", buf2word(SUBSTR(lcInfo,  153,2))
-? "Product Type:       ", Asc(SUBSTR(lcInfo,155,1))
+? "产品类型:       ", Asc(SUBSTR(lcInfo,155,1))
 ? "Reserved Byte:      ", Asc(SUBSTR(lcInfo,156,1))
 
 FUNCTION  buf2dword (lcBuffer)
