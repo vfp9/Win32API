@@ -1,8 +1,8 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Number of clipboard formats available
+# 可用剪贴板格式的数量
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE CF_TEXT              1
 #DEFINE CF_BITMAP            2
@@ -23,14 +23,14 @@
 #DEFINE CF_DIBV5            17
 DO declare
 
-? "Number of formats currently on the clipboard: " +;
+? "当前剪贴板上的格式数量: " +;
 	LTRIM(STR(CountClipboardFormats()))
 
 cBuffer = Chr(CF_TEXT) + Repli(Chr(0),3) +;
 	Chr(CF_OEMTEXT) + Repli(Chr(0),3) +;
 	Chr(CF_UNICODETEXT) + Repli(Chr(0),3)
 
-? "First available text format, ID: " +;
+? "第一个可用的文本格式，ID: " +;
 	LTRIM(STR(GetPriorityClipboardFormat(@cBuffer, 3)))
 
 PROCEDURE declare
@@ -42,6 +42,6 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CountClipboardFormats](../libraries/user32/CountClipboardFormats.md)  
 [GetPriorityClipboardFormat](../libraries/user32/GetPriorityClipboardFormat.md)  
