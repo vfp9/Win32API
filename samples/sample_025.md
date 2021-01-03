@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving window and menu help context identifiers
+# 检索窗口和菜单帮助上下文标识符
+_翻译：xinjie  2021.01.03_
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 
@@ -11,14 +12,14 @@ hWindow = GetFocus()
 hMenu = GetMenu(hWindow)
 
 ACTI SCREEN
-? "Window handle:", hWindow
-? "Window Help Context ID:", GetWindowContextHelpId(hWindow)
+? "窗口句柄:", hWindow
+? "窗口帮助上下文ID:", GetWindowContextHelpId(hWindow)
 
 IF hMenu <> 0
-	? "Menu handle:", hMenu
-	? "Menu Help Context ID:", GetMenuContextHelpId(hMenu)
+	? "菜单句柄:", hMenu
+	? "菜单帮助上下文ID:", GetMenuContextHelpId(hMenu)
 ELSE
-	? "No menu attached to this window"
+	? "此窗口无菜单"
 ENDIF
 
 PROCEDURE decl
@@ -30,7 +31,7 @@ PROCEDURE decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetFocus](../libraries/user32/GetFocus.md)  
 [GetMenu](../libraries/user32/GetMenu.md)  
 [GetMenuContextHelpId](../libraries/user32/GetMenuContextHelpId.md)  
