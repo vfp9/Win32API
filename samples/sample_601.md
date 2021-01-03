@@ -259,7 +259,7 @@ ENDDEFINE
 #define WM_CLIPBOARDUPDATE 0x031D
 ```
   
-See also:
+参考：
 
 [GetClipboardSequenceNumber](../libraries/user32/GetClipboardSequenceNumber.md)
    
