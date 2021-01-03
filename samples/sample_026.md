@@ -82,7 +82,7 @@ PROCEDURE PasteNumber(cNumber)
 		* 在剪贴板中存储数字
 		STORE TRANSFORM(m.cNumber) TO _cliptext
 		
-		* makes Calculator the foreground window
+		* 使计算器成为前景窗口
 		= SetForegroundWindow(hWindow)
 
 		* 模拟 CTRL+V 按键
