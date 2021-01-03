@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Listing child windows for the Windows desktop
+# 列出 Windows 桌面的子窗口
+_翻译：xinjie  2021.01.03_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE GW_HWNDLAST 1
 #DEFINE GW_HWNDNEXT 2
@@ -42,7 +43,7 @@ DO WHILE .T.
 ENDDO
 GO TOP
 BROWSE NORMAL NOWAIT
-* end of main
+* 主程序结束
 
 FUNCTION GetClsName(hWindow)
     LOCAL nBufsize, cBuffer
@@ -51,7 +52,7 @@ FUNCTION GetClsName(hWindow)
 RETURN SUBSTR(cBuffer, 1, nBufsize)
 
 FUNCTION GetWinText(hWindow)
-* returns window title bar text -- Win9*/Me/XP/2000
+* 返回窗口标题栏文本--Win9*/Me/XP/2000
 	LOCAL cBuffer, nResult
 	cBuffer = Space(250)
 	nResult = GetWindowText(hWindow, @cBuffer, Len(cBuffer))
@@ -78,7 +79,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetClassName](../libraries/user32/GetClassName.md)  
 [GetDesktopWindow](../libraries/user32/GetDesktopWindow.md)  
 [GetWindow](../libraries/user32/GetWindow.md)  
@@ -87,9 +88,9 @@ PROCEDURE declare
 [IsWindowVisible](../libraries/user32/IsWindowVisible.md)  
 
 ## Comment:
-In the resulting list you will probably find a window with a class name **Shell_TrayWnd**, which is Windows TaskBar. Using ShowWindow function it is possible to control its visibility.  
+在生成的列表中，你可能会发现一个类名为 **Shell_TrayWnd** 的窗口，它就是 Windows 任务栏。使用 ShowWindow 函数可以控制其可见性。 
   
-C# code enumerates top-level windows on the screen by a single call to the EnumWindows.  
+C#代码通过调用EnumWindows来枚举屏幕上的顶层窗口。 
   
 ***  
 
