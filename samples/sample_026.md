@@ -1,16 +1,17 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to activate Windows Calculator
+# 如何激活 Windows 计算器
+_翻译：xinjie  2021.01.03_
 
-## Before you begin:
-This code sample explains how to programmatically open an instance of Windows Calculator.  
+## 开始之前：
+这个代码示例解释了如何以编程方式打开 Windows 计算器的实例。  
 
 ![](../images/wincalculator.png)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 PUBLIC frm
 frm = CreateObject("Tform")
@@ -21,14 +22,14 @@ DEFINE CLASS Tform As Form
 #DEFINE SW_SHOWNORMAL 1
 	Width=400
 	Height=200
-	Caption="Activate Windows Calculator"
+	Caption="激活 Windows 计算器"
 	
 	ADD OBJECT cmdShow As CommandButton WITH;
-		Caption="Show Calc", Height=24, Width=100,;
+		Caption="显示计算器", Height=24, Width=100,;
 		Top=5, Left=10
 
 	ADD OBJECT cmdHide As CommandButton WITH;
-		Caption="Hide Calc", Height=24, Width=100,;
+		Caption="隐藏计算器", Height=24, Width=100,;
 		Top=5, Left=112
 
 PROCEDURE Init
@@ -78,13 +79,13 @@ PROCEDURE PasteNumber(cNumber)
 	hWindow = FindWindow(Null, "Calculator")
 
 	IF hWindow <> 0
-		* stores the number in the Clipboard
+		* 在剪贴板中存储数字
 		STORE TRANSFORM(m.cNumber) TO _cliptext
 		
 		* makes Calculator the foreground window
 		= SetForegroundWindow(hWindow)
 
-		* simulates CTRL+V keystroke
+		* 模拟 CTRL+V 按键
 		= keybd_event(VK_CONTROL, 0, 0, 0)
 		= keybd_event(VkKeyScan(ASC("V")), 0, 0, 0)
 		= keybd_event(VkKeyScan(ASC("V")), 0, KEYEVENTF_KEYUP, 0)
@@ -122,7 +123,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FindWindow](../libraries/user32/FindWindow.md)  
 [IsWindow](../libraries/user32/IsWindow.md)  
 [PostMessage](../libraries/user32/PostMessage.md)  
@@ -132,8 +133,8 @@ ENDDEFINE
 [WinExec](../libraries/kernel32/WinExec.md)  
 [keybd_event](../libraries/user32/keybd_event.md)  
 
-## Comment:
-Btw, you can use the SetParent function to make the main VFP window (_screen.hWnd or _vfp.hWnd) the parent window for the Calculator. In that case the calculator window becomes confined in the main VFP window.  
+## 备注：
+另外，你可以使用 SetParent 函数使主 VFP 窗口(_screen.hWnd 或 _vfp.hWnd)成为计算器的父窗口。在这种情况下，计算器窗口将被限制在主 VFP 窗口中。  
   
 ***  
 
