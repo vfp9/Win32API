@@ -1,34 +1,35 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Creating irregularly shaped FoxPro form using transparency color key
+# 使用透明颜色键创建形状不规则的FoxPro表单
+_翻译：xinjie  2021.01.03_
 
-## Short description:
-The SetLayeredWindowAttributes function can be used to define the transparency color for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
+## 简述：
+SetLayeredWindowAttributes 函数可以用来定义顶层 FoxPro 窗体的透明度颜色。这意味着窗体上所有带有这种颜色的区域，包括本机无窗口的FoxPro控件，都会变得透明。   
 ***  
 
 
-## Before you begin:
-Download this image file before testing the code sample:  
+## 开始之前：
+在测试代码样本之前，先下载这个图片文件：  
 
 ![](../images/applecorp_plt.bmp)  
 
-The SetLayeredWindowAttributes function can be used to define the transparency color key for the top-level FoxPro form. That means all areas on the form with this color, including native windowless FoxPro controls, become transparent.   
+SetLayeredWindowAttributes 函数可以用来定义顶层 FoxPro 窗体的透明度颜色键。这意味着窗体上所有带有这种颜色的区域，包括本机无窗口的 FoxPro 控件，都会变得透明。  
 
-Such transparency is not only visual. The masked area is also transparent for the *mouse events*. Those events are directed to the windows below. It looks like the mouse transparency is provided only for bitmap images, not for gifs and jpegs.  
+这种透明度不仅是视觉上的。对于*鼠标事件*来说，被屏蔽的区域也是透明的。这些事件是指向下面的窗口的。看起来鼠标透明度只对位图图像提供，而不是对 gif 和 jpegs。 
 
-Bluish background color on this image has value of RGB(0,121,197), which is passed as the transparency color key to the SetLayeredWindowAttributes function.   
+这张图片上的蓝调背景色的值是 RGB(0,121,197)，它作为透明度颜色键传递给 SetLayeredWindowAttributes 函数。  
 
-See also:
+参考：
 
-* [Round FoxPro form](sample_143.md)  
-* [How to draw a custom Window Caption on FoxPro form](sample_499.md)  
-* [A way to make a transparent area in a form -- a hole in the form](sample_126.md)  
-* [Semi-transparent form](sample_453.md)  
+* [圆形 FoxPro 表单](sample_143.md)  
+* [如何在 FoxPro 窗体上绘制自定义窗口标题](sample_499.md)  
+* [如何在表单中创建透明区域--在表单中打孔](sample_126.md)  
+* [半透明表单](sample_453.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 oForm = CREATEOBJECT("Tform")
 oForm.Visible=.T.
@@ -58,8 +59,8 @@ DEFINE CLASS Tform As Form
 
 	ADD OBJECT Label1 As Label WITH Alignment=2,;
 	Left=100, Top=140, BackStyle=0, Autosize=.T.,;
-	Caption="Press ESC to close this form." + CHR(13) + CHR(13) +;
-		"Use the mouse to move this form.", WordWrap=.T.
+	Caption="按 ESC 键关闭此表单" + CHR(13) + CHR(13) +;
+		"使用鼠标移动此表单", WordWrap=.T.
 
 PROCEDURE Init(cImageFile, nMaskingColor)
 	THIS.declare
@@ -102,8 +103,7 @@ PROTECTED PROCEDURE SetTransparentMode
 PROTECTED PROCEDURE RemoveFrame
 	LOCAL x0, y0, x1, y1, hRgn
 
-	* calculate the region
-	* you can use SYSMETRIC() instead
+	* 你可以用 SYSMETRIC() 来代替计算区域。
 	x0 = GetSystemMetrics(SM_CXFRAME) +;
 		THIS.img.Left
 
@@ -147,7 +147,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CreateRectRgn](../libraries/gdi32/CreateRectRgn.md)  
 [GetSystemMetrics](../libraries/user32/GetSystemMetrics.md)  
 [GetWindowLong](../libraries/user32/GetWindowLong.md)  
@@ -157,26 +157,26 @@ ENDDEFINE
 [SetWindowLong](../libraries/user32/SetWindowLong.md)  
 [SetWindowRgn](../libraries/user32/SetWindowRgn.md)  
 
-## Comment:
-It is important to have the background perfectly solid. Conversion to JPEG may create color artefacts because of the way the image is compressed with removing supposedly unnecessary part of it.  
+## 备注：
+重要的是要有完美的背景。 转换为JPEG可能会产生色彩伪影，因为图像的压缩方式是删除了不必要的部分。
   
-Observe the difference between the masked bitmap image and originated from it masked JPEG image. As I mentioned above, only bitmap images provide mouse event transparency. 
+观察掩盖的位图图像与其源自掩盖的JPEG图像之间的差异。 如前所述，只有位图图像才提供鼠标事件的透明度。 
 
 ![](../images/bmp_and_jpeg.gif)
 
-Note that the Region API functions are still used to hide the frame of the form.   
+请注意，Region API函数仍然被用来隐藏表单的框架。  
   
-This combined approach can create irregular forms effortlessly, if compared to using solely Region API calls. After all, truly irregular forms may not be easily shaped with a combination of regions.  
+如果与单纯使用Region API调用相比，这种组合方式可以毫不费力地创建不规则的表单。毕竟，真正不规则的窗体可能不容易用Region的组合来塑造。 
   
-The SetLayeredWindowAttributes requires at least Win2K, and works with top-level forms only (ShowWindow=2). Also a twinkling black border may appear around the the form when it is being moved.  
+SetLayeredWindowAttributes至少需要Win2K，并且只适用于顶层窗体（ShowWindow=2）。此外，当窗体被移动时，窗体周围可能会出现一个闪烁的黑色边框。  
   
 * * *  
-.NET WinForm implementation:  
+.NET WinForm 执行时的情况：  
   
 ![](../images/irregular_form_cs.jpg)
 
 * * *  
-.NET WPF implementation is as brief as it is simple. In this case the background of PNG image must be transparent.  
+.NET WPF 的实现既简短又简单。在这种情况下，PNG图像的背景必须是透明的。  
   
 ![](../images/irregular_form_wpf.png)
 
