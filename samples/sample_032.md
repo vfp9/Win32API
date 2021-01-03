@@ -1,30 +1,30 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Enumerating data formats currently available on the clipboard
+# 枚举剪贴板上当前可用的数据格式
 
-## Before you begin:
-Run this code several times, each time placing new data on the Clipboard from different applications: IE, Word, Excel etc. Sometimes you get *dozens of various formats* for just a small cell range copied from an Excel spreadsheet.  
+## 开始之前：
+多次运行此代码，每次将来自不同应用程序的新数据放在剪贴板上：IE，Word，Excel等。有时，从Excel电子表格复制的一个很小的单元格区域，就会获得“几十种格式”。 
 ![](../images/enumclip.png)  
 
-A value obtained with GetClipboardData function can be either handle  -- like bitmap handle -- or a global memory address, where a bigger portion of data is stored. Use API functions GlobalSize, CopyMemory, and possibly GlobalLock and GlobalUnlock, to retrieve this data.  
+使用GetClipboardData函数获得的值可以是句柄（如位图句柄），也可以是存储较大数据部分的全局内存地址。 使用API函数GlobalSize，CopyMemory以及可能的GlobalLock和GlobalUnlock来检索此数据。  
 
-See also:
+参考：
 
-* [How to disable the Windows Clipboard](sample_488.md)  
-* [Monitoring clipboard content changes](sample_601.md)  
+* [如何禁用 Windows 剪贴板(VFP9)](sample_488.md)  
+* [监测剪贴板内容变化(VFP9)](sample_601.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
-= OpenClipboard(0)  && 0 means active window
+= OpenClipboard(0)  && 0 表示活动窗口
 
 CREATE CURSOR csResult (fmtid I, fmtname C(35),;
 		fmtvalue N(16), datasize N(16), fmtdata M)
 
-nIndex = 0  && enumeration starts from zero
+nIndex = 0  && 枚举从零开始
 DO WHILE .T.
 	nIndex = EnumClipboardFormats(nIndex)
 	IF nIndex = 0
@@ -47,10 +47,10 @@ DO WHILE .T.
 	ENDIF
 ENDDO
 
-= CloseClipboard()  && important
+= CloseClipboard()  && 重要
 GO TOP
 BROWSE NORMAL NOWAIT
-* end of main
+* 主程序结束
 
 FUNCTION  GetStdName (nIndex)
 #DEFINE CF_BITMAP            2
@@ -82,57 +82,57 @@ FUNCTION  GetStdName (nIndex)
 
 	DO CASE
 	CASE nIndex = CF_BITMAP
-		RETURN "Bitmap handle"
+		RETURN "Bitmap 句柄"
 	CASE nIndex = CF_DIB
-		RETURN "BITMAPINFO structure"
+		RETURN "BITMAPINFO 结构"
 	CASE nIndex = CF_DIBV5
-		RETURN "BITMAPV5HEADER structure"
+		RETURN "BITMAPV5HEADER 结构"
 	CASE nIndex = CF_DIF
-		RETURN "Data Interchange Format"
+		RETURN "数据交换格式"
 	CASE nIndex = CF_DSPBITMAP
-		RETURN "Private Bimtap format"
+		RETURN "专用 Bimtap 格式"
 	CASE nIndex = CF_DSPENHMETAFILE
-		RETURN "Private Enhanced Metafile format"
+		RETURN "专用增强元文件格式"
 	CASE nIndex = CF_DSPMETAFILEPICT
-		RETURN "Private Metafile format"
+		RETURN "专用元文件格式"
 	CASE nIndex = CF_DSPTEXT
-		RETURN "Private Text format"
+		RETURN "专用文本格式"
 	CASE nIndex = CF_ENHMETAFILE
-		RETURN "Enhanced Metafile"
+		RETURN "增强元文件"
 	CASE nIndex = CF_GDIOBJFIRST
-		RETURN "GDI object format first"
+		RETURN "GDI 对象格式开始"
 	CASE nIndex = CF_GDIOBJLAST
-		RETURN "GDI object format last"
+		RETURN "GDI 对象格式结束"
 	CASE nIndex = CF_HDROP
-		RETURN "List of files"
+		RETURN "文件列表"
 	CASE nIndex = CF_LOCALE
-		RETURN "Locale Identifier handle"
+		RETURN "语言环境标识符句柄"
 	CASE nIndex = CF_METAFILEPICT
-		RETURN "Metafile Picture format"
+		RETURN "Metafile 图片格式"
 	CASE nIndex = CF_OEMTEXT
-		RETURN "Text format with OEM charset"
+		RETURN "带有 OEM 字符集的文本格式"
 	CASE nIndex = CF_OWNERDISPLAY
-		RETURN "Owner-display format"
+		RETURN "由剪贴板查看器查看的格式"
 	CASE nIndex = CF_PALETTE
-		RETURN "Color Palette handle"
+		RETURN "调色板句柄"
 	CASE nIndex = CF_PENDATA
-		RETURN "Pen Computing format"
+		RETURN "Pen Computing 格式"
 	CASE nIndex = CF_PRIVATEFIRST
-		RETURN "Private format first"
+		RETURN "专用格式开始"
 	CASE nIndex = CF_PRIVATELAST
-		RETURN "Private format last"
+		RETURN "专用格式结束"
 	CASE nIndex = CF_RIFF
-		RETURN "Audio data format"
+		RETURN "Audio 数据格式"
 	CASE nIndex = CF_SYLK
-		RETURN "Microsoft Symbolic Link format"
+		RETURN "微软符号链接格式"
 	CASE nIndex = CF_TEXT
-		RETURN "Text format"
+		RETURN "文本格式"
 	CASE nIndex = CF_WAVE
-		RETURN "Standard Wave format"
+		RETURN "标准 Wave 格式"
 	CASE nIndex = CF_TIFF
-		RETURN "Tagged-image format"
+		RETURN "Tagged 图像格式"
 	CASE nIndex = CF_UNICODETEXT
-		RETURN "Unicode Text"
+		RETURN "Unicode 文本"
 	OTHER
 		RETURN GetRegName(nIndex)
 	ENDCASE
@@ -160,7 +160,7 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseClipboard](../libraries/user32/CloseClipboard.md)  
 [EnumClipboardFormats](../libraries/user32/EnumClipboardFormats.md)  
 [GetClipboardData](../libraries/user32/GetClipboardData.md)  
@@ -168,14 +168,14 @@ PROCEDURE  decl
 [GlobalSize](../libraries/kernel32/GlobalSize.md)  
 [OpenClipboard](../libraries/user32/OpenClipboard.md)  
 
-## Comment:
-This function enumerates formats in the order that they were placed on the clipboard.  
-Registered clipboard formats are identified by values in the range 0xC000 through 0xFFFF.   
+## 备注：
+此功能枚举格式放在剪贴板中的顺序。
+已注册的剪贴板格式由 0xC000 到 0xFFFF 范围内的值标识。
   
-Now you can see that _CLIPTEXT is just a small tip of an iceberg, which is the Clipboard.  
+现在，您可以看到_CLIPTEXT只是剪贴板的一小部分。
   
 * * *  
-A screen shot of the C# example:  
+一张 C# 实例的截图：  
   
 ![](../images/enumclipcs.png)
 
