@@ -1,23 +1,24 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Monitoring clipboard content changes (VFP9)
+# 监测剪贴板内容变化(VFP9)
+_翻译：xinjie  2021.01.03_
 
-## Before you begin:
-After a VFP form (ThisForm.hWnd) is added to the *clipboard format listener list*, it receives WM_CLIPBOARDUPDATE message whenever the contents of the clipboard changes.  
+## 开始之前：
+将 VFP 表单（ThisForm.hWnd）添加到*剪贴板格式侦听器列表*后，只要剪贴板的内容发生更改，它就会收到 WM_CLIPBOARDUPDATE 消息。 
 
 ![](../images/clipboardlistener.png)  
 
-See also:
+参考：
 
-* [Enumerating data formats currently available on the clipboard](sample_032.md)  
-* [How to disable the Windows Clipboard](sample_488.md)  
-* [Capturing keyboard activity of another application with the Raw Input API](sample_572.md)  
+* [枚举剪贴板上当前可用的数据格式](sample_032.md)  
+* [如何禁用 Windows 剪贴板(VFP9)](sample_488.md)  
+* [使用Raw Input API（VFP9）捕获另一个应用程序的键盘活动](sample_572.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL oForm as TForm
 oForm = CREATEOBJECT("TForm")
@@ -26,7 +27,7 @@ READ EVENTS
 
 DEFINE CLASS TForm as Form
 #DEFINE CRLF CHR(13)+CHR(10)
-	Caption="Clipboard Listener"
+	Caption="剪贴板监听器"
 	Width=500
 	Height=500
 	AutoCenter=.T.
@@ -37,7 +38,7 @@ DEFINE CLASS TForm as Form
 	
 	ADD OBJECT Button1 as CommandButton WITH;
 	Left=10, Top=10, Width=120, Height=27,;
-	Caption="Start listening"
+	Caption="开始监听"
 	
 	ADD OBJECT Edit1 as EditBox WITH;
 	Left=10, Top=50, Width=480, Height=420,;
@@ -49,10 +50,10 @@ PROCEDURE Destroy
 PROCEDURE Button1.Click
 	IF ThisForm.CFListener.IsListening()
 		ThisForm.CFListener.StopListening
-		THIS.Caption = "Start listening"
+		THIS.Caption = "开始监听"
 	ELSE
 		IF ThisForm.CFListener.StartListening(ThisForm.HWnd)
-			THIS.Caption = "Stop listening"
+			THIS.Caption = "停止监听"
 		ENDIF
 	ENDIF
 
@@ -65,7 +66,7 @@ PARAMETERS wParam As Integer, lParam As Integer
 	
 	ThisForm.Edit1.Value = m.cValue +;
 		TRANSFORM(DATETIME()) + CRLF +;
-		"Formats: " + THIS.GetCFInfo() + CRLF + CRLF
+		"格式: " + THIS.GetCFInfo() + CRLF + CRLF
 	
 ENDDEFINE
 
@@ -73,7 +74,7 @@ DEFINE CLASS ClipboardListener as Control
 #DEFINE GWL_WNDPROC -4
 #DEFINE WM_CLIPBOARDUPDATE 0x031D
 
-* some of standard clipboard formats
+* 一些标准剪贴板格式
 #DEFINE CF_BITMAP            2
 #DEFINE CF_DIB               8
 #DEFINE CF_DIBV5            17
@@ -119,7 +120,7 @@ FUNCTION IsListening() as Boolean
 RETURN THIS.ListeningOn
 
 PROCEDURE StartListening(hWindow as Number)
-* starts listening on clipboard changes
+* 开始监听剪贴板的变化
 	THIS.StopListening
 
 	LOCAL nResult
@@ -128,7 +129,7 @@ PROCEDURE StartListening(hWindow as Number)
 	IF nResult = 0
 		* 1400 = ERROR_INVALID_WINDOW_HANDLE
 		ACTIVATE SCREEN
-		? "AddClipboardFormatListener failed:", GetLastError(), m.hWindow
+		? "AddClipboardFormatListener 失败:", GetLastError(), m.hWindow
 		RETURN .F.
 	ENDIF
 
@@ -143,7 +144,7 @@ PROCEDURE StartListening(hWindow as Number)
 RETURN .T.
 
 PROCEDURE StopListening
-* stops listening on clipboard changes
+* 停止监听剪贴板的变化
 	THIS.ListeningOn = .F.
 	IF THIS.hWindow = 0
 		RETURN
@@ -158,7 +159,7 @@ PROCEDURE StopListening
 
 PROCEDURE WindowProc(hWindow as Integer,;
 	nMsgID as Integer, wParam as Integer, lParam as Integer)
-* requires VFP9, otherwise ignored
+* 需要 VFP9，否则忽略
 
 	LOCAL nReturn
 	nReturn=0
@@ -168,7 +169,7 @@ PROCEDURE WindowProc(hWindow as Integer,;
 		THIS.OnUdfMessage(wParam, lParam)
 
 	OTHERWISE
-	* pass control to the original window procedure
+	* 将控制权交给原窗口程序
 		nReturn = CallWindowProc(THIS.hOrigProc, THIS.hWindow,;
 			m.nMsgID, m.wParam, m.lParam)
 	ENDCASE
@@ -176,10 +177,10 @@ PROCEDURE WindowProc(hWindow as Integer,;
 RETURN nReturn
 
 PROCEDURE OnUdfMessage(wParam As Integer, lParam As Integer)
-* a placeholder, override
+* 占位符，覆盖
 
 FUNCTION GetCFInfo() as String
-* returns list of formats currently on the clipboard
+* 返回当前剪贴板上的格式列表
 	LOCAL nIndex, cResult
 	cResult=""
 	nIndex = 0
@@ -204,7 +205,7 @@ FUNCTION GetCFInfo() as String
 RETURN m.cResult
 
 FUNCTION GetCFName(nIndex) as String
-* returns the name for a specified clipboard format
+* 返回指定剪贴板格式的名称
 #DEFINE cmBufsize 250
 	LOCAL cBuffer, nResult
 	cBuffer = REPLICATE(CHR(0), cmBufsize)
@@ -242,7 +243,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [AddClipboardFormatListener](../libraries/user32/AddClipboardFormatListener.md)  
 [CallWindowProc](../libraries/user32/CallWindowProc.md)  
 [CloseClipboard](../libraries/user32/CloseClipboard.md)  
@@ -253,7 +254,7 @@ ENDDEFINE
 [OpenClipboard](../libraries/user32/OpenClipboard.md)  
 [RemoveClipboardFormatListener](../libraries/user32/RemoveClipboardFormatListener.md)  
 
-## Comment:
+## 备注
 ```txt
 #define WM_CLIPBOARDUPDATE 0x031D
 ```
@@ -262,7 +263,7 @@ See also:
 
 [GetClipboardSequenceNumber](../libraries/user32/GetClipboardSequenceNumber.md)
    
-The result returned by this API function increments whenever the content of the clipboard changes, including emptying the clipboard. For example, a single copy-paste operation in Excel, first clears the clipboard, and then adds data to it in N different formats. So before-and-after difference will be N+1.  
+每当剪贴板的内容更改（包括清空剪贴板）时，此API函数返回的结果都会增加。 例如，在Excel中执行单个复制粘贴操作，首先清除剪贴板，然后以N种不同格式向其中添加数据。 因此前后差将为N + 1。  
   
 ***  
 
