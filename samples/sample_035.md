@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Printing text on the main VFP window
+# 在 VFP 主窗口上打印文本
+_翻译：xinjie  2021.01.04_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE ANSI_CHARSET          0
 #DEFINE OUT_DEFAULT_PRECIS    0
@@ -23,7 +24,7 @@
 
 	DO decl
 	
-	lcText = "Printing Text"
+	lcText = "打印的文本"
 	FOR ii=200 TO 1 STEP-1
 		lnColor = Rgb(Max(0,255-ii), Max(0,128-ii*5), Min(255,128+ii*10))
 		= _print (lcText, lnColor, -ii)
@@ -42,18 +43,17 @@ PROCEDURE  _print (lcText, lnColor, lnAngle)
 	hwnd = GetActiveWindow()
 	hdc = GetWindowDC (hwnd)
 
-	* select new font into the device context
-	* and delete the old one
+	* 在设备上下文中选择新字体并删除旧字体。
 	= DeleteObject (SelectObject (hdc, hFont))
 
-	* set text color on a transparent background
+	* 设置透明背景上的文字颜色
 	= SetTextColor (hdc, lnColor)
 	= SetBkMode (hdc, TRANSPARENT)
 
-	* the printing
+	* 打印
 	= TextOut (hdc, 50, 100, lcText, Len(lcText))
 
-	* release system resources
+	* 释放系统资源
 	= DeleteObject (hFont)
 	= ReleaseDC (hwnd, hdc)
 
@@ -93,7 +93,7 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CreateFont](../libraries/gdi32/CreateFont.md)  
 [DeleteObject](../libraries/gdi32/DeleteObject.md)  
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
@@ -104,8 +104,8 @@ PROCEDURE  decl
 [SetTextColor](../libraries/gdi32/SetTextColor.md)  
 [TextOut](../libraries/gdi32/TextOut.md)  
 
-## Comment:
-Any output from FoxPro command like CLEAR and ?/?? wipes the image produced by this code. Curiously CLEAR command even standing above the TextOut in a source code sometimes removes any printing produced by the TextOut.  
+## 备注：
+任何来自 FoxPro 命令的输出，如 CLEAR 和 ?/??，都会擦掉这段代码所产生的图像。奇怪的是，CLEAR 命令甚至在源代码中高于 TextOut，有时会删除 TextOut 产生的任何打印。  
   
 ***  
 
