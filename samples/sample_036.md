@@ -1,17 +1,18 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Closing Windows
+# 关闭操作系统
+_翻译：xinjie  2021.01.04_
 
-## Before you begin:
-Similar examples:   
-* [How to initiate System shutdown (WinNT only)](sample_122.md)  
-* [Restarting Windows](sample_361.md)  
-* [Enabling the SE_SHUTDOWN_NAME privilege for the application](sample_552.md)  
+## 开始之前：
+类似示例：   
+* [如何启动系统关机(WinNT only)](sample_122.md)  
+* [使用 RestartDialog 功能--重启Windows](sample_361.md)  
+* [如何为应用程序启用 SE_SHUTDOWN_NAME 权限](sample_552.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE EWX_LOGOFF 0
 #DEFINE EWX_SHUTDOWN 1
@@ -28,27 +29,27 @@ DECLARE INTEGER ExitWindows IN user32;
 DECLARE INTEGER ExitWindowsEx IN user32;
 	INTEGER uFlags, INTEGER dwReserved
 
-* logoff -- change user
+* 注销 -- -- 更改用户
 * = ExitWindowsEx(EWX_LOGOFF, 0)
 
-* reboot
+* 重启
 nResult = ExitWindowsEx(EWX_REBOOT, 0)
 
 IF nResult=0
 * 1314=ERROR_PRIVILEGE_NOT_HELD
-	? "ExitWindowsEx call failed:", GetLastError()
+	? "ExitWindowsEx 调用失败:", GetLastError()
 ENDIF  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [ExitWindows](../libraries/user32/ExitWindows.md)  
 [ExitWindowsEx](../libraries/user32/ExitWindowsEx.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 
 ## Comment:
-To shut down the local computer, the calling thread must have the SE_SHUTDOWN_NAME privilege.  
+要关闭本地计算机，调用的线程必须拥有 SE_SHUTDOWN_NAME 权限。  
   
 ***  
 
