@@ -1,17 +1,18 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using MessageBeep
+# 使用 MessageBeep
+_翻译：xinjie  2021.01.04_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [Using Beep and Sleep](sample_240.md)  
-* [How to play MIDI notes](sample_537.md)  
+* [使用Beep和Sleep功能让蜂鸣器唱歌（仅限WinNT？）](sample_240.md)  
+* [如何演奏 MIDI 音符](sample_537.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE MB_OK                0
 #DEFINE MB_OKCANCEL          1
@@ -28,5 +29,5 @@ DECLARE INTEGER MessageBeep IN "user32" INTEGER wType
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [MessageBeep](../libraries/user32/MessageBeep.md)  
