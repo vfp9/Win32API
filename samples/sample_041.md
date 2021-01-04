@@ -1,12 +1,13 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving local computer and user names
+# 检索本地计算机和用户名
+_翻译：xinjie  2021.01.04_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [How to Start a Process as Another User (NT/XP/2K)](sample_426.md)  
-* [How to obtain network parameters for the local computer (host, domain, DNS)](sample_348.md)  
+* [如何以其他用户的身份启动进程(NT/XP/2K))](sample_426.md)  
+* [如何检索本地计算机的网络参数（包括主机名、域名、DNS服务器）](sample_348.md)  
   
 ***  
 
@@ -18,7 +19,7 @@ DO declare
 DO GetNames
 DO GetNameEx
 DO GetNameObj
-* end of main
+* 主程序结束
 
 PROCEDURE GetNames
 	LOCAL nSize, cBuffer
@@ -27,14 +28,14 @@ PROCEDURE GetNames
 	cBuffer = Repli(Chr(0), nSize)
 	IF GetComputerName (@cBuffer, @nSize) > 0
 		cBuffer = STRTRAN(SUBSTR(cBuffer, 1, nSize), Chr(0),"")
-		? "Computer:", cBuffer
+		? "计算机:", cBuffer
 	ENDIF
 
 	nSize = 250
 	cBuffer = Repli(Chr(0), nSize)
 	IF GetUserName (@cBuffer, @nSize) > 0
 		cBuffer = STRTRAN(ALLTRIM(SUBSTR (cBuffer, 1, nSize)), Chr(0),"")
-		? "User:", cBuffer
+		? "用户名:", cBuffer
 		DO GetSid WITH cBuffer
 	ENDIF
 
@@ -55,9 +56,9 @@ PROCEDURE GetNameObj
 
 	IF GetComputerObjectName(12, @cBuffer, @nBufsize) = 0
 	* 1351 = ERROR_CANT_ACCESS_DOMAIN_INFO
-		? "Error code:", GetLastError()
+		? "错误代码:", GetLastError()
 	ELSE
-		? nBufsize, "Object name: [" +;
+		? nBufsize, "对象名: [" +;
 			ALLTRIM(LEFT(cBuffer, nBufsize)) + "]"
 	ENDIF
 
@@ -72,11 +73,11 @@ PROCEDURE GetSID(cAccount)
 	
 	peUse=0
 
-	* retrieve security identifier (SID) for the account name
+	* 检索账户名称的安全标识符（SID）
 	= LookupAccountName(NULL, m.cAccount,;
 		hSid, @nSidSize, @cDomain, @nDomainSize, @peUse)
 
-	* convert the SID to string format
+	* 将SID转换为字符串格式
 	LOCAL nBuffer, nBufsize, cSid
 	nBuffer=0
 	= ConvertSidToStringSid(hSid, @nBuffer)
@@ -88,7 +89,7 @@ PROCEDURE GetSID(cAccount)
 	= LocalFree(nBuffer)
 	= LocalFree(hSid)
 	
-	? "Domain:", SUBSTR(cDomain, 1, AT(CHR(0),cDomain)-1)
+	? "域名:", SUBSTR(cDomain, 1, AT(CHR(0),cDomain)-1)
 	? "SID:", cSid
 
 PROCEDURE declare
@@ -126,7 +127,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [ConvertSidToStringSid](../libraries/advapi32/ConvertSidToStringSid.md)  
 [GetComputerName](../libraries/kernel32/GetComputerName.md)  
 [GetComputerNameEx](../libraries/kernel32/GetComputerNameEx.md)  
@@ -138,10 +139,10 @@ PROCEDURE declare
 [LocalSize](../libraries/kernel32/LocalSize.md)  
 [LookupAccountName](../libraries/advapi32/LookupAccountName.md)  
 
-## Comment:
-**SYS(0)** returns current computer and user names.   
+## 备注
+**SYS(0)**返回当前计算机和用户名。  
   
-Same information can be retrieved with either **GETENV()** function with "COMPUTERNAME" and "USERNAME" parameters, or with the GetEnvironmentStrings function -- a [sample code](sample_089.md).  
+同样的信息可以用**GETENV()**函数获取，参数为 "COMPUTERNAME "和 "USERNAME"，或者用GetEnvironmentStrings函数 -- -- 一个[示例代码](sample_089.md)。 
   
 ***  
 
