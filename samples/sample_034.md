@@ -1,15 +1,16 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Printing text on the client area of the main VFP window
+# 在 VFP 主窗口的客户端区域打印文本
+_翻译：xinjie  2021.01.04_
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 
 hwnd = GetActiveWindow()
 hDC = GetDC (hwnd)
 
-lpString = "Printing text with TextOut"
+lpString = "使用 TextOut 打印文本"
 = TextOut (hDC, 50,80, lpString, Len(lpString)) &&
 
 = ReleaseDC (hwnd, hDC)
@@ -32,16 +33,16 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数历表：
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GetDC](../libraries/user32/GetDC.md)  
 [ReleaseDC](../libraries/user32/ReleaseDC.md)  
 [TextOut](../libraries/gdi32/TextOut.md)  
 
-## Comment:
-This does not work - no client area is available.   
+## 代码：
+这段不起作用-因为没有可用的客户区。   
   
-Always use GetWindowDC to access a device context, which can be used for printing and drawing on VFP windows.  
+始终使用 GetWindowDC 来访问设备上下文，该上下文可用于在VFP窗口上打印和绘图。  
   
 ***  
 
