@@ -1,6 +1,6 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using GetSysColor
+# 使用 GetSysColor
 
 ## Code:
 ```foxpro  
@@ -20,9 +20,9 @@
 	? GetSysColor (COLOR_MENUTEXT)
 	? GetSysColor (COLOR_WINDOWTEXT)
 
-	* actually, you can test the whole range
+	* 其实，你可以测试整个范围
 	FOR lnColor=0 TO 28
-		? "System color ["
+		? "系统颜色 ["
 		?? lnColor
 		?? "] = "
 		?? GetSysColor (lnColor)
@@ -31,11 +31,11 @@
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetSysColor](../libraries/user32/GetSysColor.md)  
 
-## Comment:
-Some constants are not availble for Win9 or for WinNT  
+## 备注：
+有些常量不能用于Win9或WinNT。  
   
 ***  
 
