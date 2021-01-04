@@ -1,26 +1,26 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Changing system colors
+# 更改系统颜色
+_翻译：xinjie  2021.01.04_
 
-## Before you begin:
-The code sample changes colors of the window background and active caption for any window bothering to listen for the WM_SYSCOLORCHANGE message broadcasted by the SetSysColors function.  
+## 开始之前：
+该代码示例改变了任何窗口的窗口背景和活动标题的颜色，而不必费心去监听由 SetSysColors 函数广播的 WM_SYSCOLORCHANGE 消息。 
 
-After running this code sample, you will notice that colors changed in all windows through the OS. That includes even controls like textboxes and comboboxes. Note that the native VFP controls are not windows like for example VB.NET controls. But they do closely follow the system colors when they draw themselves.  
+运行这个代码示例后，你会注意到，通过操作系统，所有窗口的颜色都发生了变化。这甚至包括文本框和组合框等控件。请注意，原生的 VFP 控件并不是像 VB.NET 控件那样的窗口。但它们在绘制自己的时候，确实会紧跟系统颜色。 
 
-Do not panic and find below how to restore the colors back to their original values.  
+不要惊慌，下面就来看看如何将颜色恢复到原来的值。 
   
 ***  
 
 
 ## Code:
 ```foxpro  
-* note: to reverse the system colors back to normal
-* release the oColorTest variable
+* 注意：要将系统颜色恢复到正常状态，请释放oColorTest变量
 
 PUBLIC oColorTest As TColorTest
 oColorTest = CREATEOBJECT("TColorTest")
 oColorTest.ChangeColors
-* end of main
+* 主程序结束
 
 DEFINE CLASS TColorTest As Session
 PROTECTED ColorMask, SavedColors, NewColors
@@ -35,24 +35,22 @@ PROCEDURE ChangeColors
 #DEFINE COLOR_WINDOWFRAME 6
 #DEFINE COLOR_MENUTEXT 7
 #DEFINE COLOR_WINDOWTEXT 8
-	* colors for these two elements are to be
-	* changed and eventually restored back
+	* 这两个元素的颜色要改变，并最终恢复到原来的颜色。
 	THIS.ColorMask = num2dword(COLOR_WINDOW)+;
 		num2dword(COLOR_ACTIVECAPTION)
 
-	* the original colors are saved in the class property
+	* 原始颜色被保存在类属性
 	THIS.SavedColors = num2dword(GetSysColor(COLOR_WINDOW))+;
 		num2dword(GetSysColor(COLOR_ACTIVECAPTION))
 
-	* changing the colors
+	* 变色
 	THIS.NewColors = num2dword(RGB(128,192,230))+;
 		num2dword(RGB(192,0,192))
 
 	= SetSysColors(2, THIS.ColorMask, THIS.NewColors)
 
 PROCEDURE Destroy
-* making sure that upon releasing the instance
-* of the class all colors are restored back
+* 确保在释放该类的实例时，所有的颜色都会被还原回来
 	THIS.RestoreColors
 
 PROCEDURE RestoreColors
@@ -84,12 +82,12 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetSysColor](../libraries/user32/GetSysColor.md)  
 [SetSysColors](../libraries/user32/SetSysColors.md)  
 
-## Comment:
-The code is written in what can be called a safe way -- the system colors are restored back to original values when the instance of the TColorTest class is released. Type CLEAR ALL in the Command Window or simply close the Visual FoxPro to do that.  
+## 备注：
+这段代码的编写可以说是一种安全的方式--当TColorTest类的实例被释放时，系统的颜色会恢复到原始值。在命令窗口中键入CLEAR ALL或直接关闭Visual FoxPro即可。 
   
 ***  
 
