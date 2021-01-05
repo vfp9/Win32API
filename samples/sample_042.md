@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Opening access to the Microsoft Internet functions for the application
+# 打开对应用程序的 Microsoft Internet 功能的访问
+_翻译：xinjie  2021.01.05_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_OPEN_TYPE_PRECONFIG 0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT 1
@@ -19,31 +20,31 @@ DECLARE INTEGER InternetOpen IN wininet;
 	
 DECLARE INTEGER InternetCloseHandle IN wininet INTEGER hInet
 
-sAgent = "w32inetopen"  && you can choose any name, say "John Dow"
-sProxyName = Chr(0)     && no proxy
+sAgent = "w32inetopen"  && 你可以选择任何名字，比如 "John Dow"
+sProxyName = Chr(0)     && 无代理
 sProxyBypass = Chr(0)   && nothing to bypass
-lFlags = 0              && no flags used
+lFlags = 0              && 没有使用标志
 
 hOpen = InternetOpen(sAgent, INTERNET_OPEN_TYPE_DIRECT,;
 	sProxyName, sProxyBypass, lFlags)
 
 IF hOpen <> 0
-* close the access
-	? "Handle retrieved:", hOpen
+* 关闭通道
+	? "检索到的句柄:", hOpen
 	= InternetCloseHandle (hOpen)
 ELSE
-	? "Failed to access the WinINet library"
+	? "访问 WinINet 库失败"
 ENDIF  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 
-## Comment:
-Actually this code does nothing. It just shows how to put your hands on the Internet functions to access HTTP, FTP etc.  
+## 备注：
+实际上，此代码不执行任何操作。 它仅显示了如何使用Internet功能来访问HTTP，FTP等。  
   
 ***  
 
