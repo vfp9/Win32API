@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 使用 GetNearestColor
+_翻译：xinjie  2021.01.05_
 
 ## 代码：
 ```foxpro  
