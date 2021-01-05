@@ -1,18 +1,18 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Using GetNearestColor
+# 使用 GetNearestColor
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 
-	* defining a device context for the VFP Main window
+	* 为VFP主窗口定义设备上下文
 	hWnd = GetActiveWindow ()
 	hDc = GetDC (hWnd)
 	
 	crColor = RGB (16, 108, 231)
 	matchColor = GetNearestColor (hDc, crColor)
-	? LTRIM(STR(crColor)) + " transformed to " + LTRIM(STR(matchColor))
+	? LTRIM(STR(crColor)) + " 转化为 " + LTRIM(STR(matchColor))
 
 	= ReleaseDC (hwnd, hdc)
 
@@ -30,19 +30,19 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GetDC](../libraries/user32/GetDC.md)  
 [GetNearestColor](../libraries/gdi32/GetNearestColor.md)  
 [ReleaseDC](../libraries/user32/ReleaseDC.md)  
 
-## Comment:
-I ran this code with two color resolutions.   
+## 备注
+我用两种颜色分辨率运行这段代码。  
   
-With 32-bit True Color the result was:  
+用32位真彩色，结果是：  
 15166480 to 15166480  
   
-With 256 colors it was:  
+用256色，结果是：  
 15166480 to 8421376  
   
 ***  
