@@ -1,95 +1,96 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to download a file from the FTP server using FtpGetFile
+# 如何使用 FtpGetFile 从 FTP 服务器下载文件
+_翻译：xinjie  2021.01.05_
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [Custom FTP Class for Visual FoxPro application](sample_344.md)  
+* [用于 Visual FoxPro 应用程序的自定义 FTP 类](sample_344.md)  
 <!-- Anatoliy --> 
-* [Programming File Transfer Protocol in Visual FoxPro ](?article=3)  
+* [在 Visual FoxPro 中对文件传输协议进行编程](?article=3)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
-* lAccessType - some values
+* lAccessType - 一些值
 #DEFINE INTERNET_INVALID_PORT_NUMBER  0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT     1
 #DEFINE INTERNET_OPEN_TYPE_PROXY      3
 #DEFINE INTERNET_DEFAULT_FTP_PORT     21
 
-* lFlags: only a few
+* lFlags：只有几个
 #DEFINE INTERNET_FLAG_ASYNC 0x10000000
 #DEFINE INTERNET_FLAG_FROM_CACHE  0x1000000
 #DEFINE INTERNET_FLAG_OFFLINE  0x1000000
 #DEFINE INTERNET_FLAG_CACHE_IF_NET_FAIL 0x10000
 
-* registry access settings
+* 注册表访问设置
 #DEFINE INTERNET_OPEN_TYPE_PRECONFIG  0
 #DEFINE FTP_TRANSFER_TYPE_ASCII       1
 #DEFINE FTP_TRANSFER_TYPE_BINARY      2
 
-* type of service to access
+* 要访问的服务类型
 #DEFINE INTERNET_SERVICE_FTP     1
 #DEFINE INTERNET_SERVICE_GOPHER  2
 #DEFINE INTERNET_SERVICE_HTTP    3
 
-* file attributes
+* 文件属性
 #DEFINE FILE_ATTRIBUTE_NORMAL  0x80
 
 	do decl
 
-	* you are free to choose any name, say "John Dow"
-	* server-side variable $AGENT is the target
+	* 你可以自由选择任何名字，比如  "John Dow"
+	* 服务器端变量$AGENT是目标
 	sAgent = "vfp6"
 
-	sProxyName = Chr(0)		&& I have no proxy
-	sProxyBypass = Chr(0)	&& so there is nothing to bypass
-	lFlags = 0				&& no flags used
+	sProxyName = Chr(0)		&& 我没有代理
+	sProxyBypass = Chr(0)	&& 所以没有什么可以绕过的
+	lFlags = 0				&& 无标志
 
-	* initialize access to Inet functions
+	* 初始化对Inet函数的访问
 	hOpen = InternetOpen (sAgent, INTERNET_OPEN_TYPE_DIRECT,;
 		sProxyName, sProxyBypass, lFlags)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问WinInet.Dll。"
 		RETURN
 	ELSE
-		? "Wininet access handle: " + LTRIM(STR(hOpen))
+		? "Wininet访问句柄: " + LTRIM(STR(hOpen))
 	ENDIF
 	
-	* connection parameters - you better put your data
+	* 连接参数 - 你最好使用你自己的数据
 	strHost = "ftp.gnu.org"
-	strUser = "anonymous"		&& this user name is accepted almost everywhere
+	strUser = "anonymous"		&& 这个用户名几乎在所有的地方都能使用
 	strPwd  = "vfp" + SYS(3) + "@msn.com"
 
-	* connecting to the FTP
+	* 连接到FTP
 	hFtpSession = InternetConnect (hOpen, strHost,;
 		INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd,;
 		INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭访问Inet功能并退出
 		= InternetCloseHandle (hOpen)
-		? "Unable to connect to the selected FTP"
+		? 无法连接到所选择的FTP"
 		RETURN
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", " + strPwd + "]"
-		? "FTP connection handle: " + LTRIM(STR(hFtpSession))
+		? "连接到 " + strHost + " 以下面身份: [" + strUser + ", " + strPwd + "]"
+		? "FTP 连接句柄: " + LTRIM(STR(hFtpSession))
 	ENDIF
 	
-	* downloading a file from the FTP
-	* no check whether the target file exists
-	lpszRemoteFile = "welcome.msg"		    && if it still exists
-	lpszNewFile    = "c:\Temp\welcome.txt"	&& check the destination folder
-	fFailIfExists  = 0		&& do not stop if the target already exists
+	* 从FTP下载文件
+	* 不检查目标文件是否存在
+	lpszRemoteFile = "welcome.msg"		    && 如果还存在
+	lpszNewFile    = "c:\Temp\welcome.txt"	&& 检查目标文件夹
+	fFailIfExists  = 0		&& 如果目标已经存在，不要停止
 	dwContext      = 0
 
 	lnResult = FtpGetFile (hFtpSession, lpszRemoteFile, lpszNewFile,;
@@ -97,12 +98,12 @@ See also:
 		dwContext)
 
 	IF lnResult = 1
-		MODI FILE (lpszNewFile)	&& opens the result file
+		MODI FILE (lpszNewFile)	&& 打开所下载的文件
 	ELSE
-		? "Unable to download selected file"
+		? "无法下载所选文件"
 	ENDIF
 
-	* close handles
+	* 关闭句柄
 	= InternetCloseHandle (hFtpSession)
 	= InternetCloseHandle (hOpen)
 RETURN		&& main
@@ -129,16 +130,16 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FtpGetFile](../libraries/wininet/FtpGetFile.md)  
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetConnect](../libraries/wininet/InternetConnect.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 
-## Comment:
-This example is simplified: I know that this remote file exists on the FTP, and it is of the ASCII type.  
+## 备注：
+这个例子很简单。我知道这个远程文件存在于FTP上 而且是ASCII类型的文件  
   
-Well I suggest you better choose another FTP and a file name to test. Just to avoid disturbing folks at the GNU ftp.  
+那么我建议你最好选择另一个FTP和一个文件名来测试。只是为了避免打扰GNU ftp的人。 
 
 ***  
 
