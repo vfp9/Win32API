@@ -1,19 +1,20 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving list of files on the FTP directory
+# 检索 FTP 目录下的文件列表
+_翻译：xinjie  2021.01.06_
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
 <!-- Anatoliy -->
-## Before you begin:
+## 开始之前：
 
-<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">Programming File Transfer Protocol in Visual FoxPro </a></td></tr></table>  
+<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">在Visual FoxPro中对文件传输协议进行编程 </a></td></tr></table>  
   
 
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER   0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT      1
@@ -29,7 +30,7 @@
 PUBLIC hOpen, hFtpSession
 DO decl
 
-	* put valid host, user, and password values for the FTP connection
+	* 为FTP连接输入有效的主机、用户和密码
 	IF connect2ftp ("ftp.???.???", "???", "???")
 		lcMask = "*.*"
 		lcRemotePath = "prj/pages/"
@@ -77,25 +78,25 @@ PROCEDURE  decl
 RETURN
 
 FUNCTION  connect2ftp (strHost, strUser, strPwd)
-	* open access to Inet functions
+	* 开放Inet功能的访问
 	hOpen = InternetOpen ("vfp", INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问WinInet.Dll"
 		RETURN .F.
 	ENDIF
 
-	* connect to FTP
+	* 连接到 FTP
 	hFtpSession = InternetConnect (hOpen, strHost, INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭访问Inet功能并退出
 		= InternetCloseHandle (hOpen)
-		? "FTP " + strHost + " is not available"
+		? "FTP " + strHost + " 不可用"
 		RETURN .F.
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", *****]"
+		? "连接到 " + strHost + " 用户名和密码: [" + strUser + ", *****]"
 	ENDIF
 RETURN .T.
 
@@ -113,17 +114,17 @@ FUNCTION  getCurrentDir (hConnection)
 	ENDIF
 	
 FUNCTION  remoteDir2array (hConnection, lcRemotePath, lcMask, arr)
-* fill the array with file data for the given remote path
+* 用给定远程路径的文件数据填充数组
 
 	lcStoredPath = getCurrentDir (hConnection)
 	IF Not setCurrentDir (hConnection, lcRemotePath)
 		RETURN -1	&& path not found
 	ENDIF
 
-	* object simulates the structure
+	* 对象模拟的结构
 	struct = CREATEOBJECT ("struct_WIN32_FIND_DATA")
 
-	* finding the first file
+	* 查找第一个文件
 	lnFound = 0
 	lpFindFileData = REPLI (Chr(0), 320)
 	hFind = FtpFindFirstFile (hConnection, lcMask,;
@@ -151,7 +152,7 @@ FUNCTION  remoteDir2array (hConnection, lcRemotePath, lcMask, arr)
 RETURN  lnFound
 
 DEFINE CLASS struct_WIN32_FIND_DATA As Custom
-*this class emulates WIN32_FIND_DATA structure
+*该类模拟WIN32_FIND_DATA结构
 	value            = ""
 	fileAttributes   = 0
 	creationTimeLo   = 0
@@ -167,7 +168,7 @@ DEFINE CLASS struct_WIN32_FIND_DATA As Custom
 	lastWriteTime    = CTOT ("")
 
 PROCEDURE  setValue (lcValue)	
-* translates the buffer"s content into the object"s properties
+* 将缓冲区的内容转换为对象的属性
 	THIS.value            = lcValue
 	THIS.fileAttributes   = THIS.buf2num (THIS.value,  0, 4)
 	THIS.creationTimeLo   = THIS.buf2num (THIS.value,  4, 4)
@@ -192,7 +193,7 @@ FUNCTION  isDirectory
 ENDFUNC
 
 PROTECTED FUNCTION  buf2num (lcBuffer, lnOffset, lnBytes)
-* converts N bytes from the buffer into a numeric value
+* 将缓冲区中的N个字节转换为一个数值
 	lnResult = 0
 	FOR ii=1 TO lnBytes
 		lnResult = lnResult +;
@@ -223,7 +224,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表:
 [FileTimeToSystemTime](../libraries/kernel32/FileTimeToSystemTime.md)  
 [FtpFindFirstFile](../libraries/wininet/FtpFindFirstFile.md)  
 [FtpGetCurrentDirectory](../libraries/wininet/FtpGetCurrentDirectory.md)  
@@ -233,8 +234,8 @@ ENDDEFINE
 [InternetFindNextFile](../libraries/wininet/InternetFindNextFile.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 
-## Comment:
-The struct_WIN32_FIND_DATA class emulates the structure"s behaviour. The SETVALUE method receives a string of bytes (a buffer) and splits it into the properties resembling fields of a structure.  
+## 备注：
+struct_WIN32_FIND_DATA 类模拟了结构体的行为。SETVALUE方法接收一串字节（缓冲区），并将其分割成类似结构体字段的属性。 
   
 ***  
 
