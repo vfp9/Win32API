@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Scanning a hierarchy of child windows down from the Windows Desktop
+# 从 Windows 桌面向下扫描子窗口的层次结构
+_翻译：xinjie  2021.01.06_
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 
@@ -21,7 +22,7 @@ DO WHILE .T.
 	IF hWindow = 0
 	* 123=ERROR_INVALID_NAME
 	* 127=ERROR_PROC_NOT_FOUND
-		? "Exit on error:", GetLastError()
+		? "出错时退出:", GetLastError()
 		EXIT
 	ELSE
 		cTitle = GetWinText(hWindow)
@@ -38,7 +39,7 @@ ENDDO
 SELECT cs
 GO TOP
 BROWSE NORMAL NOWAIT
-* end of main
+* 主程序结束
 
 FUNCTION GetWinText(hWindow)
 	LOCAL cBuffer
@@ -75,7 +76,7 @@ RETURN Asc(SUBSTR(lcBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FindWindowEx](../libraries/user32/FindWindowEx.md)  
 [GetDesktopWindow](../libraries/user32/GetDesktopWindow.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
