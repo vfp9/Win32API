@@ -1,10 +1,11 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Creating a window using CreateWindowEx function
+# 使用 CreateWindowEx 函数创建窗口
+_翻译：xinjie  2021.01.07_
 
-## Code:
+## 代码：
 ```foxpro  
-* Extended Window Styles
+* 扩展窗口样式
 #DEFINE WS_EX_DLGMODALFRAME    1
 #DEFINE WS_EX_NOPARENTNOTIFY   4
 #DEFINE WS_EX_TOPMOST          8
@@ -39,13 +40,13 @@ DO decl
 	dwExStyle = WS_EX_APPWINDOW+WS_EX_CLIENTEDGE+WS_EX_WINDOWEDGE
 	dwStyle   = WS_CAPTION+WS_SYSMENU+WS_THICKFRAME+WS_MAXIMIZEBOX+WS_MINIMIZEBOX
 
-	hNew = CreateWindowEx (dwExStyle, lcClass, "Sample Window created",;
+	hNew = CreateWindowEx (dwExStyle, lcClass, "创建的示例窗口",;
 		dwStyle, 10, 10, 800, 300, hwnd, 0, 0, 0)
 
 	= ShowWindow (hNew, SW_NORMAL)
 	hDC = GetDC (hNew)
 	
-	lpString = "The GetActiveWindow function retrieves the active window handle"
+	lpString = "GetActiveWindow 函数检索活动窗口句柄"
     ? TextOut (hDC, 10,10, lpString, Len(lpString)) 	
 
     = ReleaseDC (hNew, hDC)
@@ -91,7 +92,7 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CreateWindowEx](../libraries/user32/CreateWindowEx.md)  
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GetDC](../libraries/user32/GetDC.md)  
@@ -100,8 +101,8 @@ PROCEDURE  decl
 [ShowWindow](../libraries/user32/ShowWindow.md)  
 [TextOut](../libraries/gdi32/TextOut.md)  
 
-## Comment:
-Try different combinations of constants setting style and extended style of the created window.  
+## 备注：
+尝试使用常数设置样式和所创建窗口的扩展样式的不同组合。  
   
 ***  
 
