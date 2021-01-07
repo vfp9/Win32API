@@ -75,10 +75,10 @@ PARAMETERS oNode
 	oWindow = THIS.enumwin.GetWindow(oNode.Tag)
 	IF VARTYPE(m.oWindow) = "O"
 		WITH oWindow
-			THIS.ShowWinInfo("Window Handle", TRANSFORM(.hwindow, "@0"))
-			THIS.ShowWinInfo("Class Name", .winclass)
-			THIS.ShowWinInfo("Window Caption", .wintext)
-			THIS.ShowWinInfo("Menu Handle",;
+			THIS.ShowWinInfo("窗口句柄", TRANSFORM(.hwindow, "@0"))
+			THIS.ShowWinInfo("类名", .winclass)
+			THIS.ShowWinInfo("窗口标题", .wintext)
+			THIS.ShowWinInfo("菜单句柄",;
 				IIF(.hmenu=0, "", TRANSFORM(.hmenu, "@0")))
 		ENDWITH
 	ENDIF
