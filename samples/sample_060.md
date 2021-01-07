@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Reading Internet Query options
+# 读取互联网查询选项
+_翻译：xinjie  2021.01.07_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER  0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT     1
@@ -32,7 +33,7 @@
 		= InternetCloseHandle (hFtpSession)
 		= InternetCloseHandle (hOpen)
 	ENDIF
-* end of main
+* 主程序结束
 
 FUNCTION GetFtpStatus(hConnection)
 	LOCAL lcBuffer, lnBufsize
@@ -63,34 +64,34 @@ RETURN  lcResult
 FUNCTION ReadOption(hConnection, lnOption, lcBuffer, lnBufsize)
 	LOCAL lnResult
 	IF TYPE("lnBufsize")<>"N" Or lnBufsize<=0
-	* this call determines the buffer size needed
+	* 这个调用决定了所需的缓冲区大小
 		= InternetQueryOption(0, lnOption, @lcBuffer, @lnBufsize)
 	ENDIF
 
-	* read the option
+	* 读取选项
 	lcBuffer = REPLI (Chr(0), lnBufsize)
 RETURN InternetQueryOption(hConnection, lnOption, @lcBuffer, @lnBufsize) = 1
 
 FUNCTION connect2ftp(strHost, strUser, strPwd)
-	* open access to Inet functions
+	* 开始访问 Inet 函数
 	hOpen = InternetOpen ("vfp", INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问 WinInet.Dll"
 		RETURN .F.
 	ENDIF
 
-	* connect to FTP
+	* 连接到 FTP
 	hFtpSession = InternetConnect (hOpen, strHost, INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭 Inet 函数并退出
 		= InternetCloseHandle (hOpen)
-		? "FTP " + strHost + " is not available"
+		? "FTP " + strHost + " 不可用"
 		RETURN .F.
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", *****]"
+		? "连接到 " + strHost + " 用户名和密码: [" + strUser + ", *****]"
 	ENDIF
 RETURN .T.
 
@@ -116,27 +117,26 @@ RETURN
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetConnect](../libraries/wininet/InternetConnect.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 [InternetQueryOption](../libraries/wininet/InternetQueryOption.md)  
 
-## Comment:
-Here you can reach [complete list of Internet Option Flags](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385328(v=vs.85).aspx) as long as presented link stays valid. The MSDN is known for its volatile links.  
+## 备注：
+在这里你可以访问[Internet选项标志的完整列表](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385328(v=vs.85).aspx)，只要呈现的链接保持有效。MSDN以其不稳定的链接而闻名。 
   
-The testing of FTP status appears to be useful when you have connected to the FTP some time ago and want to validate the connection before exchanging data or sending commands.  
+当你在一段时间前连接到 FTP，并想在交换数据或发送命令之前验证连接时，FTP 状态的测试似乎很有用。  
   
 **INTERNET_OPTION_CLIENT_CERT_CONTEXT**  
-This flag is not supported by InternetQueryOption. The lpBuffer parameter must be a pointer to a CERT CONTEXT structure and not a pointer to a CERT CONTEXT pointer.   
+这个标志不被 InternetQueryOption 支持。lpBuffer 参数必须是指向 CERT CONTEXT 结构的指针，而不是指向 CERT CONTEXT 指针的指针。  
   
-If an application receives ERROR_INTERNET_CLIENT_AUTH_CERT_NEEDED, it must call InternetErrorDlg or use InternetSetOption to supply a certificate before retrying the request. CertDuplicateCertificateContext is then called so that the certificate context passed can be independently released by the application.   
+如果应用程序接收到 ERROR_INTERNET_CLIENT_AUTH_CERT_NEEDED，它必须在重试请求之前调用 InternetErrorDlg 或使用 InternetSetOption 来提供证书。然后调用 CertDuplicateCertificateContext，这样应用程序就可以独立释放传递的证书上下文。   
   
 * * *  
-There is an article of Ayhan AVCI   
-[Connecting to a HTTPS server with SSL using Wininet, sending client certificate and reading response](https://www.codeproject.com/Articles/3898/Connecting-to-a-HTTPS-server-with-SSL-using-Winine),  
-which I have found recently at the [Code Project](http://www.codeproject.com/). Though based on VB code it may still save your time.  
- 
+有一篇 Ayhan AVCI 的文章： 
+[使用 Wininet 用 SSL 连接到 HTTPS 服务器，发送客户端证书并读取响应](https://www.codeproject.com/Articles/3898/Connecting-to-a-HTTPS-server-with-SSL-using-Winine)。 
+这是我最近在[Code Project](http://www.codeproject.com/)发现的。虽然是基于VB代码，但它可能还是会节省你的时间。
   
 ***  
 
