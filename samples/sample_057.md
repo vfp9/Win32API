@@ -1,6 +1,6 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# 简单的窗口查看器
+# 简单的窗体查看器
 _翻译：xinjie  2021.01.07_
 
 ## 简述：
@@ -32,7 +32,7 @@ PROTECTED enumwin
 	Width=600
 	Height=400
 	AutoCenter=.T.
-	Caption="窗口查看器"
+	Caption="窗体查看器"
 	
 	ADD OBJECT tree As Ttree WITH Left=5, Top=5
 	ADD OBJECT lst As Tlst WITH Left=5
@@ -43,7 +43,7 @@ PROCEDURE Init
 	LOCAL oRoot As Node
 	oRoot = THIS.tree.Nodes.Add(,,;
 		THIS.KeyFromHWND(THIS.enumwin.hwindow),;
-		"Windows 桌面 (" + THIS.enumwin.winclass + ")")
+		"Windows 桌体 (" + THIS.enumwin.winclass + ")")
 	oRoot.Tag = THIS.enumwin.hwindow
 
 	= BINDEVENT(THIS.enumwin, "OnWindowEnumerated",;
@@ -75,9 +75,9 @@ PARAMETERS oNode
 	oWindow = THIS.enumwin.GetWindow(oNode.Tag)
 	IF VARTYPE(m.oWindow) = "O"
 		WITH oWindow
-			THIS.ShowWinInfo("窗口句柄", TRANSFORM(.hwindow, "@0"))
+			THIS.ShowWinInfo("窗体句柄", TRANSFORM(.hwindow, "@0"))
 			THIS.ShowWinInfo("类名", .winclass)
-			THIS.ShowWinInfo("窗口标题", .wintext)
+			THIS.ShowWinInfo("窗体标题", .wintext)
 			THIS.ShowWinInfo("菜单句柄",;
 				IIF(.hmenu=0, "", TRANSFORM(.hmenu, "@0")))
 		ENDWITH
@@ -101,7 +101,7 @@ PROCEDURE OnWindowEnumerated(oWindow As TWindowBase)
 
 PROTECTED FUNCTION GetNodeText(oWindow As TWindowBase)
 	WITH oWindow
-		RETURN "窗口 " + TRANSFORM(.hwindow, "@0") +;
+		RETURN "窗体 " + TRANSFORM(.hwindow, "@0") +;
 			[ "] + .wintext + [" ] + .winclass
 	ENDWITH
 
@@ -157,8 +157,8 @@ PROCEDURE Init
 	THIS.View=3
 	THIS.Arrange=0
 	THIS.LabelEdit=1
-	THIS.AddColumnHeader("Parameter", 100)
-	THIS.AddColumnHeader("Value", 380)
+	THIS.AddColumnHeader("参数", 100)
+	THIS.AddColumnHeader("值", 380)
 
 PROTECTED PROCEDURE AddColumnHeader(cCaption, nWidth)
 	WITH THIS.ColumnHeaders.Add()
