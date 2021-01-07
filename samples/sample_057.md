@@ -1,37 +1,38 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Simple Window Viewer
+# 简单的窗口查看器
+_翻译：xinjie  2021.01.07_
 
-## Short description:
-This code enumerates all windows starting from the Desktop window and displays results in TreeView control.  
+## 简述：
+这段代码列举了从桌面窗口开始的所有窗口，并在TreeView控件中显示结果。  
 ***  
 
 
-## Before you begin:
-This code enumerates all windows starting from the Desktop window and displays results in TreeView control.  
+## 开始之前：
+这段代码列举了从桌面窗口开始的所有窗口，并在TreeView控件中显示结果。  
 
 ![](../images/windowviewer.png)  
 
-See also:
+参考：
 
-* [Enumerating devices installed on the local machine](sample_545.md)  
+* [枚举安装在本地机器上的设备](sample_545.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL oForm As TWindowViewer
 oForm = CREATEOBJECT("TWindowViewer")
 oForm.Show(1)
-* end of main
+* 主程序结束
 
 DEFINE CLASS TWindowViewer As Form
 PROTECTED enumwin
 	Width=600
 	Height=400
 	AutoCenter=.T.
-	Caption="Window Viewer"
+	Caption="窗口查看器"
 	
 	ADD OBJECT tree As Ttree WITH Left=5, Top=5
 	ADD OBJECT lst As Tlst WITH Left=5
@@ -42,7 +43,7 @@ PROCEDURE Init
 	LOCAL oRoot As Node
 	oRoot = THIS.tree.Nodes.Add(,,;
 		THIS.KeyFromHWND(THIS.enumwin.hwindow),;
-		"Windows Desktop (" + THIS.enumwin.winclass + ")")
+		"Windows 桌面 (" + THIS.enumwin.winclass + ")")
 	oRoot.Tag = THIS.enumwin.hwindow
 
 	= BINDEVENT(THIS.enumwin, "OnWindowEnumerated",;
@@ -53,7 +54,7 @@ PROCEDURE Init
 	THIS.enumwin.EnumChildWindows
 	oRoot.Expanded=.T.
 	
-	* set selection on this form
+	* 在此表单上设置选择
 	LOCAL oNode
 	oNode = THIS.NodeFromHWND(THIS.Hwnd)
 	
@@ -100,7 +101,7 @@ PROCEDURE OnWindowEnumerated(oWindow As TWindowBase)
 
 PROTECTED FUNCTION GetNodeText(oWindow As TWindowBase)
 	WITH oWindow
-		RETURN "Window " + TRANSFORM(.hwindow, "@0") +;
+		RETURN "窗口 " + TRANSFORM(.hwindow, "@0") +;
 			[ "] + .wintext + [" ] + .winclass
 	ENDWITH
 
@@ -308,7 +309,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FindWindow](../libraries/user32/FindWindow.md)  
 [GetClassName](../libraries/user32/GetClassName.md)  
 [GetDesktopWindow](../libraries/user32/GetDesktopWindow.md)  
