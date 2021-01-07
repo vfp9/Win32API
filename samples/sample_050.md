@@ -46,7 +46,7 @@ DO decl
 	= ShowWindow (hNew, SW_NORMAL)
 	hDC = GetDC (hNew)
 	
-	lpString = "GetActiveWindow 函数检索活动窗口句柄"
+	lpString = "GetActiveWindow 函数检索活动窗口的句柄"
     ? TextOut (hDC, 10,10, lpString, Len(lpString)) 	
 
     = ReleaseDC (hNew, hDC)
