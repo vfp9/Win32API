@@ -1,10 +1,11 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving System Error message strings
+# 检索系统错误信息字符串
+_翻译：xinjie  2021.01.07_
 
-## Code:
+## 代码：
 ```foxpro  
-LPARAMETERS nErrorno  && pass an error code
+LPARAMETERS nErrorno  && 传递错误代码
 
 #DEFINE FORMAT_MESSAGE_ALLOCATE_BUFFER 0x100
 #DEFINE FORMAT_MESSAGE_ARGUMENT_ARRAY 0x2000
@@ -26,7 +27,7 @@ LPARAMETERS nErrorno  && pass an error code
 	LOCAL nFlags, hBuffer, nLen, cBuffer
 	cBuffer=""
 
-	* specify format parameters
+	* 指定格式参数
 	nFlags = FORMAT_MESSAGE_ALLOCATE_BUFFER +;
 		FORMAT_MESSAGE_FROM_SYSTEM +;
 		FORMAT_MESSAGE_IGNORE_INSERTS
@@ -47,14 +48,14 @@ LPARAMETERS nErrorno  && pass an error code
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FormatMessage](../libraries/kernel32/FormatMessage.md)  
 [LocalFree](../libraries/kernel32/LocalFree.md)  
 
-## Comment:
-W32 function GetLastError returns system error codes. There are about 2000 or more system error codes .   
-  
-The FormatMessage retrieves data from the MESSAGETABLE resource in KERNEL32.DLL. Most likely, the same can be accomplished with the FindResource and LoadResource calls (RT_MESSAGETABLE).  
+## 备注：
+W32 函数 GetLastError 返回系统错误代码。大约有 2000 多个系统错误代码。
+
+FormatMessage 从 KERNEL32.DLL 中的 MESSAGETABLE 资源中检索数据。最有可能的是，用 FindResource 和 LoadResource 调用(RT_MESSAGETABLE)也可以完成同样的工作。  
   
 ***  
 
