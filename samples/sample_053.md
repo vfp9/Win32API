@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to fill a buffer with random bytes using Cryptography API Functions
+# 如何使用 Cryptography API 函数用随机字节填充缓冲区
+_翻译：xinjie  2021.01.07_
 
-## Before you begin:
+## 开始之前：
 Use this code to fill a large buffer (a string) with random characters. MS even insists that these characters would be far more random than any created by standard random function.  
   
 ***  
@@ -17,19 +18,19 @@ DO declare
 LOCAL hProvider, cBuffer
 hProvider=0
 
-* obtain CSP handle
+* 取得 CSP 句柄
 IF CryptAcquireContext(@hProvider, NULL, NULL,;
 	PROV_RSA_FULL, CRYPT_VERIFYCONTEXT) = 0
-	? "Call to CryptAcquireContext failed:", GetLastError()
+	? "调用CryptAcquireContext失败：", GetLastError()
 	RETURN
 ENDIF
 
-* allocate buffer that will receive random data
+* 分配接收随机数据的缓冲区
 cBuffer = REPLICATE(CHR(0), 1024)
 
-* fill the buffer with cryptographically random bytes
+* 用加密随机字节填充缓冲区
 IF CryptGenRandom(m.hProvider, LEN(m.cBuffer), @cBuffer) = 0
-	? "Call to CryptGenRandom failed:", GetLastError()
+	? "调用CryptGenRandom失败：", GetLastError()
 ELSE
 	CREATE CURSOR cs (randbytes M)
 	INSERT INTO cs VALUES (m.cBuffer)
@@ -37,7 +38,7 @@ ELSE
 ENDIF
 
 = CryptReleaseContext(m.hProvider, 0)
-* end of main
+* 主程序结束
 
 PROCEDURE declare
 	DECLARE INTEGER GetLastError IN kernel32
@@ -55,7 +56,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CryptAcquireContext](../libraries/advapi32/CryptAcquireContext.md)  
 [CryptGenRandom](../libraries/advapi32/CryptGenRandom.md)  
 [CryptReleaseContext](../libraries/advapi32/CryptReleaseContext.md)  
