@@ -1,13 +1,14 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to build UDP responder
+# 如何建立 UDP 应答器
+_翻译：xinjie  2021.01.07_
 
-## Before you begin:
-The goal was to create a VFP application for receiving UDP packet from a client and responding to the same client using the IP address and the port obtained from the initial packet. The *sockaddr* structure that the recvfrom call populates contains required information.  
+## 开始之前：
+目标是创建一个 VFP 应用程序，用于接收来自客户端的 UDP 数据包，并使用从初始数据包中获得的 IP 地址和端口对同一客户端进行响应。recvfrom 调用填充的*sockaddr*结构包含了所需信息。 
 
-The UdpBase class uses several Winsock API functions. It implements the basic functionality such as creates a UDP socket and binds it to a local port. After that the class can use this socket for sending and receiving datagrams.  
+UdpBase 类使用了多个 Winsock API 函数。它实现了基本的功能，比如创建一个 UDP 套接字，并将其绑定到一个本地端口。之后，该类就可以使用这个套接字来发送和接收数据报。 
 
-The WaitForRequest method of the class indefinitely waits for incoming datagrams. Upon receiving a datagram it sends a message back to the client.  
+该类的 WaitForRequest 方法无限期地等待传入的数据包。一旦收到数据包，它就会向客户端发送消息。 
 
 ```foxpro
 DEFINE CLASS UdpServer As UdpBase  
@@ -16,46 +17,46 @@ PROCEDURE WaitForRequest(nPort)
 	IF NOT THIS.StartServer(nPort)  
 		RETURN .F.  
 	ELSE  
-		? "Waiting for incoming requests on " +;  
+		? "等待收到的请求 " +;  
 			THIS.LocalIP + ":" +;  
 			TRANSFORM(THIS.LocalPort) + "..."  
 	ENDIF  
 
-	* waits indefinitely for a request from a client  
-	* on local ip address and port specified in nPort  
+	* 无限期地等待来自客户端的请求  
+	* 在本地ip地址和nPort中指定的端口上  
 	THIS.ReceiveDatagram  
 
 	IF EMPTY(THIS.SenderIP) OR EMPTY(THIS.SenderPort)  
-	* failed to get a response or   
-	* when defining the source of the response  
+	* 未能得到回应或   
+	* 在定义响应源时  
 		RETURN .F.  
 	ELSE  
-	* displays request received  
-		? "Request received from " + THIS.SenderIP +;  
+	* 显示收到的请求  
+		? "收到的请求来自 " + THIS.SenderIP +;  
 			":" + TRANSFORM(THIS.SenderPort)  
 		? THIS.DataReceived  
 	ENDIF  
 
-	* assemble a data to be sent back to client  
+	* 汇集数据发回客户端  
 	LOCAL cConfirmation  
-	cConfirmation = "Responder: " + SYS(0) +;  
+	cConfirmation = "应答器: " + SYS(0) +;  
 		" " + TTOC(DATETIME())  
 
-	* sends data back to client  
-	* the client is supposed to be in listening mode  
+	* 将数据发回给客户 
+	* 客户端应该处于监听模式  
 	THIS.SendDatagram(m.cConfirmation,;  
 		THIS.SenderIP, THIS.SenderPort)  
 
 ENDDEFINE
 ```
-See also:
+参考：
 
-* [How to create non-blocking Winsock server](sample_412.md)  
+* [如何创建无阻塞的 Winsock 服务器](sample_412.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE AF_INET 2
 #DEFINE SOCK_DGRAM 2
@@ -72,27 +73,27 @@ PROCEDURE SendRequest(nLocalPort, cData, cRemoteIP, nRemotePort)
 	IF NOT THIS.StartServer(nLocalPort)
 		= MESSAGEBOX(TRANSFORM(THIS.errorno) + ". " +;
 			THIS.errormessage + "     ", 48,;
-			"Failed to create UDP socket on port " +;
+			"在端口上创建 UDP 套接字失败 " +;
 			TRANSFORM(m.nLocalPort))
 		RETURN .F.
 	ENDIF
 
-	* sends data to server specified by cRemoteIP, nRemotePort
-	* the server is supposed to be in listening mode
+	* 将数据发送到由cRemoteIP、nRemotePort指定的服务器。
+	* 服务器应该处于监听模式
 	THIS.SendDatagram(m.cData, cRemoteIP, nRemotePort)
 	
-	* waits indefinitely for a response from server
-	* on local ip address and port specified in nLocalPort
+	* 无限期地等待服务器的响应
+	* 在本地IP地址和nLocalPort中指定的端口上
 	THIS.ReceiveDatagram
 
 	IF EMPTY(THIS.SenderIP) OR EMPTY(THIS.SenderPort)
-	* failed to get a response or to define the source of the response
+	* 未能获得响应或未能定义响应的来源
 		= MESSAGEBOX(TRANSFORM(THIS.errorno) + ". " +;
 			THIS.errormessage + "     ", 48, "Error")
 		EXIT
 	ELSE
-	* displays response received
-		? "Response received from " +;
+	* 显示收到的回复
+		? "收到回应 " +;
 			THIS.SenderIP + ":" + TRANSFORM(THIS.SenderPort)
 		? THIS.DataReceived
 	ENDIF
@@ -104,35 +105,35 @@ PROCEDURE WaitForRequest(nLocalPort)
 	IF NOT THIS.StartServer(nLocalPort)
 		= MESSAGEBOX(TRANSFORM(THIS.errorno) + ". " +;
 			THIS.errormessage + "     ", 48,;
-			"Failed to create UDP socket on port " +;
+			"在端口上创建 UDP 套接字失败 " +;
 			TRANSFORM(m.nLocalPort))
 		RETURN .F.
 	ELSE
-		? "Waiting for incoming requests on " +;
+		? "等待收到的请求 " +;
 			THIS.LocalIP + ":" + TRANSFORM(THIS.LocalPort) + "..."
 	ENDIF
 	
-	* waits indefinitely for a request from a client
-	* on local ip address and port specified in nLocalPort
+	* 无限期地等待客户的请求
+	* 在本地IP地址和nLocalPort中指定的端口上
 	THIS.ReceiveDatagram
 
 	IF EMPTY(THIS.SenderIP) OR EMPTY(THIS.SenderPort)
-	* failed to get a response or to define the source of the response
+	* 未能获得响应或未能定义响应的来源
 		= MESSAGEBOX(TRANSFORM(THIS.errorno) + ". " +;
 			THIS.errormessage + "     ", 48, "Error")
 		EXIT
 	ELSE
-	* displays request received
-		? "Request received from " + THIS.SenderIP + ":" + TRANSFORM(THIS.SenderPort)
+	* 显示收到的请求
+		? "收到的请求 " + THIS.SenderIP + ":" + TRANSFORM(THIS.SenderPort)
 		? THIS.DataReceived
 	ENDIF
 	
-	* assemble a data to be sent back to client
+	* 汇集数据发回客户端
 	LOCAL cConfirmation
 	cConfirmation = "Responder: " + SYS(0) + " " + TTOC(DATETIME())
 	
-	* sends data back to client
-	* the client is supposed to be in listening mode
+	* 将数据发回给客户
+	* 客户端应该处于监听模式
 	THIS.SendDatagram(m.cConfirmation,;
 		THIS.SenderIP, THIS.SenderPort)
 	
@@ -153,7 +154,7 @@ PROCEDURE Init
 	THIS.declare
 	IF NOT THIS.InitWinsock()
 		THIS.SetLastError(-1,;
-			"Failed to initialize Winsock on this computer.")
+			"在此计算机上初始化 Winsock 失败。")
 		RETURN .F.
 	ENDIF
 	THIS.GetLocalIP
@@ -168,7 +169,7 @@ PROCEDURE StartServer(nLocalPort)
 
 	IF ws_bind(THIS.hSocket, @cBindBuffer, LEN(m.cBindBuffer)) <> 0
 		THIS.SetLastError(WSAGetLastError(),;
-			"Failed to bind the socket to local address.")
+			"未能将套接字绑定到本地地址。")
 		RETURN .F.
 	ENDIF
 RETURN .T.
@@ -179,7 +180,7 @@ PROCEDURE StopServer
 			THIS.hSocket=0
 		ELSE
 			THIS.SetLastError(WSAGetLastError(),;
-				"Call to closesocket() API failed.")
+				"调用 closesocket() API失败。")
 			RETURN .F.
 		ENDIF
 	ENDIF
@@ -217,7 +218,7 @@ PROTECTED PROCEDURE GetLocalIP
 		cBuffer = REPLICATE(CHR(0), HOSTENT_SIZE)
 		= MemToStr(@cBuffer, nAddr, HOSTENT_SIZE)
 		
-		* obtain a pointer to the list of addresses
+		* 获得指向地址列表的指针。
 		nAddr = buf2dword(SUBSTR(cBuffer, 13,4))
 
 		cBuffer = REPLICATE(CHR(0), 4)
@@ -233,7 +234,7 @@ FUNCTION SendDatagram(cData, cTargetIP, nTargetPort) As Number
 
 	IF THIS.hSocket = INVALID_SOCKET
 		THIS.SetLastError(WSAGetLastError(),;
-			"SendDatagram: call to socket() API failed.")
+			"SendDatagram：调用socket()API失败。")
 		RETURN .F.
 	ENDIF
 
@@ -243,7 +244,7 @@ FUNCTION SendDatagram(cData, cTargetIP, nTargetPort) As Number
 
 	IF nResult = SOCKET_ERROR
 		THIS.SetLastError(WSAGetLastError(),;
-			"SendDatagram: call to sendto() API failed.")
+			"SendDatagram：调用sendto()API失败。")
 	ENDIF
 RETURN m.nResult
 
@@ -261,7 +262,7 @@ PROCEDURE ReceiveDatagram
 
 	IF nResult = SOCKET_ERROR
 		THIS.SetLastError(WSAGetLastError(),;
-			"ReceiveDatagram: call to recvfrom() API failed.")
+			"ReceiveDatagram：调用recvfrom() API失败。")
 	ENDIF
 
 	THIS.SenderIP = inet_ntoa(buf2dword(SUBSTR(cSockaddr,5,4)))
@@ -348,7 +349,7 @@ RETURN Chr(MOD(m.lnValue,256)) + CHR(INT(m.lnValue/256))
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [WSACleanup](../libraries/ws2_32/WSACleanup.md)  
 [WSAGetLastError](../libraries/ws2_32/WSAGetLastError.md)  
 [WSAStartup](../libraries/ws2_32/WSAStartup.md)  
@@ -363,10 +364,10 @@ RETURN Chr(MOD(m.lnValue,256)) + CHR(INT(m.lnValue/256))
 [sendto](../libraries/ws2_32/sendto.md)  
 [socket](../libraries/ws2_32/socket.md)  
 
-## Comment:
-The <a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol">User Datagram Protocol (UDP)</a> is one of the core Internet protocols. By using the UDP an application can send short messages, also known as datagrams, across the network.  
+## 备注：
+<a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol">用户数据报协议（UDP）</a>是核心互联网协议之一。通过使用 UDP，应用程序可以在网络上发送短消息（也称为数据报）。 
   
-A datagram is a self-contained connectionless <a href="http://en.wikipedia.org/wiki/Packet">packet</a>, one which contains enough information in the header to allow the network to forward it to the destination independently of previous or future datagrams.  
+数据报是一个独立的无连接的<a href="http://en.wikipedia.org/wiki/Packet">数据包</a>，它在报头中包含足够的信息，使网络能够将其转发到目的地，而不受之前或未来数据报的影响。 
   
 ***  
 
