@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Creating a directory on the FTP
+# 在 FTP 上创建一个目录
+_翻译：xinjie  2021.01.07_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER  0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT     1
@@ -11,35 +12,35 @@
 #DEFINE INTERNET_SERVICE_HTTP         3
 DO decl
 
-* initialize access to Inet functions
+* 初始化对Inet函数的访问
 hOpen = InternetOpen ("w32ftpdir", INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问 WinInet.Dll"
 	RETURN
 ENDIF
 
-* put valid FTP connection settings here
+* 将有效的FTP连接设置放在这里
 strHost = "???"
 strUser = "???"
 strPwd  = "???"
 
-* connect to the FTP
+* 连接到 FTP
 hFtpSession = InternetConnect (hOpen, strHost,;
 		INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 IF hFtpSession <> 0
 	IF FtpCreateDirectory (hFtpSession, "mydir" + SUBSTR(SYS(3),5)) = 1
-		? "The new directory created"
+		? "已创建新目录"
 	ELSE
-		? "Unable to create a new directory"
+		? "不能创建新目录"
 	ENDIF
 ELSE
-	? "Unable to connect to the selected FTP"
+	? "无法连接到所选的FTP"
 ENDIF
 
-* close FTP connection and Wininet access
+* 关闭FTP连接和Wininet访问
 = InternetCloseHandle (hFtpSession)
 = InternetCloseHandle (hOpen)
 
@@ -62,7 +63,7 @@ PROCEDURE  decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FtpCreateDirectory](../libraries/wininet/FtpCreateDirectory.md)  
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetConnect](../libraries/wininet/InternetConnect.md)  
