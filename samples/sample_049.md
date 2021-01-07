@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Obtaining window class name for the main VFP window
+# 获取 VFP 主窗口的窗口类名称
+_翻译：xinjie  2021.01.07_
 
-## Code:
+## 代码：
 ```foxpro  
 DO declare
 
@@ -10,8 +11,8 @@ LOCAL hWindow
 hWindow = GetActiveWindow()
 
 ? "GetActiveWindow():", hWindow
-? "Window Class:", GetWindowClass(hWindow)
-? "Window Caption:", GetWindowCaption(hWindow)
+? "窗口类:", GetWindowClass(hWindow)
+? "窗口标题:", GetWindowCaption(hWindow)
 ?
 ? "_vfp.hWnd:", _vfp.hWnd
 ? "_screen.hWnd:", _screen.hWnd
@@ -51,15 +52,15 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GetWindowText](../libraries/user32/GetWindowText.md)  
 [RealGetWindowClass](../libraries/user32/RealGetWindowClass.md)  
 
-## Comment:
-Compare the results when:  
-\- running this code using DO in the Command Window;  
-\- running from an open Program Edit window using Ctrl+E  
+## 备注：
+比较以下情况的结果  
+\- 在命令窗口中使用DO运行这段代码。 
+\- 在打开的程序编辑窗口中使用Ctrl+E运行这段代码  
   
 ***  
 
