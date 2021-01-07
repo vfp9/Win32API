@@ -1,17 +1,18 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Converting long file names to the short format and vice versa
+# 将长文件名转换为短格式，反之亦然
+_翻译：xinjie  2021.01.07_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [How to access a file using not its name but an alias (hard link)](sample_018.md)  
+* [如何不使用文件名而使用别名访问文件（硬链接）](sample_018.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DO declare
 
@@ -20,9 +21,9 @@ lcSourceFile = "C:\Program Files\Microsoft Office\Office10\finderr.exe"
 lcShort = GetShort(lcSourceFile)
 lcLong = GetLong(lcShort)
 
-? "Source name:", lcSourceFile
-? "Short name obtained:", lcShort
-? "Long name obtained: ", lcLong
+? "源文件名:", lcSourceFile
+? "获得的短名称:", lcShort
+? "获得的长名称: ", lcLong
 
 FUNCTION GetLong(lcName)
 	LOCAL lcBuffer, lnResult
@@ -53,15 +54,15 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [GetLongPathName](../libraries/kernel32/GetLongPathName.md)  
 [GetShortPathName](../libraries/kernel32/GetShortPathName.md)  
 
-## Comment:
-The "short path" means the 8.3 compliant path/filename. The source path must be always valid. You can not convert the name of a file that does not exist.  
+## 备注：
+“短路径”是指8.3兼容路径/文件名。 源路径必须始终有效。 您不能转换不存在的文件的名称。
   
-See also: [PathGetShortPath](../libraries/shell32/PathGetShortPath.md)
+参考： [PathGetShortPath](../libraries/shell32/PathGetShortPath.md)
   
 ***  
 
