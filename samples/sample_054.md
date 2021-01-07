@@ -1,23 +1,22 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Setting and retrieving the double-click time for the mouse
+# 设置和获取鼠标双击时间
+_翻译：xinjie  2021.01.07_
 
-## Code:
+## 代码：
 ```foxpro  
 DO declare
 
 LOCAL nTime
 
 nTime = GetDoubleClickTime()
-? "Double click time:", nTime, "msec"
+? "双击时间:", nTime, "msec"
 
-* passing zero is equivalent to setting this parameter
-* to OS default value
-* which is usually 500 milliseconds
+* 传递0相当于将此参数设置为OS默认值，通常为500毫秒。
 
 *= SetDoubleClickTime(0)
 
-* end of main
+* 主程序结束
 
 PROCEDURE declare
 	DECLARE INTEGER SetDoubleClickTime IN user32;
@@ -28,12 +27,12 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetDoubleClickTime](../libraries/user32/GetDoubleClickTime.md)  
 [SetDoubleClickTime](../libraries/user32/SetDoubleClickTime.md)  
 
-## Comment:
-When setting double-click time to zero, the system uses the default double-click time of 500 milliseconds  
+## 备注：
+当设置双击时间为零时，系统使用默认的双击时间500毫秒。  
   
 ***  
 
