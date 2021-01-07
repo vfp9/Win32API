@@ -4,7 +4,7 @@
 _翻译：xinjie  2021.01.07_
 
 ## 开始之前：
-Use this code to fill a large buffer (a string) with random characters. MS even insists that these characters would be far more random than any created by standard random function.  
+用这段代码来填充一个大的缓冲区（一个字符串）的随机字符。MS甚至坚持认为这些字符会比标准随机函数创建的任何字符更随机。 
   
 ***  
 
