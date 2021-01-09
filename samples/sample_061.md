@@ -1,23 +1,26 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Uploading local file to FTP server with FtpPutFile
+# 用 FtpPutFile 上传本地文件到 FTP 服务器
+_翻译：xinjie  2021.01.09_
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
 
-## Before you begin:
+## 开始之前：
 <!-- Anatoliy -->
-<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">Programming File Transfer Protocol in Visual FoxPro </a></td></tr></table>  
-The FtpPutFile stores a file on the FTP server in a single operation. You can not have a close control over the file transfer that you may need, for example, for displaying a progress bar. For those situations you should use the FtpOpenFile and InternetWriteFile functions.  
+<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">在Visual FoxPro中对文件传输协议进行编程</a></td></tr></table>  
+FtpPutFile在一次操作中就可以在FTP服务器上存储一个文件。您不能对文件传输进行密切的控制，您可能需要，例如，显示进度条。对于这些情况，您应该使用FtpOpenFile和InternetWriteFile函数。 
 
  
-See also: [Uploading file to the FTP server using InternetWriteFile](sample_062.md).
+参考：
+
+[使用InternetWriteFile上传文件到FTP服务器](sample_062.md).
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER 0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT 1
@@ -29,8 +32,7 @@ DO declare
 	PRIVATE hInet, hSession
 	STORE 0 TO hInet, hSession
 
-	* select FTP connection for which you have appropriate access level
-	* allowing to upload files to and rename files on the remote server
+	* 选择您有适当访问级别的FTP连接，允许上传文件到远程服务器并重命名文件。
 	LOCAL cHost, cUser, cPwd
 	cHost = "ftp2.server.com"
 	cUser = "foxpro"
@@ -38,49 +40,44 @@ DO declare
 
 	IF connect2ftp(cHost, cUser, cPwd)
 
-		* select valid source and target file names;
-		* the source file must exist on a local drive;
-		* note that the names below are just examples
+		* 选择有效的源文件和目标文件名;
+		* 源文件必须存在于本地驱动器上;
+		*  请注意，下面的文件名只是例子
 		LOCAL cSource, cTarget, cRenameTo
 		cSource  = "c:\temp\test.txt"
 		cTarget  = "test.txt"
 		cRenameTo = "test.tx~"
 		
-		* the Binary Transfer Type is selected that means
-		* the file is transfered exactly as it is
+		* 选择了二进制传输类型，这意味着文件将被准确地传输。
 		IF FtpPutFile(hSession, cSource,;
 			cTarget, FTP_TRANSFER_TYPE_BINARY, 0) = 0
-			= MESSAGEBOX("Failed to upload file " + cSource +;
-				" to " + cTarget + ".     ", 48, "Error")
+			= MESSAGEBOX("上传文件失败： " + cSource +;
+				" 到 " + cTarget + ".     ", 48, "错误")
 		ELSE
-			? "File downloaded successfully."
-		* if file (cRenameTo) already exists on the remote server,
-		* it may be replaced with the new one being renamed,
-		* or you"ll get an error message;
-		* it varies with different FTP servers
+			? "文件下载成功。"
+		* 如果文件(cRenameTo)在远程服务器上已经存在，它可能会被新的文件所取代，或者你会得到一个错误信息；它随不同的FTP服务器而变化。
 			IF FtpRenameFile(hSession, cTarget, cRenameTo) = 0
-				= MESSAGEBOX("Failed to rename file " + cTarget +;
-					" to " + cRenameTo + ".     ", 48, "Error")
+				= MESSAGEBOX("重命名文件失败： " + cTarget +;
+					" 到 " + cRenameTo + ".     ", 48, "错误")
 			ELSE
-				? "File renamed successfully."
+				? "文件重命名成功。"
 			ENDIF
 		ENDIF
 
-		* release system resources on exit
+		* 退出时释放资源
 		= InternetCloseHandle(hSession)
 		= InternetCloseHandle(hInet)
 	ENDIF
 
 FUNCTION connect2ftp(cHost, cUser, cPwd)
-* this function opens access to Inet functions
+* 此函数可打开对Inet函数的访问
 
-	* the first parameter, lpszAgent, can be any string
+	* 第一个参数lpszAgent可以是任何字符串。
 	hInet = InternetOpen(VERSION(),;
 		INTERNET_OPEN_TYPE_DIRECT, 0,0,0)
 
 	IF hInet = 0
-		= MESSAGEBOX("Could not open access " +;
-			"to WinINet library.     ", 48, "Error")
+		= MESSAGEBOX("无法打开对WinINet库的访问。     ", 48, "错误")
 		RETURN .F.
 	ENDIF
 
@@ -91,14 +88,14 @@ FUNCTION connect2ftp(cHost, cUser, cPwd)
 	WAIT CLEAR
 
 	IF hSession = 0
-	* close access to WinINet functions and exit
+	* 退出时关闭对 WinInet 的访问
 		= InternetCloseHandle(hInet)
-		= MESSAGEBOX("FTP server [" + cHost +;
-			"] can not be accessed.     ", 48, "Error")
+		= MESSAGEBOX("FTP 服务器 [" + cHost +;
+			"] 不能访问。     ", 48, "错误")
 		RETURN .F.
 	ELSE
-		WAIT WINDOW NOWAIT "Connected to " + cHost +;
-			" as: [" + cUser + ", *****]"
+		WAIT WINDOW NOWAIT "连接到 " + cHost +;
+			" 用户名和密码: [" + cUser + ", *****]"
 	ENDIF
 RETURN .T.
 
@@ -127,15 +124,15 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FtpPutFile](../libraries/wininet/FtpPutFile.md)  
 [FtpRenameFile](../libraries/wininet/FtpRenameFile.md)  
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetConnect](../libraries/wininet/InternetConnect.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 
-## Comment:
-Note that you can test this example only on FTP server for which you have sufficient access level.  
+## 备注：
+请注意，您只能在您有足够访问级别的FTP服务器上测试这个例子。  
   
 ***  
 
