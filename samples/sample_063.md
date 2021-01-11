@@ -1,18 +1,19 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Downloading files from the FTP server using InternetReadFile
+# 使用 InternetReadFile 从 FTP 服务器下载文件
+_翻译：xinjie  2021.01.11_
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
 <!-- Anatoliy -->  
-## Before you begin:
-<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">Programming File Transfer Protocol in Visual FoxPro </a></td></tr></table>  
-Make sure that source and target files are valid path values.  
+## 开始之前：
+<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">在Visual FoxPro中对文件传输协议进行编程</a></td></tr></table>  
+确保源文件和目标文件是有效的。 
   
 
 ***  
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER   0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT      1
@@ -85,26 +86,26 @@ PROCEDURE  decl
 RETURN
 
 FUNCTION  connect2ftp (strHost, strUser, strPwd)
-	* open access to Inet functions
+	* 打开访问 Inet 功能
 	hOpen = InternetOpen ("vfp", INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问 WinInet.Dll"
 		RETURN .F.
 	ENDIF
 
-	* connect to FTP
+	* 连接到 FTP
 	hFtpSession = InternetConnect (hOpen, strHost,;
 		INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭对 Inet 功能的访问并退出
 		= InternetCloseHandle (hOpen)
-		? "FTP " + strHost + " is not available"
+		? "FTP " + strHost + " 不可用"
 		RETURN .F.
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", *****]"
+		? "连接到 " + strHost + " 用户名和密码: [" + strUser + ", *****]"
 	ENDIF
 RETURN .T.
 
@@ -122,17 +123,17 @@ FUNCTION  getCurrentDir (hConnection)
 	ENDIF
 	
 FUNCTION  remoteDir2array (hConnection, lcRemotePath, lcMask, arr)
-* fill the array with file data for the given remote path
+* 用给定的远程路径的文件数据填充数组。
 
 	lcStoredPath = getCurrentDir (hConnection)
 	IF Not setCurrentDir (hConnection, lcRemotePath)
-		RETURN -1	&& path not found
+		RETURN -1	&& 路径不存在
 	ENDIF
 
-	* object simulates the structure
+	* 用对象模拟结构
 	struct = CREATEOBJECT ("struct_WIN32_FIND_DATA")
 
-	* finding the first file
+	* 找到第一个文件
 	lnFound = 0
 	lpFindFileData = REPLI (Chr(0), 320)
 	hFind = FtpFindFirstFile (hConnection, lcMask,;
@@ -173,7 +174,7 @@ FUNCTION ftp2local (hConnect, lcSource, lcTarget)
 	ENDIF
 
 	lnBytesRead = 0
-	lnChunkSize = 4096	&& 256, 512 and even 16384 are good
+	lnChunkSize = 4096	&& 256、512甚至16384都是不错的选择
 	
 	DO WHILE .T.
 		lcBuffer = REPLI (Chr(0), lnChunkSize)
@@ -195,7 +196,7 @@ FUNCTION ftp2local (hConnect, lcSource, lcTarget)
 RETURN  lnBytesRead
 
 DEFINE CLASS struct_WIN32_FIND_DATA As Custom
-*this class emulates WIN32_FIND_DATA structure
+*该类模拟WIN32_FIND_DATA结构。
 	value            = ""
 	fileAttributes   = 0
 	creationTimeLo   = 0
@@ -211,7 +212,7 @@ DEFINE CLASS struct_WIN32_FIND_DATA As Custom
 	lastWriteTime    = CTOT ("")
 
 PROCEDURE  setValue (lcValue)	
-* translates the buffer"s content into the object"s properties
+* 将缓冲区的内容转换为对象的属性。
 	THIS.value            = lcValue
 	THIS.fileAttributes   = THIS.buf2num (THIS.value,  0, 4)
 	THIS.creationTimeLo   = THIS.buf2num (THIS.value,  4, 4)
@@ -237,7 +238,7 @@ FUNCTION  isDirectory
 ENDFUNC
 
 PROTECTED FUNCTION  buf2num (lcBuffer, lnOffset, lnBytes)
-* converts N bytes from the buffer into a numeric value
+* 将缓冲区中的N个字节转换为一个数值。
 	lnResult = 0
 	FOR ii=1 TO lnBytes
 		lnResult = lnResult +;
@@ -272,7 +273,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FileTimeToSystemTime](../libraries/kernel32/FileTimeToSystemTime.md)  
 [FtpFindFirstFile](../libraries/wininet/FtpFindFirstFile.md)  
 [FtpGetCurrentDirectory](../libraries/wininet/FtpGetCurrentDirectory.md)  
