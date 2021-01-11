@@ -1,8 +1,8 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # System and Local Time values
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE GetSystemTime IN kernel32 STRING @ lpSystemTime
 	DECLARE GetLocalTime  IN kernel32 STRING @ lpSystemTime
@@ -59,15 +59,15 @@ ENDFUNC
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetLocalTime](../libraries/kernel32/GetLocalTime.md)  
 [GetSystemTime](../libraries/kernel32/GetSystemTime.md)  
 
 ## Comment:
-GetSystemTim rerturns  the UTC (Coordinated Universal Time) value.  
+GetSystemTime返回UTC（世界标准时间）值。
   
 * * *  
-WMI Time classes are supported on WinXP/2003/Vista systems. On Win2K you can still get the system time by querying the Win32_OperatingSystem class and checking the value of the LocalDateTime property.  
+在WinXP/2003/Vista系统上支持WMI时间类。在Win2K系统上，你仍然可以通过查询Win32_OperatingSystem类并检查LocalDateTime属性的值来获取系统时间。 
   
 ***  
 
