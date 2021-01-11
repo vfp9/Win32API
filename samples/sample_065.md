@@ -1,36 +1,35 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Setting the date and time that a file was created
+# 设置文件创建的日期和时间
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE OF_READ 0
 #DEFINE OF_WRITE 1
 DO declare
 
-* create buffers for structures
+* 为结构创建缓冲区
 lcFileTime = REPLICATE(CHR(0), 8)  && FILETIME
 lcSystemTime = REPLICATE(CHR(0), 16)  && SYSTEMTIME
 
-* retrive the system time and convert it to the file time format
+* 检索系统时间并将其转换为文件时间格式
 *= GetSystemTime (@lcSystemTime)
 *= SystemTimeToFileTime (@lcSystemTime, @lcFileTime)
 
-* same but using a shorter way
+* 异曲同工
 = GetSystemTimeAsFileTime(@lcFileTime)
 
-* open file before modifying its time and date
-lcFile = "c:\temp\temp.txt"    && use valid file name
-lcBuff = REPLICATE(CHR(0), 250)  && a buffer for OFSTRUCT structure
+* 打开文件后再修改时间和日期
+lcFile = "c:\temp\temp.txt"    && 使用有效的文件名
+lcBuff = REPLICATE(CHR(0), 250)  && OFSTRUCT结构的缓冲区
 hFile = OpenFile(lcFile, @lcBuff, OF_WRITE)
 
 IF hFile > 0
-	* usage: SetFileTime(hFile, <creation>, <lastaccess>, <lastwrite>)
-	* replace with zeros those datetime parameters you want to keep unchanged
-	* so the following call is about to change only the creation datetime
+	* 用法: SetFileTime(hFile, <creation>, <lastaccess>, <lastwrite>)
+	* 用零代替那些你想保持不变的日期时间参数，所以下面的调用将只改变创建日期时间。
 
 	IF SetFileTime(hFile, @lcFileTime, 0, 0) = 0
-		? "SetFileTime failed with error:", GetLastError()
+		? "SetFileTime 失败:", GetLastError()
 	ELSE
 		? "Ok!"
 	ENDIF
@@ -40,9 +39,9 @@ ELSE
 	* 2=ERROR_FILE_NOT_FOUND
 	* 3=ERROR_PATH_NOT_FOUND
 	* 5=ERROR_ACCESS_DENIED
-	? "OpenFile failed with error:", GetLastError()
+	? "OpenFile 失败:", GetLastError()
 ENDIF
-* end of main
+* 主程序结束
 
 PROCEDURE declare
 	DECLARE INTEGER GetLastError IN kernel32
@@ -65,7 +64,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CloseHandle](../libraries/kernel32/CloseHandle.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [GetSystemTime](../libraries/kernel32/GetSystemTime.md)  
@@ -74,15 +73,15 @@ PROCEDURE declare
 [SetFileTime](../libraries/kernel32/SetFileTime.md)  
 [SystemTimeToFileTime](../libraries/kernel32/SystemTimeToFileTime.md)  
 
-## Comment:
-The file handle must have been created with GENERIC_WRITE access to the file.   
+## 备注：
+文件句柄必须是在对文件进行 GENERIC_WRITE 访问时创建的。  
   
-I tried to create the handle by using native FOPEN() function with different attributes. It did not work.  
+我试着用原生FOPEN()函数来创建句柄（使用不同的 attributes）。但没有成功。 
   
-You can change any of three file time values or a combination of them. But not all file systems can record creation and last access time and not all file systems record them in the same manner. This way you can set the creation time to be later than its access and modification times.  
+你可以改变三个文件时间值中的任何一个或它们的组合。但是并不是所有的文件系统都能记录创建时间和最后一次访问时间，也不是所有的文件系统都以同样的方式记录它们。这样你就可以将创建时间设置为晚于其访问和修改时间。 
   
 * * *  
-In C# version, I use managed FileInfo object instead of accessing file times through the System.Runtime.InteropServices namespace.  
+在C#版本中，我使用托管的FileInfo对象，而不是通过System.Runtime.InteropServices命名空间来访问文件时间。 
   
 ***  
 
