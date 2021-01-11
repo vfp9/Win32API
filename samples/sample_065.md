@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 设置文件创建的日期和时间
+_翻译：xinjie  2021.01.11_
 
 ## 代码：
 ```foxpro  
