@@ -1,18 +1,19 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Uploading file to the FTP server using InternetWriteFile
+# 使用 InternetWriteFile 上传文件到FTP服务器
+_翻译：xinjie  2021.01.11_
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
 <!-- Anatoliy --> 
 
-## Before you begin:
-<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">Programming File Transfer Protocol in Visual FoxPro </a></td></tr></table>    
+## 开始之前：
+<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">在Visual FoxPro中对文件传输协议进行编程</a></td></tr></table>    
 
   
 ***  
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER 0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT 1
@@ -25,11 +26,11 @@
 PUBLIC hOpen, hFtpSession
 DO declare
 
-* select FTP connection on which you an appropriate access level
-* in all cases it can not be any "anonymous" access
+* 选择合适的访问级别的FTP连接
+* 在任何情况下，它都不可能是任何 "匿名 "的访问
 IF connect2ftp("ftp.???.???", "???", "???")
-	lcSourcePath = "C:\Temp\"       && local source directory
-	lcTargetPath = "ftptest/"       && ftp destination directory
+	lcSourcePath = "C:\Temp\"       && 本地源目录
+	lcTargetPath = "ftptest/"       && ftp目标目录
 	lnFiles = ADIR(arr, lcSourcePath + "*.html")
 
 	FOR lnCnt=1 TO lnFiles
@@ -65,36 +66,36 @@ PROCEDURE declare
 		INTEGER lBytesToWrite, INTEGER @dwBytesWritten
 
 FUNCTION connect2ftp(strHost, strUser, strPwd)
-	* open access to Inet functions
+	* 打开访问 Inet 功能
 	hOpen = InternetOpen("vfp", INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问 WinInet.Dll"
 		RETURN .F.
 	ENDIF
 
-	* connect to FTP
+	* 连接到 FTP
 	hFtpSession = InternetConnect(hOpen, strHost, INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭对 Inet 功能的访问并退出
 		= InternetCloseHandle(hOpen)
-		? "FTP " + strHost + " is not available"
+		? "FTP " + strHost + " 不可用"
 		RETURN .F.
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", *****]"
+		? "连接到 " + strHost + " 用户名和密码: [" + strUser + ", *****]"
 	ENDIF
 RETURN .T.
 
 FUNCTION local2ftp(hConnect, lcSource, lcTarget)
-* copying local file to the remote target
+* 复制本地文件到远程目标
 	hSource = FOPEN(lcSource)
 	IF (hSource = -1)
 		RETURN -1
 	ENDIF
 
-	* this call creates a new remote file
+	* 此调用会创建一个新的远程文件
 	hTarget = FtpOpenFile(hConnect, lcTarget, GENERIC_WRITE,;
 		FTP_TRANSFER_TYPE_BINARY, 0)
 	IF hTarget = 0
@@ -111,10 +112,8 @@ FUNCTION local2ftp(hConnect, lcSource, lcTarget)
 		IF lnLength > 0
 			IF InternetWriteFile(hTarget, @lcBuffer, lnLength, @lnLength) = 1
 				lnBytesWritten = lnBytesWritten + lnLength
-				* at this point you can display the progress
-				* and test events: keyboard, mouse etc.
-				* to decide on aborting the upload
-				?? "�"	&& you can put link to a progress bar here instead
+				* 这时可以显示进度和测试事件：键盘、鼠标等，决定是否中止上传
+				?? "�"	&& 你可以把进度条的链接放到这里来代替
 			ELSE
 				EXIT
 			ENDIF
@@ -129,17 +128,17 @@ RETURN lnBytesWritten
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FtpOpenFile](../libraries/wininet/FtpOpenFile.md)  
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetConnect](../libraries/wininet/InternetConnect.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 [InternetWriteFile](../libraries/wininet/InternetWriteFile.md)  
 
-## Comment:
-Unlike the FtpPutFile using this function you have control through the whole uploading process. Of course, it depends on how many chunks you split the source file to.  
+## 备注：
+与FtpPutFile不同的是，使用这个功能你可以控制整个上传过程。当然，这取决于您将源文件分割成多少块。 
   
-Between chunks you can display the progress of uploading. As well you can test pressed keys or other events and stop the uploading.  
+在各块之间，您可以显示上传的进度。您也可以测试按下的键或其他事件，并停止上传。 
   
 ***  
 
