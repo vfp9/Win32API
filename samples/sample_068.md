@@ -1,17 +1,18 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving the state of your Internet connection
+# 检索互联网连接的状态
+_翻译：xinjie  2021.01.11_
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
 <!-- Anatoliy --> 
-## Before you begin:
-<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">Programming File Transfer Protocol in Visual FoxPro </a></td></tr></table>  
+## 开始之前：
+<table cellspacing=3 cellpadding=0 border=0><tr><td valign=top><img src="../images/readarticle.gif" border=0></td><td valign=top class=fdescr><a href="?article=3">在Visual FoxPro中对文件传输协议进行编程</a></td></tr></table>  
 
   
 ***  
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_CONNECTION_MODEM        1
 #DEFINE INTERNET_CONNECTION_LAN          2
@@ -36,28 +37,28 @@ PROCEDURE  displayState
 	? "*** InternetGetConnectedState:"
 	lpdwFlags = 0
 	IF InternetGetConnectedState (@lpdwFlags, 0) = 1
-		? "  Flags returned:       " +;
+		? "  返回的标志:       " +;
 			LTRIM(STR(lpdwFlags))
 
-		? "  Modem connection:     " +;
+		? "  调制解调器连接:     " +;
 			_ok(lpdwFlags, INTERNET_CONNECTION_MODEM)
 
-		? "  LAN connection:       " +;
+		? "  局域网连接:       " +;
 			_ok(lpdwFlags, INTERNET_CONNECTION_LAN)
 
-		? "  Proxy connection:     " +;
+		? "  代理连接:     " +;
 			_ok(lpdwFlags, INTERNET_CONNECTION_PROXY)
 
-		? "  The modem is busy:    " +;
+		? "  调制解调器忙:    " +;
 			_ok(lpdwFlags, INTERNET_CONNECTION_MODEM_BUSY)
 
-		? "  The RAS is installed: " +;
+		? "  安装了RAS: " +;
 			_ok(lpdwFlags, INTERNET_RAS_INSTALLED)
 
-		? "  Offline connection:   " +;
+		? "  脱机连接:   " +;
 			_ok(lpdwFlags, INTERNET_CONNECTION_OFFLINE)
 
-		? "  Is configured:        " +;
+		? "  已配置:        " +;
 			_ok(lpdwFlags, INTERNET_CONNECTION_CONFIGURED)
 	ELSE
 		? "InternetGetConnectedState error"
@@ -65,7 +66,7 @@ PROCEDURE  displayState
 RETURN
 
 PROCEDURE  displayStateEx
-* the same as the regular one except the connection name is returned
+* 除返回连接名称外，与常规连接相同
 	?
 	? "*** InternetGetConnectedStateEx:"
 	lpdwFlags = 0
@@ -73,8 +74,8 @@ PROCEDURE  displayStateEx
 	IF InternetGetConnectedStateEx (@lpdwFlags,;
 		@lcConnection, Len(lcConnection), 0) = 1
 
-		? "  Flags returned:       " + LTRIM(STR(lpdwFlags))
-		? "  Connection name: " +;
+		? "  返回的标志:       " + LTRIM(STR(lpdwFlags))
+		? "  连接名: " +;
 			SUBSTR (lcConnection, 1, AT(Chr(0), lcConnection)-1)
 	ELSE
 		? "InternetGetConnectedStateEx error"
@@ -87,12 +88,12 @@ RETURN  Iif(BitAnd(lnBase, lnValue)=lnValue, "Yes","No")
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [InternetGetConnectedState](../libraries/wininet/InternetGetConnectedState.md)  
 [InternetGetConnectedStateEx](../libraries/wininet/InternetGetConnectedStateEx.md)  
 
-## Comment:
-Remote Access Service (RAS) provides remote access capabilities to client applications on computers using Microsoft&reg; Windows&reg; 95 or later and Windows NT&reg; version 3.5 and later, including Windows 2000, operating systems.   
+## 备注：
+远程访问服务（RAS）使用Microsoft＆reg 对计算机上的客户端应用程序提供远程访问功能。 Windows＆reg; 95或更高版本以及Windows NT＆reg; 3.5版和更高版本（包括Windows 2000）操作系统。  
   
 ***  
 
