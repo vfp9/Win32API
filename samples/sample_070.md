@@ -1,9 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to remove FTP directory
+# 如何移除 FTP 目录
 
-## Before you begin:
-To run this code you must have an appropriate user level to access the FTP.  
+## 开始之前：
+要运行这段代码，你必须有一个适当的用户级别来访问FTP。 
   
 ***  
 
@@ -19,17 +19,16 @@ To run this code you must have an appropriate user level to access the FTP.
 	PUBLIC hOpen, hFtpSession
     DO decl
 
-	* select FTP connection providing you an appropriate access level
-	* in all cases it can not be any "anonymous" access
+	* 选择FTP连接，提供适当的访问级别，在任何情况下都不能是 "匿名 "访问。
 	IF connect2ftp ("ftp.???.???", "???", "???")
 		lnResult = FtpRemoveDirectory (hFtpSession, "ftptest")
 	
 		* possible reasons for the directory not being removed:
-		* - your access level is not valid
-		* - the directory does not exist
-		* - the directory is not empty
+		* - 您的访问级别无效
+		* - 目录不存在
+		* - 目录不为空
 		IF lnResult = 0
-			? GetLastError()	&& usually the error code is 12003
+			? GetLastError()	&& 通常错误代码是1203
 		ENDIF
 
 		= InternetCloseHandle (hFtpSession)
@@ -63,32 +62,32 @@ PROCEDURE  decl
 RETURN
 
 FUNCTION  connect2ftp (strHost, strUser, strPwd)
-	* open access to Inet functions
+	* 开放Inet功能的访问
 	hOpen = InternetOpen ("vfp", INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问 WinInet.Dll"
 		RETURN .F.
 	ENDIF
 
-	* connect to FTP
+	* 连接到 FTP
 	hFtpSession = InternetConnect (hOpen, strHost, INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭 Inet 访问并退出
 		= InternetCloseHandle (hOpen)
-		? "FTP " + strHost + " is not available"
+		? "FTP " + strHost + " 不存在"
 		RETURN .F.
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", *****]"
+		? "连接到 " + strHost + " 用户名和密码: [" + strUser + ", *****]"
 	ENDIF
 RETURN .T.  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FtpRemoveDirectory](../libraries/wininet/FtpRemoveDirectory.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
