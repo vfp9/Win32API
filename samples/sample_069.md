@@ -103,6 +103,6 @@ RETURN .T.
 * * *  
 2013年7月8日：<a href="http://msdn.microsoft.com/zh-cn/library/system.net.webrequestmethods.ftp.getfilesize.aspx"> WebRequestMethods.Ftp.GetFileSize </a>失败 错误550：在ASCII模式下不允许使用SIZE。
    
-显然，没有办法使FtpWebRequest变为<a href =“ http://social.msdn.microsoft.com/Forums/en-US/0c38814e-d8e3-49f3-8818-b5306cc100ce/ftpwebrequestusebinary-does-not-work “>send the TYPE I command before the SIZE</a>？
+显然，没有办法使FtpWebRequest变为<a href ="http://social.msdn.microsoft.com/Forums/en-US/0c38814e-d8e3-49f3-8818-b5306cc100ce/ftpwebrequestusebinary-does-not-work">send the TYPE I command before the SIZE</a>？
 ***  
 
