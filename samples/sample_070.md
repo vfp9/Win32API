@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 如何移除 FTP 目录
+_翻译：xinjie  2021.01.13_
 
 ## 开始之前：
 要运行这段代码，你必须有一个适当的用户级别来访问FTP。 
