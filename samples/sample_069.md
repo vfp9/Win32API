@@ -1,16 +1,17 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to retrieve the size of a remote file (FTP)
+# 如何检索远程文件的大小(FTP)
+_翻译；xinjie  2021.01.13_
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [How to retrieve the size of a local file](sample_114.md)  
+* [使用 GetFileSize](sample_114.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER   0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT      1
@@ -33,7 +34,7 @@ See also:
 		IF hFile <> 0
 			LOCAL lnSizeHigh
 			lnSizeHigh = 0
-			? "Remote file size:", FtpGetFileSize (hFile, @lnSizeHigh)
+			? "远程文件大小:", FtpGetFileSize (hFile, @lnSizeHigh)
 			= InternetCloseHandle (hFile)
 		ENDIF
 
@@ -62,47 +63,46 @@ PROCEDURE declare
 RETURN
 
 FUNCTION  connect2ftp (strHost, strUser, strPwd)
-	* open access to Inet functions
+	* 开放Inet功能的访问
 	hOpen = InternetOpen ("w32rmsize",;
 			INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问 WinInet.Dll"
 		RETURN .F.
 	ENDIF
 
-	* connect to FTP
+	* 连接到 FTP
 	hFtpSession = InternetConnect (hOpen, strHost,;
 		INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭 Inet 的访问并退出
 		= InternetCloseHandle (hOpen)
-		? "FTP " + strHost + " is not available"
+		? "FTP " + strHost + " 不可用"
 		RETURN .F.
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", *****]"
+		? "连接到 " + strHost + " 用户名和密码: [" + strUser + ", *****]"
 	ENDIF
 RETURN .T.  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FtpGetFileSize](../libraries/wininet/FtpGetFileSize.md)  
 [FtpOpenFile](../libraries/wininet/FtpOpenFile.md)  
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetConnect](../libraries/wininet/InternetConnect.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 
-## Comment:
-The code does not process the high-order part *lpdwFileSizeHigh*. Process this part for obtaining sizes of files larger than 4 GBytes.  
+## 备注：
+代码不处理高阶部分*lpdwFileSizeHigh*。为了获得大于4GBytes的文件大小，请处理这部分。 
   
 * * *  
-2013-Jul-08: <a href="http://msdn.microsoft.com/en-us/library/system.net.webrequestmethods.ftp.getfilesize.aspx">WebRequestMethods.Ftp.GetFileSize</a> fails with error 550: SIZE not allowed in ASCII mode.  
+2013年7月8日：<a href="http://msdn.microsoft.com/zh-cn/library/system.net.webrequestmethods.ftp.getfilesize.aspx"> WebRequestMethods.Ftp.GetFileSize </a>失败 错误550：在ASCII模式下不允许使用SIZE。
    
-Apparently there is no way to make the FtpWebRequest to <a href="http://social.msdn.microsoft.com/Forums/en-US/0c38814e-d8e3-49f3-8818-b5306cc100ce/ftpwebrequestusebinary-does-not-work">send the TYPE I command before the SIZE</a> ?.  
-  
+显然，没有办法使FtpWebRequest变为<a href =“ http://social.msdn.microsoft.com/Forums/en-US/0c38814e-d8e3-49f3-8818-b5306cc100ce/ftpwebrequestusebinary-does-not-work “>send the TYPE I command before the SIZE</a>？
 ***  
 
