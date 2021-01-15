@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to delete file on FTP server
+# 如何删除 FTP 服务器上的文件
+_翻译：xinjie  2021.01.15_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE INTERNET_INVALID_PORT_NUMBER   0
 #DEFINE INTERNET_OPEN_TYPE_DIRECT      1
@@ -15,7 +16,7 @@
 
 	IF connect2ftp ("ftp.???.???", "???", "???")
 
-		* no wildcards accepted; valid file name only
+		* 不接受通配符；只接受有效的文件名
 		? FtpDeleteFile (hFtpSession, "ftptest/noname.txt")
 
 		= InternetCloseHandle (hFtpSession)
@@ -49,39 +50,39 @@ PROCEDURE  decl
 RETURN
 
 FUNCTION  connect2ftp (strHost, strUser, strPwd)
-	* open access to Inet functions
+	* 开放访问Inet功能
 	hOpen = InternetOpen ("vfp", INTERNET_OPEN_TYPE_DIRECT, 0, 0, 0)
 
 	IF hOpen = 0
-		? "Unable to get access to WinInet.Dll"
+		? "无法访问 WinInet.Dll"
 		RETURN .F.
 	ENDIF
 
-	* connect to FTP
+	* 连接到 FTP
 	hFtpSession = InternetConnect (hOpen, strHost, INTERNET_INVALID_PORT_NUMBER,;
 		strUser, strPwd, INTERNET_SERVICE_FTP, 0, 0)
 
 	IF hFtpSession = 0
-	* close access to Inet functions and exit
+	* 关闭访问 Inet 功能并退出
 		= InternetCloseHandle (hOpen)
-		? "FTP " + strHost + " is not available"
+		? "FTP " + strHost + " 不可用"
 		RETURN .F.
 	ELSE
-		? "Connected to " + strHost + " as: [" + strUser + ", *****]"
+		? "连接到 " + strHost + " 用户名和密码: [" + strUser + ", *****]"
 	ENDIF
 RETURN .T.  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [FtpDeleteFile](../libraries/wininet/FtpDeleteFile.md)  
 [InternetCloseHandle](../libraries/wininet/InternetCloseHandle.md)  
 [InternetConnect](../libraries/wininet/InternetConnect.md)  
 [InternetOpen](../libraries/wininet/InternetOpen.md)  
 
-## Comment:
-No wildcards accepted; valid file name only  
+## 备注：
+不接受通配符；只接受有效的文件名 
   
 ***  
 
