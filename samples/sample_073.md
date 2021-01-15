@@ -29,8 +29,8 @@ nId = GetTimeZoneInformation(@cTimeZone)
 LOCAL nNewBias, cStandardName, cDaylightName
 nNewBias = 301
 *cStandardName = PADR(StrConv("Scarborough Standard",5),64,Chr(0))
-cStandardName = PADR("My City Standard", 64, Chr(0))
-cDaylightName = PADR("My City Daylight", 64, Chr(0))
+cStandardName = PADR("所在城市标准时名称", 64, Chr(0))
+cDaylightName = PADR("所在城市夏令时名称", 64, Chr(0))
 cTimeZone_ = num2dword(nNewBias) + cStandardName +;
 	SUBSTR(cTimeZone, 69, 20) +;
 	cDaylightName +;
@@ -42,7 +42,7 @@ cTimeZone_ = Repli(Chr(0), TIME_ZONE_SIZE)  && clearing buffer
 = ShowTimeZoneInfo(cTimeZone_)
 
 ?
-? "*** Back to old settings..."
+? "*** 恢复原有设置..."
 = SetTimeZoneInformation(cTimeZone)
 cTimeZone = Repli(Chr(0), TIME_ZONE_SIZE)
 = GetTimeZoneInformation(@cTimeZone)
