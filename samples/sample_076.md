@@ -1,28 +1,28 @@
 [<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
 
-# Saving available locale records into a cursor
+# 将可用的语言环境记录保存到游标中
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
 <!-- Anatoliy --> 
-* [LanguageBar ActiveX control](?solution=7)  
-* [Retrieving national language settings](sample_077.md)  
-* [Switching between keyboard layouts](sample_275.md)  
+* [LanguageBar ActiveX 控件](?solution=7)  
+* [检索国家语言设置](sample_077.md)  
+* [在键盘布局之间切换](sample_275.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
-* some LOCALE constants
-#DEFINE LOCALE_ILANGUAGE                1   && language id
-#DEFINE LOCALE_SLANGUAGE                2   && localized name of language
-#DEFINE LOCALE_SENGLANGUAGE          4097   && English name of language
-#DEFINE LOCALE_SABBREVLANGNAME          3   && abbreviated language name
-#DEFINE LOCALE_SNATIVELANGNAME          4   && native name of language
+* 一些LOCALE常数
+#DEFINE LOCALE_ILANGUAGE                1   && 语言ID
+#DEFINE LOCALE_SLANGUAGE                2   && 语言的本地化名称
+#DEFINE LOCALE_SENGLANGUAGE          4097   && 语言的英文名称
+#DEFINE LOCALE_SABBREVLANGNAME          3   && 语言名称缩写
+#DEFINE LOCALE_SNATIVELANGNAME          4   && 语言的本地名称
 #DEFINE LOCALE_ICOUNTRY                 5   && country code
 #DEFINE LOCALE_SCOUNTRY                 6   && localized name of country
 #DEFINE LOCALE_SENGCOUNTRY           4098   && English name of country
@@ -135,13 +135,13 @@ RETURN IIF(nLength > 0, SUBSTR(cBuffer, 1, nLength), "")
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetLocaleInfo](../libraries/kernel32/GetLocaleInfo.md)  
 
-## Comment:
-This code retrieves all locale records available on your system.  
+## 备注：
+此代码检索系统上可用的所有区域设置记录。 
   
-At this point I do not know how to create a call-back procedure within VFP (if it is really possible), so the only replacing option is to scan a wide range of could-be locale values.  
+此时，我不知道如何在 VFP 中创建回调过程（如果真的有可能），因此唯一的替换选项是扫描各种可能设置区域设置值。  
   
 ***  
 
