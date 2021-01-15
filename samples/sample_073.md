@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving information specific to the current Time Zone
+# 检索当前时区的特定信息
+_翻译：xinjie  2021.01.15_
 
-## Code:
+## 代码：
 ```foxpro  
 *| typedef struct _TIME_ZONE_INFORMATION {
 *|     LONG       Bias;                  0        4
@@ -19,12 +20,12 @@ DO decl
 LOCAL cTimeZone, cTimeZone_, nId
 cTimeZone = Repli(Chr(0), TIME_ZONE_SIZE)
 
-? "*** Retrieving current TimeZone info..."
+? "*** 检索当前时区信息..."
 nId = GetTimeZoneInformation(@cTimeZone)
 = ShowTimeZoneInfo(cTimeZone)
 
 ?
-? "*** Changing bias and standard name parameters..."
+? "*** 更改偏差和标准名称参数..."
 LOCAL nNewBias, cStandardName, cDaylightName
 nNewBias = 301
 *cStandardName = PADR(StrConv("Scarborough Standard",5),64,Chr(0))
@@ -121,6 +122,6 @@ PROCEDURE decl
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetTimeZoneInformation](../libraries/kernel32/GetTimeZoneInformation.md)  
 [SetTimeZoneInformation](../libraries/kernel32/SetTimeZoneInformation.md)  
