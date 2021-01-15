@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
 
 # 将可用的语言环境记录保存到游标中
+_翻译：xinjie  2021.01.15_
 
 ## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
