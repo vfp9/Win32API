@@ -1,6 +1,7 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving the System Time adjustment
+# 检索系统时间的调整
+_翻译：xinjie  2021.01.15_
 
 ## Code:
 ```foxpro  
@@ -17,32 +18,28 @@ DECLARE INTEGER GetLastError IN kernel32
 	IF GetSystemTimeAdjustment (@lpTimeAdjustment,;
 		@lpTimeIncrement, @lpTimeAdjustmentDisabled) = 1
 
-		? "The time adjustment is: " +;
-			Iif(lpTimeAdjustmentDisabled=0, "ENABLED", "disabled")
+		? "时间的调整为: " +;
+			Iif(lpTimeAdjustmentDisabled=0, "可用", "禁用")
 		?
-		? "The number of 100-nanosecond units "
-		? "added to the time-of-day clock "
-		? "at each periodic time adjustment: "
+		? "每次定期时间调整时，添加到时钟中的100纳秒单位数: "
 		?? lpTimeAdjustment
 		?
-		? "The interval, "
-		? "counted in 100-nanosecond units, "
-		? "between periodic time adjustments: "
+		? "定期时间调整之间的间隔（以100纳秒为单位）: "
 		?? lpTimeIncrement
 	ELSE
-		? "GetSystemTimeAdjustment calling error: "
+		? "GetSystemTimeAdjustment 调用失败: "
 		?? GetLastError()
 	ENDIF  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [GetSystemTimeAdjustment](../libraries/kernel32/GetSystemTimeAdjustment.md)  
 
-## Comment:
-WinNT only. This function is not supported under Win9*  
+## 备注：
+仅适用于WinNT。在Win9x下不支持此功能。  
   
 ***  
 
