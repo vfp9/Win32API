@@ -65,19 +65,19 @@ FUNCTION GetTimeZoneType(nId)
 	ENDCASE
 
 PROCEDURE ShowTimeZoneInfo(cTimeZone)
-	? "Bias (minutes between UTC and local):", buf2dword(SUBSTR(cTimeZone, 1,4))
-	? "Standard Bias:", buf2dword(SUBSTR(cTimeZone, 85,4))
-	? "Daylight Bias:", buf2dword(SUBSTR(cTimeZone, 169,4))
-	? "Standard name:", STRTRAN(SUBSTR(cTimeZone, 5,32), Chr(0),"")
-	? "Daylight name:", STRTRAN(SUBSTR(cTimeZone, 89,32), Chr(0),"")
-	? "Standard Date:",;
+	? "偏差值 (世界协调时与当地时间相差分钟):", buf2dword(SUBSTR(cTimeZone, 1,4))
+	? "采用标准时间期间进行本地时间转换时使用的偏差值:", buf2dword(SUBSTR(cTimeZone, 85,4))
+	? "采用夏令时期间进行本地时间转换时使用的偏差值:", buf2dword(SUBSTR(cTimeZone, 169,4))
+	? "时区的标准时间的显示名称:", STRTRAN(SUBSTR(cTimeZone, 5,32), Chr(0),"")
+	? "当前时区的夏令时的显示名称:", STRTRAN(SUBSTR(cTimeZone, 89,32), Chr(0),"")
+	? "从夏令时转换为标准时间时的日期和本地时间:",;
 		buf2word(SUBSTR(cTimeZone,69,2)),;
 		buf2word(SUBSTR(cTimeZone,71,2)),;
 		buf2word(SUBSTR(cTimeZone,73,2)),;
 		buf2word(SUBSTR(cTimeZone,75,2)),;
 		buf2word(SUBSTR(cTimeZone,77,2)),;
 		buf2word(SUBSTR(cTimeZone,79,2))
-	? "Daylight Date:",;
+	? "从标准时间转换为夏令时时的日期和本地时间:",;
 		buf2word(SUBSTR(cTimeZone,153,2)),;
 		buf2word(SUBSTR(cTimeZone,155,2)),;
 		buf2word(SUBSTR(cTimeZone,157,2)),;
