@@ -23,28 +23,28 @@
 #DEFINE LOCALE_SENGLANGUAGE          4097   && 语言的英文名称
 #DEFINE LOCALE_SABBREVLANGNAME          3   && 语言名称缩写
 #DEFINE LOCALE_SNATIVELANGNAME          4   && 语言的本地名称
-#DEFINE LOCALE_ICOUNTRY                 5   && country code
-#DEFINE LOCALE_SCOUNTRY                 6   && localized name of country
-#DEFINE LOCALE_SENGCOUNTRY           4098   && English name of country
-#DEFINE LOCALE_SABBREVCTRYNAME          7   && abbreviated country name
-#DEFINE LOCALE_SNATIVECTRYNAME          8   && native name of country
-#DEFINE LOCALE_IDEFAULTLANGUAGE         9   && default language id
-#DEFINE LOCALE_IDEFAULTCOUNTRY         10   && default country code
-#DEFINE LOCALE_IDEFAULTCODEPAGE        11   && default oem code page
-#DEFINE LOCALE_IDEFAULTANSICODEPAGE  4100   && default ansi code page
-#DEFINE LOCALE_IDEFAULTMACCODEPAGE   4113   && default mac code page
+#DEFINE LOCALE_ICOUNTRY                 5   && 国家代码
+#DEFINE LOCALE_SCOUNTRY                 6   && 国家的本地化名称
+#DEFINE LOCALE_SENGCOUNTRY           4098   && 国家的英文名称
+#DEFINE LOCALE_SABBREVCTRYNAME          7   && 国家名称缩写
+#DEFINE LOCALE_SNATIVECTRYNAME          8   && 国家名称
+#DEFINE LOCALE_IDEFAULTLANGUAGE         9   && 默认语言ID
+#DEFINE LOCALE_IDEFAULTCOUNTRY         10   && 默认国家代码
+#DEFINE LOCALE_IDEFAULTCODEPAGE        11   && 默认 oem 代码页
+#DEFINE LOCALE_IDEFAULTANSICODEPAGE  4100   && 默认 ansi 代码页
+#DEFINE LOCALE_IDEFAULTMACCODEPAGE   4113   && 默认 mac 代码页
 
-#DEFINE LOCALE_ILDATE                  34   && long date format ordering
-#DEFINE LOCALE_ILZERO                  18   && leading zeros for decimal
-#DEFINE LOCALE_IMEASURE                13   && 0 = metric, 1 = US
-#DEFINE LOCALE_IMONLZERO               39   && leading zeros in month field
-#DEFINE LOCALE_INEGCURR                28   && negative currency mode
+#DEFINE LOCALE_ILDATE                  34   && 长日期格式顺序
+#DEFINE LOCALE_ILZERO                  18   && 小数点前导零
+#DEFINE LOCALE_IMEASURE                13   && 0 = 公制, 1 = US
+#DEFINE LOCALE_IMONLZERO               39   && 月份字段中的前导零
+#DEFINE LOCALE_INEGCURR                28   && 负货币模式
 #DEFINE LOCALE_INEGSEPBYSPACE          87   && mon sym sep by space from neg amt
-#DEFINE LOCALE_INEGSIGNPOSN            83   && negative sign position
+#DEFINE LOCALE_INEGSIGNPOSN            83   && 负号位置
 
 #DEFINE LOCALE_SDAYNAME1   0x0000002A
 #DEFINE LOCALE_SMONTHNAME1  0x00000038
-* there are at least 216 LOCALE constants
+* 至少有216个LOCALE常数
 
 DECLARE INTEGER GetLocaleInfo IN kernel32;
 	INTEGER Locale, INTEGER LCType,;
@@ -78,9 +78,7 @@ CREATE CURSOR cs (;
 	smonname1 C(20);
 )
 	
-* scan top 0x10000 codes
-* under WinNT 4.0 it returns 138 records
-* WinMe -- 164 records
+* 在WinNT 4.0下扫描前0x10000代码，返回138条记录，WinMe--164条记录。
 FOR ii=0 TO 65535
 	= SaveLInfo(ii)
 ENDFOR
@@ -88,12 +86,12 @@ ENDFOR
 SELECT cs
 GO TOP
 BROWSE NORMAL NOWAIT
-* end of main
+* 主程序结束
 
 PROCEDURE SaveLInfo(lnLocale)
-* saves one local record for the locale
+* 为该地区保存一条本地记录
 	IF Len(GetLInfo(lnLocale, LOCALE_ILANGUAGE)) = 0
-	* exit if no information exists for this locale id
+	* 如果这个locale id不存在信息，则退出。
 		RETURN
 	ENDIF
 	
@@ -127,7 +125,7 @@ PROCEDURE SaveLInfo(lnLocale)
 RETURN
 
 PROCEDURE GetLInfo(nLocale, nType)
-* retrieves value for specified locale and type
+* 检索指定区域设置和类型的值
 	cBuffer = REPLICATE(CHR(0), 250)
 	nLength = GetLocaleInfo(nLocale, nType, @cBuffer, LEN(cBuffer))
 RETURN IIF(nLength > 0, SUBSTR(cBuffer, 1, nLength), "")  
