@@ -1,17 +1,17 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Clipping mouse cursor area
+# 剪裁鼠标指针区域
+_翻译：xinjie  221.01.16_
 
 
-
-## Before you begin:
-By clicking on the **Clip** button you are confining the mouse cursor to the rectangle of the form.  
-To restore the previous state click on the **Restore** button or move the form.  
+## 开始之前：
+点击 **Clip** 按钮，您就会将鼠标指针限制在表格的矩形上。 
+要恢复到以前的状态，请点击 **Restore** 按钮或移动表格。 
 
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 PUBLIC frm
 frm = CreateObject("TForm")
