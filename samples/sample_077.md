@@ -1,36 +1,37 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving national language settings
+# 检索国家语言设置
+_翻译：xinjie  2021.01.16_
 
-## Note that this document contains some links to the old news2news website which does not work at the moment. This material will be available sometime in the future.
+## 请注意，本文件中包含一些与旧的news2news网站的链接，该网站目前无法使用。这些材料将在今后某个时候提供。
 
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
 <!-- Anatoliy -->
-* [LanguageBar ActiveX control](?solution=7)   
-* [Saving available locale records into a cursor](sample_076.md)  
-* [Switching between keyboard layouts](sample_275.md)  
+* [LanguageBar ActiveX 控件](?solution=7)   
+* [将可用的语言环境记录保存到游标中](sample_076.md)  
+* [在键盘布局之间切换](sample_275.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DO declare
 
-? "System Default LangID:", GetSystemDefaultLangID()
-? "User Default LangID:", GetUserDefaultLangID()
+? "系统默认 LangID:", GetSystemDefaultLangID()
+? "用户默认 LangID:", GetUserDefaultLangID()
 
-? "System Default LCID:", GetSystemDefaultLCID()
-? "User Default LCID:", GetUserDefaultLCID()
+? "系统默认 LCID:", GetSystemDefaultLCID()
+? "用户默认 LCID:", GetUserDefaultLCID()
 
-? "Current Thread Locale:", GetThreadLocale()
+? "当前线程语言环境:", GetThreadLocale()
 
-? "OEM code-page identifier:", GetOEMCP()
-? "ANSI code-page identifier:", GetACP()
-? "Current code page (should be the same as GetOEMCP): ",;
+? "OEM 编码页标识符:", GetOEMCP()
+? "ANSI 编码页标识符:", GetACP()
+? "当前代码页（应与GetOEMCP相同）:",;
 	GetKBCodePage()
 
 PROCEDURE declare
@@ -46,7 +47,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetACP](../libraries/kernel32/GetACP.md)  
 [GetKBCodePage](../libraries/user32/GetKBCodePage.md)  
 [GetOEMCP](../libraries/kernel32/GetOEMCP.md)  
