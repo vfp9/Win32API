@@ -23,7 +23,7 @@ PROTECTED mClip
 	MinButton=.F.
 	Width=500
 	Height=250
-	Caption = "Clipping mouse cursor area"
+	Caption = "剪裁鼠标指针区域"
 	BorderStyle=2
 	AutoCenter=.T.
 
@@ -32,7 +32,7 @@ PROTECTED mClip
 
 PROCEDURE Init
  	THIS.declare
-	* save initial clipping area
+	* 保存初始剪裁区域
 	lpRect = REPLICATE(Chr(0), 16)
 	= GetClipCursor(@lpRect)
 	THIS.mClip = m.lpRect
@@ -48,13 +48,13 @@ PROCEDURE Resize
 	THIS.cmdClip.Left = THIS.cmdRestore.Left - THIS.cmdClip.Width - 2
 
 PROCEDURE clip
-* locks the cursor inside the form
+* 将光标锁定在表单中
 	MOUSE AT THIS.top, THIS.left PIXELS  && put cursor inside the form
-	* give VFP a time slice for updating mouse position in its internal data
+	* 给VFP一个等待时间以更新其内部数据中的鼠标位置
 	= INKEY(0.1)
 
-	lpPoint = REPLICATE(Chr(0), 8)	&& allocate space for POINT structure
-	= GetCursorPos(@lpPoint)  && retrieve absolute mouse position
+	lpPoint = REPLICATE(Chr(0), 8)	&& 为POINT结构分配空间
+	= GetCursorPos(@lpPoint)  && 检索鼠标的绝对位置
 
 	LOCAL absX, absY, lcCaptionHeight, lcFrameWidth,;
 		lcFrameHeight, lcRect
@@ -62,17 +62,17 @@ PROCEDURE clip
 	absX = ThisForm.buf2dword(SUBSTR(lpPoint, 1,4))
 	absY = ThisForm.buf2dword(SUBSTR(lpPoint, 5,4))
 
-	* retrieve some sizes to be used in calculating the area
-	lcCaptionHeight=GetSystemMetrics(4)  && size of normal caption area
-	lcFrameWidth=GetSystemMetrics(32)  && resiz.window frame width
-	lcFrameHeight=GetSystemMetrics(33)  && resiz.window frame height
+	* 检索一些用于计算面积的尺寸
+	lcCaptionHeight=GetSystemMetrics(4)  && 正常标题区大小
+	lcFrameWidth=GetSystemMetrics(32)  && resiz.window 边框宽度
+	lcFrameHeight=GetSystemMetrics(33)  && resiz.window 边框高度
 
-	lcRect = REPLI(Chr(0), 16)	&& allocate space for RECT structure
-	* resize the RECT using the form position, and size
+	lcRect = REPLI(Chr(0), 16)	&& 为RECT结构分配空间
+	* 使用表单位置和大小调整RECT的大小
 	THIS.num2rect(absX, absY, absX + THIS.Width + lcFrameWidth,;
 		absY + THIS.Height + lcCaptionHeight + lcFrameHeight, @lcRect)
 
-	= ClipCursor(lcRect)  && locked!
+	= ClipCursor(lcRect)  && 锁定！
 
 PROCEDURE RestoreInitStatus
 	= ClipCursor(THIS.mClip)
@@ -123,7 +123,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [ClipCursor](../libraries/user32/ClipCursor.md)  
 [GetClipCursor](../libraries/user32/GetClipCursor.md)  
 [GetCursorPos](../libraries/user32/GetCursorPos.md)  
