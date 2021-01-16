@@ -34,10 +34,10 @@ PROCEDURE PrintLine(cTitle, nMode)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetSystemMetrics](../libraries/user32/GetSystemMetrics.md)  
 
-## Comment:
+## 备注：
 参考：SystemParametersInfo, <a href="http://msdn.microsoft.com/en-us/library/39ddf2h2(VS.80).aspx">SYSMETRIC</a>  
   
 获取屏幕分辨率。在 Windows 7 的 Windows XP 模式下，从屏幕高度(SM_CYSCREEN)中减去两个像素。  
