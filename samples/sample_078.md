@@ -1,23 +1,24 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Comparing dimensions of the VFP main window with _SCREEN properties
+# 将 VFP 主窗口的尺寸与 _SCREEN 属性进行比较
+_翻译：xinjie  2021.01.16_
 
-## Code:
+## 代码：
 ```foxpro  
 DO decl
 
-* displays dimensions for the objects
-DO _winRect      && main VFP window
-DO _clientRect   && client part of the main VFP window
-DO _screenRect   && _screen object
+* 显示对象的尺寸
+DO _winRect      && VFP 主窗口
+DO _clientRect   && 客户端部分
+DO _screenRect   && _screen 对象
 
 PROCEDURE _screenRect
 	?
-	? "*** _SCREEN dimensions"
-	? "    left:   " + STR(_screen.left,   6)
-	? "    top:    " + STR(_screen.top,    6)
-	? "    width:  " + STR(_screen.width,  6)
-	? "    height: " + STR(_screen.height, 6)
+	? "*** _SCREEN 尺寸"
+	? "    左:    " + STR(_screen.left,   6)
+	? "    上:    " + STR(_screen.top,    6)
+	? "    宽:    " + STR(_screen.width,  6)
+	? "    高:    " + STR(_screen.height, 6)
 
 PROCEDURE _winRect
 	lpRect = REPLI (Chr(0), 16)
@@ -30,13 +31,13 @@ PROCEDURE _winRect
 	lnWinWidth  = lnWinRight - lnWinLeft + 1
 	lnWinHeight = lnWinBottom - lnWinTop + 1
 
-	? "*** Main VFP window rectangle"
-	? "    left:   " + STR(lnWinLeft,   6)
-	? "    top:    " + STR(lnWinTop,    6)
-	? "    right:  " + STR(lnWinRight,  6)
-	? "    bottom: " + STR(lnWinBottom, 6)
-	? "    width:  " + STR(lnWinWidth,  6)
-	? "    height: " + STR(lnWinHeight, 6)
+	? "*** VFP主窗口区域"
+	? "    左:    " + STR(lnWinLeft,   6)
+	? "    上:    " + STR(lnWinTop,    6)
+	? "    右:    " + STR(lnWinRight,  6)
+	? "    下:    " + STR(lnWinBottom, 6)
+	? "    宽:    " + STR(lnWinWidth,  6)
+	? "    高:    " + STR(lnWinHeight, 6)
 
 PROCEDURE _clientRect
 	lpRect = REPLI (Chr(0), 16)
@@ -50,13 +51,13 @@ PROCEDURE _clientRect
 	lnWinWidth  = lnWinRight - lnWinLeft + 1
 	lnWinHeight = lnWinBottom - lnWinTop + 1
 
-	? "*** Main VFP client window rectangle"
-	? "    left:   " + STR(lnWinLeft,   6)
-	? "    top:    " + STR(lnWinTop,    6)
-	? "    right:  " + STR(lnWinRight,  6)
-	? "    bottom: " + STR(lnWinBottom, 6)
-	? "    width:  " + STR(lnWinWidth,  6)
-	? "    height: " + STR(lnWinHeight, 6)
+	? "*** VFP客户端主窗口的区域"
+	? "    左:    " + STR(lnWinLeft,   6)
+	? "    上:    " + STR(lnWinTop,    6)
+	? "    右:    " + STR(lnWinRight,  6)
+	? "    下:    " + STR(lnWinBottom, 6)
+	? "    宽:    " + STR(lnWinWidth,  6)
+	? "    高:    " + STR(lnWinHeight, 6)
 
 PROCEDURE decl
 	DECLARE INTEGER GetActiveWindow IN user32
@@ -72,17 +73,17 @@ RETURN Asc(SUBSTR(cBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GetClientRect](../libraries/user32/GetClientRect.md)  
 [GetWindowRect](../libraries/user32/GetWindowRect.md)  
 
-## Comment:
-_SCREEN Width and Height are affected by the state of:  
-* VFP System Menu (try RELEASE MENU _msysmenu)  
-* VFP status bar  (try SET STATUS BAR ON/OFF)  
-* VFP toolbar: where it is docked, how many controls it contains  
-* VFP Command Window: whether it is dockable or notChange the state of these objects, and check how it affects the output of this code.  
+## 备注：
+_SCREEN 宽度和高度受以下状态的影响。 
+* VFP系统菜单（尝试RELEASE MENU _msysmenu）的状态。 
+* VFP状态栏(尝试设置状态栏开/关)  
+* VFP工具栏：它的停靠位置，包含多少个控件。 
+* VFP命令窗口：是否可停靠改变这些对象的状态，并检查它如何影响该代码的输出。 
   
 ***  
 
