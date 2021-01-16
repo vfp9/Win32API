@@ -1,56 +1,57 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Placing an arbitrary rectangular area of main VFP window on the Clipboard
+# 将主 VFP 窗口的任意矩形区域放置在剪贴板上
+_翻译：xinjie  221.01.16_
 
-## Code:
+## 代码：
 ```foxpro  
 LPARAMETERS  lnLeft, lnTop, lnRight, lnBottom
 
-#DEFINE CF_BITMAP  2	     && clipboard format
+#DEFINE CF_BITMAP  2	     && 剪贴板格式
 #DEFINE SRCCOPY    13369376  && BitBlt raster operation code
 
 DO decl
 
-* width and height of the rectangular area
+* 矩形区域的宽度和高度
 lnWidth = lnRight - lnLeft + 1
 lnHeight = lnBottom - lnTop + 1
 
-* retrieving HWND and DC for the main VFP window
+* 检索主VFP窗口的HWND和DC
 hwnd = GetActiveWindow()
 
-* try both HDC values and note the difference
-hdc = GetWindowDC (hwnd)  && device context of the whole window
-*hdc = GetDC (hwnd)	&& device context of the client area
+* 尝试两个HDC值，并注意其差异
+hdc = GetWindowDC (hwnd)  && 整个窗口的设备上下文
+*hdc = GetDC (hwnd)	&& 客户端区域的设备上下文
 	
-* creating compatible DC and BITMAP
+* 创建兼容的DC和BITMAP
 hVdc = CreateCompatibleDC (hdc)
 hBitmap = CreateCompatibleBitmap (hdc, lnWidth, lnHeight)
-= SelectObject (hVdc, hBitmap)  && insert created BITMAP into hVdc
+= SelectObject (hVdc, hBitmap)  && 将创建的BITMAP插入到hVdc中
 
-* copying a rectangular area from HDC to hVdc
+* 将一个矩形区域从HDC复制到hVdc。
 = BitBlt (hVdc, 0,0, lnWidth,lnHeight,;
 	hdc, lnLeft,lnTop, SRCCOPY)
 
-* opening clipboard and place bitmap data into it
+* 打开剪贴板并将位图数据放入其中
 = OpenClipboard (hwnd)
 = EmptyClipboard()
 
 lnResult = SetClipboardData (CF_BITMAP, hBitmap)
 IF lnResult <> 0
-* Done! See the fragment appeared in Clipboard viewer
+* 完成! 查看剪贴板查看器中出现的片段。
 ELSE
-	? "Error code: "
+	? "错误代码: "
 	?? GetLastError()
 ENDIF
 
-* closing the clipboard -- important
+* 关闭剪贴板 -- 重要
 = CloseClipboard()
 
-* releasing system resources
+* 释放系统资源
 = DeleteObject (hBitmap)
 = DeleteDC (hVdc)
 = ReleaseDC (hwnd, hdc)
-* end of main
+* 主程序结束
 
 PROCEDURE  decl   && not a few
 	DECLARE INTEGER GetLastError IN kernel32
@@ -78,7 +79,7 @@ PROCEDURE  decl   && not a few
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [BitBlt](../libraries/gdi32/BitBlt.md)  
 [CloseClipboard](../libraries/user32/CloseClipboard.md)  
 [CreateCompatibleBitmap](../libraries/gdi32/CreateCompatibleBitmap.md)  
@@ -95,8 +96,8 @@ PROCEDURE  decl   && not a few
 [SelectObject](../libraries/gdi32/SelectObject.md)  
 [SetClipboardData](../libraries/user32/SetClipboardData.md)  
 
-## Comment:
-Pass into this procedure four screen coordinates that are relative to the upper left corner of the main VFP window or its client area -- depending on HDC used.  
+## 备注：
+将四个屏幕坐标传递到此过程，这些坐标相对于主 VFP 窗口的左上角或其工作区 - 具体取决于使用的 HDC。 
   
 ***  
 
