@@ -1,22 +1,23 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Enumerating printer drivers installed
+# 枚举安装的打印机驱动程序
+_翻译：xinjie  221.01.16_
 
-## Before you begin:
+## 开始之前：
 
-See also:
+参考：
 
-* [Enumerating locally installed printers](sample_146.md)  
-* [Enumerating the print processors and supporting data types installed on the specified server](sample_333.md)  
-* [Enumerating print jobs and retrieving information for default printer](sample_368.md)  
-* [How to retrieve number of print jobs that have been queued for the printer](sample_367.md)  
-* [Enumerating the ports that are available for printing on a specified server](sample_334.md)  
+* [使用 EnumPrinters 函数枚举本地安装的打印机](sample_146.md)  
+* [枚举安装在指定服务器上的打印处理器和支持的数据类型](sample_333.md)  
+* [枚举打印作业并检索默认打印机的信息(JOB_INFO_1结构)](sample_368.md)  
+* [如何检索打印机排队等候的打印作业数量](sample_367.md)  
+* [枚举指定服务器上可用的打印端口](sample_334.md)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE GMEM_FIXED 0
 DO declare
@@ -40,7 +41,7 @@ hBuffer = GlobalAlloc(GMEM_FIXED, nBufsize)
 LOCAL lcServer, lnResult, lnReturned, lnCount
 STORE 0 TO lnReturned, lnIndex, lnCount
 
-* use Null for local computer or a valid server name
+* 用Null代表本地计算机或使用有效的服务器名称
 * e.g. "\\MYSERVER"
 lcServer = Null
 lnResult = EnumPrinterDrivers(lcServer,;
@@ -48,7 +49,7 @@ lnResult = EnumPrinterDrivers(lcServer,;
 	@lnReturned, @lnCount)
 
 IF lnResult = 0
-	? "Error code:", GetLastError()
+	? "错误代码:", GetLastError()
 	= GlobalFree(hBuffer)
 	RETURN
 ENDIF
@@ -56,7 +57,7 @@ ENDIF
 cBuffer = REPLICATE(CHR(0), nBufsize)
 = Mem2Str(@cBuffer, hBuffer, nBufsize)
 
-* cursor for storing driver data
+* 用于存储驱动程序数据的游标
 CREATE CURSOR csDrvList (;
 	ver I, drvname C(50),;
 	envname C(20),;
@@ -81,7 +82,7 @@ IF USED("csDrvList")
 	GO TOP
 	EDIT NORMAL NOWAIT
 ENDIF
-* end of main
+* 主程序结束
 
 FUNCTION mw(lnOffs As Number)
 RETURN buf2dword(SUBSTR(cInfo, lnOffs, 4))
@@ -135,7 +136,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [EnumPrinterDrivers](../libraries/winspool.drv/EnumPrinterDrivers.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [GlobalAlloc](../libraries/kernel32/GlobalAlloc.md)  
