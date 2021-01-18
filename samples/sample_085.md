@@ -1,7 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 检索 DLL 的句柄和其中的导出函数的地址
-_翻译:xinjie  221.01.18_
+_翻译:xinjie  2021.01.18_
 
 ## 代码：
 ```foxpro  
