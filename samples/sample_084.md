@@ -1,16 +1,16 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Locking mouse and keyboard input for the VFP application
+# 锁定 VFP 应用程序的鼠标和键盘输入
 
-## Before you begin:
-See also:
+## 开始之前：
+参考：
 
-* [Capturing keyboard activity of another application using the Raw Input API](sample_572.md)  
+* [使用Raw Input API（VFP9）捕获另一个应用程序的键盘活动](sample_572.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER GetActiveWindow IN user32
 
@@ -18,43 +18,43 @@ DECLARE INTEGER EnableWindow IN user32;
  INTEGER hwnd,;
  INTEGER fEnable
 
-* get handle of main VFP window
+* 获取VFP主窗口的控制权
 hwnd = GetActiveWindow()
 
 ? EnableWindow (hwnd, 0)
-? "*** Input blocked - the main VFP window only"
+? "*** 输入锁定 - 仅VFP主窗口"
 	
 FOR ii=1 TO 10
 	DO proc1
 ENDFOR
 
 ? EnableWindow (hwnd, 1)
-? "*** Input unblocked"
+? "*** 解除锁定"
 
 PROCEDURE  proc1
 	LOCAL ii
-	WAIT WINDOW NOWAIT "Creating cursor..."
+	WAIT WINDOW NOWAIT "正在创建 cursor..."
 	CREATE CURSOR cs (id N(6), dt D)
 	FOR ii=1 TO 10000
 		INSERT INTO cs VALUES (ii, date()-ii)
 	ENDFOR
 	WAIT CLEAR
-	? Chr(9) + "- cursor created at " + TTOC (datetime())
+	? Chr(9) + "- 游标被创建，时间：" + TTOC (datetime())
 RETURN  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [EnableWindow](../libraries/user32/EnableWindow.md)  
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 
-## Comment:
-In this example user input is locked for VFP application only. This function works differently then the BlockInput does. The latter locks the window for all processes not just for the active process and thread.  
+## 备注：
+在此示例中，仅针对VFP应用程序锁定了用户输入。 此功能与BlockInput的工作方式不同。 后者锁定所有进程的窗口，而不仅仅是活动进程和线程。
   
-With EnableWindow you can effectively lock a VFP application. But it is more like "you lock the door and throw away the key". To unlock it use the Task Manager, or beforehand submit the instructions to some other application along with the corresponding HWND.  
+使用EnableWindow，您可以有效地锁定VFP应用程序。 但这更像是“您锁上门并扔掉钥匙”。 要解锁它，请使用任务管理器，或者事先将说明与相应的HWND一起提交给其他应用程序。
   
-Applied to windowed controls this function can enable or disable them.  
+应用于窗口控件时，此功能可以启用或禁用它们。 
   
 ***  
 
