@@ -1,48 +1,49 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Disabling mouse and keyboard input for the main VFP window (with the app still running)
+# 禁用VFP主窗口的鼠标和键盘输入（应用程序仍在运行时）
+_翻译：xinjie  2021.01.18_
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER BlockInput IN user32 INTEGER fBlockIt
 
 ? BlockInput (1)
-? "*** Input blocked"
+? "*** 阻断输入"
 	
 FOR ii=1 TO 10
 	DO dataproc
 ENDFOR
 
 ? BlockInput (0)
-? "*** Input unblocked"
+? "*** 解锁输入"
 
 PROCEDURE  dataproc
-* it is just an emulation of a time-consuming procedure
+* 这只是模拟一个耗时的过程
 	LOCAL ii
-	WAIT WINDOW NOWAIT "Creating cursor..."
+	WAIT WINDOW NOWAIT "正在创建 cursor..."
 	CREATE CURSOR cs (id N(6), dt D)
 	FOR ii=1 TO 10000
 		INSERT INTO cs VALUES (ii, date()-ii)
 	ENDFOR
 	WAIT CLEAR
-	? Chr(9) + "- cursor created at " + TTOC (datetime())
+	? Chr(9) + "- cursor 被创建，时间： " + TTOC (datetime())
 	USE IN cs
 RETURN  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [BlockInput](../libraries/user32/BlockInput.md)  
 
-## Comment:
-<font color=#800000>WinNT4, User32.dll of apr-99: Cannot find entry point BlockInput in the DLL.</font>  
+## 备注：
+<font color=#800000>WinNT4，apr-99的User32.dll：在DLL中找不到入口点BlockInput。</font>  
   
-During the cycle of N times running the DATAPROC, the user input is practically blocked. You can not even access the Task Manager.   
-  
-Though the good old CTRL+ALT+DEL still can break through. It is quite helpful in case you have a run-time error within this cycle. Otherwise you could not be able to get out.   
-  
-Note that no key presses reach the keyboard buffer during the blocking. And this is not the delay like the Sleep function creates.  
+在运行DATAPROC的N次循环中，用户输入实际上被阻塞了。您甚至不能访问任务管理器。
+
+尽管旧的CTRL+ALT+DEL仍然可以突破。如果在这个循环中出现运行时错误，这是非常有用的。否则你就出不来了。
+
+请注意，在阻塞期间，没有按键到达键盘缓冲区。这并不像睡眠功能所产生的延迟。 
   
 ***  
 
