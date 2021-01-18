@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving a handle to DLL and address of an exported function in it
+# 检索 DLL 的句柄和其中的导出函数的地址
+_翻译:xinjie  221.01.18_
 
-## Code:
+## 代码：
 ```foxpro  
 DO declare
 
@@ -15,7 +16,7 @@ hModule = GetModuleHandle(lcSysDir + CHR(92) + lcModule)
 lnAddr = GetProcAddress(hModule, lcProc)
 
 IF lnAddr = 0
-	? "Error code:", GetLastError()
+	? "错误代码:", GetLastError()
 ELSE
 	? "Address of " + lcProc + " in " + lcModule + ":",;
 		"0x"+int2hex(lnAddr)
@@ -50,7 +51,7 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 [GetModuleHandle](../libraries/kernel32/GetModuleHandle.md)  
 [GetProcAddress](../libraries/kernel32/GetProcAddress.md)  
