@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Finding the path to the VFP executable running
+# 找到运行 VFP 可执行文件的路径
+_翻译：xinjie  2021.01.20_
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER GetModuleHandle IN kernel32;
 	INTEGER lpModuleName
@@ -21,12 +22,12 @@ lnLen = GetModuleFileName (hModule, @lpFilename, Len(lpFilename))
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetModuleFileName](../libraries/kernel32/GetModuleFileName.md)  
 [GetModuleHandle](../libraries/kernel32/GetModuleHandle.md)  
 
 ## Comment:
-Depending on OS, VFP version running, and differently for run-time and command window mode you may get various results:  
+根据操作系统，VFP版本的运行情况以及运行时和命令窗口模式的不同，您可能会得到各种结果： 
   
 c:\vfp\vfp.exe  
 c:\winnt\system32\vfp300.esl  
