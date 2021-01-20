@@ -31,7 +31,7 @@ hWindow = GetFocus()  && a window with keyboard focus
 *hWindow = Application.hWnd
 *hWindow = _screen.HWnd
 
-* 检索窗口的几何参数
+* 检索窗口的几何参数 
 STORE 0 TO lnLeft, lnTop, lnRight, lnBottom, lnWidth, lnHeight
 = GetRect(@lnLeft, @lnTop, @lnRight, @lnBottom, @lnWidth, @lnHeight)
 
