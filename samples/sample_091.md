@@ -126,7 +126,7 @@ GetFocus函数检索拥有键盘焦点的窗口的句柄。
 在没有其他窗体运行的情况下，从VFP主窗口调用这个过程，可以将整个主窗口本身复制到剪贴板上。 
   
 * * *  
-微软帮助和支持页面上发表的一篇文章[如何从Visual Basic将屏幕或活动窗口复制到剪贴板](https://support.microsoft.com/en-us/help/240653/how-to-copy-the-screen-or-active-window-to-the-clipboard-from-visual-b)描述了一种不同的方法--通过虚拟按下(通过keybd_event调用)PrtScr键将整个屏幕的图片发送到剪贴板。 
+微软帮助和支持页面上发表的一篇文章 [How To Copy the Screen or Active Window to the Clipboard from Visual Basic](https://support.microsoft.com/en-us/help/240653/how-to-copy-the-screen-or-active-window-to-the-clipboard-from-visual-b) 描述了一种不同的方法--通过虚拟按下(通过keybd_event调用)PrtScr键将整个屏幕的图片发送到剪贴板。 
   
 ***  
 
