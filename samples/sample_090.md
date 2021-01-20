@@ -1,15 +1,16 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# GetFocus returns a HWND value
+# GetFocus 返回一个 HWND 值
+_翻译：xinjie  2021.01.20_
 
-## Code:
+## 代码：
 ```foxpro  
 PUBLIC frm
 frm = CreateObject ("Tform")
 frm.Visible = .T.
 
 DEFINE CLASS Tform As form
-	caption = " Testing the GetFocus API"
+	caption = " 测试 GetFocus API"
 	width = 500
 	height = 350
 	autocenter = .T.
@@ -171,15 +172,15 @@ RETURN Asc(SUBSTR(lcBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetActiveWindow](../libraries/user32/GetActiveWindow.md)  
 [GetFocus](../libraries/user32/GetFocus.md)  
 [GetWindowRect](../libraries/user32/GetWindowRect.md)  
 
-## Comment:
-The form in this example displays geometrical parameters of itself and of two windows presented by their HWNDs: (1) main VFP window retrieving from GetActiveWindow, and the window that has the keyboard focus. Its HWND is returned by GetFocus function.  
+## 备注：
+本示例中的表单显示其自身以及由其HWND呈现的两个窗口的几何参数：（1）从GetActiveWindow检索的主VFP窗口，以及具有键盘焦点的窗口。 它的HWND由GetFocus函数返回。
   
-Move and resize this form, and see how all these parameters change.  
+移动并调整此表单的大小，然后查看所有这些参数如何更改。 
   
 ***  
 
