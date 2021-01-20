@@ -1,15 +1,16 @@
 [<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
 
-# Enumerating Volumes and Volume Mounting Points (NTFS)
+# 枚举卷和卷安装点(NTFS)
+_翻译:xinjie  2021.01.20_
 
-## Before you begin:
+## 开始之前：
 ![](../images/mountedvolume.png)  
 
-After the volume mount points have been established, they are maintained through computer restarts automatically.  
+卷挂载点建立后，通过计算机重启自动维护。 
 
-The picture shows local CDDRIVE device mounted to D:\mnt\cddrive directory.  
+图为本地CDDRIVE设备挂载到D:\mnt\cddrive目录。 
 
-Handle this set of functions with care. Do not unmount root directories like C:, unless you know what you are doing.  
+谨慎处理这组功能。不要卸载C:等根目录，除非你知道自己在做什么。  
 
   
 ```foxpro
@@ -35,7 +36,7 @@ NEXT
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 DEFINE CLASS TVolumes As Session
 #DEFINE INVALID_HANDLE_VALUE -1
@@ -48,12 +49,12 @@ PROCEDURE Init
 	THIS.EnumVolumes
 
 PROCEDURE MountVolume(cMountPath, cDriveLetter)
-* works similar to MOUNTVOL.EXE utility
-* usage: MountVolume("d:\mnt\cddrive\", "E")
-* everything is strictly local
-* Directory "d:\mnt\cddrive\" must exist
-* CDROM must exist with logical drive letter E assigned
-* if successful, the CDROM can be accessed via the path on D:
+* 类似于MOUNTVOL.EXE实用程序
+* 用法：MountVolume（“ d：\ mnt \ cddrive \”，“ E”）
+* 一切都是严格本地的
+* 目录“ d：\ mnt \ cddrive \”必须存在
+* CDROM必须存在并分配了逻辑驱动器号E
+* 如果成功，则可以通过D上的路径访问CDROM：
 
 	LOCAL cVolume
 	cVolume = THIS.PointToVolume(cDriveLetter)
@@ -63,17 +64,17 @@ PROCEDURE MountVolume(cMountPath, cDriveLetter)
 RETURN (SetVolumeMountPoint(cMountPath, cVolume) <> 0)
 
 PROCEDURE UnmountVolume(cMountPath)
-* a trailing backslash is required
+* 需要反斜杠
 	IF LEN(cMountPath) <= 3
-	* I suggest do not unmount root directories
-	* like C:\, D:\ and so on
+	* 我建议不要卸载根目录
+	* 像 C:\, D:\ 等等
 		RETURN .F.
 	ENDIF
 RETURN (DeleteVolumeMountPoint(cMountPath) <> 0)
 
 FUNCTION PointToVolume(cDriveLetter) As String
-* returns a gibberish for a given logical drive letter
-* example: "D" --> \\?\Volume{...}\
+* 返回一个给定逻辑驱动器字母的乱码
+* 例如: "D" --> \\?\Volume{...}\
 	LOCAL cBuffer
 	cBuffer = REPLICATE(CHR(0), MAX_PATH)
 	= GetVolumeNameForVolumeMountPoint(cDriveLetter + ":\",;
@@ -248,7 +249,7 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [DeleteVolumeMountPoint](../libraries/kernel32/DeleteVolumeMountPoint.md)  
 [FindFirstVolume](../libraries/kernel32/FindFirstVolume.md)  
 [FindFirstVolumeMountPoint](../libraries/kernel32/FindFirstVolumeMountPoint.md)  
@@ -261,13 +262,13 @@ ENDDEFINE
 [GetVolumePathNamesForVolumeName](../libraries/kernel32/GetVolumePathNamesForVolumeName.md)  
 [SetVolumeMountPoint](../libraries/kernel32/SetVolumeMountPoint.md)  
 
-## Comment:
-Related Registry keys:  
+## 备注：
+相关的注册表键:
 HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices  
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2  
   
 * * *   
-Function GetVolumeNameForVolumeMountPoint returns the volume name for a given drive letter. Same do the Volume names enumeration calls. The volume names, I think, can be used to uniquely identify computers. Example:  
+函数GetVolumeNameForVolumeMountPoint返回给定驱动器号的卷名。 卷名枚举调用也是如此。 我认为，卷名可用于唯一标识计算机。 例： 
 > \\?\Volume{9da8b072-8130-22d6-ff8f-806d6172699f}\  
   
 ***  
