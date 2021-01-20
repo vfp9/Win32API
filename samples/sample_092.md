@@ -1,8 +1,8 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Retrieving geometrical parameters of the system desktop window
+# 检索系统桌面窗口的几何参数
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER GetDesktopWindow IN user32
 DECLARE SHORT GetWindowRect IN user32 INTEGER hwnd, STRING @ lpRect
@@ -10,13 +10,13 @@ DECLARE SHORT GetClientRect IN user32 INTEGER hwnd, STRING @ lpRect
 
 lpRect = REPLI (Chr(0), 16)
 = GetWindowRect (GetDesktopWindow(), @lpRect)
-= _show (lpRect, "*** Desktop window rectangle")
+= _show (lpRect, "*** 桌面窗口区域")
 	
 lpRect = REPLI (Chr(0), 16)
 = GetClientRect (GetDesktopWindow(), @lpRect)
-= _show (lpRect, "*** Desktop window client rectangle")
+= _show (lpRect, "*** 桌面窗口客户端区域")
 
-? "*** _SCREEN properties"
+? "*** _SCREEN 属性"
 WITH _SCREEN
 	? "	left:   " + STR(.Left,   6)
 	? "	top:	" + STR(.Top,	6)
@@ -53,7 +53,7 @@ RETURN;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetClientRect](../libraries/user32/GetClientRect.md)  
 [GetDesktopWindow](../libraries/user32/GetDesktopWindow.md)  
 [GetWindowRect](../libraries/user32/GetWindowRect.md)  
