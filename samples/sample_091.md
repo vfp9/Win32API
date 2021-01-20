@@ -1,24 +1,24 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to copy the image of a form to the Clipboard using Bitmap API functions
+# 如何使用 Bitmap API 函数将表单的图像复制到剪贴板上
 
-## Before you begin:
-This sample code shows how to copy the image of an active form to the Clipboard in CF_BITMAP format.  
+## 开始之前：
+此示例代码显示了如何以CF_BITMAP格式将活动表单的图像复制到剪贴板。
 
-There is a similar example using Bitmap API functions copying data in CF_ENHMETAFILE format:   
-[Copying picture of the active form to the Clipboard using Enhanced Metafile API functions](sample_404.md)  
+有一个类似的例子，使用 Bitmap API 函数复制 CF_ENHMETAFILE 格式的数据：  
+[使用增强的 Metafile API 函数将活动表单的图片复制到剪贴板](sample_404.md)  
 
-Check other Bitmap API examples:  
-* [Storing clipboard contents to a BMP file](sample_189.md)  
-* [Storing screen shot of a form to a BMP file](sample_187.md)  
-* [Printing the image of a FoxPro form](sample_158.md)  
-* [Using the LoadImage() to display a BMP file on the main VFP window](sample_210.md)  
-* [How to print a bitmap file](sample_211.md)  
+查看其它 Bitmap API 示例：  
+* [将剪贴板的内容存储到一个位图文件](sample_189.md)  
+* [将表单的屏幕截图存储到一个位图文件](sample_187.md)  
+* [如何打印 FoxPro 表单](sample_158.md)  
+* [使用 LoadImage 函数加载位图文件并将其显示在 VFP 主窗口上](sample_210.md)  
+* [如何打印位图文件](sample_211.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE CF_BITMAP 2	&& clipboard format
 #DEFINE SRCCOPY 0xCC0020  && BitBlt raster operation code
@@ -30,32 +30,32 @@ hWindow = GetFocus()  && a window with keyboard focus
 *hWindow = Application.hWnd
 *hWindow = _screen.HWnd
 
-* retrieving geometrical parameters of the window
+* 检索窗口的几何参数
 STORE 0 TO lnLeft, lnTop, lnRight, lnBottom, lnWidth, lnHeight
 = GetRect(@lnLeft, @lnTop, @lnRight, @lnBottom, @lnWidth, @lnHeight)
 
-* and its device context
+* 和它的设备上下文
 hdc = GetWindowDC(m.hWindow)
 
-* creating compatible DC and BITMAP
+* 创建兼容的 DC 和 BITMAP
 hVdc = CreateCompatibleDC(hdc)
 hBitmap = CreateCompatibleBitmap(hdc, lnWidth, lnHeight)
-= SelectObject(hVdc, hBitmap)  && selecting created BITMAP into hVdc
+= SelectObject(hVdc, hBitmap)  && 选择创建的BITMAP到hVdc
 
-* copying a rectangular area from HDC to hVdc
+* 将一个矩形区域从HDC复制到hVdc
 = BitBlt(hVdc, 0,0, lnWidth,lnHeight, hdc, 0,0, SRCCOPY)
 
-* opening clipboard and placing bitmap data on it
+* 打开剪贴板并将位图数据放置在它上面
 = OpenClipboard(m.hWindow)
 = EmptyClipboard()
 = SetClipboardData(CF_BITMAP, m.hBitmap)
 = CloseClipboard()  && clipboard not closed may affect other apps
 
-* releasing GDI objects
+* 释放 GDI 对象
 = DeleteObject(m.hBitmap)
 = DeleteDC(m.hVdc)
 = ReleaseDC(m.hWindow, m.hdc)
-* end of main
+* 主程序结束
 
 PROCEDURE declare
 	DECLARE INTEGER GetWindowRect IN user32 INTEGER hWindow, STRING @lpRect
@@ -101,7 +101,7 @@ RETURN Asc(SUBSTR(lcBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [BitBlt](../libraries/gdi32/BitBlt.md)  
 [CloseClipboard](../libraries/user32/CloseClipboard.md)  
 [CreateCompatibleBitmap](../libraries/gdi32/CreateCompatibleBitmap.md)  
@@ -119,14 +119,14 @@ RETURN Asc(SUBSTR(lcBuffer, 1,1)) + ;
 [SetClipboardData](../libraries/user32/SetClipboardData.md)  
 
 ## Comment:
-The GetFocus function retrieves the handle to the window that has the keyboard focus.  
+GetFocus函数检索拥有键盘焦点的窗口的句柄。 
   
-If you call this procedure from a form you will get an image of this form on  the clipboard.  
+如果你从一个窗体中调用这个过程，你将在剪贴板上得到这个窗体的图像。 
   
-Being called from the main VFP window, with no other forms running, this procedures copies to the clipboard the whole main window itself.  
+在没有其他窗体运行的情况下，从VFP主窗口调用这个过程，可以将整个主窗口本身复制到剪贴板上。 
   
 * * *  
-An article [How To Copy the Screen or Active Window to the Clipboard from Visual Basic](https://support.microsoft.com/en-us/help/240653/how-to-copy-the-screen-or-active-window-to-the-clipboard-from-visual-b) published on Microsoft Help and Support page describes a different approach -- the picture of the whole screen is sent to the clipboard by virtually pressing (through the keybd_event call) PrtScr key.  
+微软帮助和支持页面上发表的一篇文章[如何从Visual Basic将屏幕或活动窗口复制到剪贴板](https://support.microsoft.com/en-us/help/240653/how-to-copy-the-screen-or-active-window-to-the-clipboard-from-visual-b)描述了一种不同的方法--通过虚拟按下(通过keybd_event调用)PrtScr键将整个屏幕的图片发送到剪贴板。 
   
 ***  
 
