@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 如何使用 Bitmap API 函数将表单的图像复制到剪贴板上
+_翻译：xinjie  2021.01.20_
 
 ## 开始之前：
 此示例代码显示了如何以CF_BITMAP格式将活动表单的图像复制到剪贴板。
@@ -118,7 +119,7 @@ RETURN Asc(SUBSTR(lcBuffer, 1,1)) + ;
 [SelectObject](../libraries/gdi32/SelectObject.md)  
 [SetClipboardData](../libraries/user32/SetClipboardData.md)  
 
-## Comment:
+## 备注：
 GetFocus函数检索拥有键盘焦点的窗口的句柄。 
   
 如果你从一个窗体中调用这个过程，你将在剪贴板上得到这个窗体的图像。 
