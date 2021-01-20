@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# How to perform Base64 encoding/decoding using Cryptography API Functions
+# 如何使用 Cryptography API 函数进行 Base64 编码/解码
+_翻译：xinjie  2021.01.20_
 
-## Code:
+## 代码：
 ```foxpro  
 #DEFINE CRYPT_STRING_BASE64 0x0001
 #DEFINE CRYPT_STRING_NOCRLF 0x40000000
@@ -14,15 +15,9 @@ SET MEMOWIDTH TO 120
 LOCAL cBuffer, cEncoded, cDecoded
 
 TEXT TO cBuffer NOSHOW
-Base cryptographic functions provide the most flexible means
-of developing cryptography applications. All communication
-with a cryptographic service provider (CSP) occurs through
-these functions.
+基本加密函数提供了开发加密应用程序的最灵活方法。与加密服务提供商 （CSP） 的所有通信都通过这些功能进行。
 
-A CSP is an independent module that performs all cryptographic
-operations. At least one CSP is required with each application
-that uses cryptographic functions. A single application can
-occasionally use more than one CSP.
+CSP 是执行所有加密操作的独立模块。每个使用加密函数的应用程序至少需要一个 CSP。单个应用程序偶尔可以使用多个 CSP。
 ENDTEXT
 
 cEncoded = ToBase64(m.cBuffer)
@@ -31,7 +26,7 @@ cEncoded = ToBase64(m.cBuffer)
 cDecoded = FromBase64(cEncoded)
 ? cDecoded
 
-* end of main
+* 主程序结束
 
 FUNCTION ToBase64(cSrc)
 	LOCAL nFlags, nBufsize, cDst
@@ -76,23 +71,23 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CryptBinaryToString](../libraries/crypt32/CryptBinaryToString.md)  
 [CryptStringToBinary](../libraries/crypt32/CryptStringToBinary.md)  
 
-## Comment:
-Starting VFP8, base64 conversion can be performed with STRCONV().   
+## 备注：
+从VFP8开始，可以用STRCONV()进行base64转换。  
   
-In my tests, API routines presented on this page encoded and decoded strings approximately 2 times faster than STRCONV() did -- on 100K cycles 3.7 seconds vs. 7.7 seconds.  
+在我的测试中，本页介绍的 API 例程对字符串的编码和解码速度比STRCONV()快了大约2倍--在100K循环中，3.7秒：7.7秒。 
   
 * * *  
-This is an output from call to CryptBinaryToString with *dwFlags* set to CRYPT_STRING_HEXASCIIADDR (0x000b). Can make a good starting point for developing a simple binary viewer.  
+这是调用CryptBinaryToString的输出，其中*dwFlags*设置为CRYPT_STRING_HEXASCIIADDR (0x000b)。可以作为开发一个简单的二进制查看器的良好起点。  
 
 ![](../images/crypt_string_hex.png)
 
 * * *  
-From *Burkhard Stiller`s* VFP Blog:  
-<a href="http://myvfpblog.blogspot.com/2007/10/encoded-your-images-base64-binary.html">Another way to encode and store picture-data inside your classes</a> -- relates to base64 encoding, and is an interesting sample of code by itself.  
+来自 *Burkhard Stiller`s* VFP 博客:  
+<a href="http://myvfpblog.blogspot.com/2007/10/encoded-your-images-base64-binary.html">在类中编码和存储图片数据的另一种方法</a> -- 与base64编码有关，它本身就是一个有趣的代码示例。  
   
 ***  
 
