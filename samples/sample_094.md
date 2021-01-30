@@ -1,23 +1,24 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Accessing the list of Windows Recent Documents
+# 访问 Windows 最近文档的列表
+_翻译：xinjie  2021.01.30_
 
-## Before you begin:
-This class implements adding documents to the system *Recent Documents* list.   
+## 开始之前：
+该类实现将文档添加到系统*最近的文档*列表中。   
 
 ![](../images/recentdocuments.png)  
 
 
 ![](../images/jumplistvfp.png)  
 
-See also:
+参考：
 
-* [Reading and setting explicit Application User Model ID for the current process](sample_038.md)  
+* [读取和设置当前进程的显式应用程序用户模型 ID （Win7）](sample_038.md)  
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 LOCAL oRecentDocs As WindowsRecentDocuments
 oRecentDocs = CREATEOBJECT("WindowsRecentDocuments")
@@ -28,9 +29,7 @@ WITH oRecentDocs
 	.AddDocument( .PIDLFromPath("C:\images\image02.bmp") )
 
 #IF VAL(OS(3))*10 + VAL(OS(4)) >= 61 && Win7
-	* only VFP type documents will be added
-	* to the Recent list for the VFP application:
-	* DBF, PRG, SCX, PJX, VCX and so on
+	* 只有VFP类型的文件才会被添加到VFP应用的最近列表中：DBF、PRG、SCX、PJX、VCX等。
 	.AddDocumentToCurrentApp( "C:\projects\w32test.prg" )
 #ENDIF
 
@@ -66,14 +65,13 @@ PROTECTED PROCEDURE ReleaseAppID
 	ENDIF
 
 PROCEDURE ClearDocuments
-* clears Recent Documents
+* 清除最近的文件
 	SHAddToRecentDocsC( SHARD_PATHA, NULL )
 
 #IF VAL(OS(3))*10 + VAL(OS(4)) >= 61 && Win7
 
 PROCEDURE AddDocumentToCurrentApp( vValue As Variant )
-* adds to the Recent category in the taskbar
-* of the current VFP application
+* 添加到当前VFP应用程序的任务栏中的最近类别。
 
 	LOCAL nPIDL, cBuffer
 
@@ -107,11 +105,11 @@ PROCEDURE AddDocument( vValue As Variant )
 	CASE EMPTY( m.vValue )
 
 	CASE VARTYPE(m.vValue) = "C"
-	* vValue must be a path
+	* vValue 必须是路径
 		SHAddToRecentDocsC( SHARD_PATHA, m.vValue+CHR(0) )
 
 	CASE VARTYPE(m.vValue) = "N"
-	* vValue must be a pointer to an ITEMIDLIST (PIDL)
+	* vValue 必须是一个指向ITIMIDLIST（PIDL）的指针
 		SHAddToRecentDocsN( SHARD_PIDL, m.vValue )
 
 	ENDCASE
@@ -187,27 +185,27 @@ RETURN Chr(b0)+Chr(b1)+Chr(b2)+Chr(b3)
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [CoTaskMemFree](../libraries/ole32/CoTaskMemFree.md)  
 [FindExecutable](../libraries/shell32/FindExecutable.md)  
 [SHAddToRecentDocs](../libraries/shell32/SHAddToRecentDocs.md)  
 [SHGetPathFromIDList](../libraries/shell32/SHGetPathFromIDList.md)  
 [SHSimpleIDListFromPath](../libraries/shell32/SHSimpleIDListFromPath.md)  
 
-## Comment:
-Method *AddDocumentToCurrentApp* is available if the instance of the class is created under Windows 7.  
+## 备注：
+如果该类的实例是在Windows 7下创建的，则方法*AddDocumentToCurrentApp*可用。 
   
 * * *  
-When application starts, the system restores its jump list, if one exists for this application ID ([AppUserModelID](http://msdn.microsoft.com/en-us/library/dd378459(v=vs.85).aspx)).  
+当应用程序启动时，如果该应用程序ID存在跳转列表，系统将恢复其跳转列表。 ([AppUserModelID](http://msdn.microsoft.com/en-us/library/dd378459(v=vs.85).aspx)).  
   
-Under Windows 7, a VFP application on start receives a generic application ID. Apparently the system generates such ID based on the file that initiated the application (a shortcut, an executable). For example, two VFP instances launched by identical shortcuts (except different paths) have separate jump lists.  
+在Windows 7下，一个VFP应用程序在启动时收到一个通用的应用程序ID。显然，系统会根据启动应用程序的文件（快捷方式、可执行文件）来生成这样的ID。例如，由相同的快捷方式（除了路径不同）启动的两个VFP实例有不同的跳转列表。  
   
-[Changing the application ID](sample_038.md) does not immediately refresh the jump list attached to the main VFP window. But any top-level window created after the change will display the jump list linked to new application ID.  
+[更改应用程序ID]（sample_038.md）不会立即刷新附加到VFP主窗口的跳转列表。 但是更改后创建的任何顶级窗口都将显示链接到新应用程序ID的跳转列表。 
   
-After setting a new application ID, hide and show again VFP main window. That refreshes the jump list attached to the VFP taskbar icon. That ```foxpro
+设置新的应用程序ID后，隐藏并重新显示VFP主窗口。这将刷新VFP任务栏图标上的跳转列表。也就是：
+```foxpro
 _screen.Visible = .F.  
 _screen.Visible = .T.
 ```
-
 ***  
 
