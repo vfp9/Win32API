@@ -1,23 +1,24 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# DiskFreeSpace class
+# DiskFreeSpace 类
+_翻译：xinjie  2021.02.06_
 
-## Code:
+## 代码：
 ```foxpro  
 dspace = CREATEOBJECT("Tdspace", "c:")
 IF dspace.errorcode = 0
 	lcMask = "999,999,999,999,999"
 
-	? "Free bytes available to the calling thread:",;
+	? "可供调用线程使用的可用字节数:",;
 		TRANS(dspace.threadFree, lcMask)
 
-	? "Total free bytes on the disk:",;
+	? "磁盘上的总可用字节数:",;
 		TRANS(dspace.globalFree, lcMask)
 
-	? "Total bytes available to the calling thread:",;
+	? "可供调用线程使用的总字节数:",;
 		TRANS(dspace.threadTotal, lcMask)
 ELSE
-	? "Error code: ", dspace.errorcode
+	? "错误代码: ", dspace.errorcode
 ENDIF
 
 DEFINE CLASS Tdspace As Session
@@ -83,12 +84,12 @@ ENDDEFINE
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetDiskFreeSpaceEx](../libraries/kernel32/GetDiskFreeSpaceEx.md)  
 [GetLastError](../libraries/kernel32/GetLastError.md)  
 
-## Comment:
-DiskSpace() is not reliable on big disks or NTFS (pre VFP7)  
+## 备注：
+DiskSpace()在大磁盘或NTFS(VFP7之前)上不可靠。  
   
 ***  
 
