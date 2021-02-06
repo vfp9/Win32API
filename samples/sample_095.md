@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 当前键盘类型
+_翻译：xinjie  2021.02.06_
 
 ## 代码：
 ```foxpro  
