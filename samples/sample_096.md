@@ -1,8 +1,8 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Current System information
+# 当前系统信息
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE GetSystemInfo IN kernel32 STRING @lpSystemInfo
 	
@@ -34,21 +34,21 @@ CREATE CURSOR cs (varname C(24), prm N(12), descr C(100))
 nOffs = 1
 
 = AddParam("dwOemId",;
-"Used for compatibility with Windows NT 3.5 and earlier", 4)
+"用于与Windows NT 3.5和更早版本兼容", 4)
 
 = AddParam("wProcessorArchitecture",;
-"Specifies the system processor architecture", 2)
+"指定系统处理器架构", 2)
 
-= AddParam("wReserved", "Reserved for future use", 2)
+= AddParam("wReserved", "保留供今后使用", 2)
 
 = AddParam("dwPageSize",;
-"Page size and the granularity of page protection and commitment", 4)
+"页面大小以及页面保护和承诺的颗粒度", 4)
 
 = AddParam("lpMinimumApplicationAddress",;
-"Pointer to the lowest memory address accessible to apps and DLLs", 2)
+"指向应用程序和DLL可访问的最低内存地址的指针", 2)
 
 = AddParam("lpMaximumApplicationAddress",;
-"Pointer to the highest memory address accessible to apps and DLLs", 2)
+"指向应用程序和DLLs可访问的最高内存地址的指针", 2)
 
 = AddParam("dwActiveProcessorMask",;
 "Bit 0 is processor 0; bit 31 is processor 31", 4)
@@ -71,7 +71,7 @@ nOffs = 1
 SELECT cs
 GO TOP
 BROWSE NORMAL NOWAIT
-* end of main
+* 主程序结束
 
 PROCEDURE AddParam(cVarname, cDescr, nLen)
 	IF nLen = 2
@@ -96,5 +96,5 @@ RETURN Asc(SUBSTR(lcBuffer, 1,1)) + ;
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetSystemInfo](../libraries/kernel32/GetSystemInfo.md)  
