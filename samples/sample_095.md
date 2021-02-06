@@ -7,7 +7,7 @@
 DECLARE INTEGER GetKeyboardType IN user32 INTEGER nTypeFlag
 	
 ? "键盘类型:", getTypeName()
-? "OEM subtype:", GetKeyboardType(1)
+? "OEM 子类型:", GetKeyboardType(1)
 ? "功能键数量:", GetKeyboardType(2)
 
 FUNCTION  getTypeName
