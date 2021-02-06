@@ -1,14 +1,14 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Current keyboard type
+# 当前键盘类型
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER GetKeyboardType IN user32 INTEGER nTypeFlag
 	
-? "Keyboard type:", getTypeName()
+? "键盘类型:", getTypeName()
 ? "OEM subtype:", GetKeyboardType(1)
-? "Number of function keys:", GetKeyboardType(2)
+? "功能键数量:", GetKeyboardType(2)
 
 FUNCTION  getTypeName
 	lnType = GetKeyboardType (0)
@@ -28,11 +28,11 @@ FUNCTION  getTypeName
 	CASE lnType = 7
 		RETURN "Japanese keyboard"
 	OTHER
-		RETURN "Unknown keyboard type: " + LTRIM(STR(lnType))
+		RETURN "未知键盘类型: " + LTRIM(STR(lnType))
 	ENDCASE  
 ```  
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetKeyboardType](../libraries/user32/GetKeyboardType.md)  
