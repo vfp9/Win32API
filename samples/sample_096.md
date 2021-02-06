@@ -37,12 +37,12 @@ nOffs = 1
 "用于与Windows NT 3.5和更早版本兼容", 4)
 
 = AddParam("wProcessorArchitecture",;
-"指定系统处理器架构", 2)
+"系统中的中央处理器的体系结构", 2)
 
 = AddParam("wReserved", "保留供今后使用", 2)
 
 = AddParam("dwPageSize",;
-"页面大小以及页面保护和承诺的颗粒度", 4)
+"页面的大小和页面保护和委托的颗粒", 4)
 
 = AddParam("lpMinimumApplicationAddress",;
 "指向应用程序和DLL可访问的最低内存地址的指针", 2)
@@ -51,22 +51,22 @@ nOffs = 1
 "指向应用程序和DLLs可访问的最高内存地址的指针", 2)
 
 = AddParam("dwActiveProcessorMask",;
-"Bit 0 is processor 0; bit 31 is processor 31", 4)
+"二进制0位是处理器0；31位是处理器31", 4)
 
 = AddParam("dwNumberOfProcessors",;
-"Number of processors in the system", 4)
+"系统中的处理器的数目", 4)
 
 = AddParam("dwProcessorType",;
-"An obsolete member", 4)
+"过时的成员", 4)
 
 = AddParam("dwAllocationGranularity",;
-"Virtual memory granularity", 4)
+"虚拟内存空间的粒度", 4)
 
 = AddParam("wProcessorLevel",;
-"Valid for Windows NT/2000 or later", 2)
+"对Windows NT / 2000或更高版本有效", 2)
 
 = AddParam("wProcessorRevision",;
-"Valid for Windows NT/2000 or later", 2)
+"对Windows NT / 2000或更高版本有效", 2)
 
 SELECT cs
 GO TOP
