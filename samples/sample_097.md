@@ -1,6 +1,7 @@
 [<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
 # 如何测试文件属性(FileExists和DirectoryExists例程的关键方法)
+_翻译：xinjie  2021.02.06_
 
 ## 代码：
 ```foxpro  
