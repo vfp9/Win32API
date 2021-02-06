@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> ä¸»é¡µ ](https://github.com/VFP9/Win32API)  
 
-# Converting strings between ANSI and OEM
+# åœ¨ ANSI å’Œ OEM ä¹‹é—´è½¬æ¢å­—ç¬¦ä¸²
+_ç¿»è¯‘ï¼šxinjie  2021.02.06_
 
-## Code:
+## ä»£ç ï¼š
 ```foxpro  
 DECLARE SHORT CharToOem IN user32;
 	STRING lpszSrc,;
@@ -12,26 +13,26 @@ DECLARE SHORT OemToChar IN user32;
 	STRING lpszSrc,;
 	STRING @ lpszDst
 
-* source string of Cyrillic characters (1251)
-lcSrc = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÜÛÚİŞß" +;
-	"àáâãäåæçèéêëìíîïğñòóôõö÷øùüûúışÿ"
+* æºå­—ä¸²(1251)
+lcSrc = "Ã€ÃÃ‚ÃƒÃ„Ã…Ã†Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Ã—Ã˜Ã™ÃœÃ›ÃšÃÃÃŸ" +;
+	"Ã Ã¡Ã¢Ã£Ã¤Ã¥Ã¦Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã·Ã¸Ã¹Ã¼Ã»ÃºÃ½Ã¾Ã¿"
 
-* a buffer for destination string
+* ç¼“å†²åŒº
 lcDst = SPACE(Len(lcSrc))
 	
 ? lcSrc
 
-* converting from ANSI to OEM
+* ä»ANSIè½¬æ¢åˆ°OEM
 = CharToOem (lcSrc, @lcDst)
 ? lcDst
 
-* converting back from OEM to ANSI
+* ä»OEMè½¬æ¢å›ANSI
 = OemToChar (lcDst, @lcSrc)
 ? lcSrc  
 ```  
 ***  
 
 
-## Listed functions:
+## å‡½æ•°åˆ—è¡¨ï¼š
 [CharToOem](../libraries/user32/CharToOem.md)  
 [OemToChar](../libraries/user32/OemToChar.md)  
