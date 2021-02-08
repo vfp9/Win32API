@@ -1,15 +1,16 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Converting path to original case
+# 将路径转换为原始大小写
+_翻译：xinjie  2021.02.09_
 
-## Before you begin:
+## 开始之前：
 ![](../images/getfullpath.png)  
 
   
 ***  
 
 
-## Code:
+## 代码：
 ```foxpro  
 CLEAR
 CLEAR ALL
@@ -21,7 +22,7 @@ DO declare
 ? FULLPATH( _vfp.ServerName )
 
 ? GetFullPath( "%systemroot\system32%" )
-* end of main
+* 主程序结束
 
 FUNCTION GetFullPath( cPath As String ) As String
 	LOCAL cFileSpec
@@ -85,17 +86,17 @@ PROCEDURE declare
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [ExpandEnvironmentStrings](../libraries/kernel32/ExpandEnvironmentStrings.md)  
 [GetLongPathName](../libraries/kernel32/GetLongPathName.md)  
 [GetShortPathName](../libraries/kernel32/GetShortPathName.md)  
 [PathIsDirectory](../libraries/shlwapi/PathIsDirectory.md)  
 [PathSearchAndQualify](../libraries/shlwapi/PathSearchAndQualify.md)  
 
-## Comment:
-The presented procedure also expands environment string (like *%SystemRoot%, %Public%, %Temp%* and so on) in source path.  
+## 备注：
+所介绍的过程还扩展了源路径中的环境字符串（如*%SystemRoot%，%Public%，%Temp%*等）。 
   
-File names in some operating systems are case sensitive. This should be considered when, for example, exchanging files with Apache FTP server.  
+在某些操作系统中，文件名是区分大小写的。例如，在与Apache FTP服务器交换文件时，应该考虑到这一点。 
   
 ***  
 
