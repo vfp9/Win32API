@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# Time in milliseconds represented as string (e.g. 1 hour 24 min 36 sec)
+# 时间以毫秒为单位，用字符串表示（如1小时24分36秒）
+_翻译：xinjie  2021.02.09_
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE INTEGER StrFromTimeInterval IN Shlwapi;
 	STRING @ pszOut,;
@@ -13,7 +14,7 @@ DECLARE INTEGER StrFromTimeInterval IN Shlwapi;
 DECLARE INTEGER GetTickCount IN kernel32
 
 lnFromStart = GetTickCount()
-? "Elapsed time since the system was started:", lnFromStart
+? "自系统启动以来的时间:", lnFromStart
 
 pszOut = SPACE(50)
 FOR lnMax=1 TO 10
@@ -24,6 +25,6 @@ ENDFOR
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [GetTickCount](../libraries/kernel32/GetTickCount.md)  
 [StrFromTimeInterval](../libraries/shlwapi/StrFromTimeInterval.md)  
