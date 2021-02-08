@@ -1,8 +1,9 @@
-[<img src="../images/home.png"> Home ](https://github.com/VFPX/Win32API)  
+[<img src="../images/home.png"> 主页 ](https://github.com/VFP9/Win32API)  
 
-# High-powered ALLTRIM
+# 大功率的ALLTRIM
+_翻译：xinjie  2021.02.09_
 
-## Code:
+## 代码：
 ```foxpro  
 DECLARE SHORT StrTrim IN Shlwapi As StrTrim;
    	STRING @ pszSource,;
@@ -10,8 +11,7 @@ DECLARE SHORT StrTrim IN Shlwapi As StrTrim;
 
 lcSrc = "____//Turtle Soup/  "
 	
-* notice: three characters included in the list
-* of characters to be trimmed
+* 注意：三个字符包括在要修剪的字符列表中。
 lcTrimChars = "_ /"
 
 ? "Before: ", "["+ lcSrc +"]"
@@ -21,13 +21,13 @@ lcTrimChars = "_ /"
 ***  
 
 
-## Listed functions:
+## 函数列表：
 [StrTrim](../libraries/shlwapi/StrTrim.md)  
 
-## Comment:
-Unlike the native ALLTRIM, this function can remove not only blanks but any other characters included in the trim character list.  
+## 备注：
+与原生的ALLTRIM不同，该函数不仅可以删除空白，还可以删除包含在修剪字符列表中的任何其他字符。 
   
-For example, to trim a text, surrounded with any combination of blanks, tabs and quotations, include in this list those three characters:  
+例如，如果要修剪一个由空格、制表符和引号的任意组合包围的文本，则在此列表中包含这三个字符。  
 	- space  
 	- tab (Chr(9))  
 	- "  
